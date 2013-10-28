@@ -13,7 +13,9 @@ public class blocks{
     public static final Block ItableT1 = new ITableBlock(Ref.ITableT1).setTextureName("sand").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
     public static final Block ItableT2 = new ITableBlock(Ref.ITableT2).setTextureName("stone").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
     public static final Block GlowDirt = new GlowDirt(Ref.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
-	public static final Block Spike = new SpikeTrap(Ref.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");;
+	public static final Block Spike = new SpikeTrap(Ref.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
+	
+	public static final Block portal = new PortalBlock(Ref.PortalBlock).setCreativeTab(Ref.TAB);
 
     /** returns the side in which you placed the block: args blockX, blockY, playerX, playerY */
     public static int sidePlaced(int x, int z, double posX, double posZ) {

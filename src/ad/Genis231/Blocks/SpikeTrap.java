@@ -9,7 +9,7 @@ public class SpikeTrap extends Block {
 	
 	public SpikeTrap(int id) {
 		super(id, Material.ground);
-		setBlockBounds(0.0F, 0.0F, 0.0F, 40F, 40.0F, 40.0F);
+		setBlockBounds(0.0F, 0.0F, 0.0F, 1F, 1F, 1F);
 		setTextureName("sand");
 		
 	}

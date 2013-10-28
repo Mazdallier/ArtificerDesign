@@ -19,7 +19,7 @@ public class ODust extends Item {
 		System.out.println("~~~~~~~~~~ORANGEDUST~~~~~~~~~~");
 		System.out.println("item stack: " + itemStack);
 		System.out.println("player: " + player);
-		System.out.println("world: " + world);
+		System.out.println("world: " + world.getWorldChunkManager());
 		System.out.println("x: " + x);
 		System.out.println("y: " + y);
 		System.out.println("z: " + z);

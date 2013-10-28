@@ -3,7 +3,6 @@ package ad.Genis231.Core;
 import ad.Genis231.Mobs.RenderStatue;
 import ad.Genis231.Mobs.StatueMob;
 import ad.Genis231.Render.Models.Blocks.BearTrap;
-import ad.Genis231.Render.Models.mobs.VampModel;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {

@@ -12,6 +12,7 @@ public class Ref {
 	public static final String Resource_FOLDER = "artificer:";
 	public static final String Finger = "roarz";
 	public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
+	public static final int PortalNumber = 30;
 	
 	/* Blocks */
 	public static final int BDOre = 200; // blood diamond ore
@@ -24,6 +25,7 @@ public class Ref {
 	public static final int BearTrap = 207; //BearTrap of boringness
 	public static final int GDirt = 208; // dirt that lights up after touching it
 	public static final int Spike = 210; //spike trap
+	public static final int PortalBlock = 209;
 	
 	/* Items */
 	public static final int OD = 5000; // orange dust
@@ -32,6 +34,7 @@ public class Ref {
 	public static final int VBlood = 5003; // vampire blood
 	public static final int GBowl = 5005; // gold bowl
 	public static final int PIT_TRAP = 5006; // pit trap item
+	
 }
 
 class ADCreativeTAB extends CreativeTabs {
