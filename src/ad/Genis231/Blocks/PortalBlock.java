@@ -18,11 +18,11 @@ public class PortalBlock extends BlockPortal {
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (entity.ridingEntity == null && entity.riddenByEntity == null) {
 			if (entity instanceof EntityPlayerMP) {
-				EntityPlayerMP thePlayer = (EntityPlayerMP) entity;
+				EntityPlayerMP player = (EntityPlayerMP) entity;
 				if (entity.dimension != Ref.PortalNumber) {
-					thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, Ref.PortalNumber, new TeleportHandler(thePlayer.mcServer.worldServerForDimension(Ref.PortalNumber)));
+					player.mcServer.getConfigurationManager().transferPlayerToDimension(player, Ref.PortalNumber, new TeleportHandler(player.mcServer.worldServerForDimension(Ref.PortalNumber)));
 				} else {
-					//thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleportHandler(thePlayer.mcServer.worldServerForDimension(0)));
+					player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 1, new TeleportHandler(player.mcServer.worldServerForDimension(1)));
 				}
 			}
 		}
@@ -33,11 +33,11 @@ public class PortalBlock extends BlockPortal {
 		byte var5 = 0;
 		byte var6 = 0;
 		
-		if (world.getBlockId(x - 1, y, z) == Block.sandStone.blockID || world.getBlockId(x + 1, y, z) == Block.sandStone.blockID) {
+		if (world.getBlockId(x - 1, y, z) == Block.glass.blockID || world.getBlockId(x + 1, y, z) == Block.glass.blockID) {
 			var5 = 1;
 		}
 		
-		if (world.getBlockId(x, y, z - 1) == Block.sandStone.blockID || world.getBlockId(x, y, z + 1) == Block.sandStone.blockID) {
+		if (world.getBlockId(x, y, z - 1) == Block.glass.blockID || world.getBlockId(x, y, z + 1) == Block.glass.blockID) {
 			var6 = 1;
 		}
 		
@@ -60,7 +60,7 @@ public class PortalBlock extends BlockPortal {
 						int var10 = world.getBlockId(x + var5 * var7, y + var8, z + var6 * var7);
 						
 						if (var9) {
-							if (var10 != Block.sandStone.blockID) { return false; }
+							if (var10 != Block.glass.blockID) { return false; }
 						}
 						else if (var10 != 0 && var10 != Block.fire.blockID) { return false; }
 					}
@@ -91,7 +91,7 @@ public class PortalBlock extends BlockPortal {
 			;
 		}
 		
-		if (par1World.getBlockId(par2, var8 - 1, par4) != Block.sandStone.blockID){
+		if (par1World.getBlockId(par2, var8 - 1, par4) != Block.glass.blockID){
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 3);
 		}else{
 			int var9;
@@ -100,14 +100,14 @@ public class PortalBlock extends BlockPortal {
 				;
 			}
 			
-			if (var9 == 3 && par1World.getBlockId(par2, var8 + var9, par4) == Block.sandStone.blockID){
+			if (var9 == 3 && par1World.getBlockId(par2, var8 + var9, par4) == Block.glass.blockID){
 				boolean var10 = par1World.getBlockId(par2 - 1, par3, par4) == this.blockID || par1World.getBlockId(par2 + 1, par3, par4) == this.blockID;
 				boolean var11 = par1World.getBlockId(par2, par3, par4 - 1) == this.blockID || par1World.getBlockId(par2, par3, par4 + 1) == this.blockID;
 				
 				if (var10 && var11){
 					par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 3);
 				}else{
-					if ((par1World.getBlockId(par2 + var6, par3, par4 + var7) != Block.sandStone.blockID || par1World.getBlockId(par2 - var6, par3, par4 - var7) != this.blockID) && (par1World.getBlockId(par2 - var6, par3, par4 - var7) != Block.sandStone.blockID || par1World.getBlockId(par2 + var6, par3, par4 + var7) != this.blockID)){
+					if ((par1World.getBlockId(par2 + var6, par3, par4 + var7) != Block.glass.blockID || par1World.getBlockId(par2 - var6, par3, par4 - var7) != this.blockID) && (par1World.getBlockId(par2 - var6, par3, par4 - var7) != Block.glass.blockID || par1World.getBlockId(par2 + var6, par3, par4 + var7) != this.blockID)){
 						par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 3);
 					}
 				}

@@ -20,7 +20,7 @@ public class NewWorldProvider extends WorldProvider {
 	}
 	
 	public IChunkProvider createChunkGenerator() {
-		return new chunkProvider(worldObj, worldObj.getSeed(), true);
+		return new chunkProvider(worldObj, worldObj.getSeed(), true, null);
 	}
 	
 	/**
