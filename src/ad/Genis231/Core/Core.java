@@ -27,11 +27,8 @@ public class Core {
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy") public static CommonProxy proxy;
 	
-	@EventHandler
-    public void invalidFingerprint(FMLFingerprintViolationEvent event) {
-		for(int i=0;i<1000;i++){
-		System.out.println("~~~~~ERROR~~~~~");
-    }}
+	@EventHandler public void invalidFingerprint(FMLFingerprintViolationEvent event) {
+	}
 	
 	@EventHandler public void fingerPrint(FMLFingerprintViolationEvent event) {
 		if (event.expectedFingerprint != event.expectedFingerprint) {
