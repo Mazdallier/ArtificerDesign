@@ -14,6 +14,9 @@ public class Ref {
 	public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
 	public static final int PortalNumber = 30;
 	
+	/* Render IDs */
+	public static int SpikeRender;
+	
 	/* Blocks */
 	public static final int BDOre = 200; // blood diamond ore
 	public static final int FALSE_PIT_TRAP = 201; // fake blocks for pit trap
