@@ -4,19 +4,19 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import ad.Genis231.Render.Models.Blocks.SpikeModel;
+import ad.Genis231.Render.Models.Blocks.BTrapModel;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class SpikeTileRenderer extends TileEntitySpecialRenderer {
+public class BTrapRenderer extends TileEntitySpecialRenderer {
 	
-	private SpikeModel modelSpike = new SpikeModel();
+	private BTrapModel modelBTrap = new BTrapModel();
 	
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		
-		if (tileEntity instanceof SpikeTile) {
+		if (tileEntity instanceof BTrapTile) {
 			
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glDisable(GL11.GL_CULL_FACE);
@@ -33,7 +33,7 @@ public class SpikeTileRenderer extends TileEntitySpecialRenderer {
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/Spikes.png"));
 			
 			// Render
-			modelSpike.render();
+			modelBTrap.render();
 			GL11.glPopMatrix();
 			
 			GL11.glEnable(GL11.GL_CULL_FACE);

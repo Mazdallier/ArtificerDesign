@@ -4,22 +4,13 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import ad.Genis231.TileEntitys.SpikeTile;
+import ad.Genis231.TileEntitys.BTrapTile;
 import ad.Genis231.lib.Ref;
 
-public class SpikeTrap extends BlockContainer {
+public class BearTrap extends BlockContainer {
 	
-	public SpikeTrap(int id) {
+	public BearTrap(int id) {
 		super(id, Material.rock);
-		this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
-	}
-	
-	public static int side = 0;
-	
-	//World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
-	public int onBlockPlaced(World world, int x, int y, int z, int s, float hitX, float hitY, float hitZ, int meta) {
-		side = s;
-		return meta;
 	}
 	
 	@Override public boolean renderAsNormalBlock() {
@@ -34,11 +25,11 @@ public class SpikeTrap extends BlockContainer {
 	
 	@Override public int getRenderType() {
 		
-		return Ref.SpikeRender;
+		return Ref.BTrapRender;
 	}
 	
 	@Override public TileEntity createNewTileEntity(World world) {
 		
-		return new SpikeTile();
+		return new BTrapTile();
 	}
 }

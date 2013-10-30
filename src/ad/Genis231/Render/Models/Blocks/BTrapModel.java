@@ -7,16 +7,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class SpikeModel extends ModelBase {
+public class BTrapModel extends ModelBase {
 	
-	private IModelCustom modelSpike;
+	private IModelCustom modelBTrap;
 	
-	public SpikeModel() {
+	public BTrapModel() {
 		
-		modelSpike = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/Spike.obj");
+		modelBTrap = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/bearTrap.obj");
 	}
 	
 	public void render() {
-		modelSpike.renderAll();
+		modelBTrap.renderAll();
 	}
 }

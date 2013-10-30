@@ -16,6 +16,7 @@ public class Ref {
 	
 	/* Render IDs */
 	public static int SpikeRender;
+	public static int BTrapRender;
 	
 	/* Blocks */
 	public static final int BDOre = 200; // blood diamond ore
@@ -27,8 +28,10 @@ public class Ref {
 	public static final int ITableT2 = 206; //small chest with gui
 	public static final int BearTrap = 207; //BearTrap of boringness
 	public static final int GDirt = 208; // dirt that lights up after touching it
-	public static final int Spike = 210; //spike trap
 	public static final int PortalBlock = 209;
+	public static final int Spike = 210; //spike trap
+	public static final int BTrap = 211; //Bear Trap
+	
 	
 	/* Items */
 	public static final int OD = 5000; // orange dust
