@@ -10,8 +10,8 @@ import ad.Genis231.lib.Ref;
 public class SpikeTrap extends BlockContainer {
 	
 	public SpikeTrap(int id) {
-		
-		super(id, Material.iron);
+		super(id, Material.rock);
+        this.setBlockBounds(0.25F, 0.0F, 0.25F, 0.75F, 1.0F, 0.75F);
 	}
 	
 	@Override public boolean renderAsNormalBlock() {
