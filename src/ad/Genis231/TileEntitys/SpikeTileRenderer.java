@@ -27,7 +27,6 @@ public class SpikeTileRenderer extends TileEntitySpecialRenderer {
 			//RenderDirection(x, y, z, SpikeTrap.side);
 			
 			GL11.glScalef(1.0F, 1.0F, 1.0F);
-			GL11.glRotatef(180F,(float) x,(float) y,(float) z);
 			GL11.glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
 			
 			// Bind texture
