@@ -1,8 +1,9 @@
 package ad.Genis231.lib;
 
-import ad.Genis231.Items.items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import ad.Genis231.Items.items;
 
 public class Ref {
 	
@@ -17,7 +18,7 @@ public class Ref {
 	/* Render IDs */
 	public static int SpikeRender;
 	public static int BTrapRender;
-	
+		
 	/* Blocks */
 	public static final int BDOre = 200; // blood diamond ore
 	public static final int FALSE_PIT_TRAP = 201; // fake blocks for pit trap
@@ -31,7 +32,6 @@ public class Ref {
 	public static final int PortalBlock = 209;
 	public static final int Spike = 210; //spike trap
 	public static final int BTrap = 211; //Bear Trap
-	
 	
 	/* Items */
 	public static final int OD = 5000; // orange dust
