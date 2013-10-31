@@ -6,14 +6,11 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Generation.BDiaGen;
-import ad.Genis231.Generation.NewWorldProvider;
 import ad.Genis231.Items.items;
 import ad.Genis231.Mobs.StatueMob;
-import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -47,7 +44,6 @@ public class modReg {
 		GameRegistry.registerBlock(blocks.ItableT2, "Itable2");
 		GameRegistry.registerBlock(blocks.GlowDirt, "GlowDirt");
 		GameRegistry.registerBlock(blocks.Spike, "SpikeTrap");
-		GameRegistry.registerBlock(blocks.BTrap, "BearTrap");
 		GameRegistry.registerBlock(blocks.portal, "PortalBlock");
 	}
 	
@@ -78,7 +74,6 @@ public class modReg {
 		LanguageRegistry.addName(blocks.ItableT2, "Imbueing Table teir2");
 		LanguageRegistry.addName(blocks.GlowDirt, "Glow Dirt");
 		LanguageRegistry.addName(blocks.Spike, "Spike Trap");
-		LanguageRegistry.addName(blocks.BTrap, "Bear Trap");
 		LanguageRegistry.addName(blocks.portal, "PortalBlock");
 	}
 	

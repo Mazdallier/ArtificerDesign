@@ -14,7 +14,6 @@ public class blocks {
 	public static final Block ItableT2 = new ITableBlock(Ref.ITableT2).setTextureName("stone").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
 	public static final Block GlowDirt = new GlowDirt(Ref.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
 	public static final Block Spike = new SpikeTrap(Ref.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");
-	public static final Block BTrap = new BearTrap(Ref.BTrap).setCreativeTab(Ref.TAB).setUnlocalizedName("BTrap");
 	
 	public static final Block portal = new PortalBlock(Ref.PortalBlock).setCreativeTab(Ref.TAB);
 	
