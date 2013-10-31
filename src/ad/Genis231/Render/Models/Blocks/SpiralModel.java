@@ -7,16 +7,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class BTrapModel extends ModelBase {
+public class SpiralModel extends ModelBase {
 	
-	private IModelCustom modelBTrap;
+	private IModelCustom modelSpiral;
 	
-	public BTrapModel() {
+	public SpiralModel() {
 		
-		modelBTrap = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/bearTrap.obj");
+		modelSpiral = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/Spring.obj");
 	}
 	
 	public void render() {
-		modelBTrap.renderAll();
+		modelSpiral.renderAll();
 	}
 }
