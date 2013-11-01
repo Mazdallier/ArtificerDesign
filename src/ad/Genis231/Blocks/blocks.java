@@ -1,22 +1,21 @@
 package ad.Genis231.Blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import ad.Genis231.lib.Ref;
+import ad.Genis231.lib.blockIDs;
 
 public class blocks {
-	public static final Block BDiamond_ore = new BloodDiamond_Ore(Ref.BDOre).setUnlocalizedName("BloodOre").setTextureName(Ref.Resource_FOLDER + "BDOre").setCreativeTab(Ref.TAB);
-	public static final Block Dam = new dam_block(Ref.DamBlock).setUnlocalizedName("DamBlock").setCreativeTab(Ref.TAB);
-	public static final Block FalseLoot = new false_loot(Ref.False_Loot).setUnlocalizedName("FalseLootBlocks").setCreativeTab(Ref.TAB);
-	public static final Block FPTrap = new PTBlock(Ref.FALSE_PIT_TRAP).setUnlocalizedName("Null_block");
-	public static final Block ItableT1 = new ITableBlock(Ref.ITableT1).setTextureName("sand").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
-	public static final Block ItableT2 = new ITableBlock(Ref.ITableT2).setTextureName("stone").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
-	public static final Block GlowDirt = new GlowDirt(Ref.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
-	public static final Block Spike = new SpikeTrap(Ref.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");
-	public static final Block Spiral = new Spiral(Ref.Spiral).setCreativeTab(Ref.TAB).setUnlocalizedName("Spiral");
-	
-	public static final Block portal = new PortalBlock(Ref.PortalBlock).setCreativeTab(Ref.TAB);
+	public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre).setUnlocalizedName("BloodOre").setTextureName(Ref.Resource_FOLDER + "BDOre").setCreativeTab(Ref.TAB);
+	public static final Block Dam = new dam_block(blockIDs.DamBlock).setUnlocalizedName("DamBlock").setCreativeTab(Ref.TAB);
+	public static final Block FalseLoot = new false_loot(blockIDs.False_Loot).setUnlocalizedName("FalseLootBlocks").setCreativeTab(Ref.TAB);
+	public static final Block FPTrap = new PTBlock(blockIDs.FALSE_PIT_TRAP).setUnlocalizedName("Null_block");
+	public static final Block ItableT1 = new ITableBlock(blockIDs.ITableT1).setTextureName("sand").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
+	public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2).setTextureName("stone").setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
+	public static final Block GlowDirt = new GlowDirt(blockIDs.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
+	public static final Block Spike = new SpikeTrap(blockIDs.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");
+	public static final Block Spiral = new Spiral(blockIDs.Spiral).setCreativeTab(Ref.TAB).setUnlocalizedName("Spiral");
+	public static final Block portal = new PortalBlock(blockIDs.PortalBlock).setCreativeTab(Ref.TAB);
 	
 	/** returns the side in which you placed the block: args blockX, blockY, playerX, playerY */
 	public static int sidePlaced(int x, int z, double posX, double posZ) {

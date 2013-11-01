@@ -98,7 +98,7 @@ public class modReg {
 	}
 	
 	public static void mobs() {
-		//registers the mod, args: MobClass.class, max hord, min spawned, max spawned, MobType/SpawnArea.......
+		//registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
 		EntityRegistry.addSpawn(StatueMob.class, 20, 3, 10, EnumCreatureType.monster);
 		
 		//registers egg, args: MobClass.class, hex-Main, hex-Spots

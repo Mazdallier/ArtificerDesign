@@ -37,7 +37,7 @@ public class BloodDiamond_Ore extends Block {
 		output = random.nextInt(5);
 		
 		System.out.println(output);
-		if (output > 1) {
+		if (output != 0) {
 			return output;
 		} else {
 			return 1;

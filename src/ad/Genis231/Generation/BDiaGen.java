@@ -1,7 +1,6 @@
 package ad.Genis231.Generation;
 
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -11,25 +10,12 @@ import cpw.mods.fml.common.IWorldGenerator;
 public class BDiaGen implements IWorldGenerator {
 	
 	@Override public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0) {
-			this.addOreSpawn(world, random, chunkX * 16, chunkZ * 16, 16, 16, 1, 30);
+		switch (world.provider.dimensionId) {
+			case 0:
+				addOreSpawn(world, random, chunkX * 16, chunkZ * 16, 16, 16, 1, 30);
 		}
 		
 	}
-	
-	/** Adds an Ore Spawn to Minecraft. Simply register all Ores to spawn with this method in your Generation method in your IWorldGeneration extending Class
-	 * 
-	 * @param The Block to spawn
-	 * @param The World to spawn in
-	 * @param A Random object for retrieving random positions within the world to spawn the Block
-	 * @param An int for passing the X-Coordinate for the Generation method
-	 * @param An int for passing the Z-Coordinate for the Generation method
-	 * @param An int for setting the maximum X-Coordinate values for spawning on the X-Axis on a Per-Chunk basis
-	 * @param An int for setting the maximum Z-Coordinate values for spawning on the Z-Axis on a Per-Chunk basis
-	 * @param An int for setting the maximum size of a vein
-	 * @param An int for the Number of chances available for the Block to spawn per-chunk
-	 * @param An int for the minimum Y-Coordinate height at which this block may spawn
-	 * @param An int for the maximum Y-Coordinate height at which this block may spawn **/
 	
 	public void addOreSpawn(World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int minY, int maxY) {
 		int maxPossY = minY + (maxY - 1);

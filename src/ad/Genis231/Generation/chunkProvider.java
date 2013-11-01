@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.IProgressUpdate;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -18,7 +16,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraft.world.gen.FlatGeneratorInfo;
 import net.minecraft.world.gen.FlatLayerInfo;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.MapGenScatteredFeature;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
@@ -26,11 +23,6 @@ import net.minecraft.world.gen.structure.MapGenMineshaft;
 import net.minecraft.world.gen.structure.MapGenStronghold;
 import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenVillage;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.Event.Result;
-import net.minecraftforge.event.terraingen.ChunkProviderEvent;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
-import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class chunkProvider implements IChunkProvider {
 	private World worldObj;
@@ -265,7 +257,6 @@ public class chunkProvider implements IChunkProvider {
 			
 			while (iterator.hasNext()) {
 				MapGenStructure mapgenstructure = (MapGenStructure) iterator.next();
-				
 				if (mapgenstructure instanceof MapGenStronghold) { return mapgenstructure.getNearestInstance(par1World, par3, par4, par5); }
 			}
 		}
