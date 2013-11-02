@@ -31,12 +31,12 @@ public class ITableTile extends TileEntity implements IInventory {
     }
     
     @Override
-    public ItemStack decrStackSize(int slot, int amt) {
+    public ItemStack decrStackSize(int slot, int amountMoved) {
         ItemStack stack = getStackInSlot(slot);
         if (stack != null) {
-            if (stack.stackSize <= amt) setInventorySlotContents(slot, null);
+            if (stack.stackSize <= amountMoved) setInventorySlotContents(slot, null);
             else {
-                stack = stack.splitStack(amt);
+                stack = stack.splitStack(amountMoved);
                 if (stack.stackSize == 0) setInventorySlotContents(slot, null);
             }
         }
@@ -87,17 +87,17 @@ public class ITableTile extends TileEntity implements IInventory {
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);
         
-        NBTTagList itemList = new NBTTagList();
+        NBTTagList TagData = new NBTTagList();
         for (int i = 0; i < inv.length; i++) {
             ItemStack stack = inv[i];
             if (stack != null) {
                 NBTTagCompound tag = new NBTTagCompound();
                 tag.setByte("Slot", (byte) i);
                 stack.writeToNBT(tag);
-                itemList.appendTag(tag);
+                TagData.appendTag(tag);
             }
         }
-        tagCompound.setTag("Inventory", itemList);
+        tagCompound.setTag("Inventory", TagData);
     }
     
     @Override

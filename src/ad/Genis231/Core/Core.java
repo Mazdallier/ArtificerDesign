@@ -18,7 +18,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION, certificateFingerprint = Ref.Finger)
+@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Core {
 	public Configuration config = null;
@@ -47,6 +47,7 @@ public class Core {
 		DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+		
 		EntityRegistry.registerModEntity(StatueMob.class, "StatueThing", 1, this, 80, 3, true);
 		proxy.registerRenderers();
 	}

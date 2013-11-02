@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Generation.BDiaGen;
@@ -99,7 +100,7 @@ public class modReg {
 	
 	public static void mobs() {
 		//registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
-		EntityRegistry.addSpawn(StatueMob.class, 20, 3, 10, EnumCreatureType.monster);
+		EntityRegistry.addSpawn(StatueMob.class, 20, 3, 10, EnumCreatureType.creature);
 		
 		//registers egg, args: MobClass.class, hex-Main, hex-Spots
 		registerEntityEgg(StatueMob.class, 0x7A65CF, 0x87CF65);
@@ -111,8 +112,8 @@ public class modReg {
 	public static int getUniqueEntitityId() {
 		do {
 			baseEntityID++;
-		}
-		while (EntityList.getStringFromID(baseEntityID) != null);
+		}while (EntityList.getStringFromID(baseEntityID) != null);
+		
 		return baseEntityID;
 	}
 	

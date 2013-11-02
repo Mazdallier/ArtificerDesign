@@ -38,8 +38,4 @@ public class ITableGui extends GuiContainer {
         this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
     }
     
-    protected void mouseClicked(int x, int y, int mouseclick)
-    {
-        
-    }
 }

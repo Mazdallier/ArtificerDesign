@@ -105,7 +105,6 @@ public class ITableContainer extends Container {
     
     @Override
     public Slot getSlotFromInventory(IInventory inven, int slot) {
-        ItemStack stack = null;
         Slot slotObject = (Slot) inventorySlots.get(slot);
         if (slot == 2) inven.isItemValidForSlot(slot, null);
         return null;

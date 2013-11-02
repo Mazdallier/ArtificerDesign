@@ -12,7 +12,7 @@ public class StatueMob extends EntityMob {
     public StatueMob(World world) {
         super(world);
         float speed = 5.0F;
-        this.setSize(1.0f, 2.3f);
+        this.setSize(1.0F, 1F);
         // this.tasks.addTask(0, new EntityAISwimming(this));
         // this.tasks.addTask(1, new EntityAIAttackOnCollide(this, EntityPlayer.class, speed, false));
         // this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
