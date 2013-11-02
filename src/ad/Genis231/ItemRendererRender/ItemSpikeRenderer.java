@@ -31,7 +31,7 @@ public class ItemSpikeRenderer implements IItemRenderer {
 		
 		switch (type) {
 			case ENTITY:
-				renderSpikes(-0.5F, 0.0F, 0.5F, 2F);
+				renderSpikes(-0.5F, 0.0F, 0.5F, 3F);
 				return;
 				
 			case EQUIPPED:
@@ -43,7 +43,7 @@ public class ItemSpikeRenderer implements IItemRenderer {
 				return;
 				
 			case INVENTORY:
-				renderSpikes(0.0F, -0.1F, 1.0F, 1F);
+				renderSpikes(0.0F, 0.1F, 1.0F, 1.1F);
 				return;
 		}
 	}

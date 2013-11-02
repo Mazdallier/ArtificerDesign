@@ -40,13 +40,6 @@ public class ITableGui extends GuiContainer {
     
     protected void mouseClicked(int x, int y, int mouseclick)
     {
-        int minHeight = (width - ySize) / 2, maxHeight = (width - ySize), minWidth = (height - xSize) / 2, maxWidth = (height - xSize), size = 14;
-        System.out.println("Min: " + minHeight + " Max: " + maxHeight + " X: " + x + " Y: " + y + " MouseClick: " + mouseclick);
         
-        if (x <= maxWidth && x >= minWidth && y <= maxHeight && y >= minHeight) {
-            if (y <= minHeight + size) System.out.println("one");
-            else if (y >= maxHeight - size) System.out.println("three");
-            else System.out.println("two");
-        }
     }
 }
