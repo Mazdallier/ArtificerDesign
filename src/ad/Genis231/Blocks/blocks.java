@@ -30,6 +30,8 @@ public class blocks {
     
     /** checks if it is not touching said side on y axis: args world, x, y, z, blockID, side */
     public static boolean blockCheckAround(World world, int x, int y, int z, int block, int side) {
+       if(world.getBlockId(x, y - 1, z) == block || world.getBlockId(x, y + 1, z) == block)return true;
+        
         switch (side) {
             case 2:
                 return world.getBlockId(x + 1, y, z) == block || world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z + 1) == block;
