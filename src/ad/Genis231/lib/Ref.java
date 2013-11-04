@@ -6,30 +6,34 @@ import net.minecraft.util.DamageSource;
 import ad.Genis231.Items.items;
 
 public class Ref {
-	
-	public static final String MOD_ID = "Artificer";
-	public static final String MOD_NAME = "Artificer's Design";
-	public static final String MOD_VERSION = "~~CLOSED BETA~~";
-	public static final String Resource_FOLDER = "artificer:";
-	public static final String Finger = "roarz";
-	public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
-	public static final int PortalNumber = 30;
-	
-	/* Render IDs */
-	public static int SpikeRender;
+    
+    public static final String MOD_ID = "Artificer";
+    public static final String MOD_NAME = "Artificer's Design";
+    public static final String MOD_VERSION = "~~CLOSED BETA~~";
+    public static final String Resource_FOLDER = "artificer:";
+    public static final String Finger = "roarz";
+    public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
+    public static final int PortalNumber = 30;
+    
+    /* Render IDs */
+    public static int SpikeRender;
+    public static int Table1Render;
+    public static int Table2Render;
 }
 
 class ADCreativeTAB extends CreativeTabs {
-	
-	public ADCreativeTAB(String label) {
-		super(label);
-	}
-	
-	@Override public ItemStack getIconItemStack() {
-		return new ItemStack(items.BDPure);
-	}
-	
-	@Override public String getTranslatedTabLabel() {
-		return "Artificer's Design";
-	}
+    
+    public ADCreativeTAB(String label) {
+        super(label);
+    }
+    
+    @Override
+    public ItemStack getIconItemStack() {
+        return new ItemStack(items.BDPure);
+    }
+    
+    @Override
+    public String getTranslatedTabLabel() {
+        return "Artificer's Design";
+    }
 }

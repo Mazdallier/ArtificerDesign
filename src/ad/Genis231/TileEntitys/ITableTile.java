@@ -63,12 +63,10 @@ public class ITableTile extends TileEntity implements IInventory {
     }
     
     @Override
-    public void openChest() {
-    }
+    public void openChest() {}
     
     @Override
-    public void closeChest() {
-    }
+    public void closeChest() {}
     
     @Override
     public void readFromNBT(NBTTagCompound tagCompound) {
@@ -109,7 +107,7 @@ public class ITableTile extends TileEntity implements IInventory {
     public boolean isInvNameLocalized() {
         return false;
     }
-
+    
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
         return false;

@@ -16,7 +16,6 @@ public class SpikeTrap extends BlockContainer {
 	public SpikeTrap(int id) {
 		super(id, Material.rock);
 	}
-	
 	public static int side = 0;
 	
 	//World, X, Y, Z, side, hitX, hitY, hitZ, block metadata
