@@ -28,10 +28,6 @@ public class false_loot extends Block {
 		return 0;
 	}
 	
-	@Override public int damageDropped(int metadata) {
-		return metadata;
-	}
-	
 	@SideOnly(Side.CLIENT) public void getSubBlocks(int par1, CreativeTabs CreativeTab, List ItemList) {
 		for (int i = 0; i <= 6; i++) {
 			ItemList.add(new ItemStack(par1, 1, i));
@@ -48,5 +44,4 @@ public class false_loot extends Block {
 	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
 	    return blockIcons[meta];
 	}
-	
 }

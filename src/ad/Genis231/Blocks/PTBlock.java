@@ -2,18 +2,29 @@ package ad.Genis231.Blocks;
 
 import java.util.Random;
 
+import ad.Genis231.lib.Ref;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 public class PTBlock extends Block {
+    
+    @SideOnly(Side.CLIENT)
+    public static Icon sandIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon stoneIcon;
+    @SideOnly(Side.CLIENT)
+    public static Icon dirtIcon;
     
     public static boolean toggle = true;
     
     public PTBlock(int id) {
         super(id, Material.rock);
-        setTextureName("sand");
         setHardness(-1);
     }
     
@@ -37,5 +48,26 @@ public class PTBlock extends Block {
     public static boolean check(World world, int x, int y, int z) {
         if (world.getBlockId(x - 1, y, z) == 0 || world.getBlockId(x + 1, y, z) == 0 || world.getBlockId(x, y, z - 1) == 0 || world.getBlockId(x, y, z + 1) == 0) return true;
         else return false;
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister icon) {
+        sandIcon = icon.registerIcon("sand");
+        stoneIcon = icon.registerIcon("stone");
+        dirtIcon = icon.registerIcon("dirt");
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int side, int meta) {
+        switch (meta) {
+            case 0:
+                return dirtIcon;
+            case 1:
+                return sandIcon;
+            default:
+                return stoneIcon;
+        }
     }
 }

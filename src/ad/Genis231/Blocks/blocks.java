@@ -91,7 +91,7 @@ public class blocks {
     }
     
     /** fills an area with said blockID args: world,minX,minY,inZ,maxX,maxY,maxZ,BlockId,checks if it can replace already existing blocks (true == will not override) **/
-    public static void fill(World world, int mx, int my, int mz, int mX, int mY, int mZ, int blockID, boolean check) {
+    public static void fill(World world, int mx, int my, int mz, int mX, int mY, int mZ, int blockID, int meta, boolean check) {
         int x, y, z, X, Y, Z;
         
         x = mx <= mX ? mx : mX;
@@ -102,13 +102,20 @@ public class blocks {
         
         z = mz <= mZ ? mz : mZ;
         Z = mz <= mZ ? mZ : mz;
-        
+        System.out.println("being told to place shtuffz :P");
         for (int q = x; q <= X; q++) {
             for (int w = z; w <= Z; w++) {
                 for (int e = y; e <= Y; e++) {
                     if (check) {
-                        if (world.getBlockId(q, e, w) == 0) world.setBlock(q, e, w, blockID);
-                    } else world.setBlock(q, e, w, blockID);
+                        if (world.getBlockId(q, e, w) == 0) {
+                            System.out.println("able to place " + meta);
+                            world.setBlock(q, e, w, blockID);
+                            world.setBlockMetadataWithNotify(q, e, w, meta, 3);
+                        } else world.destroyBlock(q, e, w - 1, false);
+                    } else {
+                        world.setBlock(q, e, w, blockID);
+                        world.setBlockMetadataWithNotify(q, e, w, meta, 3);
+                    }
                 }
             }
         }
