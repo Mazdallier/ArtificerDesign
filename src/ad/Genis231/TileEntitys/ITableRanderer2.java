@@ -29,7 +29,7 @@ public class ITableRanderer2 extends TileEntitySpecialRenderer {
             GL11.glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
             
             // Bind texture
-            FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", ""));
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/Temp.png"));
             
             // Render
             ITableModel.render();

@@ -34,24 +34,24 @@ public class ItemITable1Renderer implements IItemRenderer {
         
         switch (type) {
             case ENTITY:
-                renderSpikes(-0.5F, 0.0F, 0.5F, 2F);
+                renderTable(-0.5F, 0.0F, 0.5F, 2F);
                 return;
                 
             case EQUIPPED:
-                renderSpikes(0.0F, 0.2F, 0.5F, 1.5F);
+                renderTable(0.0F, 0.2F, 0.5F, 1.5F);
                 return;
                 
             case EQUIPPED_FIRST_PERSON:
-                renderSpikes(0.0F, 0.7F, 1.0F, 1F);
+                renderTable(0.0F, 0.7F, 1.0F, 1F);
                 return;
                 
             case INVENTORY:
-                renderSpikes(0.0F, 0.1F, 1.0F, 1.1F);
+                renderTable(0.0F, 0.1F, 1.0F, 1.1F);
                 return;
         }
     }
     
-    private void renderSpikes(float x, float y, float z, float size) {
+    private void renderTable(float x, float y, float z, float size) {
         
         GL11.glPushMatrix();
         GL11.glDisable(GL11.GL_LIGHTING);
@@ -62,7 +62,7 @@ public class ItemITable1Renderer implements IItemRenderer {
         GL11.glRotatef(0F, 1F, 0, 0);
         
         // Bind texture
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", ""));
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/Temp.png"));
         
         // Render
         Itable.render();

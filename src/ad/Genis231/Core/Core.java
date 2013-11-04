@@ -42,14 +42,17 @@ public class Core {
 		DimensionManager.registerProviderType(Ref.PortalNumber, NewWorldProvider.class, false);
 	}
 	
-	@EventHandler public void load(FMLInitializationEvent event) {
+    @EventHandler
+    public void load(FMLInitializationEvent event) {
+        proxy.registerRenderers();
+        
 		new modReg(2);
 		DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 		
 		EntityRegistry.registerModEntity(StatueMob.class, "StatueThing", 1, this, 80, 3, true);
-		proxy.registerRenderers();
+		
 	}
 	
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
