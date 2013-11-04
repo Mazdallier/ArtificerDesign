@@ -17,7 +17,6 @@ public class Ref {
 	
 	/* Render IDs */
 	public static int SpikeRender;
-	public static int SpiralRender;
 }
 
 class ADCreativeTAB extends CreativeTabs {

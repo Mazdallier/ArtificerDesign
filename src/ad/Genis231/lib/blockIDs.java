@@ -13,5 +13,4 @@ public class blockIDs {
 	public static final int GDirt = 208; // dirt that lights up after touching it
 	public static final int PortalBlock = 209;
 	public static final int Spike = 210; //spike trap
-	public static final int Spiral = 211; // spiral
 }

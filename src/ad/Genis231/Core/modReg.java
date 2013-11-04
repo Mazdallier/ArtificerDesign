@@ -46,7 +46,6 @@ public class modReg {
 		GameRegistry.registerBlock(blocks.GlowDirt, "GlowDirt");
 		GameRegistry.registerBlock(blocks.Spike, "SpikeTrap");
 		GameRegistry.registerBlock(blocks.portal, "PortalBlock");
-		GameRegistry.registerBlock(blocks.Spiral, "Sprial");
 	}
 	
 	public static void itemReg() {
@@ -77,7 +76,6 @@ public class modReg {
 		LanguageRegistry.addName(blocks.GlowDirt, "Glow Dirt");
 		LanguageRegistry.addName(blocks.Spike, "Spike Trap");
 		LanguageRegistry.addName(blocks.portal, "PortalBlock");
-		LanguageRegistry.addName(blocks.Spiral, "Spring");
 	}
 	
 	public static void itemLang() {
