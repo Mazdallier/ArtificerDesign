@@ -5,13 +5,20 @@ import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
 public class ITable2Model extends ModelBase {
-    private IModelCustom modelIT2;
+    private IModelCustom table;
     
     public ITable2Model() {
-        modelIT2 = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/ITable2.obj");
+        table = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/ITable2.obj");
     }
     
-    public void render() {
-        modelIT2.renderAll();
+    public void renderPart(int i) {
+        switch (i) {
+            case 0:
+                table.renderPart("Box001");
+            case 1:
+                table.renderPart("Cylinder001");
+            case 2:
+                table.renderPart("Cylinder002");
+        }
     }
 }

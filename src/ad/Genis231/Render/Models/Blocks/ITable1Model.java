@@ -11,7 +11,12 @@ public class ITable1Model extends ModelBase {
         modelIT1 = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/ITable1.obj");
     }
     
-    public void render() {
-        modelIT1.renderAll();
+    public void renderPart(int part) {
+        switch (part) {
+            case 0:
+                modelIT1.renderPart("Box001");
+            case 1:
+                modelIT1.renderPart("Cylinder001");
+        }
     }
 }

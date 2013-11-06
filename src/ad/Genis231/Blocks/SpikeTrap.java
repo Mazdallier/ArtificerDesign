@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.TileEntitys.SpikeTile;
+import ad.Genis231.TileEntity.Renderer.SpikeTile;
 import ad.Genis231.lib.Ref;
 
 public class SpikeTrap extends BlockContainer {
