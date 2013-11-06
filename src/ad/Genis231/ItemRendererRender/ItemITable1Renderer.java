@@ -62,8 +62,7 @@ public class ItemITable1Renderer implements IItemRenderer {
         GL11.glRotatef(0F, 1F, 0, 0);
         
         // Bind texture
-        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/Temp.png"));
-        
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/ITable.png"));        
         // Render
         Itable.render();
         

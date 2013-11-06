@@ -28,8 +28,7 @@ public class ITableRenderer1 extends TileEntitySpecialRenderer {
             GL11.glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
             
             // Bind texture
-            FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/Temp.png"));
-            
+            FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/ITable.png"));            
             // Render
             ITableModel.render();
             GL11.glPopMatrix();
