@@ -6,7 +6,7 @@ import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;
 
 public class blocks {
-    public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre).setUnlocalizedName("BloodOre").setTextureName(Ref.Resource_FOLDER + "BDOre").setCreativeTab(Ref.TAB);
+    public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre).setUnlocalizedName("BloodOre").setCreativeTab(Ref.TAB);
     public static final Block Dam = new dam_block(blockIDs.DamBlock).setUnlocalizedName("DamBlock").setCreativeTab(Ref.TAB);
     public static final Block FalseLoot = new false_loot(blockIDs.False_Loot).setUnlocalizedName("FalseLootBlocks").setCreativeTab(Ref.TAB);
     public static final Block FPTrap = new PTBlock(blockIDs.FALSE_PIT_TRAP).setUnlocalizedName("Null_block");

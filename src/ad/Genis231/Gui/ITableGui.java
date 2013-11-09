@@ -6,10 +6,13 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
 import org.lwjgl.opengl.GL11;
+
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Containers.ITableContainer;
 import ad.Genis231.TileEntitys.ITableTile;
+import ad.Genis231.lib.textures;
 
 public class ITableGui extends GuiContainer {
     int blockid;
@@ -28,11 +31,9 @@ public class ITableGui extends GuiContainer {
     
     @Override
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
-        ResourceLocation t1 = new ResourceLocation("artificer", "textures/gui/ITable1.png");
-        ResourceLocation t2 = new ResourceLocation("artificer", "textures/gui/ITable2.png");
         
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(blockid == blocks.ItableT1.blockID ? t1 : t2);
+        this.mc.getTextureManager().bindTexture(blockid == blocks.ItableT1.blockID ? textures.t1 : textures.t2);
         int x = (width - xSize) / 2;
         int y = (height - ySize) / 2;
         this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);

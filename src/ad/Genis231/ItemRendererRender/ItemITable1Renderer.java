@@ -9,19 +9,16 @@ import org.lwjgl.opengl.GL11;
 import ad.Genis231.Block.Renderer.ITableHelper;
 import ad.Genis231.Block.Renderer.ITableRenderer1;
 import ad.Genis231.Render.Models.Blocks.ITable1Model;
+import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ItemITable1Renderer implements IItemRenderer {
-    
     private ITable1Model Itable;
-    ITableRenderer1 Table;
-    float rotation = (float) (360.0 * (System.currentTimeMillis() & Table.speed) / Table.speed);
     
     public ItemITable1Renderer() {
-        
         Itable = new ITable1Model();
     }
     
@@ -58,21 +55,23 @@ public class ItemITable1Renderer implements IItemRenderer {
     }
     
     private void renderTable(float x, float y, float z, float scale) {
-        for (int i = 0; i < 2; i++) {
-            GL11.glPushMatrix();
-            GL11.glDisable(GL11.GL_LIGHTING);
-            
-            // Render
-            switch (i) {
-                case 0:
-                    ITableHelper.block(x, y, z, scale);
-                case 1:
-                    ITableHelper.Circle(x, y, z, scale, rotation);
-            }
-
-            Itable.renderPart(i);
-            GL11.glEnable(GL11.GL_LIGHTING);
-            GL11.glPopMatrix();
-        }
+        
+        GL11.glPushMatrix();
+        GL11.glDisable(GL11.GL_LIGHTING);
+        
+        // Scale, Translate, Rotate
+        GL11.glScalef(scale, scale, scale);
+        GL11.glTranslatef(x, y, z);
+        GL11.glRotatef(0F, 1F, 0, 0);
+        
+        // Bind texture
+        FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
+        
+        // Render
+        Itable.renderAll();
+        
+        GL11.glEnable(GL11.GL_LIGHTING);
+        GL11.glPopMatrix();
+        
     }
 }

@@ -1,5 +1,6 @@
 package ad.Genis231.Render.Models.Blocks;
 
+import ad.Genis231.lib.Models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
@@ -13,7 +14,7 @@ public class SpikeModel extends ModelBase {
 	
 	public SpikeModel() {
 		
-		modelSpike = AdvancedModelLoader.loadModel("/assets/artificer/textures/models/Spike.obj");
+		modelSpike = AdvancedModelLoader.loadModel(Models.Spike);
 	}
 	
 	public void render() {

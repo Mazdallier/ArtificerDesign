@@ -79,7 +79,6 @@ public class modReg {
         LanguageRegistry.addName(blocks.portal, "PortalBlock");
     }
     
-    
     public static void itemLang() {
         LanguageRegistry.addName(items.ODust, "Orange Dust");
         LanguageRegistry.addName(items.GBowl, "Gold Bowl");
@@ -87,8 +86,8 @@ public class modReg {
         LanguageRegistry.addName(items.BDPure, "Blood Infussed Diamond");
         LanguageRegistry.addName(items.DBdirty, "Impure Red Diamond");
         
-        for (int i = 0; i < pit_trap.PTArray.length; i++)
-            LanguageRegistry.addName(items.PTrap, pit_trap.PTArray[new ItemStack(items.PTrap, 1, i).getItemDamage()]);
+        for (int i = 0; i < pit_trap.UnlocalizedArray.length; i++)
+            LanguageRegistry.addName(items.PTrap, pit_trap.UnlocalizedArray[new ItemStack(items.PTrap, 1, i).getItemDamage()]);
     }
     
     public static void Worlds() {

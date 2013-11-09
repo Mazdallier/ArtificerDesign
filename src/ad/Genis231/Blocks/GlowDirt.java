@@ -3,6 +3,7 @@ package ad.Genis231.Blocks;
 import java.util.Random;
 
 import ad.Genis231.lib.Ref;
+import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -57,9 +58,9 @@ public class GlowDirt extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-		sideIcon = icon.registerIcon(Ref.Resource_FOLDER + "GDirt_side");
-		topIcon = icon.registerIcon(Ref.Resource_FOLDER + "GDirt_top");
-		botIcon = icon.registerIcon(Ref.Resource_FOLDER + "GDirt_bot");
+		sideIcon = icon.registerIcon(textures.GDArray[0]);
+		topIcon = icon.registerIcon(textures.GDArray[1]);
+		botIcon = icon.registerIcon(textures.GDArray[2]);
 	}
 
 	@Override

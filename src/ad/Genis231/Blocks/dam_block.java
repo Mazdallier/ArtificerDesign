@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import ad.Genis231.lib.Ref;
+import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -61,9 +62,9 @@ public class dam_block extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister icon) {
-        sideIcon = icon.registerIcon(Ref.Resource_FOLDER + "dam_side");
-        openIcon = icon.registerIcon(Ref.Resource_FOLDER + "dam_open");
-        closeIcon = icon.registerIcon(Ref.Resource_FOLDER + "dam_close");
+        sideIcon = icon.registerIcon(textures.DamArray[0]);
+        openIcon = icon.registerIcon(textures.DamArray[1]);
+        closeIcon = icon.registerIcon(textures.DamArray[2]);
     }
     
     @Override
