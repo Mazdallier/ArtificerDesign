@@ -17,7 +17,7 @@ import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 
 public class ODust extends Item {
-    protected ODust(int id) {
+    ODust(int id) {
         super(id);
         setMaxStackSize(64);
         setUnlocalizedName("OrangeDust");
@@ -86,19 +86,20 @@ public class ODust extends Item {
     }
     
     private void renderGlint(int x, int y, int z, int u, int v) {
-        for (int j1 = 0; j1 < 2; ++j1) {
-            if (j1 == 0) GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
+        
+        for (int i = 0; i < 2; i++) {
+            if (i == 0) GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
             
-            if (j1 == 1) GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
+            if (i == 1) GL11.glBlendFunc(GL11.GL_SRC_COLOR, GL11.GL_ONE);
             
             float f = 0.00390625F;
             float f1 = 0.00390625F;
-            float f2 = (float) (Minecraft.getSystemTime() % (long) (3000 + j1 * 1873)) / (3000.0F + (float) (j1 * 1873)) * 256.0F;
+            float f2 = (float) (Minecraft.getSystemTime() % (long) (3000 + i * 1873)) / (3000.0F + (float) (i * 1873)) * 256.0F;
             float f3 = 0.0F;
             Tessellator tessellator = Tessellator.instance;
             float f4 = 4.0F;
             
-            if (j1 == 1) f4 = -1.0F;
+            if (i == 1) f4 = -1.0F;
             
             tessellator.startDrawingQuads();
             tessellator.addVertexWithUV((double) (y + 0), (double) (z + v), (double) Layer, (double) ((f2 + (float) v * f4) * f), (double) ((f3 + (float) v) * f1));
