@@ -68,7 +68,11 @@ public class ItemITable2Renderer implements IItemRenderer {
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
         
         // Render
-        Itable.renderAll();
+        Itable.renderPart(0);
+        Itable.renderPart(1);
+        Itable.renderPart(2);
+        
+        // Itable.renderAll();
         
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();

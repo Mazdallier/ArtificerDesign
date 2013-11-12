@@ -21,18 +21,19 @@ public class ITableContainer extends Container {
     public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, int T) {
         tileEntity = tile;
         world = w;
-        size = T == blocks.ItableT1.blockID ? 2 : 3;
+        size = T == blocks.ItableT1.blockID ? 3 : 4;
         // the Slot constructor takes the IInventory and the slot number in that it binds to
         // and the x-y coordinates it resides on-screen
         if (T == blocks.ItableT1.blockID) {
-            addSlotToContainer(new Slot(tileEntity, 0, 26, 11));
-            addSlotToContainer(new Slot(tileEntity, 1, 26, 51));
+            addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
+            addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
+            addSlotToContainer(new Slot(tileEntity, 2, 117, 31));
         } else {
-            addSlotToContainer(new Slot(tileEntity, 0, 36, 10));
-            addSlotToContainer(new Slot(tileEntity, 1, 6, 30));
-            addSlotToContainer(new Slot(tileEntity, 2, 36, 50));
+            addSlotToContainer(new Slot(tileEntity, 0, 42, 7));
+            addSlotToContainer(new Slot(tileEntity, 1, 12, 31));
+            addSlotToContainer(new Slot(tileEntity, 2, 12, 53));
+            addSlotToContainer(new Slot(tileEntity, 3, 118, 25));
         }
-        
         
         // commonly used vanilla code that adds the player's inventory
         bindPlayerInventory(inventoryPlayer);
@@ -58,8 +59,7 @@ public class ITableContainer extends Container {
     /**
      * Called when the container is closed.
      */
-    public void onContainerClosed(EntityPlayer player)
-    {
+    public void onContainerClosed(EntityPlayer player) {
         super.onContainerClosed(player);
         ItemStack items;
         if (!this.world.isRemote) {
@@ -67,8 +67,8 @@ public class ITableContainer extends Container {
             for (int i = 0; i < size; i++) {
                 items = this.getSlot(i).getStack();
                 if (items != null) {
-                    player.dropPlayerItem(items);
-                    this.getSlot(i).putStack(null);
+                    //player.dropPlayerItem(items);
+                    //this.getSlot(i).putStack(null);
                 }
             }
         }
@@ -109,6 +109,5 @@ public class ITableContainer extends Container {
         if (slot == 2) inven.isItemValidForSlot(slot, null);
         return null;
     }
-    
     
 }

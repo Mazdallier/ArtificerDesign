@@ -51,7 +51,7 @@ public class ITableBlock extends BlockContainer {
     
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return this == blocks.ItableT1 ? new ITable1(2) : new ITable2(3);
+        return this == blocks.ItableT1 ? new ITable1(3) : new ITable2(4);
     }
     
 }

@@ -15,15 +15,15 @@ public class ITable2Model extends ModelBase {
     public void renderPart(int i) {
         switch (i) {
             case 0:
-                table.renderPart("Box001");
+                table.renderPart("MainBox");
+                break;
             case 1:
-                table.renderPart("Cylinder001");
+                table.renderPart("Mid");
+                break;
             case 2:
-                table.renderPart("Cylinder002");
+                table.renderPart("Top");
+                break;
         }
     }
     
-    public void renderAll(){
-        table.renderAll();
-    }
 }

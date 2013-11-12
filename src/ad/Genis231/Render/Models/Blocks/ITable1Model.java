@@ -15,13 +15,11 @@ public class ITable1Model extends ModelBase {
     public void renderPart(int part) {
         switch (part) {
             case 0:
-                table.renderPart("Box001");
+                table.renderPart("MainBox");
+                break;
             case 1:
-                table.renderPart("Cylinder001");
+                table.renderPart("Mid");
+                break;
         }
-    }
-    
-    public void renderAll() {
-        table.renderAll();
     }
 }
