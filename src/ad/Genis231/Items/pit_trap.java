@@ -24,8 +24,7 @@ public class pit_trap extends Item {
         setUnlocalizedName("pit_trap");
     }
     
-    @SideOnly(Side.CLIENT)
-    public static Icon[] IconArray = new Icon[9];
+    @SideOnly(Side.CLIENT) public static Icon[] IconArray = new Icon[9];
     public static final String[] UnlocalizedArray = { "Dirt Teir 1", "Sand Teir 1", "Stone Teir 1", "Dirt Teir 2", "Sand Teir 2", "Stone Teir 2", "Dirt Teir 3", "Sand Teir 3", "Stone Teir 3" };
     
     /** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
