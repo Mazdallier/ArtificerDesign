@@ -7,6 +7,9 @@ public class textures {
     public static final ResourceLocation Spike = new ResourceLocation("artificer", "textures/blocks/Spikes.png");
     public static final ResourceLocation ITable = new ResourceLocation("artificer", "textures/blocks/ITable.png");
     
+    /* Mob Textures */
+    public static final ResourceLocation dwarf = new ResourceLocation("", "");
+    
     /* DamBlock Textures */
     public static final String[] DamArray = { Ref.Resource_FOLDER + "dam_side", Ref.Resource_FOLDER + "dam_open", Ref.Resource_FOLDER + "dam_close" };
     

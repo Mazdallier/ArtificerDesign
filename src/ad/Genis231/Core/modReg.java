@@ -3,17 +3,14 @@ package ad.Genis231.Core;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Items.items;
 import ad.Genis231.Items.pit_trap;
-import ad.Genis231.Mobs.StatueMob;
-import cpw.mods.fml.common.registry.EntityRegistry;
+import ad.Genis231.Mobs.dwarfMob;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -96,21 +93,19 @@ public class modReg {
     
     public static void Modifiers() {
         MinecraftForge.setBlockHarvestLevel(blocks.BDiamond_ore, "pickaxe", 2);
-        
     }
     
     public static void mobs() {
         // registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
-        EntityRegistry.addSpawn(StatueMob.class, 20, 3, 10, EnumCreatureType.creature);
         
         // registers egg, args: MobClass.class, hex-Main, hex-Spots
-        registerEntityEgg(StatueMob.class, 0x7A65CF, 0x87CF65);
+        registerNewEgg(dwarfMob.class,0xFF0000,0xBBFF00);
         
         // registers name on kill screan
-        LanguageRegistry.instance().addStringLocalization("entity.Artificer.StatueThing.name", "StatueThing (WIP)");
+        LanguageRegistry.instance().addStringLocalization("entity.Artificer.Dwarf.name", "I'm a Dwarf!! Yarrg!!");
     }
     
-    public static int getUniqueEntitityId() {
+    public static int UniqueEntitityId() {
         do {
             baseEntityID++;
         } while (EntityList.getStringFromID(baseEntityID) != null);
@@ -118,8 +113,8 @@ public class modReg {
         return baseEntityID;
     }
     
-    public static void registerEntityEgg(Class<? extends Entity> entity, int Main, int Spots) {
-        int id = getUniqueEntitityId();
+    public static void registerNewEgg(Class<? extends Entity> entity, int Main, int Spots) {
+        int id = UniqueEntitityId();
         EntityList.IDtoClassMapping.put(id, entity);
         EntityList.entityEggs.put(id, new EntityEggInfo(id, Main, Spots));
     }
