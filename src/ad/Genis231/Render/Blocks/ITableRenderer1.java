@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Render.Models.Blocks.ITable1Model;
+import ad.Genis231.Models.Blocks.ITable1Model;
 import ad.Genis231.Render.TileEntity.ITable1;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

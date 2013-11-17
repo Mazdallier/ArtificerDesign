@@ -1,21 +1,19 @@
 package ad.Genis231.Render.Mobs;
 
-import java.util.Random;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 import ad.Genis231.Mobs.dwarfMob;
-import ad.Genis231.Render.Models.mobs.DwarfModel;
+import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.lib.textures;
 
 public class dwarfRenderer extends RenderLiving {
     DwarfModel dwarf;
     int dwarfType = 0;
     
-    public dwarfRenderer(ModelBase model, float shadow, int type) {
+    public dwarfRenderer(DwarfModel model, float shadow, int type) {
         super(model, shadow);
         dwarfType = type;
         dwarf = ((DwarfModel) mainModel);

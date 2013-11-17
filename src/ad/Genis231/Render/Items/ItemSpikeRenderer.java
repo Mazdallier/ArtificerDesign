@@ -1,12 +1,11 @@
 package ad.Genis231.Render.Items;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Render.Models.Blocks.SpikeModel;
+import ad.Genis231.Models.Blocks.SpikeModel;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -48,6 +47,8 @@ public class ItemSpikeRenderer implements IItemRenderer {
 			case INVENTORY:
 				renderSpikes(0.0F, 0.1F, 1.0F, 1.1F);
 				return;
+            default:
+                break;
 		}
 	}
 	

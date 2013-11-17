@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Blocks.blocks;
+import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Render.Blocks.ITableRenderer1;
 import ad.Genis231.Render.Blocks.ITableRenderer2;
 import ad.Genis231.Render.Blocks.SpikeTileRenderer;
@@ -11,7 +12,6 @@ import ad.Genis231.Render.Items.ItemITable1Renderer;
 import ad.Genis231.Render.Items.ItemITable2Renderer;
 import ad.Genis231.Render.Items.ItemSpikeRenderer;
 import ad.Genis231.Render.Mobs.dwarfRenderer;
-import ad.Genis231.Render.Models.mobs.DwarfModel;
 import ad.Genis231.Render.TileEntity.ITable1;
 import ad.Genis231.Render.TileEntity.ITable2;
 import ad.Genis231.Render.TileEntity.SpikeTile;

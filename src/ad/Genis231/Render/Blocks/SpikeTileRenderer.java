@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Render.Models.Blocks.SpikeModel;
+import ad.Genis231.Models.Blocks.SpikeModel;
 import ad.Genis231.Render.TileEntity.SpikeTile;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;

@@ -5,7 +5,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Render.Models.Blocks.ITable1Model;
+import ad.Genis231.Models.Blocks.ITable1Model;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -48,6 +48,8 @@ public class ItemITable1Renderer implements IItemRenderer {
             case INVENTORY:
                 renderTable(0.5F, 0.1F, 1.5F, 1.1F);
                 return;
+            default:
+                break;
         }
     }
     

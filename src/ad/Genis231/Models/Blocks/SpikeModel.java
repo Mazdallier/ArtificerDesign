@@ -1,4 +1,4 @@
-package ad.Genis231.Render.Models.Blocks;
+package ad.Genis231.Models.Blocks;
 
 import ad.Genis231.lib.Models;
 import net.minecraft.client.model.ModelBase;
