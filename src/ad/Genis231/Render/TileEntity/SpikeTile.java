@@ -1,4 +1,4 @@
-package ad.Genis231.TileEntity.Renderer;
+package ad.Genis231.Render.TileEntity;
 
 import net.minecraft.tileentity.TileEntity;
 

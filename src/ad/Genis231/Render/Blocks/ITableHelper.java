@@ -1,4 +1,4 @@
-package ad.Genis231.Block.Renderer;
+package ad.Genis231.Render.Blocks;
 
 import net.minecraft.util.ResourceLocation;
 

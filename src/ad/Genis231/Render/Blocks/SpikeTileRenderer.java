@@ -1,4 +1,4 @@
-package ad.Genis231.Block.Renderer;
+package ad.Genis231.Render.Blocks;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Render.Models.Blocks.SpikeModel;
-import ad.Genis231.TileEntity.Renderer.SpikeTile;
+import ad.Genis231.Render.TileEntity.SpikeTile;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,4 +1,4 @@
-package ad.Genis231.Mobs.Renderer;
+package ad.Genis231.Render.Mobs;
 
 import java.util.Random;
 

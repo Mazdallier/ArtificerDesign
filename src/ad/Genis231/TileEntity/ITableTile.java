@@ -1,4 +1,4 @@
-package ad.Genis231.TileEntitys;
+package ad.Genis231.TileEntity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

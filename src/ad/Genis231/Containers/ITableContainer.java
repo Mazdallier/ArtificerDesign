@@ -1,6 +1,5 @@
 package ad.Genis231.Containers;
 
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,7 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ad.Genis231.Blocks.blocks;
-import ad.Genis231.TileEntitys.ITableTile;
+import ad.Genis231.TileEntity.ITableTile;
 
 public class ITableContainer extends Container {
     

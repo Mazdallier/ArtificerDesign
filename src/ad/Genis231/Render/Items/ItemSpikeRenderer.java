@@ -1,4 +1,4 @@
-package ad.Genis231.ItemRendererRender;
+package ad.Genis231.Render.Items;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;

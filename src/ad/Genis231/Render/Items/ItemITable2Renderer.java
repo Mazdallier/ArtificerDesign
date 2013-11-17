@@ -1,25 +1,22 @@
-package ad.Genis231.ItemRendererRender;
+package ad.Genis231.Render.Items;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Block.Renderer.ITableHelper;
-import ad.Genis231.Block.Renderer.ITableRenderer1;
-import ad.Genis231.Render.Models.Blocks.ITable1Model;
+import ad.Genis231.Render.Models.Blocks.ITable2Model;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ItemITable1Renderer implements IItemRenderer {
-    private ITable1Model Itable;
+public class ItemITable2Renderer implements IItemRenderer {
+    private ITable2Model Itable;
     
-    public ItemITable1Renderer() {
-        Itable = new ITable1Model();
+    public ItemITable2Renderer() {
+        Itable = new ITable2Model();
     }
     
     @Override
@@ -70,7 +67,9 @@ public class ItemITable1Renderer implements IItemRenderer {
         // Render
         Itable.renderPart(0);
         Itable.renderPart(1);
-        //Itable.renderAll();
+        Itable.renderPart(2);
+        
+        // Itable.renderAll();
         
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();

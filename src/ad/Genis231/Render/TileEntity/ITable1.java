@@ -1,6 +1,6 @@
-package ad.Genis231.TileEntity.Renderer;
+package ad.Genis231.Render.TileEntity;
 
-import ad.Genis231.TileEntitys.ITableTile;
+import ad.Genis231.TileEntity.ITableTile;
 
 public class ITable1 extends ITableTile{
 

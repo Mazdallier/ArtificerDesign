@@ -1,14 +1,12 @@
-package ad.Genis231.Block.Renderer;
+package ad.Genis231.Render.Blocks;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Render.Models.Blocks.ITable1Model;
-import ad.Genis231.TileEntity.Renderer.ITable1;
-import cpw.mods.fml.client.FMLClientHandler;
+import ad.Genis231.Render.TileEntity.ITable1;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
