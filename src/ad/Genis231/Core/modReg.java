@@ -6,7 +6,9 @@ import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Generation.BDiaGen;
@@ -16,29 +18,13 @@ import ad.Genis231.Mobs.dwarfMob;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
+import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class modReg {
-    static int baseEntityID = 100;
-    
-    public modReg(int i) {
-        switch (i) {
-            case 1: // pre-init
-                blockReg();
-                itemReg();
-                recipeGReg();
-                Worlds();
-            case 2: // init
-                blockLang();
-                itemLang();
-                Modifiers();
-                mobs();
-            case 3: // post-init
-        }
-        
-    }
+    static int baseEntityID = 300;
     
     public static void blockReg() {
         GameRegistry.registerBlock(blocks.BDiamond_ore, "BDOre");
@@ -101,32 +87,34 @@ public class modReg {
         MinecraftForge.setBlockHarvestLevel(blocks.BDiamond_ore, "pickaxe", 2);
     }
     
-    public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class,traderDwarf.class };
-    public static String[] dwarfNames = {"Savage", "Warrior","Trader"};
+    public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
+    public static String[] dwarfNames = { "Savage", "Warrior", "Trader" };
     
     public static void mobs() {
         // registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
         for (int i = 0; i < dwarfClass.length; i++) {
             EntityRegistry.registerModEntity(dwarfClass[i], dwarfNames[i], i, Core.instance, 80, 3, true);
             EntityRegistry.addSpawn(dwarfClass[i], 20, 20, 20, EnumCreatureType.creature, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge);
+            
             // registers egg, args: MobClass.class, hex-Main, hex-Spots
-            registerNewEgg(dwarfClass[i], 0xFF0000, 0xBBFF00);
+            registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
+            System.out.println("~~~~~~~~~~Registers Entity " + dwarfNames[i] + " ~~~~~~~~~~");
             // registers name on kill screan
             LanguageRegistry.instance().addStringLocalization("entity.Artificer." + dwarfNames[i] + ".name", dwarfNames[i] + " Dwarf");
         }
     }
     
-    public static int UniqueEntitityId() {
+    public static int UniqueId() {
         do {
             baseEntityID++;
         } while (EntityList.getStringFromID(baseEntityID) != null);
         
+        System.out.println(baseEntityID);
         return baseEntityID;
     }
     
-    public static void registerNewEgg(Class<? extends Entity> entity, int Main, int Spots) {
-        int id = UniqueEntitityId();
+    public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
         EntityList.IDtoClassMapping.put(id, entity);
-        EntityList.entityEggs.put(id, new EntityEggInfo(id, Main, Spots));
+        EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
     }
 }

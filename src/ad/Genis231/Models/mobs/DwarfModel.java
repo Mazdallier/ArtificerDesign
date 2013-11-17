@@ -24,14 +24,15 @@ public class DwarfModel extends ModelBase {
         head.setTextureSize(32, 64);
         head.mirror = true;
         setRotation(head, 0F, 0F, 0F);
+        
         body = new ModelRenderer(this, 0, 41);
         body.addBox(-4F, 0F, -2F, 8, 6, 4);
         body.setRotationPoint(0F, 11F, 0F);
         body.setTextureSize(32, 64);
         body.mirror = true;
         setRotation(body, 0F, 0F, 0F);
-        rightarm = new ModelRenderer(this, 17, 27);
         
+        rightarm = new ModelRenderer(this, 17, 27);
         rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
         rightarm.setRotationPoint(-4F, 13F, 0F);
         rightarm.setTextureSize(32, 64);

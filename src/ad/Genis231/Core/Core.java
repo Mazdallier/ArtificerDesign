@@ -38,13 +38,16 @@ public class Core {
     
     @EventHandler
     public void fingerPrint(FMLFingerprintViolationEvent event) {
-        if (event.expectedFingerprint != event.expectedFingerprint) {
-        }
+        if (event.expectedFingerprint != event.expectedFingerprint) {}
     }
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        new modReg(1);
+        modReg.blockReg();
+        modReg.itemReg();
+        modReg.recipeGReg();
+        modReg.Worlds();
+        
         DimensionManager.registerProviderType(Ref.PortalNumber, NewWorldProvider.class, false);
     }
     
@@ -52,15 +55,16 @@ public class Core {
     public void load(FMLInitializationEvent event) {
         proxy.registerRenderers();
         
-        new modReg(2);
-        DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
+        modReg.blockLang();
+        modReg.itemLang();
+        modReg.Modifiers();
+        modReg.mobs();
         
-        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());  
+        DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
+        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
     }
     
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        new modReg(3);
-    }
+    public void postInit(FMLPostInitializationEvent event) {}
     
 }
