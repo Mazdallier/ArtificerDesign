@@ -3,12 +3,16 @@ package ad.Genis231.lib;
 import net.minecraft.util.ResourceLocation;
 
 public class textures {
+    private static String main = "artificer";
+    
     /* Model Textures */
-    public static final ResourceLocation Spike = new ResourceLocation("artificer", "textures/blocks/Spikes.png");
-    public static final ResourceLocation ITable = new ResourceLocation("artificer", "textures/blocks/ITable.png");
+    public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
+    public static final ResourceLocation ITable = new ResourceLocation(main, "textures/blocks/ITable.png");
     
     /* Mob Textures */
-    public static final ResourceLocation dwarf = new ResourceLocation("", "");
+    public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), 
+        new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), 
+        new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
     
     /* DamBlock Textures */
     public static final String[] DamArray = { Ref.Resource_FOLDER + "dam_side", Ref.Resource_FOLDER + "dam_open", Ref.Resource_FOLDER + "dam_close" };

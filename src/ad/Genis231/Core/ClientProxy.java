@@ -1,5 +1,7 @@
 package ad.Genis231.Core;
 
+import java.util.Random;
+
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Block.Renderer.ITableRenderer1;
 import ad.Genis231.Block.Renderer.ITableRenderer2;
@@ -9,7 +11,7 @@ import ad.Genis231.ItemRendererRender.ItemITable1Renderer;
 import ad.Genis231.ItemRendererRender.ItemITable2Renderer;
 import ad.Genis231.ItemRendererRender.ItemSpikeRenderer;
 import ad.Genis231.Mobs.dwarfMob;
-import ad.Genis231.Mobs.dwarfRenderer;
+import ad.Genis231.Mobs.Renderer.dwarfRenderer;
 import ad.Genis231.Render.Models.mobs.DwarfModel;
 import ad.Genis231.TileEntity.Renderer.ITable1;
 import ad.Genis231.TileEntity.Renderer.ITable2;
@@ -21,7 +23,11 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy {
     
     public void registerRenderers() {
-        RenderingRegistry.registerEntityRenderingHandler(dwarfMob.class, new dwarfRenderer(new DwarfModel(), 3F));
+        Random rand = new Random();
+        
+        for (int i = 0; i < modReg.dwarfClass.length; i++) {
+            RenderingRegistry.registerEntityRenderingHandler(modReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
+        }
         
         ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeTileRenderer());
         

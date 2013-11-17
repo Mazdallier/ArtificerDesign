@@ -39,7 +39,6 @@ public class Core {
     @EventHandler
     public void fingerPrint(FMLFingerprintViolationEvent event) {
         if (event.expectedFingerprint != event.expectedFingerprint) {
-            
         }
     }
     
@@ -56,11 +55,7 @@ public class Core {
         new modReg(2);
         DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
         
-        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-        
-        EntityRegistry.registerModEntity(dwarfMob.class, "Dwarf", 1, this, 80, 3, true);
-        EntityRegistry.addSpawn(dwarfMob.class, 20, 20, 20, EnumCreatureType.creature, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge);
-        
+        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());  
     }
     
     @EventHandler

@@ -3,19 +3,25 @@ package ad.Genis231.Core;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Items.items;
 import ad.Genis231.Items.pit_trap;
 import ad.Genis231.Mobs.dwarfMob;
+import ad.Genis231.Mobs.savageDwarf;
+import ad.Genis231.Mobs.traderDwarf;
+import ad.Genis231.Mobs.warriorDwarf;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class modReg {
-    static int baseEntityID = 300;
+    static int baseEntityID = 100;
     
     public modReg(int i) {
         switch (i) {
@@ -95,14 +101,19 @@ public class modReg {
         MinecraftForge.setBlockHarvestLevel(blocks.BDiamond_ore, "pickaxe", 2);
     }
     
+    public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class,traderDwarf.class };
+    public static String[] dwarfNames = {"Savage", "Warrior","Trader"};
+    
     public static void mobs() {
         // registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
-        
-        // registers egg, args: MobClass.class, hex-Main, hex-Spots
-        registerNewEgg(dwarfMob.class,0xFF0000,0xBBFF00);
-        
-        // registers name on kill screan
-        LanguageRegistry.instance().addStringLocalization("entity.Artificer.Dwarf.name", "I'm a Dwarf!! Yarrg!!");
+        for (int i = 0; i < dwarfClass.length; i++) {
+            EntityRegistry.registerModEntity(dwarfClass[i], dwarfNames[i], i, Core.instance, 80, 3, true);
+            EntityRegistry.addSpawn(dwarfClass[i], 20, 20, 20, EnumCreatureType.creature, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge);
+            // registers egg, args: MobClass.class, hex-Main, hex-Spots
+            registerNewEgg(dwarfClass[i], 0xFF0000, 0xBBFF00);
+            // registers name on kill screan
+            LanguageRegistry.instance().addStringLocalization("entity.Artificer." + dwarfNames[i] + ".name", dwarfNames[i] + " Dwarf");
+        }
     }
     
     public static int UniqueEntitityId() {
