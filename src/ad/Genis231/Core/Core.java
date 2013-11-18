@@ -7,6 +7,7 @@ import net.minecraftforge.common.DimensionManager;
 import ad.Genis231.Generation.NewWorldProvider;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.Mobs.dwarfMob;
+import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -43,6 +44,8 @@ public class Core {
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        ADLog.initLog();
+        
         modReg.blockReg();
         modReg.itemReg();
         modReg.recipeGReg();

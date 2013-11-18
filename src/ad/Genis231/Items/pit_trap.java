@@ -12,6 +12,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import ad.Genis231.Blocks.PTBlock;
 import ad.Genis231.Blocks.blocks;
+import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,10 +22,10 @@ public class pit_trap extends Item {
     public pit_trap(int id) {
         super(id);
         setHasSubtypes(true);
-        setUnlocalizedName("pit_trap");
+        setUnlocalizedName("Vine Mat");
     }
     
-    @SideOnly(Side.CLIENT) public static Icon[] IconArray = new Icon[9];
+    public static Icon[] IconArray = new Icon[9];
     public static final String[] UnlocalizedArray = { "Dirt Teir 1", "Sand Teir 1", "Stone Teir 1", "Dirt Teir 2", "Sand Teir 2", "Stone Teir 2", "Dirt Teir 3", "Sand Teir 3", "Stone Teir 3" };
     
     /** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
@@ -90,7 +91,7 @@ public class pit_trap extends Item {
     
     @Override
     public String getUnlocalizedName(ItemStack itemstack) {
-        return "Pit Trap " + UnlocalizedArray[itemstack.getItemDamage()];
+        return "Vine Mat " + UnlocalizedArray[itemstack.getItemDamage()];
     }
     
     public static boolean CheckArea(World world, int mx, int y, int mz, int mX, int mZ) {
@@ -108,7 +109,7 @@ public class pit_trap extends Item {
                 if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != blocks.FPTrap.blockID) i++;
             }
         }
-        if (i != 0) System.out.println("CheckArea: " + i);
+        if (i != 0) ADLog.logger.info("CheckArea: " + i);
         return i == 0;
     }
     
@@ -129,7 +130,7 @@ public class pit_trap extends Item {
             if (world.getBlockId(x - 1, y, minz) == 0) i++;
             if (world.getBlockId(X + 1, y, minz) == 0) i++;
         }
-        if (i != 0) System.out.println("CheckBorder: " + i);
+        if (i != 0) ADLog.logger.info("CheckBorder: " + i);
         return i == 0;
     }
     

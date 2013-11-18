@@ -2,6 +2,7 @@ package ad.Genis231.Blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;
 
@@ -104,13 +105,13 @@ public class blocks {
         
         z = mz <= mZ ? mz : mZ;
         Z = mz <= mZ ? mZ : mz;
-        System.out.println("being told to place shtuffz :P");
+        ADLog.logger.info("being told to place shtuffz :P");
         for (int q = x; q <= X; q++) {
             for (int w = z; w <= Z; w++) {
                 for (int e = y; e <= Y; e++) {
                     if (check) {
                         if (world.getBlockId(q, e, w) == 0) {
-                            System.out.println("able to place " + meta);
+                            ADLog.logger.info("able to place " + meta);
                             world.setBlock(q, e, w, blockID);
                             world.setBlockMetadataWithNotify(q, e, w, meta, 3);
                         } else world.destroyBlock(q, e, w - 1, false);

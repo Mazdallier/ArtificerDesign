@@ -18,6 +18,7 @@ import ad.Genis231.Mobs.dwarfMob;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
+import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -40,7 +41,7 @@ public class modReg {
     
     public static void itemReg() {
         GameRegistry.registerItem(items.ODust, "ORangeDust");
-        GameRegistry.registerItem(items.PTrap, "PTrap");
+        GameRegistry.registerItem(items.PTrap, "VineMat");
         GameRegistry.registerItem(items.DBdirty, "BDdirty");
         GameRegistry.registerItem(items.BDPure, "BDPure");
         GameRegistry.registerItem(items.GBowl, "GoldBowl");
@@ -98,7 +99,7 @@ public class modReg {
             
             // registers egg, args: MobClass.class, hex-Main, hex-Spots
             registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
-            System.out.println("~~~~~~~~~~Registers Entity " + dwarfNames[i] + " ~~~~~~~~~~");
+            ADLog.logger.info("~~~~~~~~~~Registers Entity " + dwarfNames[i] + " ~~~~~~~~~~");
             // registers name on kill screan
             LanguageRegistry.instance().addStringLocalization("entity.Artificer." + dwarfNames[i] + ".name", dwarfNames[i] + " Dwarf");
         }
@@ -109,7 +110,7 @@ public class modReg {
             baseEntityID++;
         } while (EntityList.getStringFromID(baseEntityID) != null);
         
-        System.out.println(baseEntityID);
+        System.err.println(baseEntityID);
         return baseEntityID;
     }
     

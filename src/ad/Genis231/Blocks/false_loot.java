@@ -13,35 +13,38 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class false_loot extends Block {
-	
-	@SideOnly(Side.CLIENT) public static Icon Coal,Gold,Lapis,Diamond,Emerald,Iron,Redstone;
-	@SideOnly(Side.CLIENT) public static Icon[] blockIcons={Coal,Gold,Lapis,Diamond,Emerald,Iron,Redstone};
-	@SideOnly(Side.CLIENT) public static String[] BlockTextures = {"coal_block","gold_block","lapis_block","diamond_block","emerald_block","iron_block","redstone_block"};
-	
-	public false_loot(int id) {
-		super(id, Material.rock);
-		setHardness(-1.0F);
-		setUnlocalizedName("False Loot");
-	}
-	
-	public int idDropped() {
-		return 0;
-	}
-	
-	@SideOnly(Side.CLIENT) public void getSubBlocks(int par1, CreativeTabs CreativeTab, List ItemList) {
-		for (int i = 0; i <= 6; i++) {
-			ItemList.add(new ItemStack(par1, 1, i));
-		}
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
-		for(int i=0;i<blockIcons.length;i++)
-		    blockIcons[i]=icon.registerIcon(BlockTextures[i]);
-	}
-	
-
-	
-	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
-	    return blockIcons[meta];
-	}
+    
+    public static Icon Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone;
+    public static Icon[] blockIcons = { Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone };
+    public static String[] BlockTextures = { "coal_block", "gold_block", "lapis_block", "diamond_block", "emerald_block", "iron_block", "redstone_block" };
+    
+    public false_loot(int id) {
+        super(id, Material.rock);
+        setHardness(-1.0F);
+        setUnlocalizedName("False Loot");
+    }
+    
+    public int idDropped() {
+        return 0;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(int par1, CreativeTabs CreativeTab, List ItemList) {
+        for (int i = 0; i <= 6; i++) {
+            ItemList.add(new ItemStack(par1, 1, i));
+        }
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister icon) {
+        for (int i = 0; i < blockIcons.length; i++)
+            blockIcons[i] = icon.registerIcon(BlockTextures[i]);
+    }
+    
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int side, int meta) {
+        return blockIcons[meta];
+    }
 }
