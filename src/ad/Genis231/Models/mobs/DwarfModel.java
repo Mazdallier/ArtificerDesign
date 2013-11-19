@@ -18,47 +18,46 @@ public class DwarfModel extends ModelBase {
         textureWidth = 32;
         textureHeight = 64;
         
-        head = new ModelRenderer(this, 0, 0);
-        head.addBox(-4F, -8F, -4F, 6, 5, 6);
-        head.setRotationPoint(1F, 14F, 1F);
-        head.setTextureSize(32, 64);
-        head.mirror = true;
-        setRotation(head, 0F, 0F, 0F);
+        head.setTextureSize(textureWidth, textureHeight);
+        body.setTextureSize(textureWidth, textureHeight);
+        rightarm.setTextureSize(textureWidth, textureHeight);
+        leftarm.setTextureSize(textureWidth, textureHeight);
+        rightleg.setTextureSize(textureWidth, textureHeight);
+        leftleg.setTextureSize(textureWidth, textureHeight);
         
+        head = new ModelRenderer(this, 0, 0);
         body = new ModelRenderer(this, 0, 41);
+        rightarm = new ModelRenderer(this, 17, 27);
+        leftarm = new ModelRenderer(this, 17, 16);
+        rightleg = new ModelRenderer(this, 0, 28);
+        leftleg = new ModelRenderer(this, 0, 16);
+        
+        head.addBox(-4F, -8F, -4F, 6, 5, 6);
         body.addBox(-4F, 0F, -2F, 8, 6, 4);
+        rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
+        leftarm.addBox(-1F, -2F, -2F, 3, 6, 4);
+        rightleg.addBox(-2F, 0F, -2F, 4, 7, 4);
+        leftleg.addBox(-2F, 0F, -2F, 4, 7, 4);
+        
+        head.setRotationPoint(1F, 14F, 1F);
         body.setRotationPoint(0F, 11F, 0F);
         rightarm.setRotationPoint(-4F, 13F, 0F);
         leftarm.setRotationPoint(5F, 13F, 0F);
         rightleg.setRotationPoint(-2F, 17F, 0F);
         leftleg.setRotationPoint(2F, 17F, 0F);
         
-        rightarm = new ModelRenderer(this, 17, 27);
-        rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
-        rightarm.setRotationPoint(-4F, 13F, 0F);
-        rightarm.setTextureSize(32, 64);
+        head.mirror = true;
+        body.mirror = true;
         rightarm.mirror = true;
-        setRotation(rightarm, 0.3490659F, 0F, 0F);
-        
-        leftarm = new ModelRenderer(this, 17, 16);
-        leftarm.addBox(-1F, -2F, -2F, 3, 6, 4);
-        leftarm.setRotationPoint(5F, 13F, 0F);
-        leftarm.setTextureSize(32, 64);
         leftarm.mirror = true;
-        setRotation(leftarm, -0.3490659F, 0F, 0F);
-        
-        rightleg = new ModelRenderer(this, 0, 28);
-        rightleg.addBox(-2F, 0F, -2F, 4, 7, 4);
-        rightleg.setRotationPoint(-2F, 17F, 0F);
-        rightleg.setTextureSize(32, 64);
         rightleg.mirror = true;
-        setRotation(rightleg, 0F, 0F, 0F);
-        
-        leftleg = new ModelRenderer(this, 0, 16);
-        leftleg.addBox(-2F, 0F, -2F, 4, 7, 4);
-        leftleg.setRotationPoint(2F, 17F, 0F);
-        leftleg.setTextureSize(32, 64);
         leftleg.mirror = true;
+        
+        setRotation(head, 0F, 0F, 0F);
+        setRotation(body, 0F, 0F, 0F);
+        setRotation(rightarm, 0F, 0F, 0F);
+        setRotation(leftarm, 0F, 0F, 0F);
+        setRotation(rightleg, 0F, 0F, 0F);
         setRotation(leftleg, 0F, 0F, 0F);
     }
     
@@ -90,11 +89,11 @@ public class DwarfModel extends ModelBase {
         this.rightarm.rotateAngleX = MathHelper.cos(ticks * 0.6662F + (float) Math.PI) * 2.0F * distance * 0.5F;
         this.leftarm.rotateAngleX = MathHelper.cos(ticks * 0.6662F) * 2.0F * distance * 0.5F;
         
-        this.rightarm.rotateAngleZ = 0.0F;
-        this.leftarm.rotateAngleZ = 0.0F;
-        
         this.rightleg.rotateAngleX = MathHelper.cos(ticks * 0.6662F) * 1.4F * distance;
         this.leftleg.rotateAngleX = MathHelper.cos(ticks * 0.6662F + (float) Math.PI) * 1.4F * distance;
+        
+        this.rightarm.rotateAngleZ = 0.0F;
+        this.leftarm.rotateAngleZ = 0.0F;
         
         this.rightleg.rotateAngleY = 0.0F;
         this.leftleg.rotateAngleY = 0.0F;
