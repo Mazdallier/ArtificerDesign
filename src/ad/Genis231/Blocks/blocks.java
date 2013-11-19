@@ -15,7 +15,6 @@ public class blocks {
     public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2).setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
     public static final Block GlowDirt = new GlowDirt(blockIDs.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
     public static final Block Spike = new SpikeTrap(blockIDs.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");
-    public static final Block portal = new PortalBlock(blockIDs.PortalBlock).setCreativeTab(Ref.TAB);
     
     /** returns the side in which you placed the block: args blockX, blockY, playerX, playerY */
     public static int sidePlaced(int x, int z, double posX, double posZ) {

@@ -36,7 +36,6 @@ public class modReg {
         GameRegistry.registerBlock(blocks.ItableT2, "Itable2");
         GameRegistry.registerBlock(blocks.GlowDirt, "GlowDirt");
         GameRegistry.registerBlock(blocks.Spike, "SpikeTrap");
-        GameRegistry.registerBlock(blocks.portal, "PortalBlock");
     }
     
     public static void itemReg() {
@@ -66,7 +65,6 @@ public class modReg {
         LanguageRegistry.addName(blocks.ItableT2, "Imbueing Table teir2");
         LanguageRegistry.addName(blocks.GlowDirt, "Glow Dirt");
         LanguageRegistry.addName(blocks.Spike, "Spike Trap");
-        LanguageRegistry.addName(blocks.portal, "PortalBlock");
     }
     
     public static void itemLang() {

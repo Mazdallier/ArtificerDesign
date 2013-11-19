@@ -13,7 +13,6 @@ public class Ref {
     public static final String Resource_FOLDER = "artificer:";
     public static final String Finger = "roarz";
     public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
-    public static final int PortalNumber = 30;
     
     /* Render IDs */
     public static int SpikeRender;

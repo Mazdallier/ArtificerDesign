@@ -11,6 +11,5 @@ public class blockIDs {
 	public static final int ITableT2 = 206; //small chest with gui
 	public static final int BearTrap = 207; //BearTrap of boringness
 	public static final int GDirt = 208; // dirt that lights up after touching it
-	public static final int PortalBlock = 209;
 	public static final int Spike = 210; //spike trap
 }

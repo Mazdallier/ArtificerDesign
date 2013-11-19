@@ -1,12 +1,8 @@
 package ad.Genis231.Core;
 
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
-import ad.Genis231.Generation.NewWorldProvider;
 import ad.Genis231.Gui.GuiHandler;
-import ad.Genis231.Mobs.dwarfMob;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
@@ -19,7 +15,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -51,7 +46,6 @@ public class Core {
         modReg.recipeGReg();
         modReg.Worlds();
         
-        DimensionManager.registerProviderType(Ref.PortalNumber, NewWorldProvider.class, false);
     }
     
     @EventHandler
@@ -63,7 +57,6 @@ public class Core {
         modReg.Modifiers();
         modReg.mobs();
         
-        DimensionManager.registerDimension(Ref.PortalNumber, Ref.PortalNumber);
         NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
     }
     
