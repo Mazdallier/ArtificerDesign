@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Blocks.blocks;
+import ad.Genis231.Core.Registering.MobReg;
 import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Render.Blocks.ITableRenderer1;
 import ad.Genis231.Render.Blocks.ITableRenderer2;
@@ -24,8 +25,8 @@ public class ClientProxy extends CommonProxy {
     public void registerRenderers() {
         Random rand = new Random();
         
-        for (int i = 0; i < modReg.dwarfClass.length; i++) {
-            RenderingRegistry.registerEntityRenderingHandler(modReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
+        for (int i = 0; i < MobReg.dwarfClass.length; i++) {
+            RenderingRegistry.registerEntityRenderingHandler(MobReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
         }
         
         ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeTileRenderer());

@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import ad.Genis231.Blocks.BlockHelper;
 import ad.Genis231.Blocks.PTBlock;
 import ad.Genis231.Blocks.blocks;
 import ad.Genis231.lib.ADLog;
@@ -74,7 +75,7 @@ public class pit_trap extends Item {
         
         if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
             PTBlock.toggle = false;
-            if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) blocks.fill(world, mx, y, mz, mX, y, mZ, blocks.FPTrap.blockID, getMeta(item), true);
+            if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) BlockHelper.fill(world, mx, y, mz, mX, y, mZ, blocks.FPTrap.blockID, getMeta(item), true);
             PTBlock.toggle = true;
         }
     }

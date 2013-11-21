@@ -26,7 +26,7 @@ public class dam_block extends Block {
     }
     
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
-        world.setBlock(x, y, z, blocks.Dam.blockID, blocks.sidePlaced(x, z, player.posX, player.posZ) - 2, 2);
+        world.setBlock(x, y, z, blocks.Dam.blockID, BlockHelper.sidePlaced(x, z, player.posX, player.posZ) - 2, 2);
     }
     
     public void onPostBlockPlaced(World world, int x, int y, int z, int par5) {
@@ -48,14 +48,14 @@ public class dam_block extends Block {
             
         } else if (!world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) > 3) {
             world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) - 4, 3);
-            blocks.placeInfront(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
+            BlockHelper.placeInfront(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
         }
     }
     
     public void set(World world, int x, int y, int z, int side) {
         
-        if (blocks.blockCheckAround(world, x, y, z, Block.waterMoving.blockID, side) || blocks.blockCheckAround(world, x, y, z, Block.waterStill.blockID, side)) {
-            blocks.placeInfront(world, x, y, z, Block.waterMoving.blockID, side);
+        if (BlockHelper.blockCheckAround(world, x, y, z, Block.waterMoving.blockID, side) || BlockHelper.blockCheckAround(world, x, y, z, Block.waterStill.blockID, side)) {
+        	BlockHelper.placeInfront(world, x, y, z, Block.waterMoving.blockID, side);
         }
     }
     

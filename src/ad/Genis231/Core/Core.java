@@ -1,7 +1,7 @@
 package ad.Genis231.Core;
 
 import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.DimensionManager;
+import ad.Genis231.Core.Registering.MobReg;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
@@ -19,48 +19,45 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Core {
-    public Configuration config = null;
-    
-    // The instance of your mod that Forge uses.
-    @Instance(Ref.MOD_ID)
-    public static Core instance;
-    
-    // Says where the client and server 'proxy' code is loaded.
-    @SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy")
-    public static CommonProxy proxy;
-    
-    @EventHandler
-    public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
-    
-    @EventHandler
-    public void fingerPrint(FMLFingerprintViolationEvent event) {
-        if (event.expectedFingerprint != event.expectedFingerprint) {}
-    }
-    
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        ADLog.initLog();
-        
-        modReg.blockReg();
-        modReg.itemReg();
-        modReg.recipeGReg();
-        modReg.Worlds();
-        
-    }
-    
-    @EventHandler
-    public void load(FMLInitializationEvent event) {
-        proxy.registerRenderers();
-        
-        modReg.blockLang();
-        modReg.itemLang();
-        modReg.Modifiers();
-        modReg.mobs();
-        
-        NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
-    }
-    
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {}
-    
+	public Configuration config = null;
+	
+	// The instance of your mod that Forge uses.
+	@Instance(Ref.MOD_ID)
+	public static Core instance;
+	
+	// Says where the client and server 'proxy' code is loaded.
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy")
+	public static CommonProxy proxy;
+	
+	@EventHandler
+	public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
+	
+	@EventHandler
+	public void fingerPrint(FMLFingerprintViolationEvent event) {
+		if (event.expectedFingerprint != event.expectedFingerprint) {}
+	}
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		ADLog.initLog();
+		
+		ModReg.basic();
+		ModReg.recipeGReg();
+		ModReg.Worlds();
+		
+	}
+	
+	@EventHandler
+	public void load(FMLInitializationEvent event) {
+		proxy.registerRenderers();
+		
+		ModReg.Modifiers();
+		MobReg.mobs();
+		
+		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) {}
+	
 }
