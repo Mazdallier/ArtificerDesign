@@ -18,12 +18,12 @@ public class DwarfModel extends ModelBase {
         textureWidth = 32;
         textureHeight = 64;
         
-        head.setTextureSize(textureWidth, textureHeight);
-        body.setTextureSize(textureWidth, textureHeight);
-        rightarm.setTextureSize(textureWidth, textureHeight);
-        leftarm.setTextureSize(textureWidth, textureHeight);
-        rightleg.setTextureSize(textureWidth, textureHeight);
-        leftleg.setTextureSize(textureWidth, textureHeight);
+        head.setTextureSize(32, 64);
+        body.setTextureSize(32, 64);
+        rightarm.setTextureSize(32, 64);
+        leftarm.setTextureSize(32, 64);
+        rightleg.setTextureSize(32, 64);
+        leftleg.setTextureSize(32, 64);
         
         head = new ModelRenderer(this, 0, 0);
         body = new ModelRenderer(this, 0, 41);
