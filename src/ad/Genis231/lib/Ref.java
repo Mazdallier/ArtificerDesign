@@ -9,7 +9,7 @@ public class Ref {
     
     public static final String MOD_ID = "Artificer";
     public static final String MOD_NAME = "Artificer's Design";
-    public static final String MOD_VERSION = "~~CLOSED BETA~~";
+    public static final String MOD_VERSION = "Pre-Release";
     public static final String Resource_FOLDER = "artificer:";
     public static final String Finger = "roarz";
     public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");

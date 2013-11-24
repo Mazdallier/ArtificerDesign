@@ -26,7 +26,6 @@ public class MobReg {
 			
 			// registers egg, args: MobClass.class, hex-Main, hex-Spots
 			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
-			ADLog.logger.info("~~~~~~~~~~Registers Entity " + dwarfNames[i] + " ~~~~~~~~~~");
 			// registers name on kill screan
 			LanguageRegistry.instance().addStringLocalization("entity.Artificer." + dwarfNames[i] + ".name", dwarfNames[i] + " Dwarf");
 		}

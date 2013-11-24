@@ -20,7 +20,7 @@ public class ModReg {
 		Registery.Register(blocks.ItableT1, "Itable1", "Imbueing Table teir1");
 		Registery.Register(blocks.ItableT2, "Itable2", "Imbueing Table teir2");
 		Registery.Register(blocks.GlowDirt, "GlowDirt", "Glow Dirt");
-		Registery.Register(blocks.Spike, "SpikeTrap", "Spike Trap");
+		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
 		
 		/*Items*/
 		Registery.Register(items.ODust, "ORangeDust", "Orange Dust");
@@ -29,25 +29,17 @@ public class ModReg {
 		Registery.Register(items.GBowl, "GoldBowl", "Gold Bowl");
 		Registery.Register(items.VBlood, "VampireBlood", "Vampire Blood");
 		
-		Registery.RegisterMulti(items.PTrap, "pit-trap", pit_trap.UnlocalizedArray);
+		Registery.RegisterMulti(items.PTrap, "VineMat", pit_trap.UnlocalizedArray);
 	}
 	
 	public static void recipeGReg() {
-		final ItemStack ODStack = new ItemStack(items.ODust, 1);
-		final ItemStack RedstoneStack = new ItemStack(Item.redstone, 1);
-		final ItemStack GlowstoneStack = new ItemStack(Item.glowstone, 1);
-		
-		GameRegistry.addShapelessRecipe(ODStack, GlowstoneStack, RedstoneStack, RedstoneStack);
-		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X', new ItemStack(Item.ingotGold, 1));
+		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X',Item.ingotGold);
 		
 	}
-	
 	public static void Worlds() {
 		GameRegistry.registerWorldGenerator(new BDiaGen());
 	}
-	
 	public static void Modifiers() {
 		MinecraftForge.setBlockHarvestLevel(blocks.BDiamond_ore, "pickaxe", 2);
-	}
-	
+	}	
 }

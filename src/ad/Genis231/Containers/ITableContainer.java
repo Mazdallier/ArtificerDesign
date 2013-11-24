@@ -21,8 +21,7 @@ public class ITableContainer extends Container {
         tileEntity = tile;
         world = w;
         size = T == blocks.ItableT1.blockID ? 3 : 4;
-        // the Slot constructor takes the IInventory and the slot number in that it binds to
-        // and the x-y coordinates it resides on-screen
+
         if (T == blocks.ItableT1.blockID) {
             addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
             addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
@@ -34,7 +33,6 @@ public class ITableContainer extends Container {
             addSlotToContainer(new Slot(tileEntity, 3, 118, 25));
         }
         
-        // commonly used vanilla code that adds the player's inventory
         bindPlayerInventory(inventoryPlayer);
     }
     
@@ -66,8 +64,8 @@ public class ITableContainer extends Container {
             for (int i = 0; i < size; i++) {
                 items = this.getSlot(i).getStack();
                 if (items != null) {
-                    //player.dropPlayerItem(items);
-                    //this.getSlot(i).putStack(null);
+                    player.dropPlayerItem(items);
+                    this.getSlot(i).putStack(null);
                 }
             }
         }
@@ -78,17 +76,14 @@ public class ITableContainer extends Container {
         ItemStack stack = null;
         Slot slotObject = (Slot) inventorySlots.get(slot);
         
-        // null checks and checks if the item can be stacked (maxStackSize > 1)
         if (slotObject != null && slotObject.getHasStack()) {
             ItemStack stackInSlot = slotObject.getStack();
             stack = stackInSlot.copy();
             
-            // merges the item into player inventory since its in the tileEntity
             if (slot < 9) {
-                if (!this.mergeItemStack(stackInSlot, 0, 35, true)) { return null; }
-            }
-            // places it into the tileEntity is possible since its in the player inventory
-            else if (!this.mergeItemStack(stackInSlot, 0, 9, false)) { return null; }
+                if (!this.mergeItemStack(stackInSlot, 0, 35, true)||!this.mergeItemStack(stackInSlot, 0, 9, false))  
+			return null; 
+            } 
             
             if (stackInSlot.stackSize == 0) {
                 slotObject.putStack(null);
@@ -96,7 +91,7 @@ public class ITableContainer extends Container {
                 slotObject.onSlotChanged();
             }
             
-            if (stackInSlot.stackSize == stack.stackSize) { return null; }
+            if (stackInSlot.stackSize == stack.stackSize)  return null; 
             slotObject.onPickupFromSlot(player, stackInSlot);
         }
         return stack;

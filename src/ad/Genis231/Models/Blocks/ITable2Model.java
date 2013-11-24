@@ -9,7 +9,7 @@ public class ITable2Model extends ModelBase {
     private IModelCustom table;
     
     public ITable2Model() {
-        table = AdvancedModelLoader.loadModel(Models.ITable2);
+        table = AdvancedModelLoader.loadModel(Models.ITable);
     }
     
     public void renderPart(int i) {

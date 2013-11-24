@@ -32,22 +32,22 @@ public class ItemITable2Renderer implements IItemRenderer {
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         
-        switch (type) {
+    	switch (type) {
             case ENTITY:
-                renderTable(-1F, 0.0F, 1F, 2F);
-                return;
+                renderTable(0F, 0.0F, 0F, 2F);
+                break;
                 
             case EQUIPPED:
-                renderTable(0.5F, 0.2F, 1F, 1.5F);
-                return;
+                renderTable(0.2F, 0.0F, 0.2F, 1F);
+                break;
                 
             case EQUIPPED_FIRST_PERSON:
-                renderTable(0.5F, 0.7F, 1.5F, 1F);
-                return;
+                renderTable(0F, 0.9F, 0.7F, 0.75F);
+                break;
                 
             case INVENTORY:
-                renderTable(0.5F, 0.1F, 1.5F, 1.1F);
-                return;
+            	renderTable(1.5F, 0.75F, 1.5F, 1F);
+                break;
             default:
                 break;
         }

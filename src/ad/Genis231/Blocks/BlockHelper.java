@@ -18,8 +18,6 @@ public class BlockHelper {
 	
 	/** checks if it is not touching said side on y axis: args world, x, y, z, blockID, side */
 	public static boolean blockCheckAround(World world, int x, int y, int z, int block, int side) {
-		if (world.getBlockId(x, y - 1, z) == block || world.getBlockId(x, y + 1, z) == block) return true;
-		
 		switch (side) {
 			case 2:
 				return world.getBlockId(x + 1, y, z) == block || world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z + 1) == block;
@@ -30,7 +28,7 @@ public class BlockHelper {
 			case 5:
 				return world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z + 1) == block || world.getBlockId(x, y, z - 1) == block;
 			default:
-				return false;
+				return true;
 		}
 	}
 	
@@ -48,17 +46,17 @@ public class BlockHelper {
 	public static void placeInfront(World world, int x, int y, int z, int block, int side) {
 		switch (side) {
 			case 2:
-				world.setBlock(x, y, z - 1, block, 0, 3);
-				return;
+				world.setBlock(x, y, z - 1, block);
+				break;
 			case 3:
-				world.setBlock(x, y, z + 1, block, 0, 3);
-				return;
+				world.setBlock(x, y, z + 1, block);
+				break;
 			case 4:
-				world.setBlock(x - 1, y, z, block, 0, 3);
-				return;
+				world.setBlock(x - 1, y, z, block);
+				break;
 			case 5:
-				world.setBlock(x + 1, y, z, block, 0, 3);
-				return;
+				world.setBlock(x + 1, y, z, block);
+				break;
 		}
 	}
 	
@@ -67,16 +65,16 @@ public class BlockHelper {
 		switch (side) {
 			case 2:
 				world.setBlock(x, y, z + 1, block, meta, 3);
-				return;
+				break;
 			case 3:
 				world.setBlock(x, y, z - 1, block, meta, 3);
-				return;
+				break;
 			case 4:
 				world.setBlock(x + 1, y, z, block, meta, 3);
-				return;
+				break;
 			case 5:
 				world.setBlock(x - 1, y, z, block, meta, 3);
-				return;
+				break;
 		}
 	}
 	
@@ -92,19 +90,19 @@ public class BlockHelper {
 		
 		z = mz <= mZ ? mz : mZ;
 		Z = mz <= mZ ? mZ : mz;
+
 		ADLog.logger.info("being told to place shtuffz :P");
-		for (int q = x; q <= X; q++) {
-			for (int w = z; w <= Z; w++) {
-				for (int e = y; e <= Y; e++) {
+		for (int yy = y; yy <= Y; yy++) {
+		for (int xx = x; xx <= X; xx++) {	
+		for (int zz = z; zz <= Z; zz++) {
 					if (check) {
-						if (world.getBlockId(q, e, w) == 0) {
-							ADLog.logger.info("able to place " + meta);
-							world.setBlock(q, e, w, blockID);
-							world.setBlockMetadataWithNotify(q, e, w, meta, 3);
-						} else world.destroyBlock(q, e, w - 1, false);
+						if (world.getBlockId(xx, yy, zz) == 0) {
+							world.setBlock(xx, yy, zz, blockID);
+							world.setBlockMetadataWithNotify(xx, yy, zz, meta, 3);
+						} else world.destroyBlock(xx, yy, zz - 1, false);
 					} else {
-						world.setBlock(q, e, w, blockID);
-						world.setBlockMetadataWithNotify(q, e, w, meta, 3);
+						world.setBlock(xx, yy, zz, blockID);
+						world.setBlockMetadataWithNotify(xx, yy, zz, meta, 3);
 					}
 				}
 			}
