@@ -27,7 +27,8 @@ public class ModReg {
 		Registery.Register(items.DBdirty, "BDdirty", "Impure Red Diamond");
 		Registery.Register(items.BDPure, "BDPure", "Blood Infussed Diamond");
 		Registery.Register(items.GBowl, "GoldBowl", "Gold Bowl");
-		Registery.Register(items.VBlood, "VampireBlood", "Vampire Blood");
+		Registery.Register(items.ABlood, "AngelicBlood", "Blessed Elve's Blood");
+		Registery.Register(items.DBlood, "DemonicBlood", "Tainted Orc's Blood");
 		
 		Registery.RegisterMulti(items.PTrap, "VineMat", pit_trap.UnlocalizedArray);
 	}

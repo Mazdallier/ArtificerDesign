@@ -35,5 +35,6 @@ public class textures {
     public static final String BDPure = Ref.Resource_FOLDER + "Pure_BDiamond";
     public static final String GoldBowl = Ref.Resource_FOLDER + "Gold_Bowl";
     public static final String ODust = Ref.Resource_FOLDER + "Orange_Dust";
-    public static final String VampBlood = Ref.Resource_FOLDER + "Vamp_Blood";
+    public static final String ABlood = Ref.Resource_FOLDER + "AngelicBlood";
+    public static final String DBlood = Ref.Resource_FOLDER + "DemonicBlood";
 }
