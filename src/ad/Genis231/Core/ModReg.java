@@ -1,5 +1,6 @@
 package ad.Genis231.Core;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,7 +13,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ModReg {
 	
 	public static void basic() {
-		/*Blocks*/
+		/* Blocks */
 		Registery.Register(blocks.BDiamond_ore, "BDOre", "Dirty Blood Gem Ore");
 		Registery.Register(blocks.FPTrap, "null_Block");
 		Registery.Register(blocks.Dam, "dam_block", "Dam (WIP)");
@@ -22,10 +23,10 @@ public class ModReg {
 		Registery.Register(blocks.GlowDirt, "GlowDirt", "Glow Dirt");
 		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
 		
-		/*Items*/
+		/* Items */
 		Registery.Register(items.ODust, "ORangeDust", "Orange Dust");
-		Registery.Register(items.DBdirty, "BDdirty", "Impure Red Diamond");
-		Registery.Register(items.BDPure, "BDPure", "Blood Infussed Diamond");
+		Registery.Register(items.DBdirty, "BDdirty", "Impure Red Gem");
+		Registery.Register(items.BDPure, "BDPure", "Purified Red Gem");
 		Registery.Register(items.GBowl, "GoldBowl", "Gold Bowl");
 		Registery.Register(items.ABlood, "AngelicBlood", "Blessed Elve's Blood");
 		Registery.Register(items.DBlood, "DemonicBlood", "Tainted Orc's Blood");
@@ -34,13 +35,22 @@ public class ModReg {
 	}
 	
 	public static void recipeGReg() {
-		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X',Item.ingotGold);
+		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X', Item.ingotGold);
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.Spike), " X ", "X X", 'X', Block.cobblestone);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.Dam, 2, 3), "XXX", "XQX", "XIX", 'X', Block.wood, 'Q', Block.blockIron, 'I', Item.redstone);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 6), "QQQ", " X ", "X X", 'Q', Block.dirt, 'X', Item.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 7), "QQQ", " X ", "X X", 'Q', Block.sand, 'X', Item.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 8), "QQQ", " X ", "X X", 'Q', Block.stone, 'X', Item.stick);
 		
 	}
+	
 	public static void Worlds() {
 		GameRegistry.registerWorldGenerator(new BDiaGen());
 	}
+	
 	public static void Modifiers() {
 		MinecraftForge.setBlockHarvestLevel(blocks.BDiamond_ore, "pickaxe", 2);
-	}	
+	}
 }

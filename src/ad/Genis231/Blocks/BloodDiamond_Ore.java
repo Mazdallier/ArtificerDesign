@@ -18,23 +18,19 @@ public class BloodDiamond_Ore extends Block {
 		setTextureName(textures.BDO);
 	}
 	
-	public int idDropped(int par1, Random par2Random, int par3)
-	{
+	public int idDropped(int par1, Random par2Random, int par3) {
 		return items.DBdirty.itemID;
 	}
 	
-	protected boolean canSilkHarvest()
-	{
+	protected boolean canSilkHarvest() {
 		return true;
 	}
 	
-	public boolean isGenMineableReplaceable(World world, int x, int y, int z, int target)
-	{
+	public boolean isGenMineableReplaceable(World world, int x, int y, int z, int target) {
 		return blockID == target;
 	}
 	
-	public int quantityDroppedWithBonus(int par1, Random random)
-	{
+	public int quantityDroppedWithBonus(int par1, Random random) {
 		int output;
 		output = random.nextInt(5);
 		
