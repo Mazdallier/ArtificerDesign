@@ -16,11 +16,10 @@ public class ModReg {
 		/* Blocks */
 		Registery.Register(blocks.BDiamond_ore, "BDOre", "Dirty Blood Gem Ore");
 		Registery.Register(blocks.FPTrap, "null_Block");
-		Registery.Register(blocks.Dam, "dam_block", "Dam (WIP)");
+		Registery.Register(blocks.Dam, "dam_block", "Dam");
 		Registery.Register(blocks.FalseLoot, "FalseLoot", "False Loot");
 		Registery.Register(blocks.ItableT1, "Itable1", "Imbueing Table teir1");
 		Registery.Register(blocks.ItableT2, "Itable2", "Imbueing Table teir2");
-		Registery.Register(blocks.GlowDirt, "GlowDirt", "Glow Dirt");
 		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
 		
 		/* Items */
@@ -37,13 +36,18 @@ public class ModReg {
 	public static void recipeGReg() {
 		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X', Item.ingotGold);
 		GameRegistry.addShapedRecipe(new ItemStack(blocks.Spike), " X ", "X X", 'X', Block.cobblestone);
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.Dam), "QWQ", "ASA", "QDQ", 'Q', Block.stone, 'W', Block.trapdoor, 'A', items.BDPure, 'S', Item.bucketWater, 'D', Item.redstone);
+		GameRegistry.addShapedRecipe(new ItemStack(items.BDPure), "XXX", "XQX", "XXX", 'X', items.ABlood, 'Q', items.DBdirty);
 		
-		GameRegistry.addShapedRecipe(new ItemStack(blocks.Dam, 2, 3), "XXX", "XQX", "XIX", 'X', Block.wood, 'Q', Block.blockIron, 'I', Item.redstone);
-		
-		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 6), "QQQ", " X ", "X X", 'Q', Block.dirt, 'X', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 7), "QQQ", " X ", "X X", 'Q', Block.sand, 'X', Item.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 8), "QQQ", " X ", "X X", 'Q', Block.stone, 'X', Item.stick);
-		
+		{
+			GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 0), "QQQ", " X ", "X X", 'Q', Block.dirt, 'X', Item.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 1), "QQQ", " X ", "X X", 'Q', Block.sand, 'X', Item.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 2), "QQQ", " X ", "X X", 'Q', Block.stone, 'X', Item.stick);
+			
+			for (int i = 3; i < 10; i++) {
+				GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, i), "QQQ", " X ", "X X", 'Q', new ItemStack(items.PTrap, 1, i - 3), 'X', Item.stick);
+			}
+		}
 	}
 	
 	public static void Worlds() {

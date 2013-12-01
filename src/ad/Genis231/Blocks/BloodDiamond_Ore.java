@@ -14,7 +14,7 @@ public class BloodDiamond_Ore extends Block {
 		super(id, Material.rock);
 		setUnlocalizedName("BDOre");
 		setLightValue(1.0F);
-		setHardness(10.0f);
+		setHardness(5.0f);
 		setTextureName(textures.BDO);
 	}
 	
@@ -26,16 +26,12 @@ public class BloodDiamond_Ore extends Block {
 		return true;
 	}
 	
-	public boolean isGenMineableReplaceable(World world, int x, int y, int z, int target) {
-		return blockID == target;
-	}
-	
 	public int quantityDroppedWithBonus(int par1, Random random) {
 		int output;
 		output = random.nextInt(5);
 		
 		System.out.println(output);
-		if (output != 0) {
+		if (output > 0) {
 			return output;
 		} else {
 			return 1;

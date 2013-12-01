@@ -13,8 +13,5 @@ public class blocks {
     public static final Block FPTrap = new PTBlock(blockIDs.FALSE_PIT_TRAP).setUnlocalizedName("Null_block");
     public static final Block ItableT1 = new ITableBlock(blockIDs.ITableT1).setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
     public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2).setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
-    public static final Block GlowDirt = new GlowDirt(blockIDs.GDirt).setCreativeTab(Ref.TAB).setUnlocalizedName("GlowDirt");
-    public static final Block Spike = new SpikeTrap(blockIDs.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");
-    
-    
+    public static final Block Spike = new SpikeTrap(blockIDs.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike");  
 }

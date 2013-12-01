@@ -8,8 +8,6 @@ public class Gem extends Item {
 	
 	public Gem(int id) {
 		super(id);
-		setUnlocalizedName("BDdirty");
-		
 	}
 	
 }
