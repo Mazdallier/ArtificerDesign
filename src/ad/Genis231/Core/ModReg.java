@@ -21,6 +21,7 @@ public class ModReg {
 		Registery.Register(blocks.ItableT1, "Itable1", "Imbueing Table teir1");
 		Registery.Register(blocks.ItableT2, "Itable2", "Imbueing Table teir2");
 		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
+		Registery.Register(blocks.BTrap,"BTrap","Bear Trap");
 		
 		/* Items */
 		Registery.Register(items.ODust, "ORangeDust", "Orange Dust");

@@ -1,6 +1,9 @@
 package ad.Genis231.lib;
 
 public class Models {
-    public static final String Spike = "/assets/artificer/textures/models/Spike.obj";
-    public static final String ITable = "/assets/artificer/textures/models/ITable.obj";
+	static String Folder = "/assets/artificer/textures/models/";
+	
+	public static final String Spike = Folder + "Spike.obj";
+	public static final String ITable = Folder + "ITable.obj";
+	public static final String BTrap = Folder + "BearTrap.obj";
 }
