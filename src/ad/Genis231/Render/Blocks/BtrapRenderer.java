@@ -9,6 +9,7 @@ import org.lwjgl.opengl.GL11;
 import ad.Genis231.Models.Blocks.BearTrapModel;
 import ad.Genis231.Render.TileEntity.BearTrapTile;
 import ad.Genis231.Render.TileEntity.SpikeTile;
+import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,7 +33,7 @@ public class BtrapRenderer extends TileEntitySpecialRenderer {
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
 			
 			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation("artificer", "textures/blocks/iron.png"));
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.BearTrap);
 			
 			// Render
 			Model.RenderBase();
