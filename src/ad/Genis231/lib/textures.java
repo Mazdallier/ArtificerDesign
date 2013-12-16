@@ -28,6 +28,7 @@ public class textures {
 	
 	/* Block Textures */
 	public static final String BDO = Ref.Resource_FOLDER + "BDOre";
+	public static final String CPP = Ref.Resource_FOLDER + "Plate";
 	
 	/* Item Textures */
 	public static final String BDDirty = Ref.Resource_FOLDER + "Dirty_BDiamond";

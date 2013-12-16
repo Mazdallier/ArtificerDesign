@@ -12,4 +12,5 @@ public class blockIDs {
 	public static final int BearTrap = 207; // BearTrap of boringness
 	public static final int Spike = 208; // spike trap
 	public static final int BTrap = 209; // Bear Trap
+	public static final int PPlate = 210; //Custom PressurePlate
 }

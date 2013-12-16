@@ -1,8 +1,7 @@
 package ad.Genis231.Blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import ad.Genis231.lib.ADLog;
+import net.minecraft.block.EnumMobType;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;
 
@@ -14,5 +13,6 @@ public class blocks {
     public static final Block ItableT1 = new ITableBlock(blockIDs.ITableT1).setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
     public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2).setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
     public static final Block Spike = new SpikeTrap(blockIDs.Spike).setCreativeTab(Ref.TAB).setUnlocalizedName("Spike"); 
+	public static final Block PressurePlate = new BPP(blockIDs.PPlate,EnumMobType.mobs).setCreativeTab(Ref.TAB).setUnlocalizedName("CustomPPlate");
     public static final Block BTrap = new BTrap(blockIDs.BearTrap).setCreativeTab(Ref.TAB).setUnlocalizedName("BTrap");
 }
