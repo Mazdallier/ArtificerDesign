@@ -24,9 +24,6 @@ public class BtrapRenderer extends TileEntitySpecialRenderer {
 		
 		if (tileEntity instanceof BearTrapTile) {
 			
-			GL11.glDisable(GL11.GL_LIGHTING);
-			GL11.glDisable(GL11.GL_CULL_FACE);
-			
 			GL11.glPushMatrix();
 			
 			GL11.glScalef(1.0F, 1.0F, 1.0F);
@@ -38,10 +35,8 @@ public class BtrapRenderer extends TileEntitySpecialRenderer {
 			// Render
 			Model.RenderBase();
 			Model.RenderSide();
-			GL11.glPopMatrix();
 			
-			GL11.glEnable(GL11.GL_CULL_FACE);
-			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 		}
 	}
 }

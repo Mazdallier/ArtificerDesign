@@ -21,16 +21,10 @@ public class ITableRenderer2 extends TileEntitySpecialRenderer {
         
         if (tileEntity instanceof ITable2) {
             float rotation = (float) (360.0 * (System.currentTimeMillis() & speed) / speed);
-            
-            GL11.glDisable(GL11.GL_LIGHTING);
-            GL11.glDisable(GL11.GL_CULL_FACE);
                         
             block(x, y, z, 1.0F);
             circle(x, y, z, 1.0F, rotation, 1);
             circle(x, y, z, 1.0F, -rotation, 2);
-                        
-            GL11.glEnable(GL11.GL_CULL_FACE);
-            GL11.glEnable(GL11.GL_LIGHTING);
         }
     }
     

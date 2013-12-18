@@ -23,9 +23,6 @@ public class SpikeTileRenderer extends TileEntitySpecialRenderer {
 		
 		if (tileEntity instanceof SpikeTile) {
 			
-			GL11.glDisable(GL11.GL_LIGHTING);
-			GL11.glDisable(GL11.GL_CULL_FACE);
-			
 			GL11.glPushMatrix();
 			
 			// Scale, Translate, Rotate
@@ -40,50 +37,6 @@ public class SpikeTileRenderer extends TileEntitySpecialRenderer {
 			// Render
 			modelSpike.render();
 			GL11.glPopMatrix();
-			
-			GL11.glEnable(GL11.GL_CULL_FACE);
-			GL11.glEnable(GL11.GL_LIGHTING);
 		}
 	}
-    
-    private void RenderDirection(double x, double y, double z, int side) {
-        
-        switch (side) {
-            case 0:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x, (float) y, (float) z);
-                GL11.glRotatef(90F, 1F, 0F, 0F);
-                return;
-                
-            case 1:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x, (float) y, (float) z);
-                GL11.glRotatef(-90F, 1F, 0F, 0F);
-                return;
-                
-            case 2:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x, (float) y, (float) z);
-                GL11.glRotatef(180F, 0F, 1F, 0F);
-                return;
-                
-            case 4:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x, (float) y, (float) z);
-                GL11.glRotatef(-90F, 0F, 0F, 1F);
-                return;
-                
-            case 5:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x + 2.0F, (float) y, (float) z);
-                GL11.glRotatef(90F, 0F, 0F, 1F);
-                return;
-                
-            default:
-                GL11.glScalef(1.0F, 1.0F, 1.0F);
-                GL11.glTranslatef((float) x, (float) y, (float) z);
-                return;
-                
-        }
-    }
 }

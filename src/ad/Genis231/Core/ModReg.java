@@ -23,6 +23,7 @@ public class ModReg {
 		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
 		Registery.Register(blocks.BTrap,"BTrap","Bear Trap");
 		Registery.Register(blocks.PressurePlate,"CPPlate","Custom Pressure Plate (WIP)");
+		Registery.Register(blocks.Drill,"Drill","Drill (WIP)");
 		
 		/* Items */
 		Registery.Register(items.ODust, "ORangeDust", "Orange Dust");
