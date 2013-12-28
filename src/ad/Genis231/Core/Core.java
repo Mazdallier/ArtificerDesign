@@ -29,9 +29,11 @@ public class Core {
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy")
 	public static CommonProxy proxy;
 	
+	@Deprecated
 	@EventHandler
 	public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
 	
+	@Deprecated
 	@EventHandler
 	public void fingerPrint(FMLFingerprintViolationEvent event) {
 		if (event.expectedFingerprint != event.expectedFingerprint) {}

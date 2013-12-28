@@ -1,5 +1,6 @@
 package ad.Genis231.Blocks;
 
+import ad.Genis231.Blocks.drill.DrillThread;
 import ad.Genis231.lib.ADLog;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
@@ -17,33 +18,16 @@ import net.minecraft.world.World;
 
 public class Drill extends Block {
 	
+	Thread DrillThread;
+	
 	public Drill(int id) {
 		super(id, Material.rock);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
-		
 		if (world.isBlockIndirectlyGettingPowered(x, y, z) && !world.isRemote) {
-			for (int i = y - 1; i > 0; i--) {
-				blockBreak(world, x, i, z, 1);
-			}
-		}
-	}
-	
-	public void blockBreak(World world, int x, int y, int z, int area) {
-		int minX, minZ, maxX, maxZ;
-		
-		minX = x - area;
-		maxX = x + area;
-		
-		minZ = z - area;
-		maxZ = z + area;
-		
-		for (int xx = minX; xx <= maxX; xx++) {
-			for (int zz = minZ; zz <= maxZ; zz++) {
-				//Block.blocksList[l].dropBlockAsItem(world, xx, y, zz, i1, 0);
-				world.destroyBlock(xx, y, zz, true);
-			}
+			DrillThread = new Thread(new DrillThread(world, x, y, z));
+			DrillThread.start();
 		}
 	}
 }
