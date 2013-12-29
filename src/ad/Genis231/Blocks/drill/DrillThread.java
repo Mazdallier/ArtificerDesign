@@ -1,5 +1,6 @@
 package ad.Genis231.Blocks.drill;
 
+import ad.Genis231.Blocks.blocks;
 import ad.Genis231.lib.ADLog;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -10,7 +11,7 @@ public class DrillThread implements Runnable {
 	
 	@Override
 	public void run() {
-		int area = 20;
+		int area = 5;
 		
 		int minX = x - area;
 		int maxX = x + area;
@@ -23,11 +24,13 @@ public class DrillThread implements Runnable {
 				for (int fy = y - 1; fy > 0; fy--) {
 					for (int fx = minX; fx <= maxX; fx++) {
 						for (int fz = minZ; fz <= maxZ; fz++) {
-							if (world.getBlockId(fx, fy, fz) != 0) {
-								Thread.sleep(100);
+							if (world.getBlockId(x, y, z) != blocks.Drill.blockID || !world.isBlockIndirectlyGettingPowered(x, y, z)) return;
+							
+							else if (world.getBlockId(fx, fy, fz) != 0) {
+								Thread.sleep(1);
 								
 								// destroyBlock(world, fx, fy, fz, x, y, z);
-								world.setBlock(fx, fy, fz, 0);
+								world.destroyBlock(fx, fy, fz, false);
 							}
 						}
 					}
