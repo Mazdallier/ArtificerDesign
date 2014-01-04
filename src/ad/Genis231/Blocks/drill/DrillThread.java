@@ -38,7 +38,7 @@ public class DrillThread implements Runnable {
 	public void run() {
 		
 		try {
-			int[] array = MinMax(5);
+			int[] array = MinMax(15);
 			if (!world.isRemote) {
 				for (int fy = trueY - 1; fy > 0; fy--) {
 					for (int fx = array[0]; fx <= array[1]; fx++) {
@@ -46,9 +46,9 @@ public class DrillThread implements Runnable {
 							if (world.getBlockId(trueX, trueY, trueZ) != blocks.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
 							
 							else if (check(world.getBlockId(fx, fy, fz))) {
-								Thread.sleep(100);
+								Thread.sleep(10);
 								
-								dropBlock(world, fx, fy, fz);
+								//dropBlock(world, fx, fy, fz);
 								System.out.println("X: " + fx + " Y: " + fy + " Z: " + fz);
 								world.setBlockToAir(fx, fy, fz);
 							}

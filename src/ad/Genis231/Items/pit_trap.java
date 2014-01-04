@@ -22,12 +22,13 @@ public class pit_trap extends Item {
 	
 	public pit_trap(int id) {
 		super(id);
-		setHasSubtypes(true);
+		// setHasSubtypes(true);
 		setUnlocalizedName("Vine Mat");
 	}
-	
+
 	public static Icon[] IconArray = new Icon[9];
 	public static final String[] UnlocalizedArray = { "Dirt Teir 1", "Sand Teir 1", "Stone Teir 1", "Dirt Teir 2", "Sand Teir 2", "Stone Teir 2", "Dirt Teir 3", "Sand Teir 3", "Stone Teir 3" };
+	public static final int[] tiers = { 8, 12, 18 };
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
@@ -55,19 +56,19 @@ public class pit_trap extends Item {
 	}
 	
 	int getRange(ItemStack item) {
-		if (item.getItemDamage() < 3) return 6;
-		else if (item.getItemDamage() < 6) return 12;
-		else return 18;
+		if (item.getItemDamage() < 3) return tiers[0];
+		else if (item.getItemDamage() < 6) return tiers[1];
+		else return tiers[2];
 	}
 	
 	void range(World world, EntityPlayer player, int x, int y, int z, ItemStack item) {
 		int mx = x, mX = x, mz = z, mZ = z, max = getRange(item);
 		
 		for (int i = 0; i <= max * 2; i++) {
-			mx = world.getBlockId(mx - 1, y, z) == 0 ? x - i : mx;
-			mX = world.getBlockId(mX + 1, y, z) == 0 ? x + i : mX;
-			mz = world.getBlockId(x, y, mz - 1) == 0 ? z - i : mz;
-			mZ = world.getBlockId(x, y, mZ + 1) == 0 ? z + i : mZ;
+			mx = world.getBlockId(mx - 1, y, z) == 0 ? mx - 1 : mx;
+			mX = world.getBlockId(mX + 1, y, z) == 0 ? mX + 1 : mX;
+			mz = world.getBlockId(x, y, mz - 1) == 0 ? mz - 1 : mz;
+			mZ = world.getBlockId(x, y, mZ + 1) == 0 ? mZ + 1 : mZ;
 		}
 		
 		int dimX = mx - mX;
