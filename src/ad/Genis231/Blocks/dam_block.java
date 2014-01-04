@@ -31,7 +31,7 @@ public class dam_block extends Block {
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int par5) {
 		if (!world.isBlockIndirectlyGettingPowered(x, y, z)) {
-			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) + 4, 3);
+			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z), 3);
 			set(world, x, y, z, world.getBlockMetadata(x, y, z) - 4);
 		}
 	}

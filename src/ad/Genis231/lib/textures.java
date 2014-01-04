@@ -14,7 +14,12 @@ public class textures {
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
 	
 	/* DamBlock Textures */
-	public static final String[] DamArray = { Ref.Resource_FOLDER + "dam_side", Ref.Resource_FOLDER + "dam_open", Ref.Resource_FOLDER + "dam_close" };
+	private static final String dam = Ref.Resource_FOLDER + "dam/";
+	public static final String[] DamArray = { dam + "side", dam + "open", dam + "close" };
+	
+	/* DrillBlock Textures */
+	private static final String drill = Ref.Resource_FOLDER + "drill/";
+	public static final String[] DrillArray = { drill + "evenSide", drill + "oddSide", drill + "top", drill + "bot" };
 	
 	/* GlowDirtBlock Textures */
 	public static final String[] GDArray = { Ref.Resource_FOLDER + "GDirt_side", Ref.Resource_FOLDER + "GDirt_top", Ref.Resource_FOLDER + "GDirt_bot" };

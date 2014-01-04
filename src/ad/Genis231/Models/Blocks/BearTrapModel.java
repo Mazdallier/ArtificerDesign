@@ -12,6 +12,10 @@ public class BearTrapModel extends ModelBase {
         model = AdvancedModelLoader.loadModel(Models.BTrap);
     }
 
+    public void randerAll(){
+    	model.renderAll();
+    }
+    
     public void RenderBase(){
     	model.renderPart("Base");
     }

@@ -1,7 +1,6 @@
 package ad.Genis231.Core;
 
 import net.minecraftforge.common.Configuration;
-import ad.Genis231.Core.Registering.MobReg;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
@@ -54,7 +53,7 @@ public class Core {
 		proxy.registerRenderers();
 		
 		ModReg.Modifiers();
-		MobReg.mobs();
+		CreatureReg.mobs();
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}

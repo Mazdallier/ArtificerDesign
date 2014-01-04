@@ -1,11 +1,10 @@
-package ad.Genis231.Core.Registering;
+package ad.Genis231.Core;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
-import ad.Genis231.Core.Core;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
@@ -13,7 +12,7 @@ import ad.Genis231.lib.ADLog;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class MobReg {
+public class CreatureReg {
 	static int baseEntityID = 300;
 	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
 	public static String[] dwarfNames = { "Savage", "Warrior", "Trader" };

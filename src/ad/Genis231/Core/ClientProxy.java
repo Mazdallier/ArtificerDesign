@@ -4,12 +4,12 @@ import java.util.Random;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Blocks.blocks;
-import ad.Genis231.Core.Registering.MobReg;
 import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Render.Blocks.BtrapRenderer;
 import ad.Genis231.Render.Blocks.ITableRenderer1;
 import ad.Genis231.Render.Blocks.ITableRenderer2;
 import ad.Genis231.Render.Blocks.SpikeTileRenderer;
+import ad.Genis231.Render.Items.ItemBearTrapRenderer;
 import ad.Genis231.Render.Items.ItemITable1Renderer;
 import ad.Genis231.Render.Items.ItemITable2Renderer;
 import ad.Genis231.Render.Items.ItemSpikeRenderer;
@@ -27,8 +27,8 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers() {
 		Random rand = new Random();
 		
-		for (int i = 0; i < MobReg.dwarfClass.length; i++) {
-			RenderingRegistry.registerEntityRenderingHandler(MobReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
+		for (int i = 0; i < CreatureReg.dwarfClass.length; i++) {
+			RenderingRegistry.registerEntityRenderingHandler(CreatureReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
 		}
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeTileRenderer());
@@ -44,5 +44,6 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(blocks.Spike.blockID, new ItemSpikeRenderer());
 		MinecraftForgeClient.registerItemRenderer(blocks.ItableT1.blockID, new ItemITable1Renderer());
 		MinecraftForgeClient.registerItemRenderer(blocks.ItableT2.blockID, new ItemITable2Renderer());
+		MinecraftForgeClient.registerItemRenderer(blocks.BTrap.blockID, new ItemBearTrapRenderer());
 	}
 }
