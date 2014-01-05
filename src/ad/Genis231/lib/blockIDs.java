@@ -12,7 +12,6 @@ public class blockIDs {
 	public static final int BearTrap = 207; // BearTrap of boringness
 	public static final int Spike = 208; // spike trap
 	public static final int BTrap = 209; // Bear Trap
-	public static final int PPlate = 210; //Custom PressurePlate
-	public static final int Drill = 211; //Drill 'multi-block' creation
-	public static final int DStone = 212; //Dwarven Stone used for crafting, and is half as hard as obsidien
+	public static final int Drill = 210; //Drill 'multi-block' creation
+	public static final int DStone = 211; //Dwarven Stone used for crafting, and is half as hard as obsidien
 }

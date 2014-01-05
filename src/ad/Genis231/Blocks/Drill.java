@@ -34,13 +34,15 @@ public class Drill extends Block {
 	@SideOnly(Side.CLIENT)
 	public static Icon botIcon;
 	
+	int size=5;
+	
 	public Drill(int id) {
 		super(id, Material.rock);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
 		if (world.isBlockIndirectlyGettingPowered(x, y, z) && !world.isRemote) {
-			DrillThread = new Thread(new DrillThread(world, x, y, z));
+			DrillThread = new Thread(new DrillThread(world, x, y, z,size));
 			DrillThread.start();
 		}
 	}

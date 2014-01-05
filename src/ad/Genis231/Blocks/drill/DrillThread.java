@@ -23,22 +23,23 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class DrillThread implements Runnable {
 	World world;
-	int trueX, trueY, trueZ;
+	int trueX, trueY, trueZ,size;
 	
 	int[] Unbreakable = { Block.waterMoving.blockID, Block.waterMoving.blockID, 0, Block.lavaMoving.blockID, Block.lavaStill.blockID, Block.chest.blockID, Block.chestTrapped.blockID, Block.bedrock.blockID };
 	
-	public DrillThread(World wo, int q, int w, int e) {
+	public DrillThread(World wo, int q, int w, int e, int s) {
 		world = wo;
 		trueX = q;
 		trueY = w;
 		trueZ = e;
+		size = s;
 	}
 	
 	@Override
 	public void run() {
 		
 		try {
-			int[] array = MinMax(15);
+			int[] array = MinMax(size);
 			if (!world.isRemote) {
 				for (int fy = trueY - 1; fy > 0; fy--) {
 					for (int fx = array[0]; fx <= array[1]; fx++) {
@@ -46,7 +47,7 @@ public class DrillThread implements Runnable {
 							if (world.getBlockId(trueX, trueY, trueZ) != blocks.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
 							
 							else if (check(world.getBlockId(fx, fy, fz))) {
-								Thread.sleep(10);
+								Thread.sleep(1000);
 								
 								//dropBlock(world, fx, fy, fz);
 								System.out.println("X: " + fx + " Y: " + fy + " Z: " + fz);

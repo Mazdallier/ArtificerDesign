@@ -21,10 +21,9 @@ public class ModReg {
 		Registery.Register(blocks.ItableT1, "Itable1", "Imbueing Table teir1");
 		Registery.Register(blocks.ItableT2, "Itable2", "Imbueing Table teir2");
 		Registery.Register(blocks.Spike, "SpikePit", "Spike Pit");
-		Registery.Register(blocks.BTrap,"BTrap","Bear Trap");
-		Registery.Register(blocks.PressurePlate,"CPPlate","Custom Pressure Plate (WIP)");
-		Registery.Register(blocks.Drill,"Drill","Drill (WIP)");
-		Registery.Register(blocks.DwarvenStone,"DStone","Dwarven Stone");
+		Registery.Register(blocks.BTrap, "BTrap", "Bear Trap");
+		Registery.Register(blocks.Drill, "Drill", "Drill (WIP)");
+		Registery.Register(blocks.DwarvenStone, "DStone", "Dwarven Stone");
 		
 		/* Items */
 		Registery.Register(items.ODust, "ORangeDust", "Orange Dust");
@@ -38,11 +37,23 @@ public class ModReg {
 	}
 	
 	public static void recipeGReg() {
+		// Blocks
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.Dam), "QWQ", "ASA", "QDQ", 'Q', Block.stone, 'W', Block.trapdoor, 'A', items.BDPure, 'S', Item.bucketWater, 'D', Item.redstone);
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.Drill), "XXX", "BDB", "IBI", 'X', Block.stone, 'B', items.BDPure, 'D', Item.diamond, 'I', Item.ingotIron);
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.BTrap), "TIT", "SSS", 'T', blocks.Spike, 'I', items.BDPure, 'S', Item.ingotIron);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.ItableT1), "QWE", "RTR", "UIU", 'Q', items.ABlood, 'W', Item.bowlEmpty, 'E', items.DBlood, 'R', Block.enchantmentTable, 'T', Block.blockDiamond, 'U', items.BDPure, 'I', items.DBdirty);
+		GameRegistry.addShapedRecipe(new ItemStack(blocks.ItableT2), "QWE", "RTR", "UIU", 'Q', items.ABlood, 'W', items.GBowl, 'E', items.DBlood, 'R', blocks.ItableT1, 'T', Block.blockDiamond, 'U', items.BDPure, 'I', items.DBdirty);
+		
+		// Items
 		GameRegistry.addShapedRecipe(new ItemStack(items.GBowl), "X X", " X ", 'X', Item.ingotGold);
 		GameRegistry.addShapedRecipe(new ItemStack(blocks.Spike), " X ", "X X", 'X', Block.cobblestone);
-		GameRegistry.addShapedRecipe(new ItemStack(blocks.Dam), "QWQ", "ASA", "QDQ", 'Q', Block.stone, 'W', Block.trapdoor, 'A', items.BDPure, 'S', Item.bucketWater, 'D', Item.redstone);
 		GameRegistry.addShapedRecipe(new ItemStack(items.BDPure), "XXX", "XQX", "XXX", 'X', items.ABlood, 'Q', items.DBdirty);
 		
+		// Shapeless
+		GameRegistry.addShapelessRecipe(new ItemStack(items.ODust), Item.glowstone, Item.redstone, Item.redstone);
+		
+		// Pit-Trap
 		{
 			GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 0), "QQQ", " X ", "X X", 'Q', Block.dirt, 'X', Item.stick);
 			GameRegistry.addShapedRecipe(new ItemStack(items.PTrap, 1, 1), "QQQ", " X ", "X X", 'Q', Block.sand, 'X', Item.stick);

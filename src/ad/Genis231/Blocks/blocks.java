@@ -13,7 +13,6 @@ public class blocks {
     public static final Block ItableT1 =      new ITableBlock(blockIDs.ITableT1)       .setCreativeTab(Ref.TAB).setUnlocalizedName("ITable1");
     public static final Block ItableT2 =      new ITableBlock(blockIDs.ITableT2)       .setCreativeTab(Ref.TAB).setUnlocalizedName("ITable2");
     public static final Block Spike =         new SpikeTrap(blockIDs.Spike)            .setCreativeTab(Ref.TAB).setUnlocalizedName("Spike"); 
-	public static final Block PressurePlate = new BPP(blockIDs.PPlate,EnumMobType.mobs).setCreativeTab(Ref.TAB).setUnlocalizedName("CustomPPlate");
     public static final Block BTrap =         new BTrap(blockIDs.BearTrap)             .setCreativeTab(Ref.TAB).setUnlocalizedName("BTrap");
     public static final Block Drill =         new Drill(blockIDs.Drill)                .setCreativeTab(Ref.TAB).setUnlocalizedName("Drill_MB");
     public static final Block DwarvenStone =  new DwarvenStone(blockIDs.DStone)        .setCreativeTab(Ref.TAB).setUnlocalizedName("DwarvenStone");
