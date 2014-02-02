@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks.drill;
+package ad.Genis231.Blocks.Thread;
 
 import java.util.List;
 import ad.Genis231.Blocks.blocks;
@@ -47,10 +47,9 @@ public class DrillThread implements Runnable {
 							if (world.getBlockId(trueX, trueY, trueZ) != blocks.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
 							
 							else if (check(world.getBlockId(fx, fy, fz))) {
-								Thread.sleep(1000);
+								Thread.sleep(10);
 								
 								//dropBlock(world, fx, fy, fz);
-								System.out.println("X: " + fx + " Y: " + fy + " Z: " + fz);
 								world.setBlockToAir(fx, fy, fz);
 							}
 						}
@@ -95,9 +94,9 @@ public class DrillThread implements Runnable {
 		array[3] = maxZ;
 		
 		for (int i : array) {
-			System.out.print(i + " ");
+			//System.out.print(i + " ");
 		}
-		System.out.println();
+		//System.out.println();
 		
 		return array;
 	}

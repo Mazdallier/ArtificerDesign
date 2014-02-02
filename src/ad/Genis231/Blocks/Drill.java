@@ -1,25 +1,14 @@
 package ad.Genis231.Blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import ad.Genis231.Blocks.drill.DrillThread;
-import ad.Genis231.lib.ADLog;
-import ad.Genis231.lib.textures;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.block.BlockHopper;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntityHopper;
-import net.minecraft.util.Facing;
+import net.minecraft.src.ModLoader;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import ad.Genis231.lib.textures;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class Drill extends Block {
 	
@@ -34,7 +23,7 @@ public class Drill extends Block {
 	@SideOnly(Side.CLIENT)
 	public static Icon botIcon;
 	
-	int size=5;
+	int size = 5;
 	
 	public Drill(int id) {
 		super(id, Material.rock);
@@ -42,8 +31,12 @@ public class Drill extends Block {
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
 		if (world.isBlockIndirectlyGettingPowered(x, y, z) && !world.isRemote) {
-			DrillThread = new Thread(new DrillThread(world, x, y, z,size));
-			DrillThread.start();
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~This block no longer works!! they created an excess of Threads which is a HUGE stability issue!! to be fixed eventually...");
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~don't ask me why it sends it twice, it SHOULD only be once but i guess it doesn't like me .-.");
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("");
+			// DrillThread = new Thread(new DrillThread(world, x, y, z, size));
+			// DrillThread.start();
+			
 		}
 	}
 	
