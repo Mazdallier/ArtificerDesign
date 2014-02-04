@@ -27,8 +27,6 @@ public class ModReg {
 		
 		/* Items */
 		Registery.Register(ADItem.ODust, "ORangeDust", "Orange Dust");
-		Registery.Register(ADItem.DBdirty, "BDdirty", "Impure Red Gem");
-		Registery.Register(ADItem.BDPure, "BDPure", "Purified Red Gem");
 		Registery.Register(ADItem.GBowl, "GoldBowl", "Gold Bowl");
 		Registery.Register(ADItem.ABlood, "AngelicBlood", "Blessed Elve's Blood");
 		Registery.Register(ADItem.DBlood, "DemonicBlood", "Tainted Orc's Blood");
@@ -38,17 +36,17 @@ public class ModReg {
 	
 	public static void recipeGReg() {
 		// Blocks
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Dam), "QWQ", "ASA", "QDQ", 'Q', Block.stone, 'W', Block.trapdoor, 'A', ADItem.BDPure, 'S', Item.bucketWater, 'D', Item.redstone);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Drill), "XXX", "BDB", "IBI", 'X', Block.stone, 'B', ADItem.BDPure, 'D', Item.diamond, 'I', Item.ingotIron);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.BTrap), "TIT", "SSS", 'T', ADBlock.Spike, 'I', ADItem.BDPure, 'S', Item.ingotIron);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Dam), "QWQ", "ASA", "QDQ", 'Q', Block.stone, 'W', Block.trapdoor, 'A', ADItem.ABlood, 'S', Item.bucketWater, 'D', Item.redstone);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Drill), "XXX", "BDB", "IBI", 'X', Block.stone, 'B', ADItem.ABlood, 'D', Item.diamond, 'I', Item.ingotIron);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.BTrap), "TIT", "SSS", 'T', ADBlock.Spike, 'I', ADItem.ABlood, 'S', Item.ingotIron);
 		
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.ItableT1), "QWE", "RTR", "UIU", 'Q', ADItem.ABlood, 'W', Item.bowlEmpty, 'E', ADItem.DBlood, 'R', Block.enchantmentTable, 'T', Block.blockDiamond, 'U', ADItem.BDPure, 'I', ADItem.DBdirty);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.ItableT2), "QWE", "RTR", "UIU", 'Q', ADItem.ABlood, 'W', ADItem.GBowl, 'E', ADItem.DBlood, 'R', ADBlock.ItableT1, 'T', Block.blockDiamond, 'U', ADItem.BDPure, 'I', ADItem.DBdirty);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.ItableT1), "QWE", "RTR", "UIU", 'Q', ADItem.ABlood, 'W', Item.bowlEmpty, 'E', ADItem.DBlood, 'R', Block.enchantmentTable, 'T', Block.blockDiamond, 'U', ADItem.ABlood, 'I', ADItem.DBlood);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.ItableT2), "QWE", "RTR", "UIU", 'Q', ADItem.ABlood, 'W', ADItem.GBowl, 'E', ADItem.DBlood, 'R', ADBlock.ItableT1, 'T', Block.blockDiamond, 'U', ADItem.ABlood, 'I', ADItem.DBlood);
 		
 		// Items
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.GBowl), "X X", " X ", 'X', Item.ingotGold);
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Spike), " X ", "X X", 'X', Block.cobblestone);
-		GameRegistry.addShapedRecipe(new ItemStack(ADItem.BDPure), "XXX", "XQX", "XXX", 'X', ADItem.ABlood, 'Q', ADItem.DBdirty);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItem.ABlood), "XXX", "XQX", "XXX", 'X', ADItem.ABlood, 'Q', ADItem.DBlood);
 		
 		// Shapeless
 		GameRegistry.addShapelessRecipe(new ItemStack(ADItem.ODust), Item.glowstone, Item.redstone, Item.redstone);

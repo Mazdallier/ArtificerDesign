@@ -27,7 +27,7 @@ class ADCreativeTAB extends CreativeTabs {
     
     @Override
     public ItemStack getIconItemStack() {
-        return new ItemStack(ADItem.BDPure);
+        return new ItemStack(ADItem.ABlood);
     }
     
     @Override

@@ -31,8 +31,6 @@ public class ADItem extends Item {
 	}
 	
 	public final static Item ODust = new ODust(itemIDs.OD, "ImPureGem");
-	public final static Item DBdirty = new Gem(itemIDs.BDD, "BDDirty",textures.BDDirty);
-	public final static Item BDPure = new Gem(itemIDs.BDP, "PureGem",textures.BDPure);
 	public final static Item ABlood = new Blood(itemIDs.Ablood, "ABlood",textures.ABlood);
 	public final static Item DBlood = new Blood(itemIDs.DBlood, "DBlood",textures.DBlood);
 	public final static Item GBowl = new Gold_Bowl(itemIDs.GBowl, "GBowl");

@@ -15,7 +15,7 @@ public class BloodDiamond_Ore extends ADBlock {
 	}
 	
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return ADItem.DBdirty.itemID;
+		return ADItem.DBlood.itemID;
 	}
 	
 	protected boolean canSilkHarvest() {

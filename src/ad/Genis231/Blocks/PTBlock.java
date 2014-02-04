@@ -26,6 +26,7 @@ public class PTBlock extends ADBlock {
 	public PTBlock(int id,String name) {
 		super(id, Material.rock,name);
 		setHardness(-1);
+		this.setCreativeTab(null);
 	}
 	
 	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
