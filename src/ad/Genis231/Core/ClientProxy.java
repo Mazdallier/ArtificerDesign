@@ -2,6 +2,7 @@ package ad.Genis231.Core;
 
 import java.util.Random;
 
+import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Blocks.ADBlock;
 import ad.Genis231.Models.mobs.DwarfModel;
@@ -14,10 +15,10 @@ import ad.Genis231.Render.Items.ItemITable1Renderer;
 import ad.Genis231.Render.Items.ItemITable2Renderer;
 import ad.Genis231.Render.Items.ItemSpikeRenderer;
 import ad.Genis231.Render.Mobs.dwarfRenderer;
-import ad.Genis231.Render.TileEntity.BearTrapTile;
-import ad.Genis231.Render.TileEntity.ITable1;
-import ad.Genis231.Render.TileEntity.ITable2;
-import ad.Genis231.Render.TileEntity.SpikeTile;
+import ad.Genis231.TileEntity.Models.BearTrapTile;
+import ad.Genis231.TileEntity.Models.ITable1;
+import ad.Genis231.TileEntity.Models.ITable2;
+import ad.Genis231.TileEntity.Models.SpikeTile;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -37,8 +38,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(BearTrapTile.class, new BtrapRenderer());
 		
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();
-		Ref.Table1Render = RenderingRegistry.getNextAvailableRenderId();
-		Ref.Table2Render = RenderingRegistry.getNextAvailableRenderId();
+		Ref.TableRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.BTrapRender = RenderingRegistry.getNextAvailableRenderId();
 		
 		MinecraftForgeClient.registerItemRenderer(ADBlock.Spike.blockID, new ItemSpikeRenderer());

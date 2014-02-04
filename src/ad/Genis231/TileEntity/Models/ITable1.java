@@ -1,4 +1,4 @@
-package ad.Genis231.Render.TileEntity;
+package ad.Genis231.TileEntity.Models;
 
 import ad.Genis231.TileEntity.ITableTile;
 

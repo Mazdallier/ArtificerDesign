@@ -25,8 +25,8 @@ public class Drill extends ADBlock {
 	
 	int size = 5;
 	
-	public Drill(int id,String name) {
-		super(id, Material.rock,name);
+	public Drill(int id, String name) {
+		super(id, Material.rock, name);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {

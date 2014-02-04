@@ -14,8 +14,7 @@ public class Ref {
     
     /* Render IDs */
     public static int SpikeRender;
-    public static int Table1Render;
-    public static int Table2Render;
+    public static int TableRender;
     public static int BTrapRender;
 }
 

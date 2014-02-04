@@ -8,11 +8,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.Render.TileEntity.BearTrapTile;
-import ad.Genis231.Render.TileEntity.SpikeTile;
+import ad.Genis231.TileEntity.Models.BearTrapTile;
+import ad.Genis231.TileEntity.Models.SpikeTile;
 import ad.Genis231.lib.Ref;
 
-public class BTrap extends ADBlockContainer {
+public class BTrap extends ADBlockModel {
 	
 	public BTrap(int id,String name) {
 		super(id, Material.rock,name);
@@ -24,17 +24,7 @@ public class BTrap extends ADBlockContainer {
 		//TODO updates the State of the Block and makes you have to reset it;
 		entity.attackEntityFrom(DamageSource.generic, 1.0F);
 	}
-	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}
-	
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
-	}
-	
+
 	@Override
 	public int getRenderType() {
 		return Ref.BTrapRender;

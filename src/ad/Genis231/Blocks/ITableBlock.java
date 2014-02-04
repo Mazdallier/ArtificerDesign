@@ -6,11 +6,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Core.Core;
-import ad.Genis231.Render.TileEntity.ITable1;
-import ad.Genis231.Render.TileEntity.ITable2;
+import ad.Genis231.TileEntity.Models.ITable1;
+import ad.Genis231.TileEntity.Models.ITable2;
 import ad.Genis231.lib.Ref;
 
-public class ITableBlock extends ADBlockContainer {
+public class ITableBlock extends ADBlockModel {
     
     protected ITableBlock(int id,String name) {
         super(id, Material.rock,name);
@@ -22,19 +22,9 @@ public class ITableBlock extends ADBlockContainer {
     }
     
     @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-    
-    @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
-    
-    @Override
-    public int getRenderType() {
-        return this == ADBlock.ItableT1 ? Ref.Table1Render : Ref.Table2Render;
-    }
+	public int getRenderType() {
+		return Ref.TableRender;
+	}
     
     @Override
     public TileEntity createNewTileEntity(World world) {

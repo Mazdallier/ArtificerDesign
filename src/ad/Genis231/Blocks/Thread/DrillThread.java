@@ -5,9 +5,10 @@ import net.minecraft.world.World;
 import ad.Genis231.Blocks.ADBlock;
 import ad.Genis231.lib.ADLog;
 
+@Deprecated
 public class DrillThread implements Runnable {
 	World world;
-	int trueX, trueY, trueZ,size;
+	int trueX, trueY, trueZ, size;
 	
 	int[] Unbreakable = { Block.waterMoving.blockID, Block.waterMoving.blockID, 0, Block.lavaMoving.blockID, Block.lavaStill.blockID, Block.chest.blockID, Block.chestTrapped.blockID, Block.bedrock.blockID };
 	
@@ -33,7 +34,7 @@ public class DrillThread implements Runnable {
 							else if (check(world.getBlockId(fx, fy, fz))) {
 								Thread.sleep(10);
 								
-								//dropBlock(world, fx, fy, fz);
+								// dropBlock(world, fx, fy, fz);
 								world.setBlockToAir(fx, fy, fz);
 							}
 						}
@@ -78,9 +79,9 @@ public class DrillThread implements Runnable {
 		array[3] = maxZ;
 		
 		for (int i : array) {
-			//System.out.print(i + " ");
+			// System.out.print(i + " ");
 		}
-		//System.out.println();
+		// System.out.println();
 		
 		return array;
 	}
