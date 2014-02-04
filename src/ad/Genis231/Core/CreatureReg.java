@@ -34,8 +34,6 @@ public class CreatureReg {
 		do {
 			baseEntityID++;
 		} while (EntityList.getStringFromID(baseEntityID) != null);
-		
-		System.err.println(baseEntityID);
 		return baseEntityID;
 	}
 	

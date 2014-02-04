@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Items.ADItem;
 import ad.Genis231.Items.pit_trap;

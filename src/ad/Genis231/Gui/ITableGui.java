@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Containers.ITableContainer;
 import ad.Genis231.TileEntity.ITableTile;
 import ad.Genis231.lib.textures;

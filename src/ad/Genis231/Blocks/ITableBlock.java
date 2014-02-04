@@ -5,14 +5,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClasses.ADBlock;
+import ad.Genis231.BaseClasses.ADBlockModel;
 import ad.Genis231.Core.Core;
-import ad.Genis231.TileEntity.Models.ITable1;
-import ad.Genis231.TileEntity.Models.ITable2;
+import ad.Genis231.TileEntity.ITable1;
+import ad.Genis231.TileEntity.ITable2;
 import ad.Genis231.lib.Ref;
 
 public class ITableBlock extends ADBlockModel {
     
-    protected ITableBlock(int id,String name) {
+    public ITableBlock(int id,String name) {
         super(id, Material.rock,name);
     }
     

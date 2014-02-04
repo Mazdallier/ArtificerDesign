@@ -2,6 +2,7 @@ package ad.Genis231.Blocks;
 
 import java.util.Random;
 
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

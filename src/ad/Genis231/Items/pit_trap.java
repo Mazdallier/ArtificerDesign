@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Blocks.PTBlock;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;

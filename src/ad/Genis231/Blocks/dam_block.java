@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;

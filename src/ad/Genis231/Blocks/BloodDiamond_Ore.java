@@ -3,11 +3,12 @@ package ad.Genis231.Blocks;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Items.ADItem;
 import ad.Genis231.lib.textures;
 
 public class BloodDiamond_Ore extends ADBlock {
-	protected BloodDiamond_Ore(int id,String name) {
+	public BloodDiamond_Ore(int id,String name) {
 		super(id, Material.rock,name);
 		setLightValue(1.0F);
 		setHardness(5.0f);

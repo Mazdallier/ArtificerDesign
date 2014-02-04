@@ -1,9 +1,18 @@
-package ad.Genis231.Blocks;
+package ad.Genis231.BaseClasses;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.EnumMobType;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import ad.Genis231.Blocks.BTrap;
+import ad.Genis231.Blocks.BloodDiamond_Ore;
+import ad.Genis231.Blocks.Drill;
+import ad.Genis231.Blocks.DwarvenStone;
+import ad.Genis231.Blocks.ITableBlock;
+import ad.Genis231.Blocks.PTBlock;
+import ad.Genis231.Blocks.SpikeTrap;
+import ad.Genis231.Blocks.dam_block;
+import ad.Genis231.Blocks.false_loot;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;

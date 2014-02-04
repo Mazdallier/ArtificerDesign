@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class BDiaGen implements IWorldGenerator {

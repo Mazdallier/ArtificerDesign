@@ -7,7 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.TileEntity.ITableTile;
 
 public class ITableContainer extends Container {

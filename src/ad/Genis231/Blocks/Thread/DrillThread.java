@@ -2,7 +2,7 @@ package ad.Genis231.Blocks.Thread;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.lib.ADLog;
 
 @Deprecated
