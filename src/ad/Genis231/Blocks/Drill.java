@@ -10,7 +10,7 @@ import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Drill extends Block {
+public class Drill extends ADBlock {
 	
 	Thread DrillThread;
 	
@@ -25,8 +25,8 @@ public class Drill extends Block {
 	
 	int size = 5;
 	
-	public Drill(int id) {
-		super(id, Material.rock);
+	public Drill(int id,String name) {
+		super(id, Material.rock,name);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {

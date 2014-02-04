@@ -12,7 +12,7 @@ import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class dam_block extends Block {
+public class dam_block extends ADBlock {
 	
 	@SideOnly(Side.CLIENT)
 	public static Icon sideIcon;
@@ -21,12 +21,12 @@ public class dam_block extends Block {
 	@SideOnly(Side.CLIENT)
 	public static Icon closeIcon;
 	
-	public dam_block(int id) {
-		super(id, Material.rock);
+	public dam_block(int id, String name) {
+		super(id, Material.rock, name);
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
-		world.setBlock(x, y, z, blocks.Dam.blockID, BlockHelper.sidePlaced(x, z, player.posX, player.posZ) - 2, 2);
+		world.setBlock(x, y, z, Dam.blockID, sidePlaced(x, z, player.posX, player.posZ) - 2, 2);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int par5) {
@@ -43,14 +43,14 @@ public class dam_block extends Block {
 			
 		} else if (!world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) > 3) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) - 4, 3);
-			BlockHelper.placeInfront(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
+			placeInfront(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
 		}
 	}
 	
 	public void set(World world, int x, int y, int z, int side) {
 		
-		if (BlockHelper.blockCheckAround(world, x, y, z, Block.waterMoving.blockID, side) || BlockHelper.blockCheckAround(world, x, y, z, Block.waterStill.blockID, side)) {
-			BlockHelper.placeInfront(world, x, y, z, Block.waterMoving.blockID, side);
+		if (blockCheckAround(world, x, y, z, Block.waterMoving.blockID, side) || blockCheckAround(world, x, y, z, Block.waterStill.blockID, side)) {
+			placeInfront(world, x, y, z, Block.waterMoving.blockID, side);
 		}
 	}
 	

@@ -3,7 +3,7 @@ package ad.Genis231.Core;
 import java.util.Random;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import ad.Genis231.Blocks.blocks;
+import ad.Genis231.Blocks.ADBlock;
 import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Render.Blocks.BtrapRenderer;
 import ad.Genis231.Render.Blocks.ITableRenderer1;
@@ -41,9 +41,9 @@ public class ClientProxy extends CommonProxy {
 		Ref.Table2Render = RenderingRegistry.getNextAvailableRenderId();
 		Ref.BTrapRender = RenderingRegistry.getNextAvailableRenderId();
 		
-		MinecraftForgeClient.registerItemRenderer(blocks.Spike.blockID, new ItemSpikeRenderer());
-		MinecraftForgeClient.registerItemRenderer(blocks.ItableT1.blockID, new ItemITable1Renderer());
-		MinecraftForgeClient.registerItemRenderer(blocks.ItableT2.blockID, new ItemITable2Renderer());
-		MinecraftForgeClient.registerItemRenderer(blocks.BTrap.blockID, new ItemBearTrapRenderer());
+		MinecraftForgeClient.registerItemRenderer(ADBlock.Spike.blockID, new ItemSpikeRenderer());
+		MinecraftForgeClient.registerItemRenderer(ADBlock.ItableT1.blockID, new ItemITable1Renderer());
+		MinecraftForgeClient.registerItemRenderer(ADBlock.ItableT2.blockID, new ItemITable2Renderer());
+		MinecraftForgeClient.registerItemRenderer(ADBlock.BTrap.blockID, new ItemBearTrapRenderer());
 	}
 }

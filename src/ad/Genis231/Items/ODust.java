@@ -16,9 +16,9 @@ import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 
-public class ODust extends Item {
-    ODust(int id) {
-        super(id);
+public class ODust extends ADItem {
+    ODust(int id,String name) {
+        super(id,name);
         setMaxStackSize(64);
         setUnlocalizedName("OrangeDust");
         setTextureName(textures.ODust);

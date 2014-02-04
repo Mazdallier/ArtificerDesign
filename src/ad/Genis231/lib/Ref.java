@@ -2,8 +2,7 @@ package ad.Genis231.lib;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
-import ad.Genis231.Items.items;
+import ad.Genis231.Items.ADItem;
 
 public class Ref {
     
@@ -28,7 +27,7 @@ class ADCreativeTAB extends CreativeTabs {
     
     @Override
     public ItemStack getIconItemStack() {
-        return new ItemStack(items.BDPure);
+        return new ItemStack(ADItem.BDPure);
     }
     
     @Override

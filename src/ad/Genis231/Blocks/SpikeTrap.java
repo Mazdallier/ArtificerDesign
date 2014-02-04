@@ -2,20 +2,18 @@ package ad.Genis231.Blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.Items.items;
 import ad.Genis231.Render.TileEntity.SpikeTile;
 import ad.Genis231.lib.Ref;
 
-public class SpikeTrap extends BlockContainer {
+public class SpikeTrap extends ADBlockContainer {
 	
-	public SpikeTrap(int id) {
-		super(id, Material.rock);
+	public SpikeTrap(int id,String name) {
+		super(id, Material.rock,name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
 	}
 	
@@ -47,6 +45,6 @@ public class SpikeTrap extends BlockContainer {
 	}
 	
 	public int idDropped(int par1, Random random, int par3) {
-		return blocks.Spike.blockID;
+		return ADBlock.Spike.blockID;
 	}
 }

@@ -10,10 +10,10 @@ import ad.Genis231.Render.TileEntity.ITable1;
 import ad.Genis231.Render.TileEntity.ITable2;
 import ad.Genis231.lib.Ref;
 
-public class ITableBlock extends BlockContainer {
+public class ITableBlock extends ADBlockContainer {
     
-    protected ITableBlock(int id) {
-        super(id, Material.rock);
+    protected ITableBlock(int id,String name) {
+        super(id, Material.rock,name);
     }
     
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
@@ -33,12 +33,12 @@ public class ITableBlock extends BlockContainer {
     
     @Override
     public int getRenderType() {
-        return this == blocks.ItableT1 ? Ref.Table1Render : Ref.Table2Render;
+        return this == ADBlock.ItableT1 ? Ref.Table1Render : Ref.Table2Render;
     }
     
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return this == blocks.ItableT1 ? new ITable1(3) : new ITable2(4);
+        return this == ADBlock.ItableT1 ? new ITable1(3) : new ITable2(4);
     }
     
 }

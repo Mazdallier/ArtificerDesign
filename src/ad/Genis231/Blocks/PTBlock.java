@@ -12,7 +12,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class PTBlock extends Block {
+public class PTBlock extends ADBlock {
 	
 	@SideOnly(Side.CLIENT)
 	public static Icon sandIcon;
@@ -23,8 +23,8 @@ public class PTBlock extends Block {
 	
 	public static boolean toggle = true;
 	
-	public PTBlock(int id) {
-		super(id, Material.rock);
+	public PTBlock(int id,String name) {
+		super(id, Material.rock,name);
 		setHardness(-1);
 	}
 	

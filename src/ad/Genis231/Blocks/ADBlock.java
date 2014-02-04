@@ -1,12 +1,37 @@
 package ad.Genis231.Blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.EnumMobType;
+import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 import ad.Genis231.lib.ADLog;
+import ad.Genis231.lib.Ref;
+import ad.Genis231.lib.blockIDs;
 
-public class BlockHelper {
-	/**
-	 * returns the side in which you placed the block: args blockX, blockY, playerX, playerY
-	 */
+public class ADBlock extends Block {
+	/**Basic Constructor
+	 * 
+	 * @param id This is the blockID
+	 * @param material The material of said block
+	 * @param name This is the UnlocalizedName
+	 * */
+	public ADBlock(int id, Material material, String name) {
+		super(id, material);
+		this.setCreativeTab(Ref.TAB);
+		this.setUnlocalizedName(name);
+	}
+	
+	public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre, "BloodOre");
+	public static final Block Dam = new dam_block(blockIDs.DamBlock, "DamBlock");
+	public static final Block FalseLoot = new false_loot(blockIDs.False_Loot, "FalseLootBlocks");
+	public static final Block FPTrap = new PTBlock(blockIDs.FALSE_PIT_TRAP, "Null_block");
+	public static final Block ItableT1 = new ITableBlock(blockIDs.ITableT1, "ITable1");
+	public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2, "ITable2");
+	public static final Block Spike = new SpikeTrap(blockIDs.Spike, "Spike");
+	public static final Block BTrap = new BTrap(blockIDs.BearTrap, "BTrap");
+	public static final Block Drill = new Drill(blockIDs.Drill, "Drill_MB");
+	public static final Block DwarvenStone = new DwarvenStone(blockIDs.DStone, "DwarvenStone");
+	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {
 		double Dx = x - posX;
 		double Dz = z - posZ;
@@ -101,7 +126,6 @@ public class BlockHelper {
 		z = mz <= mZ ? mz : mZ;
 		Z = mz <= mZ ? mZ : mz;
 		
-		ADLog.logger.info("being told to place shtuffz :P");
 		for (int fy = y; fy <= Y; fy++) {
 			for (int fx = x; fx <= X; fx++) {
 				for (int fz = z; fz <= Z; fz++) {

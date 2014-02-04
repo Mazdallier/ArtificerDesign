@@ -3,8 +3,6 @@ package ad.Genis231.Core;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import ad.Genis231.Items.items;
-import ad.Genis231.Items.pit_trap;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 

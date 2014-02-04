@@ -7,7 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.blocks;
+import ad.Genis231.Blocks.ADBlock;
 import ad.Genis231.TileEntity.ITableTile;
 
 public class ITableContainer extends Container {
@@ -20,9 +20,9 @@ public class ITableContainer extends Container {
     public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, int T) {
         tileEntity = tile;
         world = w;
-        size = T == blocks.ItableT1.blockID ? 3 : 4;
+        size = T == ADBlock.ItableT1.blockID ? 3 : 4;
 
-        if (T == blocks.ItableT1.blockID) {
+        if (T == ADBlock.ItableT1.blockID) {
             addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
             addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
             addSlotToContainer(new Slot(tileEntity, 2, 117, 31));

@@ -1,10 +1,11 @@
 package ad.Genis231.Generation;
 
 import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import ad.Genis231.Blocks.blocks;
+import ad.Genis231.Blocks.ADBlock;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class BDiaGen implements IWorldGenerator {
@@ -41,7 +42,7 @@ public class BDiaGen implements IWorldGenerator {
 							if (rand > 1) {
 								vein(world, posX, posY, posZ, rand, random);
 							} else {
-								world.setBlock(posX, posY, posZ, blocks.BDiamond_ore.blockID);
+								world.setBlock(posX, posY, posZ, ADBlock.BDiamond_ore.blockID);
 							}
 							return;
 						}
@@ -60,7 +61,7 @@ public class BDiaGen implements IWorldGenerator {
 			d = random.nextInt(2);
 			
 			if (world.getBlockId(posX + a, posY + s, posZ + d) != Block.oreIron.blockID && i <= rand) {
-				world.setBlock(posX + a, posY + s, posZ + d, blocks.BDiamond_ore.blockID);
+				world.setBlock(posX + a, posY + s, posZ + d, ADBlock.BDiamond_ore.blockID);
 				i++;
 			}
 			

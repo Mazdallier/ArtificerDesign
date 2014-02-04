@@ -10,22 +10,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.BlockHelper;
+import ad.Genis231.Blocks.ADBlock;
 import ad.Genis231.Blocks.PTBlock;
-import ad.Genis231.Blocks.blocks;
-import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class pit_trap extends Item {
+public class pit_trap extends ADItem {
 	
-	public pit_trap(int id) {
-		super(id);
+	public pit_trap(int id,String name) {
+		super(id,name);
 		// setHasSubtypes(true);
 		setUnlocalizedName("Vine Mat");
 	}
-
+	
 	public static Icon[] IconArray = new Icon[9];
 	public static final String[] UnlocalizedArray = { "Dirt Teir 1", "Sand Teir 1", "Stone Teir 1", "Dirt Teir 2", "Sand Teir 2", "Stone Teir 2", "Dirt Teir 3", "Sand Teir 3", "Stone Teir 3" };
 	public static final int[] tiers = { 8, 12, 18 };
@@ -76,7 +74,7 @@ public class pit_trap extends Item {
 		
 		if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
 			PTBlock.toggle = false;
-			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) BlockHelper.fill(world, mx, y, mz, mX, y, mZ, blocks.FPTrap.blockID, getMeta(item), true);
+			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FPTrap.blockID, getMeta(item), true);
 			PTBlock.toggle = true;
 		}
 	}
@@ -108,7 +106,7 @@ public class pit_trap extends Item {
 		for (int q = x; q <= X; q++) {
 			for (int w = z; w <= Z; w++) {
 				if (world.getBlockId(q, y - 1, w) != 0 || world.getBlockId(q, y + 1, w) != 0) i++;
-				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != blocks.FPTrap.blockID) i++;
+				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FPTrap.blockID) i++;
 			}
 		}
 		return i == 0;

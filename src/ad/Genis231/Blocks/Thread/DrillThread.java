@@ -1,25 +1,9 @@
 package ad.Genis231.Blocks.Thread;
 
-import java.util.List;
-import ad.Genis231.Blocks.blocks;
-import ad.Genis231.lib.ADLog;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockChest;
-import net.minecraft.block.BlockHopper;
-import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.Entity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.Hopper;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.tileentity.TileEntityHopper;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Facing;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import ad.Genis231.Blocks.ADBlock;
+import ad.Genis231.lib.ADLog;
 
 public class DrillThread implements Runnable {
 	World world;
@@ -44,7 +28,7 @@ public class DrillThread implements Runnable {
 				for (int fy = trueY - 1; fy > 0; fy--) {
 					for (int fx = array[0]; fx <= array[1]; fx++) {
 						for (int fz = array[2]; fz <= array[3]; fz++) {
-							if (world.getBlockId(trueX, trueY, trueZ) != blocks.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
+							if (world.getBlockId(trueX, trueY, trueZ) != ADBlock.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
 							
 							else if (check(world.getBlockId(fx, fy, fz))) {
 								Thread.sleep(10);

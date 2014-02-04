@@ -12,16 +12,15 @@ import ad.Genis231.lib.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class false_loot extends Block {
+public class false_loot extends ADBlock {
     
     public static Icon Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone;
     public static Icon[] blockIcons = { Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone };
     public static String[] BlockTextures = { "coal_block", "gold_block", "lapis_block", "diamond_block", "emerald_block", "iron_block", "redstone_block" };
     
-    public false_loot(int id) {
-        super(id, Material.rock);
+    public false_loot(int id,String name) {
+        super(id, Material.rock,name);
         setHardness(-1.0F);
-        setUnlocalizedName("False Loot");
     }
     
     public int idDropped() {
