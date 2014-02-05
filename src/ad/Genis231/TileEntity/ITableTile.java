@@ -8,130 +8,108 @@ import net.minecraft.nbt.NBTTagList;
 import ad.Genis231.BaseClasses.ADTileEntity;
 
 public class ITableTile extends ADTileEntity implements IInventory {
-	
-	private ItemStack[] TableContents;
-	
+
+	private ItemStack[] inv;
+
 	public ITableTile(int size) {
-		TableContents = new ItemStack[size];
+		inv = new ItemStack[size];
 	}
-	
+
 	@Override
 	public int getSizeInventory() {
-		return TableContents.length;
+		return inv.length;
 	}
-	
+
 	@Override
 	public ItemStack getStackInSlot(int slot) {
-		return TableContents[slot];
+		return inv[slot];
 	}
-	
-	/**
-	 * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
-	 */
-	public void setInventorySlotContents(int slot, ItemStack ItemStack) {
-		this.TableContents[slot] = ItemStack;
-		
-		if (ItemStack != null && ItemStack.stackSize > this.getInventoryStackLimit()) ItemStack.stackSize = this.getInventoryStackLimit();
-		
-		this.onInventoryChanged();
+
+	@Override
+	public void setInventorySlotContents(int slot, ItemStack stack) {
+		inv[slot] = stack;
 	}
-	
+
 	@Override
 	public ItemStack decrStackSize(int slot, int amountMoved) {
-		if (this.TableContents[slot] != null) {
-			ItemStack itemstack;
-			
-			if (this.TableContents[slot].stackSize <= amountMoved) {
-				itemstack = this.TableContents[slot];
-				this.TableContents[slot] = null;
-				this.onInventoryChanged();
-				return itemstack;
-			} else {
-				itemstack = this.TableContents[slot].splitStack(amountMoved);
-				
-				if (this.TableContents[slot].stackSize == 0) {
-					this.TableContents[slot] = null;
-				}
-				
-				this.onInventoryChanged();
-				return itemstack;
+		ItemStack stack = getStackInSlot(slot);
+		if (stack != null) {
+			if (stack.stackSize <= amountMoved) setInventorySlotContents(slot, null);
+			else {
+				stack = stack.splitStack(amountMoved);
+				if (stack.stackSize == 0) setInventorySlotContents(slot, null);
 			}
-		} else {
-			return null;
 		}
+		return stack;
 	}
-	
+
+	@Override
+	public ItemStack getStackInSlotOnClosing(int slot) {
+		ItemStack stack = getStackInSlot(slot);
+
+		if (stack != null) setInventorySlotContents(slot, null);
+
+		return stack;
+	}
+
+	@Override
+	public int getInventoryStackLimit() {
+		return 1;
+	}
+
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
 		return worldObj.getBlockTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
 	}
-	
+
 	@Override
 	public void openChest() {}
-	
+
 	@Override
 	public void closeChest() {}
-	
-	/**
-	 * Reads a tile entity from NBT.
-	 */
-	public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
-		super.readFromNBT(par1NBTTagCompound);
-		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items");
-		this.TableContents = new ItemStack[this.getSizeInventory()];
-		
-		for (int i = 0; i < nbttaglist.tagCount(); ++i) {
-			NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.tagAt(i);
-			int j = nbttagcompound1.getByte("Slot") & 255;
-			
-			if (j >= 0 && j < this.TableContents.length) {
-				this.TableContents[j] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
-			}
+
+	@Override
+	public void readFromNBT(NBTTagCompound tagCompound) {
+		super.readFromNBT(tagCompound);
+
+		NBTTagList tagList = tagCompound.getTagList("Inventory");
+		for (int i = 0; i < tagList.tagCount(); i++) {
+			NBTTagCompound tag = (NBTTagCompound) tagList.tagAt(i);
+			byte slot = tag.getByte("Slot");
+			if (slot >= 0 && slot < inv.length) inv[slot] = ItemStack.loadItemStackFromNBT(tag);
+
 		}
 	}
-	
-	/**
-	 * Writes a tile entity to NBT.
-	 */
-	public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
-		super.writeToNBT(par1NBTTagCompound);
-		NBTTagList nbttaglist = new NBTTagList();
-		
-		for (int i = 0; i < this.TableContents.length; ++i) {
-			if (this.TableContents[i] != null) {
-				NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-				nbttagcompound1.setByte("Slot", (byte) i);
-				this.TableContents[i].writeToNBT(nbttagcompound1);
-				nbttaglist.appendTag(nbttagcompound1);
+
+	@Override
+	public void writeToNBT(NBTTagCompound tagCompound) {
+		super.writeToNBT(tagCompound);
+
+		NBTTagList TagData = new NBTTagList();
+		for (int i = 0; i < inv.length; i++) {
+			ItemStack stack = inv[i];
+			if (stack != null) {
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setByte("Slot", (byte) i);
+				stack.writeToNBT(tag);
+				TagData.appendTag(tag);
 			}
 		}
-		
-		par1NBTTagCompound.setTag("Items", nbttaglist);
+		tagCompound.setTag("Inventory", TagData);
 	}
-	
+
 	@Override
 	public String getInvName() {
 		return "ImbueingTable";
 	}
-	
+
 	@Override
 	public boolean isInvNameLocalized() {
 		return false;
 	}
-	
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return true;
-	}
-	
-	@Override
-	public int getInventoryStackLimit() {
-		return 64;
-	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
+		return false;
 	}
 }

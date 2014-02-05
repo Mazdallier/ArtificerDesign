@@ -36,8 +36,8 @@ public class textures {
 	public static final String DStone = Ref.Resource_FOLDER + "DStone";
 	
 	/* Item Textures */
-	public static final String BDDirty = Ref.Resource_FOLDER + "Dirty_BDiamond";
-	public static final String BDPure = Ref.Resource_FOLDER + "Pure_BDiamond";
+	public static final String DGem = Ref.Resource_FOLDER + "DGem";
+	public static final String PGem = Ref.Resource_FOLDER + "PGem";
 	public static final String GoldBowl = Ref.Resource_FOLDER + "Gold_Bowl";
 	public static final String ODust = Ref.Resource_FOLDER + "Orange_Dust";
 	public static final String ABlood = Ref.Resource_FOLDER + "AngelicBlood";

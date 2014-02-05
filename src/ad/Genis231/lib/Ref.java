@@ -2,7 +2,7 @@ package ad.Genis231.lib;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import ad.Genis231.Items.ADItem;
+import ad.Genis231.BaseClasses.ADItem;
 
 public class Ref {
     
@@ -26,7 +26,7 @@ class ADCreativeTAB extends CreativeTabs {
     
     @Override
     public ItemStack getIconItemStack() {
-        return new ItemStack(ADItem.ABlood);
+        return new ItemStack(ADItem.PGem);
     }
     
     @Override

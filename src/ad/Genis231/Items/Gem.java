@@ -1,13 +1,12 @@
 package ad.Genis231.Items;
 
-import ad.Genis231.lib.Ref;
-import ad.Genis231.lib.textures;
-import net.minecraft.item.Item;
+import ad.Genis231.BaseClasses.ADItem;
+
 
 public class Gem extends ADItem {
 	
-	public Gem(int id,String name,String texture) {
-		super(id,name,texture);
+	public Gem(int id, String name, String texture) {
+		super(id, name, texture);
 	}
 	
 }

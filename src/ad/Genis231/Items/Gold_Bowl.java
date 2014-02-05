@@ -1,5 +1,6 @@
 package ad.Genis231.Items;
 
+import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 import net.minecraft.item.Item;

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.Items.ADItem;
+import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.textures;
 
 public class BloodDiamond_Ore extends ADBlock {
