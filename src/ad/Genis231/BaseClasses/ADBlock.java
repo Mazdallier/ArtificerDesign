@@ -24,6 +24,7 @@ public class ADBlock extends Block {
 	 * @param material The material of said block
 	 * @param name This is the UnlocalizedName
 	 * */
+	
 	public ADBlock(int id, Material material, String name) {
 		super(id, material);
 		this.setCreativeTab(Ref.TAB);

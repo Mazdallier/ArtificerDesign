@@ -24,6 +24,7 @@ public class Core {
 	@Instance(Ref.MOD_ID)
 	public static Core instance;
 	
+	
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy")
 	public static CommonProxy proxy;
@@ -42,9 +43,9 @@ public class Core {
 	public void preInit(FMLPreInitializationEvent event) {
 		ADLog.initLog();
 		
-		ModReg.basic();
-		ModReg.recipeGReg();
-		ModReg.Worlds();
+		MainReg.basic();
+		MainReg.recipeGReg();
+		MainReg.Worlds();
 		
 	}
 	
@@ -52,7 +53,7 @@ public class Core {
 	public void load(FMLInitializationEvent event) {
 		proxy.registerRenderers();
 		
-		ModReg.Modifiers();
+		MainReg.Modifiers();
 		CreatureReg.mobs();
 		
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());

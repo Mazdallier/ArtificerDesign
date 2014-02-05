@@ -10,7 +10,7 @@ import ad.Genis231.Items.ADItem;
 import ad.Genis231.Items.pit_trap;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ModReg {
+public class MainReg {
 	
 	public static void basic() {
 		/* Blocks */

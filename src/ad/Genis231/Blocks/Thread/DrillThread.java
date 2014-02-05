@@ -5,7 +5,6 @@ import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.lib.ADLog;
 
-@Deprecated
 public class DrillThread implements Runnable {
 	World world;
 	int trueX, trueY, trueZ, size;
