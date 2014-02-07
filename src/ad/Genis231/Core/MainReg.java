@@ -24,6 +24,8 @@ public class MainReg {
 		Registery.Register(ADBlock.BTrap, "BTrap", "Bear Trap");
 		Registery.Register(ADBlock.Drill, "Drill", "Drill (WIP)");
 		Registery.Register(ADBlock.DwarvenStone, "DStone", "Dwarven Stone");
+		Registery.Register(ADBlock.GFire, "GFire", "Green Fire of DOOM w/ Smoke");
+		Registery.Register(ADBlock.BFire, "BFire", "Green Fire of DOOM w/o smoke");
 		
 		/* Items */
 		Registery.Register(ADItem.ODust, "ORangeDust", "Orange Dust");
@@ -32,6 +34,9 @@ public class MainReg {
 		Registery.Register(ADItem.GBowl, "GoldBowl", "Gold Bowl");
 		Registery.Register(ADItem.ABlood, "AngelicBlood", "Blessed Elve's Blood");
 		Registery.Register(ADItem.DBlood, "DemonicBlood", "Tainted Orc's Blood");
+		
+		Registery.Register(ADItem.RJournal, "RJournal", "Restored Journal");
+		Registery.Register(ADItem.DBreathe, "DBreathe", "Dragon's Breathe");
 		
 		Registery.RegisterMulti(ADItem.PTrap, "VineMat", pit_trap.UnlocalizedArray);
 	}
@@ -49,6 +54,8 @@ public class MainReg {
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.GBowl), "X X", " X ", 'X', Item.ingotGold);
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Spike), " X ", "X X", 'X', Block.cobblestone);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.PGem), "XXX", "XQX", "XXX", 'X', ADItem.ABlood, 'Q', ADItem.DGem);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItem.RJournal), "SGP", "BLP", "SGP", 'S', Item.silk, 'B', Item.book, 'G', Item.ingotGold, 'L', Item.leather, 'P', Item.paper);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItem.DBreathe), "PPP", "BLB", "PPP", 'B', Item.glassBottle, 'L', Item.bucketLava, 'P', Item.paper);
 		
 		// Shapeless
 		GameRegistry.addShapelessRecipe(new ItemStack(ADItem.ODust), Item.glowstone, Item.redstone, Item.redstone);

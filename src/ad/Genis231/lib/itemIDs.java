@@ -9,4 +9,7 @@ public class itemIDs {
 	public static final int PGem = 1004; //Pure Gem
 	public static final int GBowl = 1005; // gold bowl
 	public static final int PIT_TRAP = 1006; // pit trap item
+	public static final int RJournal = 1007; // orange dust
+	public static final int DBreathe = 1008; // orange dust
+
 }

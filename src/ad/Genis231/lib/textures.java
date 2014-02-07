@@ -34,6 +34,7 @@ public class textures {
 	/* Block Textures */
 	public static final String BDO = Ref.Resource_FOLDER + "BDOre";
 	public static final String DStone = Ref.Resource_FOLDER + "DStone";
+	public static final String Fire = Ref.Resource_FOLDER + "GFire";
 	
 	/* Item Textures */
 	public static final String DGem = Ref.Resource_FOLDER + "DGem";
@@ -42,4 +43,6 @@ public class textures {
 	public static final String ODust = Ref.Resource_FOLDER + "Orange_Dust";
 	public static final String ABlood = Ref.Resource_FOLDER + "AngelicBlood";
 	public static final String DBlood = Ref.Resource_FOLDER + "DemonicBlood";
+	public static final String RJournal = Ref.Resource_FOLDER + "Restored_Journal";
+	public static final String DBreathe = Ref.Resource_FOLDER + "Dragon_Breathe";
 }

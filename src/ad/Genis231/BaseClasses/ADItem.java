@@ -2,8 +2,10 @@ package ad.Genis231.BaseClasses;
 
 import net.minecraft.item.Item;
 import ad.Genis231.Items.Blood;
+import ad.Genis231.Items.DBreathe;
 import ad.Genis231.Items.Gem;
 import ad.Genis231.Items.Gold_Bowl;
+import ad.Genis231.Items.Journal;
 import ad.Genis231.Items.ODust;
 import ad.Genis231.Items.pit_trap;
 import ad.Genis231.lib.Ref;
@@ -39,4 +41,7 @@ public class ADItem extends Item {
 	public final static Item DGem = new Gem(itemIDs.DGem, "PureGem", textures.DGem);
 	public final static Item GBowl = new Gold_Bowl(itemIDs.GBowl, "GBowl");
 	public final static Item PTrap = new pit_trap(itemIDs.PIT_TRAP, "PitTrap");
+	public final static Item RJournal = new Journal(itemIDs.RJournal,"Rjournal",textures.RJournal);
+	public final static Item DBreathe = new DBreathe(itemIDs.DBreathe,"DBreathe");
+	
 }
