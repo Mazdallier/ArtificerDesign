@@ -29,7 +29,7 @@ public class ADBlock extends Block {
 		this.setCreativeTab(Ref.TAB);
 		this.setUnlocalizedName(name);
 	}
-	
+	  
 	public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre, "BloodOre");
 	public static final Block Dam = new dam_block(blockIDs.DamBlock, "DamBlock");
 	public static final Block FalseLoot = new false_loot(blockIDs.False_Loot, "FalseLootBlocks");
