@@ -11,9 +11,9 @@ import ad.Genis231.BaseClasses.ADBlockModel;
 import ad.Genis231.TileEntity.BearTrapTile;
 import ad.Genis231.lib.Ref;
 
-public class BTrap extends ADBlockModel {
+public class BearTrap extends ADBlockModel {
 	
-	public BTrap(int id, String name) {
+	public BearTrap(int id, String name) {
 		super(id, Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
 	}

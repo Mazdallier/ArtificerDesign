@@ -9,14 +9,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class SpikeModel extends ModelBase {
 	
-	private IModelCustom modelSpike;
+	private IModelCustom model;
 	
 	public SpikeModel() {
 		
-		modelSpike = AdvancedModelLoader.loadModel(Models.Spike);
+		model = AdvancedModelLoader.loadModel(Models.Spike);
 	}
 	
 	public void render() {
-		modelSpike.renderAll();
+		model.renderAll();
 	}
 }

@@ -28,7 +28,7 @@ public class ITableBlock extends ADBlockModel {
 	}
 	
 	@Override public TileEntity createNewTileEntity(World world) {
-		return this == ADBlock.ItableT1 ? new ITable1(3) : new ITable2(4);
+		return this == ADBlock.Itable1 ? new ITable1(3) : new ITable2(4);
 	}
 	
 }

@@ -40,7 +40,7 @@ public class BDiaGen implements IWorldGenerator {
 							if (rand > 1) {
 								vein(world, posX, posY, posZ, rand, random);
 							} else {
-								world.setBlock(posX, posY, posZ, ADBlock.BDiamond_ore.blockID);
+								world.setBlock(posX, posY, posZ, ADBlock.RedGemOre.blockID);
 							}
 							return;
 						}
@@ -59,7 +59,7 @@ public class BDiaGen implements IWorldGenerator {
 			d = random.nextInt(2);
 			
 			if (world.getBlockId(posX + a, posY + s, posZ + d) != Block.oreIron.blockID && i <= rand) {
-				world.setBlock(posX + a, posY + s, posZ + d, ADBlock.BDiamond_ore.blockID);
+				world.setBlock(posX + a, posY + s, posZ + d, ADBlock.RedGemOre.blockID);
 				i++;
 			}
 			

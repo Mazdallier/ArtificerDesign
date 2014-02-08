@@ -11,14 +11,14 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.PTBlock;
+import ad.Genis231.Blocks.PitTrapBlock;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class pit_trap extends ADItem {
+public class PitTrap extends ADItem {
 	
-	public pit_trap(int id, String name) {
+	public PitTrap(int id, String name) {
 		super(id, name);
 		// setHasSubtypes(true);
 		setUnlocalizedName("Vine Mat");
@@ -76,10 +76,10 @@ public class pit_trap extends ADItem {
 		int dimZ = mz - mZ;
 		
 		if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
-			PTBlock.toggle = false;
+			PitTrapBlock.toggle = false;
 			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ))
-				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FPTrap.blockID, getMeta(item), true);
-			PTBlock.toggle = true;
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap.blockID, getMeta(item), true);
+			PitTrapBlock.toggle = true;
 		}
 	}
 	
@@ -109,7 +109,7 @@ public class pit_trap extends ADItem {
 			for (int w = z; w <= Z; w++) {
 				if (world.getBlockId(q, y - 1, w) != 0 || world.getBlockId(q, y + 1, w) != 0)
 					i++;
-				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FPTrap.blockID)
+				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FalsePitTrap.blockID)
 					i++;
 			}
 		}

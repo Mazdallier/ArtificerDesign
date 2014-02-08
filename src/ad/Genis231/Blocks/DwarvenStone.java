@@ -9,7 +9,7 @@ public class DwarvenStone extends ADBlock {
 	public DwarvenStone(int id, String name) {
 		super(id, Material.rock, name);
 		setHardness(25.0f);
-		setTextureName(textures.DStone);
+		setTextureName(textures.DwarvenStone);
 	}
 	
 }

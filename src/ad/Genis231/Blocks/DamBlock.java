@@ -12,13 +12,13 @@ import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class dam_block extends ADBlock {
+public class DamBlock extends ADBlock {
 	
 	@SideOnly(Side.CLIENT) public static Icon sideIcon;
 	@SideOnly(Side.CLIENT) public static Icon openIcon;
 	@SideOnly(Side.CLIENT) public static Icon closeIcon;
 	
-	public dam_block(int id, String name) {
+	public DamBlock(int id, String name) {
 		super(id, Material.rock, name);
 	}
 	

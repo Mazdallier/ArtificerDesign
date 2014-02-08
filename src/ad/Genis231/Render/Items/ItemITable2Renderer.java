@@ -12,10 +12,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class ItemITable2Renderer implements IItemRenderer {
-	private ITable2Model Itable;
+	private ITable2Model model;
 	
 	public ItemITable2Renderer() {
-		Itable = new ITable2Model();
+		model = new ITable2Model();
 	}
 	
 	@Override public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -63,9 +63,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
 		
 		// Render
-		Itable.renderPart(0);
-		Itable.renderPart(1);
-		Itable.renderPart(2);
+		model.renderPart(0);
+		model.renderPart(1);
+		model.renderPart(2);
 		
 		// Itable.renderAll();
 		

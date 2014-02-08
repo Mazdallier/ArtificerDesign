@@ -4,16 +4,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.BTrap;
-import ad.Genis231.Blocks.BloodDiamond_Ore;
+import ad.Genis231.Blocks.BearTrap;
+import ad.Genis231.Blocks.DamBlock;
 import ad.Genis231.Blocks.Drill;
 import ad.Genis231.Blocks.DwarvenStone;
 import ad.Genis231.Blocks.FakeFire;
+import ad.Genis231.Blocks.FalseLoot;
 import ad.Genis231.Blocks.ITableBlock;
-import ad.Genis231.Blocks.PTBlock;
+import ad.Genis231.Blocks.PitTrapBlock;
+import ad.Genis231.Blocks.RedGemOre;
 import ad.Genis231.Blocks.SpikeTrap;
-import ad.Genis231.Blocks.dam_block;
-import ad.Genis231.Blocks.false_loot;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;
 
@@ -29,18 +29,18 @@ public class ADBlock extends Block {
 		this.setUnlocalizedName(name);
 	}
 	
-	public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre, "BloodOre");
-	public static final Block Dam = new dam_block(blockIDs.DamBlock, "DamBlock");
-	public static final Block FalseLoot = new false_loot(blockIDs.False_Loot, "FalseLootBlocks");
-	public static final Block FPTrap = new PTBlock(blockIDs.FALSE_PIT_TRAP, "Null_block");
-	public static final Block ItableT1 = new ITableBlock(blockIDs.ITableT1, "ITable1");
-	public static final Block ItableT2 = new ITableBlock(blockIDs.ITableT2, "ITable2");
+	public static final Block RedGemOre = new RedGemOre(blockIDs.RedGemOre, "BloodOre");
+	public static final Block Dam = new DamBlock(blockIDs.DamBlock, "DamBlock");
+	public static final Block FalseLoot = new FalseLoot(blockIDs.FalseLoot, "FalseLootBlocks");
+	public static final Block FalsePitTrap = new PitTrapBlock(blockIDs.NullPitTrap, "Null_block");
+	public static final Block Itable1 = new ITableBlock(blockIDs.ITable1, "ITable1");
+	public static final Block Itable2 = new ITableBlock(blockIDs.ITable2, "ITable2");
 	public static final Block Spike = new SpikeTrap(blockIDs.Spike, "Spike");
-	public static final Block BTrap = new BTrap(blockIDs.BearTrap, "BTrap");
+	public static final Block BearTrap = new BearTrap(blockIDs.BearTrap, "BTrap");
 	public static final Block Drill = new Drill(blockIDs.Drill, "Drill_MB");
-	public static final Block DwarvenStone = new DwarvenStone(blockIDs.DStone, "DwarvenStone");
-	public static final BlockFire GFire = (BlockFire) new FakeFire(blockIDs.GFire, true).setUnlocalizedName("GFire");
-	public static final BlockFire BFire = (BlockFire) new FakeFire(blockIDs.GFire + 5, false).setUnlocalizedName("BFire");
+	public static final Block DwarvenStone = new DwarvenStone(blockIDs.DwarvenStone, "DwarvenStone");
+	public static final BlockFire GreenFire = (BlockFire) new FakeFire(blockIDs.GreenFire, true).setUnlocalizedName("GFire");
+	public static final BlockFire GreenFire2 = (BlockFire) new FakeFire(blockIDs.GreenFire + 5, false).setUnlocalizedName("BFire");
 	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {
 		double Dx = x - posX;

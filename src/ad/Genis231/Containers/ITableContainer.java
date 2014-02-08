@@ -20,9 +20,9 @@ public class ITableContainer extends Container {
 	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, int T) {
 		tileEntity = tile;
 		world = w;
-		size = T == ADBlock.ItableT1.blockID ? 3 : 4;
+		size = T == ADBlock.Itable1.blockID ? 3 : 4;
 		
-		if (T == ADBlock.ItableT1.blockID) {
+		if (T == ADBlock.Itable1.blockID) {
 			addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
 			addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
 			addSlotToContainer(new Slot(tileEntity, 2, 117, 31));

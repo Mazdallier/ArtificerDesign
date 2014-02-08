@@ -7,16 +7,16 @@ import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.textures;
 
-public class BloodDiamond_Ore extends ADBlock {
-	public BloodDiamond_Ore(int id, String name) {
+public class RedGemOre extends ADBlock {
+	public RedGemOre(int id, String name) {
 		super(id, Material.rock, name);
 		setLightValue(1.0F);
 		setHardness(5.0f);
-		setTextureName(textures.BDO);
+		setTextureName(textures.RedGemOre);
 	}
 	
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return ADItem.DBlood.itemID;
+		return ADItem.DemonicBlood.itemID;
 	}
 	
 	protected boolean canSilkHarvest() {

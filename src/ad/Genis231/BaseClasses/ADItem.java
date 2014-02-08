@@ -2,12 +2,12 @@ package ad.Genis231.BaseClasses;
 
 import net.minecraft.item.Item;
 import ad.Genis231.Items.Blood;
-import ad.Genis231.Items.DBreathe;
-import ad.Genis231.Items.Gem;
-import ad.Genis231.Items.Gold_Bowl;
+import ad.Genis231.Items.DragonBreathe;
+import ad.Genis231.Items.GoldBowl;
 import ad.Genis231.Items.Journal;
-import ad.Genis231.Items.ODust;
-import ad.Genis231.Items.pit_trap;
+import ad.Genis231.Items.OrangeDust;
+import ad.Genis231.Items.PitTrap;
+import ad.Genis231.Items.RedGem;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.itemIDs;
 import ad.Genis231.lib.textures;
@@ -34,14 +34,14 @@ public class ADItem extends Item {
 		this.setTextureName(Texture);
 	}
 	
-	public final static Item ODust = new ODust(itemIDs.OD, "ImPureGem");
-	public final static Item ABlood = new Blood(itemIDs.Ablood, "ABlood", textures.ABlood);
-	public final static Item DBlood = new Blood(itemIDs.DBlood, "DBlood", textures.DBlood);
-	public final static Item PGem = new Gem(itemIDs.PGem, "PureGem", textures.PGem);
-	public final static Item DGem = new Gem(itemIDs.DGem, "PureGem", textures.DGem);
-	public final static Item GBowl = new Gold_Bowl(itemIDs.GBowl, "GBowl");
-	public final static Item PTrap = new pit_trap(itemIDs.PIT_TRAP, "PitTrap");
-	public final static Item RJournal = new Journal(itemIDs.RJournal, "Rjournal", textures.RJournal);
-	public final static Item DBreathe = new DBreathe(itemIDs.DBreathe, "DBreathe");
+	public final static Item OrangeDust = new OrangeDust(itemIDs.OrangeDust, "ImPureGem");
+	public final static Item AngelicBlood = new Blood(itemIDs.Angelicblood, "ABlood", textures.AngelicBlood);
+	public final static Item DemonicBlood = new Blood(itemIDs.DemonicBlood, "DBlood", textures.DemonicBlood);
+	public final static Item PureGem = new RedGem(itemIDs.PureGem, "PureGem", textures.PureGem);
+	public final static Item DirtyGem = new RedGem(itemIDs.DirtyGem, "PureGem", textures.DirtyGem);
+	public final static Item GoldBowl = new GoldBowl(itemIDs.GoldBowl, "GBowl");
+	public final static Item PitTrap = new PitTrap(itemIDs.PitTrap, "PitTrap");
+	public final static Item RestoredJournal = new Journal(itemIDs.RestoredJournal, "Rjournal", textures.RestoredJournal);
+	public final static Item DragonBreathe = new DragonBreathe(itemIDs.DragonBreathe, "DBreathe");
 	
 }

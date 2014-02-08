@@ -25,7 +25,7 @@ class ADCreativeTAB extends CreativeTabs {
 	}
 	
 	@Override public ItemStack getIconItemStack() {
-		return new ItemStack(ADItem.PGem);
+		return new ItemStack(ADItem.PureGem);
 	}
 	
 	@Override public String getTranslatedTabLabel() {

@@ -14,7 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class SpikeTileRenderer extends TileEntitySpecialRenderer {
 	
-	private SpikeModel modelSpike = new SpikeModel();
+	private SpikeModel model = new SpikeModel();
 	
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		
@@ -23,7 +23,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 			GL11.glPushMatrix();
 			
 			// Scale, Translate, Rotate
-			// RenderDirection(x, y, z, SpikeTrap.side);
 			
 			GL11.glScalef(1.0F, 1.0F, 1.0F);
 			GL11.glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
@@ -32,7 +31,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Spike);
 			
 			// Render
-			modelSpike.render();
+			model.render();
 			GL11.glPopMatrix();
 		}
 	}

@@ -13,11 +13,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class ItemSpikeRenderer implements IItemRenderer {
 	
-	private SpikeModel Spikes;
+	private SpikeModel model;
 	
 	public ItemSpikeRenderer() {
 		
-		Spikes = new SpikeModel();
+		model = new SpikeModel();
 	}
 	
 	@Override public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -65,7 +65,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Spike);
 		
 		// Render
-		Spikes.render();
+		model.render();
 		
 		GL11.glEnable(GL11.GL_LIGHTING);
 		GL11.glPopMatrix();

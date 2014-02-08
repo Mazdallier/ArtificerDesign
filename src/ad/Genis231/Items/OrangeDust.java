@@ -8,12 +8,12 @@ import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.textures;
 
-public class ODust extends ADItem {
-	public ODust(int id, String name) {
+public class OrangeDust extends ADItem {
+	public OrangeDust(int id, String name) {
 		super(id, name);
 		setMaxStackSize(64);
 		setUnlocalizedName("OrangeDust");
-		setTextureName(textures.ODust);
+		setTextureName(textures.OrangeDust);
 	}
 	
 	/* bottom = 0 ~~ top=1 ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */

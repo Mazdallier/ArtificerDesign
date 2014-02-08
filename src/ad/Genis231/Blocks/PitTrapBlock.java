@@ -11,7 +11,7 @@ import ad.Genis231.BaseClasses.ADBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PTBlock extends ADBlock {
+public class PitTrapBlock extends ADBlock {
 	
 	@SideOnly(Side.CLIENT) public static Icon sandIcon;
 	@SideOnly(Side.CLIENT) public static Icon stoneIcon;
@@ -19,7 +19,7 @@ public class PTBlock extends ADBlock {
 	
 	public static boolean toggle = true;
 	
-	public PTBlock(int id, String name) {
+	public PitTrapBlock(int id, String name) {
 		super(id, Material.rock, name);
 		setHardness(-1);
 		this.setCreativeTab(null);

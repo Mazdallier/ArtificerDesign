@@ -8,7 +8,7 @@ public class textures {
 	// Model Textures
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
 	public static final ResourceLocation ITable = new ResourceLocation(main, "textures/blocks/ITable.png");
-	public static final ResourceLocation BearTrap = new ResourceLocation(main, "textures/blocks/BearTrap.png");
+	public static final ResourceLocation BearTrap = new ResourceLocation(main, "textures/blocks/Bear_Trap.png");
 	
 	// Mob Textures
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
@@ -32,17 +32,17 @@ public class textures {
 	public static final ResourceLocation t2 = new ResourceLocation("artificer", "textures/gui/ITable2.png");
 	
 	// Block Textures
-	public static final String BDO = Ref.Resource_FOLDER + "BDOre";
-	public static final String DStone = Ref.Resource_FOLDER + "DStone";
-	public static final String Fire = Ref.Resource_FOLDER + "GFire";
+	public static final String RedGemOre = Ref.Resource_FOLDER + "Red_Gem_Ore";
+	public static final String DwarvenStone = Ref.Resource_FOLDER + "Dwarven_Stone";
+	public static final String Fire = Ref.Resource_FOLDER + "Green_Fire";
 	
 	// Item Textures
-	public static final String DGem = Ref.Resource_FOLDER + "DGem";
-	public static final String PGem = Ref.Resource_FOLDER + "PGem";
+	public static final String DirtyGem = Ref.Resource_FOLDER + "Dirty_Gem";
+	public static final String PureGem = Ref.Resource_FOLDER + "Pure_Gem";
 	public static final String GoldBowl = Ref.Resource_FOLDER + "Gold_Bowl";
-	public static final String ODust = Ref.Resource_FOLDER + "Orange_Dust";
-	public static final String ABlood = Ref.Resource_FOLDER + "AngelicBlood";
-	public static final String DBlood = Ref.Resource_FOLDER + "DemonicBlood";
-	public static final String RJournal = Ref.Resource_FOLDER + "Restored_Journal";
-	public static final String DBreathe = Ref.Resource_FOLDER + "Dragon_Breathe";
+	public static final String OrangeDust = Ref.Resource_FOLDER + "Orange_Dust";
+	public static final String AngelicBlood = Ref.Resource_FOLDER + "Angelic_Blood";
+	public static final String DemonicBlood = Ref.Resource_FOLDER + "Demonic_Blood";
+	public static final String RestoredJournal = Ref.Resource_FOLDER + "Restored_Journal";
+	public static final String DragonBreathe = Ref.Resource_FOLDER + "Dragon_Breathe";
 }
