@@ -1,8 +1,5 @@
 package ad.Genis231.Core;
 
-import java.util.Random;
-
-import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Models.mobs.DwarfModel;
@@ -26,7 +23,6 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy {
 	
 	public void registerRenderers() {
-		Random rand = new Random();
 		
 		for (int i = 0; i < CreatureReg.dwarfClass.length; i++) {
 			RenderingRegistry.registerEntityRenderingHandler(CreatureReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));

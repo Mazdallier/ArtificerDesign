@@ -19,8 +19,7 @@ public class DrillThread implements Runnable {
 		size = s;
 	}
 	
-	@Override
-	public void run() {
+	@Override public void run() {
 		
 		try {
 			int[] array = MinMax(size);
@@ -28,7 +27,8 @@ public class DrillThread implements Runnable {
 				for (int fy = trueY - 1; fy > 0; fy--) {
 					for (int fx = array[0]; fx <= array[1]; fx++) {
 						for (int fz = array[2]; fz <= array[3]; fz++) {
-							if (world.getBlockId(trueX, trueY, trueZ) != ADBlock.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ)) return;
+							if (world.getBlockId(trueX, trueY, trueZ) != ADBlock.Drill.blockID || !world.isBlockIndirectlyGettingPowered(trueX, trueY, trueZ))
+								return;
 							
 							else if (check(world.getBlockId(fx, fy, fz))) {
 								Thread.sleep(10);
@@ -40,7 +40,8 @@ public class DrillThread implements Runnable {
 					}
 				}
 			}
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			ADLog.logger.info("~~~~~Thread Failed~~~~~");
 		}
 	}
@@ -57,7 +58,8 @@ public class DrillThread implements Runnable {
 	
 	boolean check(int i) {
 		for (int str : Unbreakable) {
-			if (str == i) return false;
+			if (str == i)
+				return false;
 		}
 		return true;
 	}

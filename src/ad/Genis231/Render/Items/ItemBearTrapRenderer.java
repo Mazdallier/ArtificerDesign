@@ -11,8 +11,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class ItemBearTrapRenderer implements IItemRenderer {
+@SideOnly(Side.CLIENT) public class ItemBearTrapRenderer implements IItemRenderer {
 	
 	private BearTrapModel model;
 	
@@ -47,8 +46,8 @@ public class ItemBearTrapRenderer implements IItemRenderer {
 			case INVENTORY:
 				renderModel(0.0F, 0F, 0.0F, 1.5F);
 				return;
-            default:
-                break;
+			default:
+				break;
 		}
 	}
 	

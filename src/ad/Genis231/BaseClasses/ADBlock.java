@@ -16,7 +16,6 @@ import ad.Genis231.Blocks.dam_block;
 import ad.Genis231.Blocks.false_loot;
 import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.blockIDs;
-import ad.Genis231.lib.textures;
 
 public class ADBlock extends Block {
 	/** Basic Constructor
@@ -29,7 +28,7 @@ public class ADBlock extends Block {
 		this.setCreativeTab(Ref.TAB);
 		this.setUnlocalizedName(name);
 	}
-	  
+	
 	public static final Block BDiamond_ore = new BloodDiamond_Ore(blockIDs.BDOre, "BloodOre");
 	public static final Block Dam = new dam_block(blockIDs.DamBlock, "DamBlock");
 	public static final Block FalseLoot = new false_loot(blockIDs.False_Loot, "FalseLootBlocks");
@@ -40,8 +39,8 @@ public class ADBlock extends Block {
 	public static final Block BTrap = new BTrap(blockIDs.BearTrap, "BTrap");
 	public static final Block Drill = new Drill(blockIDs.Drill, "Drill_MB");
 	public static final Block DwarvenStone = new DwarvenStone(blockIDs.DStone, "DwarvenStone");
-	public static final BlockFire GFire = (BlockFire) new FakeFire(blockIDs.GFire,true).setUnlocalizedName("GFire");
-	public static final BlockFire BFire = (BlockFire) new FakeFire(blockIDs.GFire+5,false).setUnlocalizedName("BFire");
+	public static final BlockFire GFire = (BlockFire) new FakeFire(blockIDs.GFire, true).setUnlocalizedName("GFire");
+	public static final BlockFire BFire = (BlockFire) new FakeFire(blockIDs.GFire + 5, false).setUnlocalizedName("BFire");
 	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {
 		double Dx = x - posX;

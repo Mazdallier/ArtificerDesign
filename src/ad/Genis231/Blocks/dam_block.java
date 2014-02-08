@@ -8,19 +8,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class dam_block extends ADBlock {
 	
-	@SideOnly(Side.CLIENT)
-	public static Icon sideIcon;
-	@SideOnly(Side.CLIENT)
-	public static Icon openIcon;
-	@SideOnly(Side.CLIENT)
-	public static Icon closeIcon;
+	@SideOnly(Side.CLIENT) public static Icon sideIcon;
+	@SideOnly(Side.CLIENT) public static Icon openIcon;
+	@SideOnly(Side.CLIENT) public static Icon closeIcon;
 	
 	public dam_block(int id, String name) {
 		super(id, Material.rock, name);
@@ -55,24 +51,24 @@ public class dam_block extends ADBlock {
 		}
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
 		sideIcon = icon.registerIcon(textures.DamArray[0]);
 		openIcon = icon.registerIcon(textures.DamArray[1]);
 		closeIcon = icon.registerIcon(textures.DamArray[2]);
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int meta) {
+	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
 		
 		if (meta < 4) {
-			if (side - meta == 2) return closeIcon;
-			else return sideIcon;
+			if (side - meta == 2)
+				return closeIcon;
+			else
+				return sideIcon;
 		} else {
-			if (meta - side == 2) return openIcon;
-			else return sideIcon;
+			if (meta - side == 2)
+				return openIcon;
+			else
+				return sideIcon;
 		}
 	}
 }

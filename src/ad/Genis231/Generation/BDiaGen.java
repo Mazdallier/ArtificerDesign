@@ -19,7 +19,6 @@ public class BDiaGen implements IWorldGenerator {
 	}
 	
 	public void addOreSpawn(World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
 		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16 : "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0 : "addOreSpawn: The Minimum Y must be greater than 0";
@@ -32,7 +31,6 @@ public class BDiaGen implements IWorldGenerator {
 			int posY = minY + random.nextInt(diffBtwnMinMaxY);
 			int posZ = blockZPos + random.nextInt(maxZ);
 			int dist = 3;
-			int roar = 1;
 			int rand = random.nextInt(4);
 			
 			for (int q = 1; q < dist; q++) {

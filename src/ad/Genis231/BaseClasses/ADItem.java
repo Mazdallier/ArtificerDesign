@@ -41,7 +41,7 @@ public class ADItem extends Item {
 	public final static Item DGem = new Gem(itemIDs.DGem, "PureGem", textures.DGem);
 	public final static Item GBowl = new Gold_Bowl(itemIDs.GBowl, "GBowl");
 	public final static Item PTrap = new pit_trap(itemIDs.PIT_TRAP, "PitTrap");
-	public final static Item RJournal = new Journal(itemIDs.RJournal,"Rjournal",textures.RJournal);
-	public final static Item DBreathe = new DBreathe(itemIDs.DBreathe,"DBreathe");
+	public final static Item RJournal = new Journal(itemIDs.RJournal, "Rjournal", textures.RJournal);
+	public final static Item DBreathe = new DBreathe(itemIDs.DBreathe, "DBreathe");
 	
 }

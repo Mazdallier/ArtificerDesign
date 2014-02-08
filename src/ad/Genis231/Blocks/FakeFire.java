@@ -33,8 +33,9 @@ public class FakeFire extends BlockFire {
 	
 	public void initializeBlock() {}
 	
-    public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {ADLog.logger.info("CLICKED!!");}
-
+	public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
+		ADLog.logger.info("CLICKED!!");
+	}
 	
 	public void randomDisplayTick(World world, int x, int y, int z, Random rng) {
 		int rate = 24;

@@ -20,13 +20,11 @@ public class ITableGui extends GuiContainer {
 		blockid = id;
 	}
 	
-	@Override
-	protected void drawGuiContainerForegroundLayer(int param1, int param2) {
+	@Override protected void drawGuiContainerForegroundLayer(int param1, int param2) {
 		fontRenderer.drawString(StatCollector.translateToLocal("container.inventory"), 8, ySize - 96 + 2, 4210752);
 	}
 	
-	@Override
-	protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
+	@Override protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getTextureManager().bindTexture(blockid == ADBlock.ItableT1.blockID ? textures.t1 : textures.t2);
 		int x = (width - xSize) / 2;

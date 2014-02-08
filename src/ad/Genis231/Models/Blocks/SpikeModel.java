@@ -1,14 +1,13 @@
 package ad.Genis231.Models.Blocks;
 
-import ad.Genis231.lib.Models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+import ad.Genis231.lib.Models;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class SpikeModel extends ModelBase {
+@SideOnly(Side.CLIENT) public class SpikeModel extends ModelBase {
 	
 	private IModelCustom modelSpike;
 	

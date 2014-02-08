@@ -14,8 +14,8 @@ import ad.Genis231.lib.Ref;
 
 public class SpikeTrap extends ADBlockModel {
 	
-	public SpikeTrap(int id,String name) {
-		super(id, Material.rock,name);
+	public SpikeTrap(int id, String name) {
+		super(id, Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
 	}
 	
@@ -26,14 +26,11 @@ public class SpikeTrap extends ADBlockModel {
 		entity.attackEntityFrom(DamageSource.generic, 1.0F);
 	}
 	
-
-	@Override
-	public int getRenderType() {
+	@Override public int getRenderType() {
 		return Ref.SpikeRender;
 	}
 	
-	@Override
-	public TileEntity createNewTileEntity(World world) {
+	@Override public TileEntity createNewTileEntity(World world) {
 		return new SpikeTile();
 	}
 	

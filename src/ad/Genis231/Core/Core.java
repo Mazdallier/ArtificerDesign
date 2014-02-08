@@ -15,32 +15,22 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class Core {
+@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) @NetworkMod(clientSideRequired = true, serverSideRequired = false) public class Core {
 	public Configuration config = null;
 	
 	// The instance of your mod that Forge uses.
-	@Instance(Ref.MOD_ID)
-	public static Core instance;
-	
+	@Instance(Ref.MOD_ID) public static Core instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy")
-	public static CommonProxy proxy;
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy") public static CommonProxy proxy;
 	
-	@Deprecated
-	@EventHandler
-	public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
+	@Deprecated @EventHandler public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
 	
-	@Deprecated
-	@EventHandler
-	public void fingerPrint(FMLFingerprintViolationEvent event) {
+	@Deprecated @EventHandler public void fingerPrint(FMLFingerprintViolationEvent event) {
 		if (event.expectedFingerprint != event.expectedFingerprint) {}
 	}
 	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		ADLog.initLog();
 		
 		MainReg.basic();
@@ -49,8 +39,7 @@ public class Core {
 		
 	}
 	
-	@EventHandler
-	public void load(FMLInitializationEvent event) {
+	@EventHandler public void load(FMLInitializationEvent event) {
 		proxy.registerRenderers();
 		
 		MainReg.Modifiers();
@@ -59,7 +48,6 @@ public class Core {
 		NetworkRegistry.instance().registerGuiHandler(this, new GuiHandler());
 	}
 	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {}
+	@EventHandler public void postInit(FMLPostInitializationEvent event) {}
 	
 }

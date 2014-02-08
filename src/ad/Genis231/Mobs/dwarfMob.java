@@ -1,6 +1,5 @@
 package ad.Genis231.Mobs;
 
-import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;

@@ -5,7 +5,6 @@ import java.util.List;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
@@ -19,8 +18,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class pit_trap extends ADItem {
 	
-	public pit_trap(int id,String name) {
-		super(id,name);
+	public pit_trap(int id, String name) {
+		super(id, name);
 		// setHasSubtypes(true);
 		setUnlocalizedName("Vine Mat");
 	}
@@ -55,9 +54,12 @@ public class pit_trap extends ADItem {
 	}
 	
 	int getRange(ItemStack item) {
-		if (item.getItemDamage() < 3) return tiers[0];
-		else if (item.getItemDamage() < 6) return tiers[1];
-		else return tiers[2];
+		if (item.getItemDamage() < 3)
+			return tiers[0];
+		else if (item.getItemDamage() < 6)
+			return tiers[1];
+		else
+			return tiers[2];
 	}
 	
 	void range(World world, EntityPlayer player, int x, int y, int z, ItemStack item) {
@@ -75,13 +77,13 @@ public class pit_trap extends ADItem {
 		
 		if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
 			PTBlock.toggle = false;
-			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FPTrap.blockID, getMeta(item), true);
+			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ))
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FPTrap.blockID, getMeta(item), true);
 			PTBlock.toggle = true;
 		}
 	}
 	
-	@Override
-	public int getMetadata(int damageValue) {
+	@Override public int getMetadata(int damageValue) {
 		return damageValue;
 	}
 	
@@ -90,8 +92,7 @@ public class pit_trap extends ADItem {
 		return item.getItemDamage() % 3;
 	}
 	
-	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
+	@Override public String getUnlocalizedName(ItemStack itemstack) {
 		return "Vine Mat " + UnlocalizedArray[itemstack.getItemDamage()];
 	}
 	
@@ -106,8 +107,10 @@ public class pit_trap extends ADItem {
 		
 		for (int q = x; q <= X; q++) {
 			for (int w = z; w <= Z; w++) {
-				if (world.getBlockId(q, y - 1, w) != 0 || world.getBlockId(q, y + 1, w) != 0) i++;
-				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FPTrap.blockID) i++;
+				if (world.getBlockId(q, y - 1, w) != 0 || world.getBlockId(q, y + 1, w) != 0)
+					i++;
+				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FPTrap.blockID)
+					i++;
 			}
 		}
 		return i == 0;
@@ -123,26 +126,27 @@ public class pit_trap extends ADItem {
 		Z = mz <= mZ ? mZ : mz;
 		
 		for (int minx = x; minx <= X; minx++) {
-			if (world.getBlockId(minx, y, z - 1) == 0) i++;
-			if (world.getBlockId(minx, y, Z + 1) == 0) i++;
+			if (world.getBlockId(minx, y, z - 1) == 0)
+				i++;
+			if (world.getBlockId(minx, y, Z + 1) == 0)
+				i++;
 		}
 		for (int minz = z; minz <= Z; minz++) {
-			if (world.getBlockId(x - 1, y, minz) == 0) i++;
-			if (world.getBlockId(X + 1, y, minz) == 0) i++;
+			if (world.getBlockId(x - 1, y, minz) == 0)
+				i++;
+			if (world.getBlockId(X + 1, y, minz) == 0)
+				i++;
 		}
 		return i == 0;
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
 		for (int i = 0; i < IconArray.length; i++) {
 			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + textures.PitTrapArray[i]);
 		}
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public Icon getIconFromDamage(int meta) {
+	@SideOnly(Side.CLIENT) public Icon getIconFromDamage(int meta) {
 		int index = MathHelper.clamp_int(meta, 0, 8);
 		return IconArray[index];
 	}

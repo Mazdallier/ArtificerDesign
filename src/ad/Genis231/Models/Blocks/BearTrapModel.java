@@ -6,22 +6,22 @@ import net.minecraftforge.client.model.IModelCustom;
 import ad.Genis231.lib.Models;
 
 public class BearTrapModel extends ModelBase {
-    private IModelCustom model;
-    
-    public BearTrapModel() {
-        model = AdvancedModelLoader.loadModel(Models.BTrap);
-    }
-
-    public void randerAll(){
-    	model.renderAll();
-    }
-    
-    public void RenderBase(){
-    	model.renderPart("Base");
-    }
-    
-    public void RenderSide(){
-    	model.renderPart("Right");
-    	model.renderPart("Left");
-    }
+	private IModelCustom model;
+	
+	public BearTrapModel() {
+		model = AdvancedModelLoader.loadModel(Models.BTrap);
+	}
+	
+	public void randerAll() {
+		model.renderAll();
+	}
+	
+	public void RenderBase() {
+		model.renderPart("Base");
+	}
+	
+	public void RenderSide() {
+		model.renderPart("Right");
+		model.renderPart("Left");
+	}
 }

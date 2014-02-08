@@ -6,55 +6,54 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class DwarfModel extends ModelBase {
-	//fields
-    ModelRenderer head;
-    ModelRenderer body;
-    ModelRenderer rightarm;
-    ModelRenderer leftarm;
-    ModelRenderer rightleg;
-    ModelRenderer leftleg;
-  
-  public DwarfModel()
-  {
-    textureWidth = 32;
-    textureHeight = 64;
-    
-      head = new ModelRenderer(this, 0, 0);
-      head.addBox(-4F, -8F, -4F, 6, 5, 6);
-      head.setRotationPoint(1F, 14F, 1F);
-      head.setTextureSize(32, 64);
-      head.mirror = true;
-      setRotation(head, 0F, 0F, 0F);
-      body = new ModelRenderer(this, 0, 41);
-      body.addBox(-4F, 0F, -2F, 8, 6, 4);
-      body.setRotationPoint(0F, 11F, 0F);
-      body.setTextureSize(32, 64);
-      body.mirror = true;
-      setRotation(body, 0F, 0F, 0F);
-      rightarm = new ModelRenderer(this, 17, 27);
-      rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
-      rightarm.setRotationPoint(-4F, 13F, 0F);
-      rightarm.setTextureSize(32, 64);
-      rightarm.mirror = true;
-      setRotation(rightarm, 0F, 0F, 0F);
-      leftarm = new ModelRenderer(this, 17, 16);
-      leftarm.addBox(-1F, -2F, -2F, 3, 6, 4);
-      leftarm.setRotationPoint(5F, 13F, 0F);
-      leftarm.setTextureSize(32, 64);
-      leftarm.mirror = true;
-      setRotation(leftarm, 0F, 0F, 0F);
-      rightleg = new ModelRenderer(this, 0, 28);
-      rightleg.addBox(-2F, 0F, -2F, 4, 7, 4);
-      rightleg.setRotationPoint(-2F, 17F, 0F);
-      rightleg.setTextureSize(32, 64);
-      rightleg.mirror = true;
-      setRotation(rightleg, 0F, 0F, 0F);
-      leftleg = new ModelRenderer(this, 0, 16);
-      leftleg.addBox(-2F, 0F, -2F, 4, 7, 4);
-      leftleg.setRotationPoint(2F, 17F, 0F);
-      leftleg.setTextureSize(32, 64);
-      leftleg.mirror = true;
-      setRotation(leftleg, 0F, 0F, 0F);
+	// fields
+	ModelRenderer head;
+	ModelRenderer body;
+	ModelRenderer rightarm;
+	ModelRenderer leftarm;
+	ModelRenderer rightleg;
+	ModelRenderer leftleg;
+	
+	public DwarfModel() {
+		textureWidth = 32;
+		textureHeight = 64;
+		
+		head = new ModelRenderer(this, 0, 0);
+		head.addBox(-4F, -8F, -4F, 6, 5, 6);
+		head.setRotationPoint(1F, 14F, 1F);
+		head.setTextureSize(32, 64);
+		head.mirror = true;
+		setRotation(head, 0F, 0F, 0F);
+		body = new ModelRenderer(this, 0, 41);
+		body.addBox(-4F, 0F, -2F, 8, 6, 4);
+		body.setRotationPoint(0F, 11F, 0F);
+		body.setTextureSize(32, 64);
+		body.mirror = true;
+		setRotation(body, 0F, 0F, 0F);
+		rightarm = new ModelRenderer(this, 17, 27);
+		rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
+		rightarm.setRotationPoint(-4F, 13F, 0F);
+		rightarm.setTextureSize(32, 64);
+		rightarm.mirror = true;
+		setRotation(rightarm, 0F, 0F, 0F);
+		leftarm = new ModelRenderer(this, 17, 16);
+		leftarm.addBox(-1F, -2F, -2F, 3, 6, 4);
+		leftarm.setRotationPoint(5F, 13F, 0F);
+		leftarm.setTextureSize(32, 64);
+		leftarm.mirror = true;
+		setRotation(leftarm, 0F, 0F, 0F);
+		rightleg = new ModelRenderer(this, 0, 28);
+		rightleg.addBox(-2F, 0F, -2F, 4, 7, 4);
+		rightleg.setRotationPoint(-2F, 17F, 0F);
+		rightleg.setTextureSize(32, 64);
+		rightleg.mirror = true;
+		setRotation(rightleg, 0F, 0F, 0F);
+		leftleg = new ModelRenderer(this, 0, 16);
+		leftleg.addBox(-2F, 0F, -2F, 4, 7, 4);
+		leftleg.setRotationPoint(2F, 17F, 0F);
+		leftleg.setTextureSize(32, 64);
+		leftleg.mirror = true;
+		setRotation(leftleg, 0F, 0F, 0F);
 	}
 	
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
@@ -74,9 +73,7 @@ public class DwarfModel extends ModelBase {
 		model.rotateAngleZ = z;
 	}
 	
-	/**
-	 * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how "far" arms and legs can swing at most.
-	 */
+	/** Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how "far" arms and legs can swing at most. */
 	
 	public void setRotationAngles(float ticks, float distance, float par3, float par4, float par5, float par6, Entity entity) {
 		this.head.rotateAngleY = par4 / (180F / (float) Math.PI);

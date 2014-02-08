@@ -2,7 +2,6 @@ package ad.Genis231.Render.Blocks;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
@@ -13,13 +12,11 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class SpikeTileRenderer extends TileEntitySpecialRenderer {
-    
-    private SpikeModel modelSpike = new SpikeModel();
-    
-	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
+@SideOnly(Side.CLIENT) public class SpikeTileRenderer extends TileEntitySpecialRenderer {
+	
+	private SpikeModel modelSpike = new SpikeModel();
+	
+	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		
 		if (tileEntity instanceof SpikeTile) {
 			

@@ -36,8 +36,7 @@ public class ITableContainer extends Container {
 		bindPlayerInventory(inventoryPlayer);
 	}
 	
-	@Override
-	public boolean canInteractWith(EntityPlayer player) {
+	@Override public boolean canInteractWith(EntityPlayer player) {
 		return tileEntity.isUseableByPlayer(player);
 	}
 	
@@ -53,9 +52,7 @@ public class ITableContainer extends Container {
 		}
 	}
 	
-	/**
-	 * Called when the container is closed.
-	 */
+	/** Called when the container is closed. */
 	public void onContainerClosed(EntityPlayer player) {
 		super.onContainerClosed(player);
 		ItemStack items;
@@ -71,8 +68,7 @@ public class ITableContainer extends Container {
 		}
 	}
 	
-	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
+	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(slotNumber);
 		
@@ -80,7 +76,7 @@ public class ITableContainer extends Container {
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			
-			if (slotNumber <  4) {
+			if (slotNumber < 4) {
 				if (!this.mergeItemStack(itemstack1, 4, this.inventorySlots.size(), true)) { return null; }
 			} else if (!this.mergeItemStack(itemstack1, 0, 4, false)) { return null; }
 			
@@ -94,10 +90,10 @@ public class ITableContainer extends Container {
 		return itemstack;
 	}
 	
-	@Override
-	public Slot getSlotFromInventory(IInventory inven, int slot) {
+	@Override public Slot getSlotFromInventory(IInventory inven, int slot) {
 		Slot slotObject = (Slot) inventorySlots.get(slot);
-		if (slot == 2) inven.isItemValidForSlot(slot, null);
+		if (slot == 2)
+			inven.isItemValidForSlot(slot, null);
 		return null;
 	}
 	

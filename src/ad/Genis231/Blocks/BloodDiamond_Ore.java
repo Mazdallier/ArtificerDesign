@@ -8,8 +8,8 @@ import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.textures;
 
 public class BloodDiamond_Ore extends ADBlock {
-	public BloodDiamond_Ore(int id,String name) {
-		super(id, Material.rock,name);
+	public BloodDiamond_Ore(int id, String name) {
+		super(id, Material.rock, name);
 		setLightValue(1.0F);
 		setHardness(5.0f);
 		setTextureName(textures.BDO);

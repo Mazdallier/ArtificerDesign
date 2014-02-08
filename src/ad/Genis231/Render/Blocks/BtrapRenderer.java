@@ -2,25 +2,21 @@ package ad.Genis231.Render.Blocks;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Models.Blocks.BearTrapModel;
 import ad.Genis231.TileEntity.BearTrapTile;
-import ad.Genis231.TileEntity.SpikeTile;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-@SideOnly(Side.CLIENT)
-public class BtrapRenderer extends TileEntitySpecialRenderer {
+@SideOnly(Side.CLIENT) public class BtrapRenderer extends TileEntitySpecialRenderer {
 	
 	private static BearTrapModel Model = new BearTrapModel();
 	
-	@Override
-	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
+	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		
 		if (tileEntity instanceof BearTrapTile) {
 			

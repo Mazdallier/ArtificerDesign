@@ -2,30 +2,25 @@ package ad.Genis231.Blocks;
 
 import java.util.Random;
 
-import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.lib.Ref;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClasses.ADBlock;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class PTBlock extends ADBlock {
 	
-	@SideOnly(Side.CLIENT)
-	public static Icon sandIcon;
-	@SideOnly(Side.CLIENT)
-	public static Icon stoneIcon;
-	@SideOnly(Side.CLIENT)
-	public static Icon dirtIcon;
+	@SideOnly(Side.CLIENT) public static Icon sandIcon;
+	@SideOnly(Side.CLIENT) public static Icon stoneIcon;
+	@SideOnly(Side.CLIENT) public static Icon dirtIcon;
 	
 	public static boolean toggle = true;
 	
-	public PTBlock(int id,String name) {
-		super(id, Material.rock,name);
+	public PTBlock(int id, String name) {
+		super(id, Material.rock, name);
 		setHardness(-1);
 		this.setCreativeTab(null);
 	}
@@ -48,21 +43,19 @@ public class PTBlock extends ADBlock {
 	}
 	
 	public static boolean check(World world, int x, int y, int z) {
-		if (world.getBlockId(x - 1, y, z) == 0 || world.getBlockId(x + 1, y, z) == 0 || world.getBlockId(x, y, z - 1) == 0 || world.getBlockId(x, y, z + 1) == 0) return true;
-		else return false;
+		if (world.getBlockId(x - 1, y, z) == 0 || world.getBlockId(x + 1, y, z) == 0 || world.getBlockId(x, y, z - 1) == 0 || world.getBlockId(x, y, z + 1) == 0)
+			return true;
+		else
+			return false;
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
 		sandIcon = icon.registerIcon("sand");
 		stoneIcon = icon.registerIcon("stone");
 		dirtIcon = icon.registerIcon("dirt");
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int side, int meta) {
+	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
 		switch (meta) {
 			case 0:
 				return dirtIcon;
