@@ -38,7 +38,7 @@ public class ADItem extends Item {
 	public final static Item AngelicBlood = new Blood(itemIDs.Angelicblood, "ABlood", textures.AngelicBlood);
 	public final static Item DemonicBlood = new Blood(itemIDs.DemonicBlood, "DBlood", textures.DemonicBlood);
 	public final static Item PureGem = new RedGem(itemIDs.PureGem, "PureGem", textures.PureGem);
-	public final static Item DirtyGem = new RedGem(itemIDs.DirtyGem, "PureGem", textures.DirtyGem);
+	public final static Item DirtyGem = new RedGem(itemIDs.DirtyGem, "ImPureGem", textures.DirtyGem);
 	public final static Item GoldBowl = new GoldBowl(itemIDs.GoldBowl, "GBowl");
 	public final static Item PitTrap = new PitTrap(itemIDs.PitTrap, "PitTrap");
 	public final static Item RestoredJournal = new Journal(itemIDs.RestoredJournal, "Rjournal", textures.RestoredJournal);

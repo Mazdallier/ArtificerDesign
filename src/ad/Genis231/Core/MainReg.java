@@ -14,29 +14,29 @@ public class MainReg {
 	
 	public static void basic() {
 		/* Blocks */
-		Registery.Register(ADBlock.RedGemOre, "BDOre", "Red Gem Ore");
-		Registery.Register(ADBlock.FalsePitTrap, "null_Block");
-		Registery.Register(ADBlock.Dam, "dam_block", "Dam");
+		Registery.Register(ADBlock.RedGemOre, "RedGemOre", "Red Gem Ore");
+		Registery.Register(ADBlock.FalsePitTrap, "NullBlock");
+		Registery.Register(ADBlock.Dam, "DamBlock", "Dam");
 		Registery.Register(ADBlock.FalseLoot, "FalseLoot", "False Loot");
-		Registery.Register(ADBlock.Itable1, "Itable1", "Imbueing Table teir1");
-		Registery.Register(ADBlock.Itable2, "Itable2", "Imbueing Table teir2");
+		Registery.Register(ADBlock.Itable1, "Itable1", "Imbueing Table (teir 1)");
+		Registery.Register(ADBlock.Itable2, "Itable2", "Imbueing Table (teir 2)");
 		Registery.Register(ADBlock.Spike, "SpikePit", "Spike Pit");
-		Registery.Register(ADBlock.BearTrap, "BTrap", "Bear Trap");
-		Registery.Register(ADBlock.Drill, "Drill", "Drill (WIP)");
-		Registery.Register(ADBlock.DwarvenStone, "DStone", "Dwarven Stone");
-		Registery.Register(ADBlock.GreenFire, "GFire", "Green Fire of DOOM w/ Smoke");
-		Registery.Register(ADBlock.GreenFire2, "BFire", "Green Fire of DOOM w/o smoke");
+		Registery.Register(ADBlock.BearTrap, "BearTrap", "Bear Trap");
+		Registery.Register(ADBlock.Drill, "Drill", "Drill (Broken)");
+		Registery.Register(ADBlock.DwarvenStone, "DwarvenStone", "Dwarven Stone");
+		Registery.Register(ADBlock.GreenFire, "GreenFire", "Green Fire of DOOM w/ Smoke");
+		Registery.Register(ADBlock.GreenFire2, "TempFire", "Green Fire of DOOM w/o Smoke");
 		
 		/* Items */
-		Registery.Register(ADItem.OrangeDust, "ORangeDust", "Orange Dust");
-		Registery.Register(ADItem.DirtyGem, "DGem", "Impure Gem");
-		Registery.Register(ADItem.PureGem, "PGem", "Purified Gem");
+		Registery.Register(ADItem.OrangeDust, "OrangeDust", "Orange Dust");
+		Registery.Register(ADItem.PureGem, "PureGem", "Purified Gem");
+		Registery.Register(ADItem.DirtyGem, "DirtyGem", "Impure Gem");
 		Registery.Register(ADItem.GoldBowl, "GoldBowl", "Gold Bowl");
 		Registery.Register(ADItem.AngelicBlood, "AngelicBlood", "Blessed Elve's Blood");
 		Registery.Register(ADItem.DemonicBlood, "DemonicBlood", "Tainted Orc's Blood");
 		
-		Registery.Register(ADItem.RestoredJournal, "RJournal", "Restored Journal");
-		Registery.Register(ADItem.DragonBreathe, "DBreathe", "Dragon's Breathe");
+		Registery.Register(ADItem.RestoredJournal, "RestoredJournal", "Restored Journal");
+		Registery.Register(ADItem.DragonBreathe, "DragonBreathe", "Dragon's Breathe");
 		
 		Registery.RegisterMulti(ADItem.PitTrap, "VineMat", PitTrap.UnlocalizedArray);
 	}
