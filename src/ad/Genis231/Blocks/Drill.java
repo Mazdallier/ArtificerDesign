@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.src.ModLoader;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
@@ -32,10 +33,13 @@ public class Drill extends ADBlock {
 		return 5;
 	}
 	
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
-		// ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~This block no longer works!! they created an excess of Threads which is a HUGE stability issue!! to be fixed eventually...");
-		// ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~don't ask me why it sends it twice, it SHOULD only be once but i guess it doesn't like me .-.");
-		// ModLoader.getMinecraftInstance().thePlayer.addChatMessage("");
+	@SuppressWarnings("deprecation") public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
+		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z)) {
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~This block no longer works!! they created an excess of Threads which is a HUGE stability issue!! to be fixed eventually...");
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("~don't ask me why it sends it twice, it SHOULD only be once but i guess it doesn't like me .-.");
+			ModLoader.getMinecraftInstance().thePlayer.addChatMessage("");
+			
+		}
 		// DrillThread = new Thread(new DrillThread(world, x, y, z, size));
 		// DrillThread.start();
 		world.tickUpdates(world.isBlockIndirectlyGettingPowered(x, y, z));

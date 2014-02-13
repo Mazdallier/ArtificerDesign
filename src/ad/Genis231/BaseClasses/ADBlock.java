@@ -39,8 +39,7 @@ public class ADBlock extends Block {
 	public static final Block BearTrap = new BearTrap(blockIDs.BearTrap, "BTrap");
 	public static final Block Drill = new Drill(blockIDs.Drill, "Drill_MB");
 	public static final Block DwarvenStone = new DwarvenStone(blockIDs.DwarvenStone, "DwarvenStone");
-	public static final BlockFire GreenFire = (BlockFire) new FakeFire(blockIDs.GreenFire, true).setUnlocalizedName("GFire");
-	public static final BlockFire GreenFire2 = (BlockFire) new FakeFire(blockIDs.GreenFire + 5, false).setUnlocalizedName("BFire");
+	public static final BlockFire GreenFire = (BlockFire) new FakeFire(blockIDs.GreenFire).setUnlocalizedName("GFire");
 	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {
 		double Dx = x - posX;

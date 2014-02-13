@@ -24,8 +24,7 @@ public class MainReg {
 		Registery.Register(ADBlock.BearTrap, "BearTrap", "Bear Trap");
 		Registery.Register(ADBlock.Drill, "Drill", "Drill (Broken)");
 		Registery.Register(ADBlock.DwarvenStone, "DwarvenStone", "Dwarven Stone");
-		Registery.Register(ADBlock.GreenFire, "GreenFire", "Green Fire of DOOM w/ Smoke");
-		Registery.Register(ADBlock.GreenFire2, "TempFire", "Green Fire of DOOM w/o Smoke");
+		Registery.Register(ADBlock.GreenFire, "GreenFire", "Green Fire of DOOM!!");
 		
 		/* Items */
 		Registery.Register(ADItem.OrangeDust, "OrangeDust", "Orange Dust");
