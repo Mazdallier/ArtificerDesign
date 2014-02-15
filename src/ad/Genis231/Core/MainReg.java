@@ -51,7 +51,7 @@ public class MainReg {
 		
 		// Items
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.GoldBowl), "X X", " X ", 'X', Item.ingotGold);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Spike), " X ", "X X", 'X', Block.cobblestone);
+		GameRegistry.addShapedRecipe(new ItemStack(ADBlock.Spike), " X ", "XGX", 'X', Block.cobblestone, 'G', ADItem.PureGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.PureGem), "XXX", "XQX", "XXX", 'X', ADItem.AngelicBlood, 'Q', ADItem.DirtyGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.RestoredJournal), "SGP", "BLP", "SGP", 'S', Item.silk, 'B', Item.book, 'G', Item.ingotGold, 'L', Item.leather, 'P', Item.paper);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItem.DragonBreathe), "PPP", "BLB", "PPP", 'B', Item.glassBottle, 'L', Item.bucketLava, 'P', Item.paper);

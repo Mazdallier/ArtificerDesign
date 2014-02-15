@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockFire;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import ad.Genis231.Blocks.Entity.CustomExplosion;
 import ad.Genis231.lib.Ref;
@@ -21,12 +22,19 @@ public class FakeFire extends BlockFire {
 		this.setTextureName(textures.Fire);
 	}
 	
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+		super.onEntityWalking(world, x, y, z, entity);
+		entity.attackEntityFrom(DamageSource.inFire, 1.0F);
+	}
+	
 	public void initializeBlock() {}
 	
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {}
 	
+	
 	public static void explode(World world, int x, int y, int z) {
-		CustomExplosion explosion = new CustomExplosion(world, (Entity) null, x, y, z, 3.0f);
+		CustomExplosion explosion = new CustomExplosion(world, (Entity) null, x, y, z, 5.0f);
+		
 		explosion.isFlaming = true;
 		explosion.isSmoking = true;
 		
@@ -36,5 +44,4 @@ public class FakeFire extends BlockFire {
 		System.out.println("BOOOM!!!!!");
 		
 	}
-	
 }

@@ -12,7 +12,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class CreatureReg {
-	static int baseEntityID = 300;
+	static int baseEntityID = 1;
 	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
 	public static String[] dwarfNames = { "Savage", "Warrior", "Trader" };
 	
@@ -20,7 +20,7 @@ public class CreatureReg {
 		// registers the mod, args: MobClass.class, max hoard, min spawned, max spawned, MobType/SpawnArea.......
 		for (int i = 0; i < dwarfClass.length; i++) {
 			EntityRegistry.registerModEntity(dwarfClass[i], dwarfNames[i], i, Core.instance, 80, 3, true);
-			EntityRegistry.addSpawn(dwarfClass[i], 20, 20, 20, EnumCreatureType.creature, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge);
+			EntityRegistry.addSpawn(dwarfClass[i], 20, 20, 20, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
 			
 			// registers egg, args: MobClass.class, hex-Main, hex-Spots
 			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);

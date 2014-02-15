@@ -36,10 +36,11 @@ public class ClientProxy extends CommonProxy {
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.TableRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.BTrapRender = RenderingRegistry.getNextAvailableRenderId();
-		
+				
 		MinecraftForgeClient.registerItemRenderer(ADBlock.Spike.blockID, new ItemSpikeRenderer());
 		MinecraftForgeClient.registerItemRenderer(ADBlock.Itable1.blockID, new ItemITable1Renderer());
 		MinecraftForgeClient.registerItemRenderer(ADBlock.Itable2.blockID, new ItemITable2Renderer());
 		MinecraftForgeClient.registerItemRenderer(ADBlock.BearTrap.blockID, new ItemBearTrapRenderer());
+		
 	}
 }

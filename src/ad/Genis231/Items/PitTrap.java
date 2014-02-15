@@ -20,7 +20,7 @@ public class PitTrap extends ADItem {
 	
 	public PitTrap(int id, String name) {
 		super(id, name);
-		// setHasSubtypes(true);
+		setHasSubtypes(true);
 		setUnlocalizedName("Vine Mat");
 	}
 	
@@ -77,8 +77,14 @@ public class PitTrap extends ADItem {
 		
 		if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
 			PitTrapBlock.toggle = false;
-			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ))
+			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) {
 				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap.blockID, getMeta(item), true);
+				
+				if (!player.capabilities.isCreativeMode)
+					--item.stackSize;
+				
+			}
+			
 			PitTrapBlock.toggle = true;
 		}
 	}

@@ -16,12 +16,12 @@ public class BearTrap extends ADBlockModel {
 	public BearTrap(int id, String name) {
 		super(id, Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
+		this.setHardness(10.0f);
 	}
 	
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		super.onEntityWalking(world, x, y, z, entity);
-		// TODO updates the State of the Block and makes you have to reset it;
-		entity.attackEntityFrom(DamageSource.generic, 1.0F);
+		entity.attackEntityFrom(DamageSource.generic, 4.0F);
 	}
 	
 	@Override public int getRenderType() {
