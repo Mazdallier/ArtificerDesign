@@ -61,13 +61,17 @@ public class ADBlock extends Block {
 	public static boolean blockIsSide(World world, int x, int y, int z, int block, int side) {
 		switch (ForgeDirection.getOrientation(side)) {
 			case NORTH:
-				return world.getBlockId(x, y, z - 1) != block;
+				return world.getBlockId(x, y, z - 1) == block;
 			case SOUTH:
-				return world.getBlockId(x, y, z + 1) != block;
+				return world.getBlockId(x, y, z + 1) == block;
 			case WEST:
-				return world.getBlockId(x - 1, y, z) != block;
+				return world.getBlockId(x - 1, y, z) == block;
 			case EAST:
-				return world.getBlockId(x + 1, y, z) != block;
+				return world.getBlockId(x + 1, y, z) == block;
+			case DOWN:
+				return world.getBlockId(x, y - 1, z) == block;
+			case UP:
+				return world.getBlockId(x, y + 1, z) == block;
 			default:
 				return true;
 		}

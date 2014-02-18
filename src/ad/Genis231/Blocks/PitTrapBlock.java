@@ -1,12 +1,10 @@
 package ad.Genis231.Blocks;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
@@ -19,18 +17,18 @@ public class PitTrapBlock extends ADBlock {
 	@SideOnly(Side.CLIENT) public static Icon stoneIcon;
 	@SideOnly(Side.CLIENT) public static Icon dirtIcon;
 	
-	@Deprecated public static boolean toggle = true; // TODO Get rid of this stupid toggle thing!! -.-
+	@Deprecated
+	public static boolean toggle = true; // TODO Get rid of this stupid toggle thing!! -.-
 	
 	public PitTrapBlock(int id, String name) {
 		super(id, Material.rock, name);
 		setHardness(-1);
 		this.setCreativeTab(null);
-		this.setBlockBounds(0, 0, 0, 1f, 0.9999999999999f, 1f);
 	}
 	
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		super.onEntityWalking(world, x, y, z, entity);
+	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
 		world.destroyBlock(x, y, z, false);
+		super.onEntityWalking(world, x, y, z, player);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {

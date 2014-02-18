@@ -27,10 +27,9 @@ public class FakeFire extends BlockFire {
 		entity.attackEntityFrom(DamageSource.inFire, 1.0F);
 	}
 	
-	public void initializeBlock() {}
+	@Override public void initializeBlock() {}
 	
-	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {}
-	
+	@Override public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {}
 	
 	public static void explode(World world, int x, int y, int z) {
 		CustomExplosion explosion = new CustomExplosion(world, (Entity) null, x, y, z, 5.0f);

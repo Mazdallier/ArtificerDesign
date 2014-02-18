@@ -46,7 +46,7 @@ public class DamBlock extends ADBlock {
 	}
 	
 	public void set(World world, int x, int y, int z, int side) {
-		if (blockIsSide(world, x, y, z, Block.waterStill.blockID, side))
+		if (!blockIsSide(world, x, y, z, Block.waterStill.blockID, side))
 			setBlock(world, x, y, z, Block.waterMoving.blockID, side);
 	}
 	

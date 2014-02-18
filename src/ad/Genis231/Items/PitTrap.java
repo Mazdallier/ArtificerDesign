@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.PitTrapBlock;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,22 +28,90 @@ public class PitTrap extends ADItem {
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
-		switch (ForgeDirection.getOrientation(side)) {
-			case NORTH:// z-1
-				range(world, player, x, y, z - 1, item);
-				return true;
-			case SOUTH:// z+1
-				range(world, player, x, y, z + 1, item);
-				return true;
-			case WEST:// x-1
-				range(world, player, x - 1, y, z, item);
-				return true;
-			case EAST:// x+1
-				range(world, player, x + 1, y, z, item);
-				return true;
-			default:
-				return false;
+		if (!world.isRemote) {
+			switch (ForgeDirection.getOrientation(side)) {
+				case NORTH:
+					init(world, x, y, z - 1, item);
+					break;
+				case SOUTH:
+					init(world, x, y, z + 1, item);
+					break;
+				case WEST:
+					init(world, x - 1, y, z, item);
+					break;
+				case EAST:
+					init(world, x + 1, y, z, item);
+					break;
+				default:
+					break;
+			}
 		}
+		return true;
+	}
+	
+	private void init(World world, int x, int y, int z, ItemStack item) {
+		int mx = x, mX = x, mz = z, mZ = z;
+		
+		for (int i = 0; i < (getRange(item) / 2); i++) {
+			mx = world.isAirBlock(mx - 1, y, z) ? mx-- : mx;
+			mX = world.isAirBlock(mX + 1, y, z) ? mX++ : mX;
+			
+			mz = world.isAirBlock(x, y, mz - 1) ? mz-- : mz;
+			mZ = world.isAirBlock(x, y, mZ + 1) ? mZ++ : mZ;
+			
+			System.out.printf("TEST: x:%d X:%d z:%d Z:%d I:%d\n", mx, mX, mz, mZ, i);
+			
+		}
+		
+		set(world, mx, mX, y, mz, mZ, item);
+		
+	}
+	
+	private void set(World world, int fx, int fX, int y, int fz, int fZ, ItemStack item) {
+		int mx, mX, mz, mZ;
+		
+		mx = fx <= fX ? fx : fX;
+		mX = fx <= fX ? fX : fx;
+		
+		mz = fz <= fZ ? fz : fZ;
+		mZ = fz <= fZ ? fZ : fz;
+		
+		if (border(world, mx, mX, y, mz, mZ)) {
+			if (area(world, mx, mX, y, mz, mZ)) {
+				System.out.println("EVERYTHING WORKS!!!");
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap.blockID, item.getItemDamage() % 3, true);
+			}
+		}
+	}
+	
+	private boolean area(World world, int mx, int mX, int y, int mz, int mZ) {
+		for (int x = mx; x <= mX; x++) {
+			for (int z = mz; z <= mZ; z++) {
+				if (!ADBlock.blockIsSide(world, x, y, z, 0, 0) || !ADBlock.blockIsSide(world, x, y, z, 0, 1)) {
+					System.out.println("AREA FAILED!!");
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	private boolean border(World world, int mx, int mX, int y, int mz, int mZ) {
+		for (int x = mx; x < mX; x++) {
+			if (!ADBlock.blockIsSide(world, x, y, mz, 0, 2) || !ADBlock.blockIsSide(world, x, y, mZ, 0, 3)) {
+				System.out.println("X BORDER FAILED!!!");
+				return false;
+			}
+		}
+		
+		for (int z = mz; z < mZ; z++) {
+			if (!ADBlock.blockIsSide(world, mx, y, z, 0, 4) || !ADBlock.blockIsSide(world, mX, y, z, 0, 5)) {
+				System.out.println("Z BORDER FAILED!!!");
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	public void getSubItems(int ID, CreativeTabs CreativeTabs, List ItemList) {
@@ -62,97 +129,25 @@ public class PitTrap extends ADItem {
 			return tiers[2];
 	}
 	
-	void range(World world, EntityPlayer player, int x, int y, int z, ItemStack item) {
-		int mx = x, mX = x, mz = z, mZ = z, max = getRange(item);
-		
-		for (int i = 0; i <= max * 2; i++) {
-			mx = world.getBlockId(mx - 1, y, z) == 0 ? mx - 1 : mx;
-			mX = world.getBlockId(mX + 1, y, z) == 0 ? mX + 1 : mX;
-			mz = world.getBlockId(x, y, mz - 1) == 0 ? mz - 1 : mz;
-			mZ = world.getBlockId(x, y, mZ + 1) == 0 ? mZ + 1 : mZ;
-		}
-		
-		int dimX = mx - mX;
-		int dimZ = mz - mZ;
-		
-		if (Math.abs(dimX) <= max && Math.abs(dimZ) <= max) {
-			PitTrapBlock.toggle = false;
-			if (CheckArea(world, mx, y, mz, mX, mZ) && CheckBorder(world, mx, y, mz, mX, mZ)) {
-				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap.blockID, getMeta(item), true);
-				
-				if (!player.capabilities.isCreativeMode)
-					--item.stackSize;
-				
-			}
-			
-			PitTrapBlock.toggle = true;
-		}
-	}
-	
-	@Override public int getMetadata(int meta) {
+	@Override
+	public int getMetadata(int meta) {
 		return meta;
 	}
 	
-	private int getMeta(ItemStack item) {
-		System.out.println(item.getItemDamage() % 3);
-		return item.getItemDamage() % 3;
-	}
-	
-	@Override public String getUnlocalizedName(ItemStack itemstack) {
+	@Override
+	public String getUnlocalizedName(ItemStack itemstack) {
 		return this.getUnlocalizedName() + UnlocalizedArray[itemstack.getItemDamage()];
 	}
 	
-	public static boolean CheckArea(World world, int mx, int y, int mz, int mX, int mZ) {
-		int x, z, X, Z, i = 0;
-		
-		x = mx <= mX ? mx : mX;
-		X = mx <= mX ? mX : mx;
-		
-		z = mz <= mZ ? mz : mZ;
-		Z = mz <= mZ ? mZ : mz;
-		
-		for (int q = x; q <= X; q++) {
-			for (int w = z; w <= Z; w++) {
-				if (world.getBlockId(q, y - 1, w) != 0 || world.getBlockId(q, y + 1, w) != 0)
-					i++;
-				if (world.getBlockId(q, y, w) != 0 && world.getBlockId(q, y, w) != ADBlock.FalsePitTrap.blockID)
-					i++;
-			}
-		}
-		return i == 0;
-	}
-	
-	public static boolean CheckBorder(World world, int mx, int y, int mz, int mX, int mZ) {
-		int x, z, X, Z, i = 0;
-		
-		x = mx <= mX ? mx : mX;
-		X = mx <= mX ? mX : mx;
-		
-		z = mz <= mZ ? mz : mZ;
-		Z = mz <= mZ ? mZ : mz;
-		
-		for (int minx = x; minx <= X; minx++) {
-			if (world.getBlockId(minx, y, z - 1) == 0)
-				i++;
-			if (world.getBlockId(minx, y, Z + 1) == 0)
-				i++;
-		}
-		for (int minz = z; minz <= Z; minz++) {
-			if (world.getBlockId(x - 1, y, minz) == 0)
-				i++;
-			if (world.getBlockId(X + 1, y, minz) == 0)
-				i++;
-		}
-		return i == 0;
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
-		for (int i = 0; i < IconArray.length; i++) {
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister icon) {
+		for (int i = 0; i < IconArray.length; i++)
 			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + textures.PitTrapArray[i]);
-		}
 	}
 	
-	@SideOnly(Side.CLIENT) public Icon getIconFromDamage(int meta) {
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int meta) {
 		return IconArray[meta];
 	}
 }
