@@ -18,10 +18,9 @@ public class SpikeTrap extends ADBlockModel {
 	public SpikeTrap(int id, String name) {
 		super(id, Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
-		this.setHardness(10.0f);
+		this.setHardness(5.0f);
 	}
 	
-	public static int side = 0;
 	
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		super.onEntityWalking(world, x, y, z, entity);

@@ -37,7 +37,7 @@ public class MainReg {
 		Registery.Register(ADItem.RestoredJournal, "RestoredJournal", "Restored Journal");
 		Registery.Register(ADItem.DragonBreathe, "DragonBreathe", "Dragon's Breathe");
 		
-		Registery.RegisterMulti(ADItem.PitTrap, "VineMat", PitTrap.UnlocalizedArray);
+		Registery.RegisterMulti(ADItem.PitTrap, "Vine Mat ", PitTrap.UnlocalizedArray);
 	}
 	
 	public static void recipeGReg() {
@@ -59,14 +59,14 @@ public class MainReg {
 		// Shapeless
 		GameRegistry.addShapelessRecipe(new ItemStack(ADItem.OrangeDust), Item.glowstone, Item.redstone, Item.redstone);
 		
-		// Pit-Trap
+		// Vine Mats
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 0), "QQQ", " X ", "X X", 'Q', Block.dirt, 'X', Item.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 1), "QQQ", " X ", "X X", 'Q', Block.sand, 'X', Item.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 2), "QQQ", " X ", "X X", 'Q', Block.stone, 'X', Item.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 0), "QQQ", "VXV", "XVX", 'Q', Block.dirt, 'V', Block.vine, 'X', Item.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 1), "QQQ", "VXV", "XVX", 'Q', Block.sand, 'V', Block.vine, 'X', Item.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 2), "QQQ", "VXV", "XVX", 'Q', Block.stone, 'V', Block.vine, 'X', Item.stick);
 			
 			for (int i = 3; i < 10; i++) {
-				GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, i), "QQQ", " X ", "X X", 'Q', new ItemStack(ADItem.PitTrap, 1, i - 3), 'X', Item.stick);
+				GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItem.PitTrap, 1, i - 3), 'X', Item.stick, 'V', Block.vine);
 			}
 		}
 	}

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import ad.Genis231.Blocks.BearTrap;
 import ad.Genis231.Blocks.DamBlock;
 import ad.Genis231.Blocks.Drill;
@@ -57,16 +58,16 @@ public class ADBlock extends Block {
 	}
 	
 	/** checks if it is not touching said side on y axis: args world, x, y, z, blockID, side */
-	public static boolean blockCheckAround(World world, int x, int y, int z, int block, int side) {
-		switch (side) {
-			case 2:
-				return world.getBlockId(x + 1, y, z) == block || world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z + 1) == block;
-			case 3:
-				return world.getBlockId(x + 1, y, z) == block || world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z - 1) == block;
-			case 4:
-				return world.getBlockId(x + 1, y, z) == block || world.getBlockId(x, y, z + 1) == block || world.getBlockId(x, y, z - 1) == block;
-			case 5:
-				return world.getBlockId(x - 1, y, z) == block || world.getBlockId(x, y, z + 1) == block || world.getBlockId(x, y, z - 1) == block;
+	public static boolean blockIsSide(World world, int x, int y, int z, int block, int side) {
+		switch (ForgeDirection.getOrientation(side)) {
+			case NORTH:
+				return world.getBlockId(x, y, z - 1) != block;
+			case SOUTH:
+				return world.getBlockId(x, y, z + 1) != block;
+			case WEST:
+				return world.getBlockId(x - 1, y, z) != block;
+			case EAST:
+				return world.getBlockId(x + 1, y, z) != block;
 			default:
 				return true;
 		}
@@ -84,43 +85,35 @@ public class ADBlock extends Block {
 			return 3;
 		else if (world.getBlockId(x + 1, y, z) == blockid)
 			return 4;
-		else
+		else if (world.getBlockId(x - 1, y, z) == blockid)
 			return 5;
+		else
+			return -1;
 	}
 	
 	/** places a block relative to the coords and side: args world, x, y, z, side of block */
-	public static void placeInfront(World world, int x, int y, int z, int block, int side) {
-		switch (side) {
-			case 2:
-				world.setBlock(x, y, z - 1, block);
-				break;
-			case 3:
-				world.setBlock(x, y, z + 1, block);
-				break;
-			case 4:
-				world.setBlock(x - 1, y, z, block);
-				break;
-			case 5:
-				world.setBlock(x + 1, y, z, block);
-				break;
-		}
+	public static void setBlock(World world, int x, int y, int z, int block, int side) {
+		setBlock(world, x, y, z, block, side, 0);
 	}
 	
 	/** places a block relative to the coords and side: args world, x, y, z, side of block, meta */
-	public static void placeInfront(World world, int x, int y, int z, int block, int side, int meta) {
-		switch (side) {
-			case 2:
-				world.setBlock(x, y, z + 1, block, meta, 3);
-				break;
-			case 3:
+	public static void setBlock(World world, int x, int y, int z, int block, int side, int meta) {
+		switch (ForgeDirection.getOrientation(side)) {
+			case NORTH:
 				world.setBlock(x, y, z - 1, block, meta, 3);
 				break;
-			case 4:
-				world.setBlock(x + 1, y, z, block, meta, 3);
+			case SOUTH:
+				world.setBlock(x, y, z + 1, block, meta, 3);
 				break;
-			case 5:
+			case WEST:
 				world.setBlock(x - 1, y, z, block, meta, 3);
 				break;
+			case EAST:
+				world.setBlock(x + 1, y, z, block, meta, 3);
+				break;
+			default:
+				break;
+		
 		}
 	}
 	

@@ -33,7 +33,7 @@ public class DrillThread implements Runnable {
 							else if (check(world.getBlockId(fx, fy, fz))) {
 								Thread.sleep(10);
 								
-								 dropBlock(world, fx, fy, fz);
+								 //dropBlock(world, fx, fy, fz);
 								world.setBlockToAir(fx, fy, fz);
 							}
 						}

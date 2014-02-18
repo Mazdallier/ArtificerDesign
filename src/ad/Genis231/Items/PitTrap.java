@@ -7,8 +7,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
@@ -20,8 +20,7 @@ public class PitTrap extends ADItem {
 	
 	public PitTrap(int id, String name) {
 		super(id, name);
-		setHasSubtypes(true);
-		setUnlocalizedName("Vine Mat");
+		this.setHasSubtypes(true);
 	}
 	
 	public static Icon[] IconArray = new Icon[9];
@@ -30,21 +29,22 @@ public class PitTrap extends ADItem {
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
-		switch (side) {
-			case 2:// z-1
+		switch (ForgeDirection.getOrientation(side)) {
+			case NORTH:// z-1
 				range(world, player, x, y, z - 1, item);
 				return true;
-			case 3:// z+1
+			case SOUTH:// z+1
 				range(world, player, x, y, z + 1, item);
 				return true;
-			case 4:// x-1
+			case WEST:// x-1
 				range(world, player, x - 1, y, z, item);
 				return true;
-			case 5:// x+1
+			case EAST:// x+1
 				range(world, player, x + 1, y, z, item);
 				return true;
+			default:
+				return false;
 		}
-		return true;
 	}
 	
 	public void getSubItems(int ID, CreativeTabs CreativeTabs, List ItemList) {
@@ -89,8 +89,8 @@ public class PitTrap extends ADItem {
 		}
 	}
 	
-	@Override public int getMetadata(int damageValue) {
-		return damageValue;
+	@Override public int getMetadata(int meta) {
+		return meta;
 	}
 	
 	private int getMeta(ItemStack item) {
@@ -99,7 +99,7 @@ public class PitTrap extends ADItem {
 	}
 	
 	@Override public String getUnlocalizedName(ItemStack itemstack) {
-		return "Vine Mat " + UnlocalizedArray[itemstack.getItemDamage()];
+		return this.getUnlocalizedName() + UnlocalizedArray[itemstack.getItemDamage()];
 	}
 	
 	public static boolean CheckArea(World world, int mx, int y, int mz, int mX, int mZ) {
@@ -153,7 +153,6 @@ public class PitTrap extends ADItem {
 	}
 	
 	@SideOnly(Side.CLIENT) public Icon getIconFromDamage(int meta) {
-		int index = MathHelper.clamp_int(meta, 0, 8);
-		return IconArray[index];
+		return IconArray[meta];
 	}
 }

@@ -23,10 +23,10 @@ public class DamBlock extends ADBlock {
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
-		world.setBlock(x, y, z, Dam.blockID, sidePlaced(x, z, player.posX, player.posZ) - 2, 2);
+		world.setBlock(x, y, z, this.blockID, sidePlaced(x, z, player.posX, player.posZ) - 2, 3);
 	}
 	
-	public void onPostBlockPlaced(World world, int x, int y, int z, int par5) {
+	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
 		if (!world.isBlockIndirectlyGettingPowered(x, y, z)) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z), 3);
 			set(world, x, y, z, world.getBlockMetadata(x, y, z) - 4);
@@ -34,21 +34,20 @@ public class DamBlock extends ADBlock {
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int blockid) {
-		if (world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) < 4) {
+		
+		if (world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) <= 3) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) + 4, 3);
 			set(world, x, y, z, world.getBlockMetadata(x, y, z) - 2);
 			
-		} else if (!world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) > 3) {
+		} else if (!world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) >= 4) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) - 4, 3);
-			placeInfront(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
+			setBlock(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
 		}
 	}
 	
 	public void set(World world, int x, int y, int z, int side) {
-		
-		if (blockCheckAround(world, x, y, z, Block.waterMoving.blockID, side) || blockCheckAround(world, x, y, z, Block.waterStill.blockID, side)) {
-			placeInfront(world, x, y, z, Block.waterMoving.blockID, side);
-		}
+		if (blockIsSide(world, x, y, z, Block.waterStill.blockID, side))
+			setBlock(world, x, y, z, Block.waterMoving.blockID, side);
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {

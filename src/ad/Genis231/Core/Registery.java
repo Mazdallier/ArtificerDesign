@@ -8,14 +8,13 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Registery {
 	/* Blocks */
-	
-	public static void Register(Block block, String name, String stuff) {
-		GameRegistry.registerBlock(block, name);
-		LanguageRegistry.addName(block, stuff);
-	}
-	
 	public static void Register(Block block, String name) {
 		GameRegistry.registerBlock(block, name);
+	}
+	
+	public static void Register(Block block, String name, String stuff) {
+		Register(block, name);
+		LanguageRegistry.addName(block, stuff);
 	}
 	
 	public static void RegisterMulti(Block block, String name, String[] array) {
@@ -26,20 +25,22 @@ public class Registery {
 	}
 	
 	/* Items */
-	
-	public static void Register(Item item, String name, String stuff) {
-		GameRegistry.registerItem(item, name);
-		LanguageRegistry.addName(item, stuff);
-	}
-	
 	public static void Register(Item item, String name) {
 		GameRegistry.registerItem(item, name);
 	}
 	
+	public static void Register(Item item, String name, String stuff) {
+		Register(item, name);
+		LanguageRegistry.addName(item, stuff);
+	}
+	
 	public static void RegisterMulti(Item item, String name, String[] array) {
-		GameRegistry.registerItem(item, name);
+		Register(item, name);
 		
-		for (int i = 0; i < array.length; i++)
-			LanguageRegistry.addName(item, array[new ItemStack(item, 1, i).getItemDamage()]);
+		for (int i = 0; i < array.length; i++) {
+			LanguageRegistry.addName(item, array[i]);
+			
+			LanguageRegistry.instance().addStringLocalization(item.getUnlocalizedName() + array[i] + ".name", name + array[i]);
+		}
 	}
 }
