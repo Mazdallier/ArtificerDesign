@@ -8,7 +8,7 @@ public class Ref {
 	
 	public static final String MOD_ID = "Artificer";
 	public static final String MOD_NAME = "Artificer's Design";
-	public static final String MOD_VERSION = "Beta-1.0.2";
+	public static final String MOD_VERSION = "Beta-1.0.5";
 	public static final String Resource_FOLDER = "artificer:";
 	public static final CreativeTabs TAB = new ADCreativeTAB("Artificer's Design");
 	
