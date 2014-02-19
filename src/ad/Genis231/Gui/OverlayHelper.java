@@ -12,6 +12,8 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import ad.Genis231.lib.Ref;
 
 public class OverlayHelper extends Gui {
@@ -43,10 +45,9 @@ public class OverlayHelper extends Gui {
 			for (int i = 0; i < 9; i++) {
 				if (mc.thePlayer.inventory.getStackInSlot(i) != null) {
 					name = " " + mc.thePlayer.inventory.getStackInSlot(i).getDisplayName();
-					font.drawStringWithShadow("Item in Slot " + (i + 1)+": " + name, 5, (q * 10) - 5, 16777215);
+					font.drawStringWithShadow("Item in Slot " + (i + 1) + ": " + name, 5, (q * 10) - 5, 16777215);
 					q++;
 				}
-				font.FONT_HEIGHT = 0;
 				if (q <= 1)
 					font.drawStringWithShadow("Add Items to your Inventory!! :D", 5, 5, 16777215);
 			}
