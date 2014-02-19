@@ -21,7 +21,7 @@ public class Drill extends ADBlock {
 	@SideOnly(Side.CLIENT) public static Icon topIcon;
 	@SideOnly(Side.CLIENT) public static Icon botIcon;
 	
-	int size = 32;
+	int size = 16;
 	
 	public Drill(int id, String name) {
 		super(id, Material.rock, name);
@@ -42,7 +42,6 @@ public class Drill extends ADBlock {
 			
 			DrillThread = new Thread(new DrillThread(world, x, y, z, size));
 			DrillThread.start();
-			world.tickUpdates(world.isBlockIndirectlyGettingPowered(x, y, z));
 		}
 	}
 	

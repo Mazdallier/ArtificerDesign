@@ -61,7 +61,8 @@ public class Core {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new OverlayHelper(Minecraft.getMinecraft()));
+		if (event.getSide().isClient())
+			MinecraftForge.EVENT_BUS.register(new OverlayHelper(Minecraft.getMinecraft()));
 	}
 	
 }

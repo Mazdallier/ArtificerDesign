@@ -26,14 +26,16 @@ public class PitTrapBlock extends ADBlock {
 	}
 	
 	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
-		world.setBlock(x, y, z, 0, 0, 3);
+		world.setBlockToAir(x, y, z);
+		
 		super.onEntityWalking(world, x, y, z, player);
 	}
 	
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
-		if (toggle) {			
+		if (toggle) {
 			if (check(world, x, y, z)) {
-				world.setBlock(x, y, z, 0, 0, 3);
+				world.setBlockToAir(x, y, z);
+				
 			}
 		}
 	}

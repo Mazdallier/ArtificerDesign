@@ -12,14 +12,12 @@ import net.minecraftforge.event.ForgeSubscribe;
 
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import ad.Genis231.lib.Ref;
 
 public class OverlayHelper extends Gui {
 	protected Minecraft mc;
 	protected FontRenderer font;
-	int size = 32 - 4;
+	int size = 14;
 	int image;
 	int text;
 	String name;
@@ -45,7 +43,12 @@ public class OverlayHelper extends Gui {
 			for (int i = 0; i < 9; i++) {
 				if (mc.thePlayer.inventory.getStackInSlot(i) != null) {
 					name = " " + mc.thePlayer.inventory.getStackInSlot(i).getDisplayName();
-					font.drawStringWithShadow("Item in Slot " + (i + 1) + ": " + name, 5, (q * 10) - 5, 16777215);
+					
+					if (mc.thePlayer.inventory.currentItem == i)
+						font.drawStringWithShadow("Current Item: " + name, 5, (q * 10) - 5, 16711680);
+					else
+						font.drawStringWithShadow("Item in Slot " + (i + 1) + ": " + name, 5, (q * 10) - 5, 852223);
+					
 					q++;
 				}
 				if (q <= 1)
@@ -54,8 +57,9 @@ public class OverlayHelper extends Gui {
 			
 			font.drawStringWithShadow("Mod Version: " + Ref.MOD_VERSION, text + 30, 5, 16777215);
 			font.drawStringWithShadow("Hello Player: " + mc.thePlayer.username, text + 23, 15, 16777215);
-			this.mc.renderEngine.bindTexture(new ResourceLocation("artificer", "textures/gui/Pure_Gem 2.png"));
-			this.drawTexturedModalRect(image, 2, 4, 4, size, size);
+			
+			this.mc.renderEngine.bindTexture(new ResourceLocation("artificer", "textures/gui/Overlay.png"));
+			this.drawTexturedModalRect(image, 2, 0, 0, size, size + 3);
 		}
 		GL11.glPopMatrix();
 	}
