@@ -36,7 +36,8 @@ public class ITableContainer extends Container {
 		bindPlayerInventory(inventoryPlayer);
 	}
 	
-	@Override public boolean canInteractWith(EntityPlayer player) {
+	@Override
+	public boolean canInteractWith(EntityPlayer player) {
 		return tileEntity.isUseableByPlayer(player);
 	}
 	
@@ -68,7 +69,8 @@ public class ITableContainer extends Container {
 		}
 	}
 	
-	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(slotNumber);
 		
@@ -90,7 +92,8 @@ public class ITableContainer extends Container {
 		return itemstack;
 	}
 	
-	@Override public Slot getSlotFromInventory(IInventory inven, int slot) {
+	@Override
+	public Slot getSlotFromInventory(IInventory inven, int slot) {
 		Slot slotObject = (Slot) inventorySlots.get(slot);
 		if (slot == 2)
 			inven.isItemValidForSlot(slot, null);

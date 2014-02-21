@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
+import ad.Genis231.Blocks.FalseLoot;
 import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Items.PitTrap;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,7 +18,6 @@ public class MainReg {
 		Registery.Register(ADBlock.RedGemOre, "RedGemOre", "Red Gem Ore");
 		Registery.Register(ADBlock.FalsePitTrap, "NullBlock");
 		Registery.Register(ADBlock.Dam, "DamBlock", "Dam");
-		Registery.Register(ADBlock.FalseLoot, "FalseLoot", "False Loot");
 		Registery.Register(ADBlock.Itable1, "Itable1", "Imbueing Table (teir 1)");
 		Registery.Register(ADBlock.Itable2, "Itable2", "Imbueing Table (teir 2)");
 		Registery.Register(ADBlock.Spike, "SpikePit", "Spike Pit");
@@ -37,6 +37,7 @@ public class MainReg {
 		Registery.Register(ADItem.RestoredJournal, "RestoredJournal", "Restored Journal");
 		Registery.Register(ADItem.DragonBreathe, "DragonBreathe", "Dragon's Breathe");
 		
+		Registery.RegisterMulti(ADBlock.FalseLoot, "FalseLoot", FalseLoot.BlockTextures);
 		Registery.RegisterMulti(ADItem.PitTrap, "Vine Mat ", PitTrap.UnlocalizedArray);
 	}
 	

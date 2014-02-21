@@ -3,8 +3,9 @@ package ad.Genis231.Core;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.MinecraftForge;
+import ad.Genis231.Global.ClassStats;
+import ad.Genis231.Global.OverlayHelper;
 import ad.Genis231.Gui.GuiHandler;
-import ad.Genis231.Gui.OverlayHelper;
 import ad.Genis231.lib.ADLog;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
@@ -61,8 +62,11 @@ public class Core {
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		if (event.getSide().isClient())
+		if (event.getSide().isClient()) {
 			MinecraftForge.EVENT_BUS.register(new OverlayHelper(Minecraft.getMinecraft()));
+			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+		}
+		
 	}
 	
 }
