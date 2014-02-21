@@ -34,9 +34,6 @@ public class dwarfMob extends EntityMob {
 	protected boolean isAIEnabled() {
 		return true;
 	}
-	
-	/** Returns the item ID for the item the mob drops on death. */
-	protected int getDropItemId() {
-		return ADItem.AngelicBlood.itemID;
-	}
+
+	//TODO DROP GOD DAMN ITEMS
 }

@@ -13,8 +13,8 @@ import ad.Genis231.lib.Ref;
 
 public class BearTrap extends ADBlockModel {
 	
-	public BearTrap(int id, String name) {
-		super(id, Material.rock, name);
+	public BearTrap(String name) {
+		super(Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
 		this.setHardness(10.0f);
 	}
@@ -26,13 +26,5 @@ public class BearTrap extends ADBlockModel {
 	
 	@Override public int getRenderType() {
 		return Ref.BTrapRender;
-	}
-	
-	@Override public TileEntity createNewTileEntity(World world) {
-		return new BearTrapTile();
-	}
-	
-	public int idDropped(int par1, Random random, int par3) {
-		return this.blockID;
 	}
 }

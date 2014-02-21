@@ -1,5 +1,6 @@
 package ad.Genis231.Core;
 
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Models.mobs.DwarfModel;
@@ -36,11 +37,10 @@ public class ClientProxy extends CommonProxy {
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.TableRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.BTrapRender = RenderingRegistry.getNextAvailableRenderId();
-				
-		MinecraftForgeClient.registerItemRenderer(ADBlock.Spike.blockID, new ItemSpikeRenderer());
-		MinecraftForgeClient.registerItemRenderer(ADBlock.Itable1.blockID, new ItemITable1Renderer());
-		MinecraftForgeClient.registerItemRenderer(ADBlock.Itable2.blockID, new ItemITable2Renderer());
-		MinecraftForgeClient.registerItemRenderer(ADBlock.BearTrap.blockID, new ItemBearTrapRenderer());
 		
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlock.Spike).getItem(), new ItemSpikeRenderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlock.Itable1).getItem(), new ItemITable1Renderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlock.Itable2).getItem(), new ItemITable2Renderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlock.BearTrap).getItem(), new ItemBearTrapRenderer());
 	}
 }

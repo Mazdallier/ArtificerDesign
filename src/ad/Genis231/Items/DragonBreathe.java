@@ -10,8 +10,8 @@ import ad.Genis231.lib.Ref;
 import ad.Genis231.lib.textures;
 
 public class DragonBreathe extends ADItem{
-	public DragonBreathe(int id, String name) {
-		super(id,name);
+	public DragonBreathe(String name) {
+		super(name);
 		this.setTextureName(textures.DragonBreathe);
 		this.setCreativeTab(Ref.TAB);
 	}

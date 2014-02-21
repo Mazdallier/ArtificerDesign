@@ -13,8 +13,8 @@ import ad.Genis231.lib.Ref;
 
 public class ITableBlock extends ADBlockModel {
 	
-	public ITableBlock(int id, String name) {
-		super(id, Material.rock, name);
+	public ITableBlock(String name) {
+		super(Material.rock, name);
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
@@ -27,8 +27,7 @@ public class ITableBlock extends ADBlockModel {
 		return Ref.TableRender;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World world) {
+	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return this == ADBlock.Itable1 ? new ITable1(3) : new ITable2(4);
 	}
-	
 }

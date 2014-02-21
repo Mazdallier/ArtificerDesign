@@ -6,12 +6,11 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.event.EventPriority;
-import net.minecraftforge.event.ForgeSubscribe;
 
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.lib.Ref;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 
 public class OverlayHelper extends Gui {
 	protected Minecraft mc;
@@ -28,7 +27,6 @@ public class OverlayHelper extends Gui {
 		
 	}
 	
-	@ForgeSubscribe(priority = EventPriority.NORMAL)
 	public void onRenderExperienceBar(RenderGameOverlayEvent event) {
 		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo) { return; }
 		
@@ -56,7 +54,7 @@ public class OverlayHelper extends Gui {
 				font.drawStringWithShadow("Add Items to your Inventory!! :D", 5, 5, 16777215);
 			
 			font.drawStringWithShadow("Mod Version: " + Ref.MOD_VERSION, text + 30, 5, 16777215);
-			font.drawStringWithShadow("Hello Player: " + mc.thePlayer.username, text + 23, 15, 16777215);
+			font.drawStringWithShadow("Hello Player: " + mc.thePlayer.getDisplayName(), text + 23, 15, 16777215);
 		}
 		GL11.glPopMatrix();
 	}

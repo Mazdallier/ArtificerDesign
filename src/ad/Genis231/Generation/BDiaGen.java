@@ -2,7 +2,7 @@ package ad.Genis231.Generation;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import ad.Genis231.BaseClasses.ADBlock;
@@ -36,11 +36,11 @@ public class BDiaGen implements IWorldGenerator {
 			for (int q = 1; q < dist; q++) {
 				for (int w = 0; w < dist; w++) {
 					for (int e = 0; e < dist; e++) {
-						if ((world.getBlockId(posX + q, posY + e, posZ + w) == Block.oreIron.blockID && world.getBlockId(posX, posY, posZ) != Block.oreIron.blockID) || posY > 200) {
+						if ((world.getBlock(posX + q, posY + e, posZ + w) == Blocks.iron_ore && world.getBlock(posX, posY, posZ) != Blocks.iron_ore) || posY > 200) {
 							if (rand > 1) {
 								vein(world, posX, posY, posZ, rand, random);
 							} else {
-								world.setBlock(posX, posY, posZ, ADBlock.RedGemOre.blockID);
+								world.setBlock(posX, posY, posZ, ADBlock.RedGemOre);
 							}
 							return;
 						}
@@ -58,8 +58,8 @@ public class BDiaGen implements IWorldGenerator {
 			s = random.nextInt(2);
 			d = random.nextInt(2);
 			
-			if (world.getBlockId(posX + a, posY + s, posZ + d) != Block.oreIron.blockID && i <= rand) {
-				world.setBlock(posX + a, posY + s, posZ + d, ADBlock.RedGemOre.blockID);
+			if (world.getBlock(posX + a, posY + s, posZ + d) != Blocks.iron_ore && i <= rand) {
+				world.setBlock(posX + a, posY + s, posZ + d, ADBlock.RedGemOre);
 				i++;
 			}
 			

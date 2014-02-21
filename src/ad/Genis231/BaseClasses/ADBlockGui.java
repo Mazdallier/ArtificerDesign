@@ -7,14 +7,10 @@ import ad.Genis231.lib.Ref;
 
 public class ADBlockGui extends ADBlockModel {
 	
-	public ADBlockGui(int id, Material material, String name) {
-		super(id, material, name);
+	public ADBlockGui(Material material, String name) {
+		super(material, name);
 		this.setCreativeTab(Ref.TAB);
-		this.setUnlocalizedName(name);
-	}
-	
-	@Override public TileEntity createNewTileEntity(World world) {
-		return null;
+		this.setBlockName(name);
 	}
 	
 }

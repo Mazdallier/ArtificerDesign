@@ -1,5 +1,6 @@
 package ad.Genis231.Containers;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -17,12 +18,12 @@ public class ITableContainer extends Container {
 	IInventory inventory = (IInventory) tileEntity;
 	int size;
 	
-	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, int T) {
+	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, Block block) {
 		tileEntity = tile;
 		world = w;
-		size = T == ADBlock.Itable1.blockID ? 3 : 4;
+		size = block == ADBlock.Itable1 ? 3 : 4;
 		
-		if (T == ADBlock.Itable1.blockID) {
+		if (block == ADBlock.Itable1) {
 			addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
 			addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
 			addSlotToContainer(new Slot(tileEntity, 2, 117, 31));
@@ -36,8 +37,7 @@ public class ITableContainer extends Container {
 		bindPlayerInventory(inventoryPlayer);
 	}
 	
-	@Override
-	public boolean canInteractWith(EntityPlayer player) {
+	@Override public boolean canInteractWith(EntityPlayer player) {
 		return tileEntity.isUseableByPlayer(player);
 	}
 	
@@ -62,15 +62,14 @@ public class ITableContainer extends Container {
 			for (int i = 0; i < size; i++) {
 				items = this.getSlot(i).getStack();
 				if (items != null) {
-					player.dropPlayerItem(items);
+					player.entityDropItem(items, items.stackSize);
 					this.getSlot(i).putStack(null);
 				}
 			}
 		}
 	}
 	
-	@Override
-	public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
+	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) this.inventorySlots.get(slotNumber);
 		
@@ -92,8 +91,7 @@ public class ITableContainer extends Container {
 		return itemstack;
 	}
 	
-	@Override
-	public Slot getSlotFromInventory(IInventory inven, int slot) {
+	@Override public Slot getSlotFromInventory(IInventory inven, int slot) {
 		Slot slotObject = (Slot) inventorySlots.get(slot);
 		if (slot == 2)
 			inven.isItemValidForSlot(slot, null);

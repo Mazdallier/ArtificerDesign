@@ -1,11 +1,11 @@
 package ad.Genis231.Blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.lib.textures;
@@ -14,16 +14,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DamBlock extends ADBlock {
 	
-	@SideOnly(Side.CLIENT) public static Icon sideIcon;
-	@SideOnly(Side.CLIENT) public static Icon openIcon;
-	@SideOnly(Side.CLIENT) public static Icon closeIcon;
+	@SideOnly(Side.CLIENT) public static IIcon sideIcon;
+	@SideOnly(Side.CLIENT) public static IIcon openIcon;
+	@SideOnly(Side.CLIENT) public static IIcon closeIcon;
 	
-	public DamBlock(int id, String name) {
-		super(id, Material.rock, name);
+	public DamBlock( String name) {
+		super(Material.rock, name);
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
-		world.setBlock(x, y, z, this.blockID, sidePlaced(x, z, player.posX, player.posZ) - 2, 3);
+		world.setBlock(x, y, z, this, sidePlaced(x, z, player.posX, player.posZ) - 2, 3);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
@@ -41,22 +41,22 @@ public class DamBlock extends ADBlock {
 			
 		} else if (!world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) >= 4) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) - 4, 3);
-			setBlock(world, x, y, z, 0, world.getBlockMetadata(x, y, z) + 2);
+			setBlock(world, x, y, z, Blocks.air, world.getBlockMetadata(x, y, z) + 2);
 		}
 	}
 	
 	public void set(World world, int x, int y, int z, int side) {
-		if (!blockIsSide(world, x, y, z, Block.waterStill.blockID, side))
-			setBlock(world, x, y, z, Block.waterMoving.blockID, side);
+		if (!blockIsSide(world, x, y, z, Blocks.water, side))
+			setBlock(world, x, y, z, Blocks.water, side);
 	}
 	
-	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
 		sideIcon = icon.registerIcon(textures.DamArray[0]);
 		openIcon = icon.registerIcon(textures.DamArray[1]);
 		closeIcon = icon.registerIcon(textures.DamArray[2]);
 	}
 	
-	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
+	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
 		
 		if (meta < 4) {
 			if (side - meta == 2)

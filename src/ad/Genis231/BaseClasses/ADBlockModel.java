@@ -8,10 +8,10 @@ import ad.Genis231.lib.Ref;
 
 public class ADBlockModel extends BlockContainer {
 	
-	public ADBlockModel(int id, Material material, String name) {
-		super(id, material);
+	public ADBlockModel(Material material, String name) {
+		super(material);
 		this.setCreativeTab(Ref.TAB);
-		this.setUnlocalizedName(name);
+		this.setBlockName(name);
 	}
 	
 	@Override public boolean renderAsNormalBlock() {
@@ -22,7 +22,7 @@ public class ADBlockModel extends BlockContainer {
 		return false;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World world) {
+	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return null;
 	}
 }

@@ -2,13 +2,15 @@ package ad.Genis231.Items;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
@@ -18,12 +20,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class PitTrap extends ADItem {
 	
-	public PitTrap(int id, String name) {
-		super(id, name);
+	public PitTrap(String name) {
+		super(name);
+		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 	}
 	
-	public static Icon[] IconArray = new Icon[9];
+	public static IIcon[] IconArray = new IIcon[9];
 	public static final String[] UnlocalizedArray = { "Dirt Teir 1", "Sand Teir 1", "Stone Teir 1", "Dirt Teir 2", "Sand Teir 2", "Stone Teir 2", "Dirt Teir 3", "Sand Teir 3", "Stone Teir 3" };
 	public static final int[] tiers = { 8, 16, 32 };
 	
@@ -54,11 +57,11 @@ public class PitTrap extends ADItem {
 		int mx = x, mX = x, mz = z, mZ = z;
 		
 		for (int i = 0; i <= getRange(item); i++) {
-			mx = world.getBlockId(mx - 1, y, z) == 0 ? x - i : mx;
-			mX = world.getBlockId(mX + 1, y, z) == 0 ? x + i : mX;
+			mx = world.getBlock(mx - 1, y, z) == Blocks.air ? x - i : mx;
+			mX = world.getBlock(mX + 1, y, z) == Blocks.air ? x + i : mX;
 			
-			mz = world.getBlockId(x, y, mz - 1) == 0 ? z - i : mz;
-			mZ = world.getBlockId(x, y, mZ + 1) == 0 ? z + i : mZ;
+			mz = world.getBlock(x, y, mz - 1) == Blocks.air ? z - i : mz;
+			mZ = world.getBlock(x, y, mZ + 1) == Blocks.air ? z + i : mZ;
 			
 		}
 		if (Math.abs(mX - mx) <= getRange(item) && Math.abs(mZ - mz) <= getRange(item))
@@ -79,7 +82,7 @@ public class PitTrap extends ADItem {
 				System.out.println("EVERYTHING WORKS!!!");
 				
 				PitTrapBlock.toggle = false;
-				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap.blockID, item.getItemDamage() % 3, true);
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap, item.getItemDamage() % 3, true);
 				PitTrapBlock.toggle = true;
 			}
 		}
@@ -88,7 +91,7 @@ public class PitTrap extends ADItem {
 	private boolean area(World world, int mx, int mX, int y, int mz, int mZ) {
 		for (int x = mx; x <= mX; x++) {
 			for (int z = mz; z <= mZ; z++) {
-				if (!ADBlock.blockIsSide(world, x, y, z, 0, 0) || !ADBlock.blockIsSide(world, x, y, z, 0, 1))
+				if (!ADBlock.blockIsSide(world, x, y, z, Blocks.air, 0) || !ADBlock.blockIsSide(world, x, y, z, Blocks.air, 1))
 					return false;
 			}
 		}
@@ -97,21 +100,21 @@ public class PitTrap extends ADItem {
 	
 	private boolean border(World world, int mx, int mX, int y, int mz, int mZ) {
 		for (int x = mx; x < mX; x++) {
-			if (ADBlock.blockIsSide(world, x, y, mz, 0, 2) || ADBlock.blockIsSide(world, x, y, mZ, 0, 3))
+			if (ADBlock.blockIsSide(world, x, y, mz, Blocks.air, 2) || ADBlock.blockIsSide(world, x, y, mZ, Blocks.air, 3))
 				return false;
 		}
 		
 		for (int z = mz; z < mZ; z++) {
-			if (ADBlock.blockIsSide(world, mx, y, z, 0, 4) || ADBlock.blockIsSide(world, mX, y, z, 0, 5))
+			if (ADBlock.blockIsSide(world, mx, y, z, Blocks.air, 4) || ADBlock.blockIsSide(world, mX, y, z, Blocks.air, 5))
 				return false;
 		}
 		
 		return true;
 	}
 	
-	public void getSubItems(int ID, CreativeTabs CreativeTabs, List ItemList) {
+	@SideOnly(Side.CLIENT) public void getSubBlocks(Item item, CreativeTabs tab, List itemlist) {
 		for (int i = 0; i < 9; i++) {
-			ItemList.add(new ItemStack(ID, 1, i));
+			itemlist.add(new ItemStack(item, 1, i));
 		}
 	}
 	
@@ -124,25 +127,22 @@ public class PitTrap extends ADItem {
 			return tiers[2];
 	}
 	
-	@Override
-	public int getMetadata(int meta) {
+	@Override public int getMetadata(int meta) {
 		return meta;
 	}
 	
-	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
+	@Override public String getUnlocalizedName(ItemStack itemstack) {
 		return this.getUnlocalizedName() + UnlocalizedArray[itemstack.getItemDamage()];
 	}
 	
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {
 		for (int i = 0; i < IconArray.length; i++)
 			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + textures.PitTrapArray[i]);
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public Icon getIconFromDamage(int meta) {
+	/** Gets an icon index based on an item's damage value */
+	@SideOnly(Side.CLIENT) public IIcon getIconFromDamage(int meta) {
 		return IconArray[meta];
 	}
+	
 }

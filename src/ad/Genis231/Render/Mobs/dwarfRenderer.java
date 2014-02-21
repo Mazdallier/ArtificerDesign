@@ -31,6 +31,6 @@ public class dwarfRenderer extends RenderLiving {
 	}
 	
 	public void RenderDwarf(dwarfMob mob, double par2, double par4, double par6, float par8, float par9) {
-		super.doRenderLiving(mob, par2, par4, par6, par8, par9);
+		super.doRender(mob, par2, par4, par6, par8, par9);
 	}
 }

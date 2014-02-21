@@ -3,21 +3,21 @@ package ad.Genis231.Blocks;
 import java.util.Random;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.textures;
 
 public class RedGemOre extends ADBlock {
-	public RedGemOre(int id, String name) {
-		super(id, Material.rock, name);
-		setLightValue(1.0F);
+	public RedGemOre(String name) {
+		super(Material.rock, name);
+		this.setLightLevel(1.0F);
 		setHardness(5.0f);
-		setTextureName(textures.RedGemOre);
+		setBlockTextureName(textures.RedGemOre);
 	}
 	
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return ADItem.DemonicBlood.itemID;
-	}
+	//TODO add Gem to Drop!!!!
+	
 	
 	protected boolean canSilkHarvest() {
 		return true;

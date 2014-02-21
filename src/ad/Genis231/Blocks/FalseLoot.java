@@ -2,23 +2,25 @@ package ad.Genis231.Blocks;
 
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import ad.Genis231.BaseClasses.ADBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class FalseLoot extends ADBlock {
 	
-	public static Icon Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone;
-	public static Icon[] blockIcons = { Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone };
+	public static IIcon Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone;
+	public static IIcon[] blockIcons = { Coal, Gold, Lapis, Diamond, Emerald, Iron, Redstone };
 	public static String[] BlockTextures = { "coal_block", "gold_block", "lapis_block", "diamond_block", "emerald_block", "iron_block", "redstone_block" };
 	
-	public FalseLoot(int id, String name) {
-		super(id, Material.rock, name);
+	public FalseLoot(String name) {
+		super(Material.rock, name);
 		setHardness(-1.0F);
 	}
 	
@@ -26,18 +28,20 @@ public class FalseLoot extends ADBlock {
 		return 0;
 	}
 	
-	@SideOnly(Side.CLIENT) public void getSubBlocks(int par1, CreativeTabs CreativeTab, List ItemList) {
+	@SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs tab, List itemlist)
+    {
 		for (int i = 0; i <= 6; i++) {
-			ItemList.add(new ItemStack(par1, 1, i));
+			itemlist.add(new ItemStack(item,1,i));
 		}
-	}
+    }
 	
-	@Override @SideOnly(Side.CLIENT) public void registerIcons(IconRegister icon) {
+	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
 		for (int i = 0; i < blockIcons.length; i++)
 			blockIcons[i] = icon.registerIcon(BlockTextures[i]);
 	}
 	
-	@Override @SideOnly(Side.CLIENT) public Icon getIcon(int side, int meta) {
+	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
 		return blockIcons[meta];
 	}
 }
