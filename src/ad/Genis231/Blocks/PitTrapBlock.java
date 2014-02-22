@@ -1,7 +1,6 @@
 package ad.Genis231.Blocks;
 
-import java.util.Random;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -32,11 +31,10 @@ public class PitTrapBlock extends ADBlock {
 		super.onEntityWalking(world, x, y, z, player);
 	}
 	
-	public void onNeighborBlockChange(World world, int x, int y, int z, int neighbor) {
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
 		if (toggle) {
 			if (check(world, x, y, z)) {
 				world.setBlockToAir(x, y, z);
-				
 			}
 		}
 	}
@@ -46,12 +44,7 @@ public class PitTrapBlock extends ADBlock {
 			if (blockIsSide(world, x, y, z, Blocks.air, i))
 				return true;
 		}
-		
 		return false;
-	}
-	
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return 0;
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {

@@ -35,7 +35,7 @@ public class ADBlock extends Block {
 	public static final Block FalseLoot = new FalseLoot("FalseLootBlocks");
 	public static final Block FalsePitTrap = new PitTrapBlock("Null_block");
 	public static final Block Itable1 = new ITableBlock("ITable1");
-	public static final Block Itable2 = new ITableBlock( "ITable2");
+	public static final Block Itable2 = new ITableBlock("ITable2");
 	public static final Block Spike = new SpikeTrap("Spike");
 	public static final Block BearTrap = new BearTrap("BTrap");
 	public static final Block Drill = new Drill("Drill_MB");
@@ -61,35 +61,35 @@ public class ADBlock extends Block {
 	public static boolean blockIsSide(World world, int x, int y, int z, Block block, int side) {
 		switch (ForgeDirection.getOrientation(side)) {
 			case NORTH:
-				return world.getBlock(x, y, z - 1) == block;
+				return world.getBlock(x, y, z - 1).equals(block);
 			case SOUTH:
-				return world.getBlock(x, y, z + 1) == block;
+				return world.getBlock(x, y, z + 1).equals(block);
 			case WEST:
-				return world.getBlock(x - 1, y, z) == block;
+				return world.getBlock(x - 1, y, z).equals(block);
 			case EAST:
-				return world.getBlock(x + 1, y, z) == block;
+				return world.getBlock(x + 1, y, z).equals(block);
 			case DOWN:
-				return world.getBlock(x, y - 1, z) == block;
+				return world.getBlock(x, y - 1, z).equals(block);
 			case UP:
-				return world.getBlock(x, y + 1, z) == block;
+				return world.getBlock(x, y + 1, z).equals(block);
 			default:
 				return true;
 		}
 	}
 	
 	/** checks if it is touching said block directly: world, x, y, z, blockID */
-	public static int blockExists(World world, int x, int y, int z, Block blockid) {
-		if (world.getBlock(x, y + 1, z) == blockid)
+	public static int blockExists(World world, int x, int y, int z, Block block) {
+		if (world.getBlock(x, y + 1, z).equals(block))
 			return 0;
-		else if (world.getBlock(x, y - 1, z) == blockid)
+		else if (world.getBlock(x, y - 1, z).equals(block))
 			return 1;
-		else if (world.getBlock(x, y, z + 1) == blockid)
+		else if (world.getBlock(x, y, z + 1).equals(block))
 			return 2;
-		else if (world.getBlock(x, y, z - 1) == blockid)
+		else if (world.getBlock(x, y, z - 1).equals(block))
 			return 3;
-		else if (world.getBlock(x + 1, y, z) == blockid)
+		else if (world.getBlock(x + 1, y, z).equals(block))
 			return 4;
-		else if (world.getBlock(x - 1, y, z) == blockid)
+		else if (world.getBlock(x - 1, y, z).equals(block))
 			return 5;
 		else
 			return -1;

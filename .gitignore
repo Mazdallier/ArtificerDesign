@@ -2,5 +2,6 @@
 /.settings/
 /*.ini
 /*.dropbox
-/.gradle/
+
 /build/
+/.gradle/

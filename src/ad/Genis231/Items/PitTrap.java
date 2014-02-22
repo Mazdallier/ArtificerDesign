@@ -22,8 +22,8 @@ public class PitTrap extends ADItem {
 	
 	public PitTrap(String name) {
 		super(name);
-		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
 	}
 	
 	public static IIcon[] IconArray = new IIcon[9];
@@ -112,12 +112,6 @@ public class PitTrap extends ADItem {
 		return true;
 	}
 	
-	@SideOnly(Side.CLIENT) public void getSubBlocks(Item item, CreativeTabs tab, List itemlist) {
-		for (int i = 0; i < 9; i++) {
-			itemlist.add(new ItemStack(item, 1, i));
-		}
-	}
-	
 	int getRange(ItemStack item) {
 		if (item.getItemDamage() < 3)
 			return tiers[0];
@@ -125,6 +119,12 @@ public class PitTrap extends ADItem {
 			return tiers[1];
 		else
 			return tiers[2];
+	}
+	
+	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int i = 0; i < 9; ++i) {
+			list.add(new ItemStack(item, 1, i));
+		}
 	}
 	
 	@Override public int getMetadata(int meta) {
