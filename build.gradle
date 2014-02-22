@@ -1,0 +1,74 @@
+// DONT TOUCH THE BUILDSCTPT[] BLOCK
+// its special, and it is only there to make forgegradle work correctly.
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.1-SNAPSHOT'
+    }
+}
+
+apply plugin: 'forge' // adds the forge cuntionality
+apply plugin: 'maven' // for uploading to a mnven repo
+
+// grab buildNumber
+ext.buildnumber = 0 // this will be referenced as simply project.buildnumber from now on.
+
+if (System.getenv().BUILD_NUMBER)
+    project.buildnumber = System.getenv().BUILD_NUMBER
+else
+    logger.lifecycle "SETTING BUILDNUMBER TO 0"
+
+version = "1.7.2-BETA"
+group= "ad.Genis231"
+archivesBaseName = "Artificer's Design" // the name that all artifacts will use as a base. artifacts names follow this pattern: [baseName]-[appendix]-[version]-[classifier].[extension]
+
+minecraft {
+    version = "1.7.2-10.12.0.1033" // McVersion-ForgeVersion     this variable is later changed to contain only the MC version, while the apiVersion variable is used for the forge version.  Yeah its stupid, and will be changed eentually.
+
+    assetDir = "run/assets" // the palce for FOrgegradle to download the assets. The assets that the launcher gets and stuff
+
+    // replacing stuff in the source
+    replace '@VERSION@', project.version
+    replace '@MC_VERSION@', version
+    replace '@BUILD_NUMBER@', project.buildnumber
+}
+
+// configure  the source folders
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'Resources'
+        }
+    }
+}
+
+processResources
+{
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        // ${version}   and    ${mcversion}    are the exact strings bieng replaced
+        expand 'version':project.version, 'mcversion':project.minecraft.version, 'buildnumber':project.buildnumber
+    }
+        
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
