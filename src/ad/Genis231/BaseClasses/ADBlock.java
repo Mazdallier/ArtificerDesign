@@ -30,16 +30,16 @@ public class ADBlock extends Block {
 		this.setBlockName(name);
 	}
 	
-	public static final Block RedGemOre = new RedGemOre("BloodOre");
+	public static final Block RedGemOre = new RedGemOre("RedGemOre");
 	public static final Block Dam = new DamBlock("DamBlock");
-	public static final Block FalseLoot = new FalseLoot("FalseLootBlocks");
+	public static final Block FalseLoot = new FalseLoot("FalseLoot");
 	public static final Block FalsePitTrap = new PitTrapBlock("Null_block");
 	public static final Block Itable1 = new ITableBlock("ITable1");
 	public static final Block Itable2 = new ITableBlock("ITable2");
 	public static final Block Spike = new SpikeTrap("Spike");
 	public static final Block BearTrap = new BearTrap("BTrap");
-	public static final Block Drill = new Drill("Drill_MB");
-	public static final Block DwarvenStone = new DwarvenStone("DwarvenStone");
+	public static final Block Drill = new Drill("Drill");
+	public static final Block DwarvenStone = new DwarvenStone("DwarfStone");
 	public static final Block GreenFire = new FakeFire().setBlockName("GFire");
 	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {

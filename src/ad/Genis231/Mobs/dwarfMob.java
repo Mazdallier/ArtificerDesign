@@ -12,7 +12,6 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADItem;
 
 public class dwarfMob extends EntityMob {
 	public dwarfMob(World world) {
@@ -34,6 +33,6 @@ public class dwarfMob extends EntityMob {
 	protected boolean isAIEnabled() {
 		return true;
 	}
-
-	//TODO DROP GOD DAMN ITEMS
+	
+	// TODO DROP GOD DAMN ITEMS
 }

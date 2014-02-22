@@ -32,13 +32,13 @@ public class ADItem extends Item {
 		this.setTextureName(Texture);
 	}
 	
-	public final static Item OrangeDust = new OrangeDust("ImPureGem");
+	public final static Item OrangeDust = new OrangeDust("OrangeDust");
 	public final static Item AngelicBlood = new Blood("ABlood", textures.AngelicBlood);
 	public final static Item DemonicBlood = new Blood("DBlood", textures.DemonicBlood);
 	public final static Item PureGem = new RedGem("PureGem", textures.PureGem);
 	public final static Item DirtyGem = new RedGem("ImPureGem", textures.DirtyGem);
 	public final static Item GoldBowl = new GoldBowl( "GBowl");
-	public final static Item PitTrap = new PitTrap("Vine Mat ");
+	public final static Item PitTrap = new PitTrap("VM_");
 	public final static Item RestoredJournal = new Journal("Rjournal", textures.RestoredJournal);
 	public final static Item DragonBreathe = new DragonBreathe("DBreathe");
 	

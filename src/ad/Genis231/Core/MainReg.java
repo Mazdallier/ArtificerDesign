@@ -5,39 +5,35 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.FalseLoot;
 import ad.Genis231.Generation.BDiaGen;
-import ad.Genis231.Items.PitTrap;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
 	
 	public static void basic() {
 		/* Blocks */
-		Registery.Register(ADBlock.RedGemOre, "RedGemOre", "Red Gem Ore");
-		Registery.Register(ADBlock.FalsePitTrap, "NullBlock");
-		Registery.Register(ADBlock.Dam, "DamBlock", "Dam");
-		Registery.Register(ADBlock.Itable1, "Itable1", "Imbueing Table (teir 1)");
-		Registery.Register(ADBlock.Itable2, "Itable2", "Imbueing Table (teir 2)");
-		Registery.Register(ADBlock.Spike, "SpikePit", "Spike Pit");
-		Registery.Register(ADBlock.BearTrap, "BearTrap", "Bear Trap");
-		Registery.Register(ADBlock.Drill, "Drill", "Drill (Broken)");
-		Registery.Register(ADBlock.DwarvenStone, "DwarvenStone", "Dwarven Stone");
-		Registery.Register(ADBlock.GreenFire, "GreenFire", "Green Fire of DOOM!!");
+		GameRegistry.registerBlock(ADBlock.RedGemOre, "RedGemOre");
+		GameRegistry.registerBlock(ADBlock.FalsePitTrap, "NullBlock");
+		GameRegistry.registerBlock(ADBlock.Dam, "DamBlock");
+		GameRegistry.registerBlock(ADBlock.Itable1, "Itable1");
+		GameRegistry.registerBlock(ADBlock.Itable2, "Itable2");
+		GameRegistry.registerBlock(ADBlock.Spike, "SpikePit");
+		GameRegistry.registerBlock(ADBlock.BearTrap, "BearTrap");
+		GameRegistry.registerBlock(ADBlock.Drill, "Drill");
+		GameRegistry.registerBlock(ADBlock.DwarvenStone, "DwarvenStone");
+		GameRegistry.registerBlock(ADBlock.GreenFire, "GreenFire");
+		GameRegistry.registerBlock(ADBlock.FalseLoot, "FalseLoot");
 		
 		/* Items */
-		Registery.Register(ADItem.OrangeDust, "OrangeDust", "Orange Dust");
-		Registery.Register(ADItem.PureGem, "PureGem", "Purified Gem");
-		Registery.Register(ADItem.DirtyGem, "DirtyGem", "Impure Gem");
-		Registery.Register(ADItem.GoldBowl, "GoldBowl", "Gold Bowl");
-		Registery.Register(ADItem.AngelicBlood, "AngelicBlood", "Blessed Elve's Blood");
-		Registery.Register(ADItem.DemonicBlood, "DemonicBlood", "Tainted Orc's Blood");
-		
-		Registery.Register(ADItem.RestoredJournal, "RestoredJournal", "Restored Journal");
-		Registery.Register(ADItem.DragonBreathe, "DragonBreathe", "Dragon's Breathe");
-		
-		Registery.RegisterMulti(ADBlock.FalseLoot, "FalseLoot", FalseLoot.BlockTextures);
-		Registery.RegisterMulti(ADItem.PitTrap, "Vine Mat ", PitTrap.UnlocalizedArray);
+		GameRegistry.registerItem(ADItem.OrangeDust, "OrangeDust");
+		GameRegistry.registerItem(ADItem.PureGem, "PureGem");
+		GameRegistry.registerItem(ADItem.DirtyGem, "DirtyGem");
+		GameRegistry.registerItem(ADItem.GoldBowl, "GoldBowl");
+		GameRegistry.registerItem(ADItem.AngelicBlood, "AngelicBlood");
+		GameRegistry.registerItem(ADItem.DemonicBlood, "DemonicBlood");
+		GameRegistry.registerItem(ADItem.RestoredJournal, "RestoredJournal");
+		GameRegistry.registerItem(ADItem.DragonBreathe, "DragonBreathe");
+		GameRegistry.registerItem(ADItem.PitTrap, "Vine Mat ");
 	}
 	
 	public static void recipeGReg() {

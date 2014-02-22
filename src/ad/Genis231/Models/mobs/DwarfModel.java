@@ -13,45 +13,52 @@ public class DwarfModel extends ModelBase {
 	ModelRenderer leftarm;
 	ModelRenderer rightleg;
 	ModelRenderer leftleg;
+	int tw = 32;
+	int th = 64;
 	
 	public DwarfModel() {
-		textureWidth = 32;
-		textureHeight = 64;
+		textureWidth = tw;
+		textureHeight = th;
 		
 		head = new ModelRenderer(this, 0, 0);
-		head.addBox(-4F, -8F, -4F, 6, 5, 6);
-		head.setRotationPoint(1F, 14F, 1F);
-		head.setTextureSize(32, 64);
+		head.addBox(-3F, -5F, -3F, 6, 5, 6);
+		head.setRotationPoint(0F, 11F, 0F);
+		head.setTextureSize(tw, th);
 		head.mirror = true;
 		setRotation(head, 0F, 0F, 0F);
+		
 		body = new ModelRenderer(this, 0, 41);
 		body.addBox(-4F, 0F, -2F, 8, 6, 4);
 		body.setRotationPoint(0F, 11F, 0F);
-		body.setTextureSize(32, 64);
+		body.setTextureSize(tw, th);
 		body.mirror = true;
 		setRotation(body, 0F, 0F, 0F);
+		
 		rightarm = new ModelRenderer(this, 17, 27);
 		rightarm.addBox(-3F, -2F, -2F, 3, 6, 4);
 		rightarm.setRotationPoint(-4F, 13F, 0F);
-		rightarm.setTextureSize(32, 64);
+		rightarm.setTextureSize(tw, th);
 		rightarm.mirror = true;
 		setRotation(rightarm, 0F, 0F, 0F);
+		
 		leftarm = new ModelRenderer(this, 17, 16);
 		leftarm.addBox(-1F, -2F, -2F, 3, 6, 4);
 		leftarm.setRotationPoint(5F, 13F, 0F);
-		leftarm.setTextureSize(32, 64);
+		leftarm.setTextureSize(tw, th);
 		leftarm.mirror = true;
 		setRotation(leftarm, 0F, 0F, 0F);
+		
 		rightleg = new ModelRenderer(this, 0, 28);
 		rightleg.addBox(-2F, 0F, -2F, 4, 7, 4);
 		rightleg.setRotationPoint(-2F, 17F, 0F);
-		rightleg.setTextureSize(32, 64);
+		rightleg.setTextureSize(tw, th);
 		rightleg.mirror = true;
 		setRotation(rightleg, 0F, 0F, 0F);
+		
 		leftleg = new ModelRenderer(this, 0, 16);
 		leftleg.addBox(-2F, 0F, -2F, 4, 7, 4);
 		leftleg.setRotationPoint(2F, 17F, 0F);
-		leftleg.setTextureSize(32, 64);
+		leftleg.setTextureSize(tw, th);
 		leftleg.mirror = true;
 		setRotation(leftleg, 0F, 0F, 0F);
 	}

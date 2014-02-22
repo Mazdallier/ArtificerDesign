@@ -9,7 +9,5 @@ public class GoldBowl extends ADItem {
 		super(name);
 		setMaxStackSize(1);
 		setTextureName(textures.GoldBowl);
-		setUnlocalizedName("GoldBowl");
 	}
-	
 }
