@@ -10,22 +10,11 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	
 	private ItemStack[] inv;
 	
-	float count = 0;
+	public float rate = 30;
+	float count;
 	
 	public ITableTile(int size) {
 		inv = new ItemStack[size];
-	}
-	
-	@Override public int getSizeInventory() {
-		return inv.length;
-	}
-	
-	@Override public ItemStack getStackInSlot(int slot) {
-		return inv[slot];
-	}
-	
-	@Override public void setInventorySlotContents(int slot, ItemStack stack) {
-		inv[slot] = stack;
 	}
 	
 	@Override public ItemStack decrStackSize(int slot, int amountMoved) {
@@ -51,28 +40,18 @@ public class ITableTile extends ADTileEntity implements IInventory {
 		return stack;
 	}
 	
-	@Override public int getInventoryStackLimit() {
-		return 1;
-	}
-	
 	@Override public boolean isUseableByPlayer(EntityPlayer player) {
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
-		
 		count = tagCompound.getFloat("GUI");
 	}
 	
 	@Override public void writeToNBT(NBTTagCompound tagCompound) {
 		super.writeToNBT(tagCompound);
-		
 		tagCompound.setFloat("GUI", count);
-	}
-	
-	@Override public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return false;
 	}
 	
 	public boolean hasItem() {
@@ -89,27 +68,42 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	
 	public void updateEntity() {
 		if (hasItem())
-			if (count >= 20)
+			if (count >= rate)
 				count = 0;
 			else
 				count++;
+		
+	}
+	
+	@Override public ItemStack getStackInSlot(int slot) {
+		return inv[slot];
+	}
+	
+	@Override public void setInventorySlotContents(int slot, ItemStack stack) {
+		inv[slot] = stack;
+	}
+	
+	@Override public int getSizeInventory() {
+		return inv.length;
 	}
 	
 	@Override public String getInventoryName() {
 		return "Imbueing Table";
 	}
 	
+	@Override public boolean isItemValidForSlot(int i, ItemStack itemstack) {
+		return false;
+	}
+	
 	@Override public boolean hasCustomInventoryName() {
 		return false;
 	}
 	
-	@Override public void openInventory() {
-		// TODO Auto-generated method stub
-		
-	}
+	@Override public void openInventory() {}
 	
-	@Override public void closeInventory() {
-		// TODO Auto-generated method stub
-		
+	@Override public void closeInventory() {}
+	
+	@Override public int getInventoryStackLimit() {
+		return 64;
 	}
 }
