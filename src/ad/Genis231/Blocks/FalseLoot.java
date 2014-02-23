@@ -21,7 +21,7 @@ public class FalseLoot extends ADBlock {
 	
 	public FalseLoot(String name) {
 		super(Material.rock, name);
-		setHardness(-1.0F);
+		setHardness(-1);
 	}
 	
 	public int idDropped() {

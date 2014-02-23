@@ -2,7 +2,7 @@ package ad.Genis231.Render.Blocks;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		GL11.glScalef(scale, scale, scale);
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
 		
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.ITable);
 		
 	}
 	
@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		GL11.glScalef(scale, scale, scale);
 		GL11.glRotatef(rotate, 0.0F, 1.0F, 0.0F);
 		
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.ITable);
 		
 	}
 }

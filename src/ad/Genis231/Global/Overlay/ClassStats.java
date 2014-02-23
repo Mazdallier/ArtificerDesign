@@ -1,4 +1,4 @@
-package ad.Genis231.Global;
+package ad.Genis231.Global.Overlay;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;

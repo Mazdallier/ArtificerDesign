@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,8 +18,9 @@ public class DamBlock extends ADBlock {
 	@SideOnly(Side.CLIENT) public static IIcon openIcon;
 	@SideOnly(Side.CLIENT) public static IIcon closeIcon;
 	
-	public DamBlock( String name) {
+	public DamBlock(String name) {
 		super(Material.rock, name);
+		this.setHardness(5.0F);
 	}
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
@@ -51,9 +52,9 @@ public class DamBlock extends ADBlock {
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
-		sideIcon = icon.registerIcon(textures.DamArray[0]);
-		openIcon = icon.registerIcon(textures.DamArray[1]);
-		closeIcon = icon.registerIcon(textures.DamArray[2]);
+		sideIcon = icon.registerIcon(BlockTexture.Dam[0]);
+		openIcon = icon.registerIcon(BlockTexture.Dam[1]);
+		closeIcon = icon.registerIcon(BlockTexture.Dam[2]);
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {

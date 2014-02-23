@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -17,13 +17,14 @@ public class Drill extends ADBlock {
 	
 	public Drill(String name) {
 		super(Material.rock, name);
+		this.setHardness(5.0F);
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
-		evenSideIcon = icon.registerIcon(textures.DrillArray[0]);
-		oddSideIcon = icon.registerIcon(textures.DrillArray[1]);
-		topIcon = icon.registerIcon(textures.DrillArray[2]);
-		botIcon = icon.registerIcon(textures.DrillArray[3]);
+		evenSideIcon = icon.registerIcon(BlockTexture.Drill[0]);
+		oddSideIcon = icon.registerIcon(BlockTexture.Drill[1]);
+		topIcon = icon.registerIcon(BlockTexture.Drill[2]);
+		botIcon = icon.registerIcon(BlockTexture.Drill[3]);
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {

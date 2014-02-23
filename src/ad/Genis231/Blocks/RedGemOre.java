@@ -9,15 +9,13 @@ import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.lib.textures;
 
 public class RedGemOre extends ADBlock {
-	public RedGemOre(String name) {
-		super(Material.rock, name);
+	public RedGemOre(String name, String texture) {
+		super(Material.rock, name, texture);
 		this.setLightLevel(1.0F);
 		setHardness(5.0f);
-		setBlockTextureName(textures.RedGemOre);
 	}
 	
-	//TODO add Gem to Drop!!!!
-	
+	// TODO add Gem to Drop!!!!
 	
 	protected boolean canSilkHarvest() {
 		return true;

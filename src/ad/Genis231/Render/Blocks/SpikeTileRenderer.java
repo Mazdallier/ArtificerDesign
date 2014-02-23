@@ -7,7 +7,7 @@ import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Models.Blocks.SpikeModel;
 import ad.Genis231.TileEntity.SpikeTile;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,7 +28,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			GL11.glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
 			
 			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Spike);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.Spike);
 			
 			// Render
 			model.render();

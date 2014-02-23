@@ -6,7 +6,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Models.Blocks.ITable1Model;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -60,7 +60,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		GL11.glRotatef(0F, 1F, 0, 0);
 		
 		// Bind texture
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.ITable);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.ITable);
 		
 		// Render
 		model.renderPart(0);

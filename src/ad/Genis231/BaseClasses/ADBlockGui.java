@@ -11,6 +11,6 @@ public class ADBlockGui extends ADBlockModel {
 		super(material, name);
 		this.setCreativeTab(Ref.TAB);
 		this.setBlockName(name);
+		this.setHardness(0.0F);
 	}
-	
 }

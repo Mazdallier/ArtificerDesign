@@ -6,9 +6,8 @@ import ad.Genis231.lib.textures;
 
 public class DwarvenStone extends ADBlock {
 	
-	public DwarvenStone(String name) {
-		super(Material.rock, name);
-		setHardness(25.0f);
-		this.setBlockTextureName(textures.DwarvenStone);
+	public DwarvenStone(String name,String texture) {
+		super(Material.rock, name, texture);
+		setHardness(10.0f);
 	}
 }

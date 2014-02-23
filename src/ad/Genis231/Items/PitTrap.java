@@ -14,7 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.ItemTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -137,7 +137,7 @@ public class PitTrap extends ADItem {
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {
 		for (int i = 0; i < IconArray.length; i++)
-			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + textures.PitTrapArray[i]);
+			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + ItemTexture.PitTrap[i]);
 	}
 	
 	/** Gets an icon index based on an item's damage value */

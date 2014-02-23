@@ -5,14 +5,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.lib.textures;
+import ad.Genis231.lib.ItemTexture;
 
 public class OrangeDust extends ADItem {
 	public OrangeDust(String name) {
 		super(name);
 		setMaxStackSize(64);
 		setUnlocalizedName("OrangeDust");
-		setTextureName(textures.OrangeDust);
+		setTextureName(ItemTexture.OrangeDust);
 	}
 	
 	/* bottom = 0 ~~ top=1 ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */

@@ -10,9 +10,9 @@ import ad.Genis231.BaseClasses.ADBlockModel;
 import ad.Genis231.TileEntity.SpikeTile;
 import ad.Genis231.lib.Ref;
 
-public class SpikeTrap extends ADBlockModel {
+public class Spike extends ADBlockModel {
 	
-	public SpikeTrap(String name) {
+	public Spike(String name) {
 		super(Material.rock, name);
 		this.setBlockBounds(0F, 0.0F, 0F, 1F, 0F, 1F);
 		this.setHardness(5.0f);

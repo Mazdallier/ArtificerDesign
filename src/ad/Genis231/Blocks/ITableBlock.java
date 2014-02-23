@@ -15,6 +15,7 @@ public class ITableBlock extends ADBlockModel {
 	
 	public ITableBlock(String name) {
 		super(Material.rock, name);
+		this.setHardness(5.0F);
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {

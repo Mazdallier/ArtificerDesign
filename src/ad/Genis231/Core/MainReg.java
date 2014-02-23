@@ -6,34 +6,39 @@ import net.minecraft.item.ItemStack;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Generation.BDiaGen;
+import ad.Genis231.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
 	
 	public static void basic() {
 		/* Blocks */
-		GameRegistry.registerBlock(ADBlock.RedGemOre, "RedGemOre");
-		GameRegistry.registerBlock(ADBlock.FalsePitTrap, "NullBlock");
-		GameRegistry.registerBlock(ADBlock.Dam, "DamBlock");
-		GameRegistry.registerBlock(ADBlock.Itable1, "Itable1");
-		GameRegistry.registerBlock(ADBlock.Itable2, "Itable2");
-		GameRegistry.registerBlock(ADBlock.Spike, "SpikePit");
-		GameRegistry.registerBlock(ADBlock.BearTrap, "BearTrap");
-		GameRegistry.registerBlock(ADBlock.Drill, "Drill");
-		GameRegistry.registerBlock(ADBlock.DwarvenStone, "DwarvenStone");
-		GameRegistry.registerBlock(ADBlock.GreenFire, "GreenFire");
-		GameRegistry.registerBlock(ADBlock.FalseLoot, "FalseLoot");
+		GameRegistry.registerBlock(ADBlock.RedGemOre, Names.RED_GEM);
+		GameRegistry.registerBlock(ADBlock.FalsePitTrap, "null");
+		GameRegistry.registerBlock(ADBlock.Dam, Names.DAM_BLOCK);
+		GameRegistry.registerBlock(ADBlock.Itable1, Names.IT1);
+		GameRegistry.registerBlock(ADBlock.Itable2, Names.IT2);
+		GameRegistry.registerBlock(ADBlock.Spike, Names.SPIKE);
+		GameRegistry.registerBlock(ADBlock.BearTrap, Names.BTRAP);
+		GameRegistry.registerBlock(ADBlock.Drill, Names.DRILL);
+		GameRegistry.registerBlock(ADBlock.DwarvenStone, Names.DSTONE);
+		GameRegistry.registerBlock(ADBlock.GreenFire, Names.GFIRE);
+		GameRegistry.registerBlock(ADBlock.FalseLoot, Names.FALSE_LOOT);
+		GameRegistry.registerBlock(ADBlock.DVine, Names.DVINE);
 		
 		/* Items */
-		GameRegistry.registerItem(ADItem.OrangeDust, "OrangeDust");
-		GameRegistry.registerItem(ADItem.PureGem, "PureGem");
-		GameRegistry.registerItem(ADItem.DirtyGem, "DirtyGem");
-		GameRegistry.registerItem(ADItem.GoldBowl, "GoldBowl");
-		GameRegistry.registerItem(ADItem.AngelicBlood, "AngelicBlood");
-		GameRegistry.registerItem(ADItem.DemonicBlood, "DemonicBlood");
-		GameRegistry.registerItem(ADItem.RestoredJournal, "RestoredJournal");
-		GameRegistry.registerItem(ADItem.DragonBreathe, "DragonBreathe");
-		GameRegistry.registerItem(ADItem.PitTrap, "Vine Mat ");
+		GameRegistry.registerItem(ADItem.OrangeDust, Names.ODUST);
+		GameRegistry.registerItem(ADItem.PureGem, Names.PGEM);
+		GameRegistry.registerItem(ADItem.DirtyGem, Names.IGEM);
+		GameRegistry.registerItem(ADItem.GoldBowl, Names.GBOWL);
+		GameRegistry.registerItem(ADItem.AngelicBlood, Names.ABLOOD);
+		GameRegistry.registerItem(ADItem.DemonicBlood, Names.DBLOOD);
+		GameRegistry.registerItem(ADItem.RestoredJournal, Names.RESTORED_JOURNAL);
+		GameRegistry.registerItem(ADItem.DragonBreathe, Names.DREATHE);
+		GameRegistry.registerItem(ADItem.VineMat, Names.VINE_MAT);
+		GameRegistry.registerItem(ADItem.Coin, Names.COIN);
+		GameRegistry.registerItem(ADItem.Rope, Names.ROPE);
+		
 	}
 	
 	public static void recipeGReg() {
@@ -57,12 +62,12 @@ public class MainReg {
 		
 		// Vine Mats
 		{
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItem.VineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
 			
 			for (int i = 3; i < 10; i++) {
-				GameRegistry.addShapedRecipe(new ItemStack(ADItem.PitTrap, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItem.PitTrap, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
+				GameRegistry.addShapedRecipe(new ItemStack(ADItem.VineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItem.VineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
 			}
 		}
 	}
