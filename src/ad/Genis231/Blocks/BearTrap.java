@@ -8,7 +8,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlockModel;
-import ad.Genis231.TileEntity.BearTrapTile;
+import ad.Genis231.TileEntity.model.BearTrapTile;
 import ad.Genis231.lib.Ref;
 
 public class BearTrap extends ADBlockModel {

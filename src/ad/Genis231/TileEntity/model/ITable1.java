@@ -1,4 +1,6 @@
-package ad.Genis231.TileEntity;
+package ad.Genis231.TileEntity.model;
+
+import ad.Genis231.TileEntity.ITableTile;
 
 public class ITable1 extends ITableTile {
 	

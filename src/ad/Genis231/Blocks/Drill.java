@@ -1,19 +1,25 @@
 package ad.Genis231.Blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import ad.Genis231.BaseClasses.ADBlock;
+import net.minecraft.world.World;
+import ad.Genis231.BaseClasses.ADBlockModel;
+import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Drill extends ADBlock {
+public class Drill extends ADBlockModel {
 	
 	@SideOnly(Side.CLIENT) public static IIcon oddSideIcon;
 	@SideOnly(Side.CLIENT) public static IIcon evenSideIcon;
 	@SideOnly(Side.CLIENT) public static IIcon topIcon;
 	@SideOnly(Side.CLIENT) public static IIcon botIcon;
+	Random r = new Random(10);
 	
 	public Drill(String name) {
 		super(Material.rock, name);
@@ -42,5 +48,14 @@ public class Drill extends ADBlock {
 			default:
 				return oddSideIcon;
 		}
+	}
+	
+	@Override public TileEntity createNewTileEntity(World world, int unknown) {
+		int t = r.nextInt(10);
+		while(t<5){
+			t= r.nextInt(10);
+		}
+		System.out.println("done");
+		return new DrillTile(t*2,t/4);
 	}
 }

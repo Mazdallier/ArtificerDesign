@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Models.Blocks.SpikeModel;
-import ad.Genis231.TileEntity.SpikeTile;
+import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;

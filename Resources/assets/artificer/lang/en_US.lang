@@ -9,6 +9,7 @@ tile.Drill.name=Drill (Broken)
 tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
 tile.FalseLoot.name=False Loot
+tile.DVine.name=Dried Vines
 
 //Items
 item.OrangeDust.name=Orange Dust
@@ -19,6 +20,8 @@ item.ABlood.name=Blessed Elve's Blood
 item.DBlood.name=Tainted Orc's Blood
 item.Rjournal.name=Restored Journal
 item.DBreathe.name=Dragon's Breathe
+item.coin.name=Coin
+item.rope.name=Rope
 
 //Vine Mats       
 item.VM_D1.name=Vine Mat Dirt Teir 1

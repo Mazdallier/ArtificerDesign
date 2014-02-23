@@ -7,8 +7,8 @@ import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADBlockModel;
 import ad.Genis231.Core.Core;
-import ad.Genis231.TileEntity.ITable1;
-import ad.Genis231.TileEntity.ITable2;
+import ad.Genis231.TileEntity.model.ITable1;
+import ad.Genis231.TileEntity.model.ITable2;
 import ad.Genis231.lib.Ref;
 
 public class ITableBlock extends ADBlockModel {

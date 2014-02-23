@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClasses.ADBlockModel;
-import ad.Genis231.TileEntity.SpikeTile;
+import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.Ref;
 
 public class Spike extends ADBlockModel {
