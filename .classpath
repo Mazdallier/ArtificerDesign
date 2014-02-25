@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="ad/Genis231/Blocks/Entity/CustomExplosion.java" kind="src" path="src"/>
-	<classpathentry kind="src" path="Resources"/>
+	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
