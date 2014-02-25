@@ -1,10 +1,5 @@
-/bin/
-/.settings/
-/*.ini
-/*.dropbox
-
-/build/
 /.gradle/
-/gradle/
-/gradlew
-/gradlew.bat
+/.settings/
+/bin/
+/build/
+/eclipse/
