@@ -3,6 +3,11 @@ package ad.Genis231.Core;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Generation.BDiaGen;
+import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.model.BearTrapTile;
+import ad.Genis231.TileEntity.model.ITable1;
+import ad.Genis231.TileEntity.model.ITable2;
+import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
@@ -38,7 +43,13 @@ public class MainReg {
 		GameRegistry.registerItem(ADItem.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItem.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItem.Rope, Names.ROPE);
-		
+
+        GameRegistry.registerTileEntity(BearTrapTile.class,"BearTrap");
+        GameRegistry.registerTileEntity(ITable1.class,"IT1");
+        GameRegistry.registerTileEntity(ITable2.class,"IT2");
+        GameRegistry.registerTileEntity(SpikeTile.class,"SpikeTrap");
+        GameRegistry.registerTileEntity(DrillTile.class,"Drill");
+        GameRegistry.registerTileEntity(ITable1.class,"ITable");
 	}
 	
 	public static void recipeGReg() {
