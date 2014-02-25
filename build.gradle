@@ -28,7 +28,7 @@ minecraft {
     if(file('../run').exists()){
 		assetDir = "../run/assets"
 	}else{
-		assetDir = "../run/assets"
+		assetDir = "assets"
 	}
 
     // replacing stuff in the source
