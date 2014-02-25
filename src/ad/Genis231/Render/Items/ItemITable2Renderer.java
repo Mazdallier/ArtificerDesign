@@ -3,7 +3,7 @@ package ad.Genis231.Render.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
 
 import ad.Genis231.Models.Blocks.ITable2Model;
 import ad.Genis231.lib.BlockTexture;
@@ -51,13 +51,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 	
 	private void renderTable(float x, float y, float z, float scale) {
 		
-		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_LIGHTING);
+		glPushMatrix();
+		glDisable(GL_LIGHTING);
 		
 		// Scale, Translate, Rotate
-		GL11.glScalef(scale, scale, scale);
-		GL11.glTranslatef(x, y, z);
-		GL11.glRotatef(0F, 1F, 0, 0);
+		glScalef(scale, scale, scale);
+		glTranslatef(x, y, z);
+		glRotatef(0F, 1F, 0, 0);
 		
 		// Bind texture
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.ITable);
@@ -69,8 +69,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		// Itable.renderAll();
 		
-		GL11.glEnable(GL11.GL_LIGHTING);
-		GL11.glPopMatrix();
+		glEnable(GL_LIGHTING);
+		glPopMatrix();
 		
 	}
 }

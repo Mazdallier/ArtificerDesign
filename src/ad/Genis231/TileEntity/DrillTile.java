@@ -42,7 +42,7 @@ public class DrillTile extends ADTileEntity {
 		minZ = zCoord > 0 ? zCoord - range : zCoord + range;
 		maxZ = zCoord > 0 ? zCoord + range : zCoord - range;
 		
-		if (this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && System.currentTimeMillis() % (2000 / rate) > 10 &&!this.worldObj.isRemote) {
+		if (this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && System.currentTimeMillis() % (2000 / rate) > 10) {
 			drill();
 		}
 	}
@@ -57,7 +57,8 @@ public class DrillTile extends ADTileEntity {
 						worldObj.setBlock(x, y, z, Blocks.air);
 						count++;
 					}
-					if (count >= 3)
+					
+					if (count >= 10)
 						return true;
 				}
 			}

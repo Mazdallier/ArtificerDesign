@@ -3,7 +3,7 @@ package ad.Genis231.Render.Blocks;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
 
 import ad.Genis231.Models.Blocks.BearTrapModel;
 import ad.Genis231.TileEntity.model.BearTrapTile;
@@ -20,10 +20,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		if (tileEntity instanceof BearTrapTile) {
 			
-			GL11.glPushMatrix();
+			glPushMatrix();
 			
-			GL11.glScalef(1.0F, 1.0F, 1.0F);
-			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
+			glScalef(1.0F, 1.0F, 1.0F);
+			glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
 			
 			// Bind texture
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.BearTrap);
@@ -32,7 +32,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			Model.RenderBase();
 			Model.RenderSide();
 			
-			GL11.glPopMatrix();
+			glPopMatrix();
 		}
 	}
 }

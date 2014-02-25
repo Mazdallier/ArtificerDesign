@@ -26,6 +26,14 @@ public class Drill extends ADBlockModel {
 		this.setHardness(5.0F);
 	}
 	
+	@Override public boolean renderAsNormalBlock() {
+		return true;
+	}
+	
+	@Override public boolean isOpaqueCube() {
+		return true;
+	}
+	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
 		evenSideIcon = icon.registerIcon(BlockTexture.Drill[0]);
 		oddSideIcon = icon.registerIcon(BlockTexture.Drill[1]);
@@ -52,10 +60,10 @@ public class Drill extends ADBlockModel {
 	
 	@Override public TileEntity createNewTileEntity(World world, int unknown) {
 		int t = r.nextInt(10);
-		while(t<5){
-			t= r.nextInt(10);
+		while (t < 5) {
+			t = r.nextInt(10);
 		}
 		System.out.println("done");
-		return new DrillTile(t*2,t/4);
+		return new DrillTile(t * 2, t / 4);
 	}
 }

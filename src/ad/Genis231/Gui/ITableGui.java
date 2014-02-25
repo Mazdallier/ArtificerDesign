@@ -42,7 +42,7 @@ public class ITableGui extends GuiContainer {
 		if (block == ADBlock.Itable1)
 			this.drawTexturedModalRect(x + 55, y + 17, 176, 0, (int) one, 43);// 56
 			
-		else if (block == ADBlock.Itable2)
+		else
 			this.drawTexturedModalRect(x + 34, y + 12, 176, 0, (int) two, 55);// 79
 			
 	}

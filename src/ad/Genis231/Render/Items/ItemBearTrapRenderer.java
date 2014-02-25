@@ -3,7 +3,7 @@ package ad.Genis231.Render.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
 
 import ad.Genis231.Models.Blocks.BearTrapModel;
 import ad.Genis231.lib.BlockTexture;
@@ -54,12 +54,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 	
 	private void renderModel(float x, float y, float z, float size) {
 		
-		GL11.glPushMatrix();
+		glPushMatrix();
 		
 		// Scale, Translate, Rotate
-		GL11.glScalef(size, size, size);
-		GL11.glTranslatef(x, y, z);
-		GL11.glRotatef(0F, 1F, 0, 0);
+		glScalef(size, size, size);
+		glTranslatef(x, y, z);
+		glRotatef(0F, 1F, 0, 0);
 		
 		// Bind texture
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.BearTrap);
@@ -67,6 +67,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 		// Render
 		model.randerAll();
 		
-		GL11.glPopMatrix();
+		glPopMatrix();
 	}
 }

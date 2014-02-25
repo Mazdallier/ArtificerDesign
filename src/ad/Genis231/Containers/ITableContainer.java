@@ -90,12 +90,4 @@ public class ITableContainer extends Container {
 		
 		return itemstack;
 	}
-	
-	@Override public Slot getSlotFromInventory(IInventory inven, int slot) {
-		Slot slotObject = (Slot) inventorySlots.get(slot);
-		if (slot == 2)
-			inven.isItemValidForSlot(slot, null);
-		return null;
-	}
-	
 }

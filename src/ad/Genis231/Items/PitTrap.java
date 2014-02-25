@@ -14,6 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
+import ad.Genis231.Core.Core;
 import ad.Genis231.lib.ItemTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -30,8 +31,23 @@ public class PitTrap extends ADItem {
 	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
 	public static final int[] tiers = { 8, 16, 32 };
 	
+	/** Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer */
+	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
+		if (player.isSneaking()) {
+			try {
+				System.out.println("Opening GUI");
+				player.openGui(Core.instance, 1, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+			}
+			catch (Exception e) {
+				System.out.println("Well you fucked it! XD");
+			}
+		}
+		return item;
+	}
+	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
+		
 		if (!world.isRemote) {
 			switch (ForgeDirection.getOrientation(side)) {
 				case NORTH:

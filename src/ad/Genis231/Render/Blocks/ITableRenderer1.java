@@ -3,7 +3,7 @@ package ad.Genis231.Render.Blocks;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
-import org.lwjgl.opengl.GL11;
+import static org.lwjgl.opengl.GL11.*;
 
 import ad.Genis231.Models.Blocks.ITable1Model;
 import ad.Genis231.TileEntity.model.ITable1;
@@ -26,22 +26,22 @@ import cpw.mods.fml.relauncher.SideOnly;
 	}
 	
 	public static void block(double x, double y, double z, float scale) {
-		GL11.glPushMatrix();
+		glPushMatrix();
 		
 		ITableHelper.block(x, y, z, scale);
 		
 		// Render
 		ITableModel.renderPart(0);
-		GL11.glPopMatrix();
+		glPopMatrix();
 	}
 	
 	public static void circle(double x, double y, double z, float scale, float rotate) {
-		GL11.glPushMatrix();
+		glPushMatrix();
 		
 		ITableHelper.Circle(x, y, z, scale, rotate);
 		
 		// Render
 		ITableModel.renderPart(1);
-		GL11.glPopMatrix();
+		glPopMatrix();
 	}
 }
