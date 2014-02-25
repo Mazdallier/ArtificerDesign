@@ -1,9 +1,9 @@
 package ad.Genis231.Models.Blocks;
 
+import ad.Genis231.lib.Models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-import ad.Genis231.lib.Models;
 
 public class BearTrapModel extends ModelBase {
 	private IModelCustom model;

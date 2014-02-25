@@ -1,15 +1,14 @@
 package ad.Genis231.Render.Items;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
-
-import static org.lwjgl.opengl.GL11.*;
-
 import ad.Genis231.Models.Blocks.ITable1Model;
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.IItemRenderer;
+
+import static org.lwjgl.opengl.GL11.*;
 
 @SideOnly(Side.CLIENT) public class ItemITable1Renderer implements IItemRenderer {
 	private ITable1Model model;

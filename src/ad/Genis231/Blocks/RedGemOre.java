@@ -1,12 +1,9 @@
 package ad.Genis231.Blocks;
 
-import java.util.Random;
-
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.lib.textures;
+import net.minecraft.block.material.Material;
+
+import java.util.Random;
 
 public class RedGemOre extends ADBlock {
 	public RedGemOre(String name, String texture) {

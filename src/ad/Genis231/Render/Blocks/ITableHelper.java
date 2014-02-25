@@ -1,11 +1,11 @@
 package ad.Genis231.Render.Blocks;
 
-import static org.lwjgl.opengl.GL11.*;
-
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
+import static org.lwjgl.opengl.GL11.*;
 
 @SideOnly(Side.CLIENT) public class ITableHelper {
 	

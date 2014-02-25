@@ -1,17 +1,16 @@
 package ad.Genis231.Blocks;
 
-import java.util.List;
-
-import net.minecraft.block.Block;
+import ad.Genis231.BaseClasses.ADBlock;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import ad.Genis231.BaseClasses.ADBlock;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class FalseLoot extends ADBlock {
 	

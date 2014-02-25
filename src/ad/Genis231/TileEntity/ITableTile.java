@@ -1,10 +1,10 @@
 package ad.Genis231.TileEntity;
 
+import ad.Genis231.BaseClasses.ADTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import ad.Genis231.BaseClasses.ADTileEntity;
 
 public class ITableTile extends ADTileEntity implements IInventory {
 	

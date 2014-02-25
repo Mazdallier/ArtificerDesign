@@ -1,17 +1,15 @@
 package ad.Genis231.Gui;
 
+import ad.Genis231.BaseClasses.ADBlock;
+import ad.Genis231.Containers.ITableContainer;
+import ad.Genis231.TileEntity.ITableTile;
+import ad.Genis231.lib.textures;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
 import org.lwjgl.opengl.GL11;
-
-import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.Containers.ITableContainer;
-import ad.Genis231.TileEntity.ITableTile;
-import ad.Genis231.lib.textures;
 
 public class ITableGui extends GuiContainer {
 	Block block;

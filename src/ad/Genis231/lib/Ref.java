@@ -1,8 +1,8 @@
 package ad.Genis231.lib;
 
+import ad.Genis231.BaseClasses.ADItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import ad.Genis231.BaseClasses.ADItem;
 
 public class Ref {
 	

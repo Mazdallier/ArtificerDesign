@@ -1,24 +1,14 @@
 package ad.Genis231.BaseClasses;
 
+import ad.Genis231.Blocks.*;
+import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.lib.Names;
+import ad.Genis231.lib.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import ad.Genis231.Blocks.BearTrap;
-import ad.Genis231.Blocks.DamBlock;
-import ad.Genis231.Blocks.Drill;
-import ad.Genis231.Blocks.DwarvenStone;
-import ad.Genis231.Blocks.FakeFire;
-import ad.Genis231.Blocks.FalseLoot;
-import ad.Genis231.Blocks.ITableBlock;
-import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.Blocks.RedGemOre;
-import ad.Genis231.Blocks.Spike;
-import ad.Genis231.Blocks.driedVine;
-import ad.Genis231.lib.BlockTexture;
-import ad.Genis231.lib.Names;
-import ad.Genis231.lib.Ref;
 
 public class ADBlock extends Block {
 	/** Basic Constructor

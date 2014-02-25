@@ -1,12 +1,11 @@
 package ad.Genis231.Gui;
 
+import ad.Genis231.Containers.ITableContainer;
+import ad.Genis231.TileEntity.ITableTile;
+import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import ad.Genis231.Containers.ITableContainer;
-import ad.Genis231.Containers.VMContainer;
-import ad.Genis231.TileEntity.ITableTile;
-import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
 	// returns an instance of the Container you made earlier

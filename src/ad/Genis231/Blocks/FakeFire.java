@@ -1,14 +1,13 @@
 package ad.Genis231.Blocks;
 
-import java.util.Random;
-
+import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.lib.Ref;
 import net.minecraft.block.BlockFire;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.lib.Ref;
-import ad.Genis231.lib.BlockTexture;
-import ad.Genis231.lib.textures;
+
+import java.util.Random;
 
 public class FakeFire extends BlockFire {
 	

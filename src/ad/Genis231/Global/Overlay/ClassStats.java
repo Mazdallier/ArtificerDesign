@@ -5,7 +5,6 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import cpw.mods.fml.common.eventhandler.EventPriority;
 
 public class ClassStats extends Gui {
 	protected Minecraft mc;

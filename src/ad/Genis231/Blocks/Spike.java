@@ -1,14 +1,14 @@
 package ad.Genis231.Blocks;
 
+import ad.Genis231.BaseClasses.ADBlockModel;
+import ad.Genis231.TileEntity.model.SpikeTile;
+import ad.Genis231.lib.Ref;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADBlockModel;
-import ad.Genis231.TileEntity.model.SpikeTile;
-import ad.Genis231.lib.Ref;
 
 public class Spike extends ADBlockModel {
 	

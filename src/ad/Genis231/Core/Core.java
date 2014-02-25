@@ -1,7 +1,5 @@
 package ad.Genis231.Core;
 
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Global.Overlay.ClassStats;
 import ad.Genis231.Global.Overlay.OverlayHelper;
 import ad.Genis231.Gui.GuiHandler;
@@ -15,6 +13,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Core {
 	

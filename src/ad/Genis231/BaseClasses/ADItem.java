@@ -1,18 +1,10 @@
 package ad.Genis231.BaseClasses;
 
-import net.minecraft.item.Item;
-import ad.Genis231.Items.Blood;
-import ad.Genis231.Items.DragonBreathe;
-import ad.Genis231.Items.GoldBowl;
-import ad.Genis231.Items.Journal;
-import ad.Genis231.Items.OrangeDust;
-import ad.Genis231.Items.PitTrap;
-import ad.Genis231.Items.RedGem;
-import ad.Genis231.Items.coin;
-import ad.Genis231.Items.rope;
+import ad.Genis231.Items.*;
 import ad.Genis231.lib.ItemTexture;
 import ad.Genis231.lib.Names;
 import ad.Genis231.lib.Ref;
+import net.minecraft.item.Item;
 
 public class ADItem extends Item {
 	

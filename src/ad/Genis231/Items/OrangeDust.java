@@ -1,11 +1,11 @@
 package ad.Genis231.Items;
 
+import ad.Genis231.BaseClasses.ADItem;
+import ad.Genis231.lib.ItemTexture;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.lib.ItemTexture;
 
 public class OrangeDust extends ADItem {
 	public OrangeDust(String name) {

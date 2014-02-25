@@ -1,5 +1,7 @@
 package ad.Genis231.Containers;
 
+import ad.Genis231.BaseClasses.ADBlock;
+import ad.Genis231.TileEntity.ITableTile;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,8 +10,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.TileEntity.ITableTile;
 
 public class ITableContainer extends Container {
 	

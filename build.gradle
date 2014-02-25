@@ -18,14 +18,6 @@ buildscript {
 apply plugin: 'forge' // adds the forge cuntionality
 apply plugin: 'maven' // for uploading to a mnven repo
 
-// grab buildNumber
-ext.buildnumber = 0 // this will be referenced as simply project.buildnumber from now on.
-
-if (System.getenv().BUILD_NUMBER)
-    project.buildnumber = System.getenv().BUILD_NUMBER
-else
-    logger.lifecycle "SETTING BUILDNUMBER TO 0"
-
 version = "1.7.2-BETA"
 group= "ad.Genis231"
 archivesBaseName = "Artificer's Design" // the name that all artifacts will use as a base. artifacts names follow this pattern: [baseName]-[appendix]-[version]-[classifier].[extension]
@@ -33,7 +25,7 @@ archivesBaseName = "Artificer's Design" // the name that all artifacts will use 
 minecraft {
     version = "1.7.2-10.12.0.1034" // McVersion-ForgeVersion     this variable is later changed to contain only the MC version, while the apiVersion variable is used for the forge version.  Yeah its stupid, and will be changed eentually.
 
-    if(('../run').exists()){
+    if(file('../run').exists()){
 		assetDir = "../run/assets"
 	}else{
 		assetDir = "../run/assets"
@@ -42,7 +34,6 @@ minecraft {
     // replacing stuff in the source
     replace '@VERSION@', project.version
     replace '@MC_VERSION@', version
-    replace '@BUILD_NUMBER@', project.buildnumber
 }
 
 // configure  the source folders
@@ -65,7 +56,7 @@ processResources
                 
         // replace version and mcversion
         // ${version}   and    ${mcversion}    are the exact strings bieng replaced
-        expand 'version':project.version, 'mcversion':project.minecraft.version, 'buildnumber':project.buildnumber
+        expand 'version':project.version, 'mcversion':project.minecraft.version
     }
         
     // copy everything else, thats not the mcmod.info

@@ -1,7 +1,12 @@
 package ad.Genis231.Items;
 
-import java.util.List;
-
+import ad.Genis231.BaseClasses.ADBlock;
+import ad.Genis231.BaseClasses.ADItem;
+import ad.Genis231.Blocks.PitTrapBlock;
+import ad.Genis231.Core.Core;
+import ad.Genis231.lib.ItemTexture;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,13 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.Core.Core;
-import ad.Genis231.lib.ItemTexture;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class PitTrap extends ADItem {
 	

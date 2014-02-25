@@ -1,21 +1,12 @@
 package ad.Genis231.Gui;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
+import ad.Genis231.lib.textures;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import org.lwjgl.opengl.GL11;
-
-import ad.Genis231.Containers.ITableContainer;
-import ad.Genis231.TileEntity.ITableTile;
-import ad.Genis231.lib.textures;
 
 public class VineMatGUI extends GuiScreen implements IInventory {
 	

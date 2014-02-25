@@ -1,9 +1,7 @@
 package ad.Genis231.BaseClasses;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import ad.Genis231.lib.Ref;
+import net.minecraft.block.material.Material;
 
 public class ADBlockGui extends ADBlockModel {
 	

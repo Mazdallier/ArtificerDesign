@@ -1,16 +1,13 @@
 package ad.Genis231.Global.Overlay;
 
+import ad.Genis231.lib.Ref;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-
 import org.lwjgl.opengl.GL11;
-
-import ad.Genis231.lib.Ref;
-import cpw.mods.fml.common.eventhandler.EventPriority;
 
 public class OverlayHelper extends Gui {
 	protected Minecraft mc;

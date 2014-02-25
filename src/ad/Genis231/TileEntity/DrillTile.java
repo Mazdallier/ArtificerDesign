@@ -1,8 +1,8 @@
 package ad.Genis231.TileEntity;
 
+import ad.Genis231.BaseClasses.ADTileEntity;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import ad.Genis231.BaseClasses.ADTileEntity;
 
 public class DrillTile extends ADTileEntity {
 	
@@ -10,12 +10,14 @@ public class DrillTile extends ADTileEntity {
 	
 	public DrillTile(int size, int speed) {
 		NBTTagCompound tag = new NBTTagCompound();
-		
-		tag.setInteger("rate", size);
-		tag.setInteger("range", speed);
-		
+
+        tag.setInteger("range", size);
+		tag.setInteger("rate", speed);
+
 		writeToNBT(tag);
-		
+
+        System.out.println("NBT: Speed: "+tag.getInteger("rate")+" Size: "+tag.getInteger("range"));
+
 		System.out.println(size + " " + speed);
 		range = size;
 		rate = speed;

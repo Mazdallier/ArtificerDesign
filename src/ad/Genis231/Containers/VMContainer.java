@@ -1,14 +1,10 @@
 package ad.Genis231.Containers;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.TileEntity.ITableTile;
 
 public class VMContainer extends Container {
 	int imageX = 176, imageY = 165;
