@@ -1,23 +1,19 @@
 package ad.Genis231.TileEntity;
 
 import ad.Genis231.BaseClasses.ADTileEntity;
+import net.minecraft.block.Block;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class DrillTile extends ADTileEntity{
 
 	int range, minX, maxX, minZ, maxZ, rate;
+	Block[] blockArray = {Blocks.air,Blocks.water,Blocks.lava,Blocks.bedrock};
+	boolean drillDone = false;
 
 	public DrillTile(int size,int speed){
-		NBTTagCompound tag = new NBTTagCompound();
-
-		tag.setInteger("range",size);
-		tag.setInteger("rate",speed);
-
-		writeToNBT(tag);
-
-		System.out.println("NBT: Speed: " + tag.getInteger("rate") + " Size: " + tag.getInteger("range"));
-
 		System.out.println(size + " " + speed);
 		range = size;
 		rate = speed;
@@ -30,13 +26,15 @@ public class DrillTile extends ADTileEntity{
 			rate = tag.getInteger("rate");
 			range = tag.getInteger("range");
 		}
+		drillDone = tag.getBoolean("status");
+
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound tag){
 		tag.setInteger("rate",rate);
 		tag.setInteger("range",range);
-
+		tag.setBoolean("status",drillDone);
 		super.writeToNBT(tag);
 	}
 
@@ -46,7 +44,7 @@ public class DrillTile extends ADTileEntity{
 		minZ = zCoord > 0 ? zCoord - range : zCoord + range;
 		maxZ = zCoord > 0 ? zCoord + range : zCoord - range;
 
-		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (2000 / rate) > 10){
+		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (2000 / rate) > 10 && !this.worldObj.isRemote){
 			drill();
 		}
 	}
@@ -54,18 +52,33 @@ public class DrillTile extends ADTileEntity{
 	boolean drill(){
 		int count = 0;
 
-		for(int y = yCoord - 1; y >= 0; y--){
-			for(int x = minX; x <= maxX; x++){
-				for(int z = minZ; z <= maxZ; z++){
-					if(this.worldObj.getBlock(x,y,z) != Blocks.air){
-						worldObj.setBlock(x,y,z,Blocks.air);
-						count++;
-					}
+		if(!drillDone){
+			for(int y = yCoord - 1; y >= 0; y--){
+				for(int x = minX; x <= maxX; x++){
+					for(int z = minZ; z <= maxZ; z++){
+						if(isBreakable(x,y,z)){
+							worldObj.setBlockToAir(x,y,z);
+							count++;
+						}
 
-					if(count >= 10) return true;
+						if(count >= 10) return true;
+					}
 				}
 			}
 		}
+
+		drillDone = count == 0;
+
 		return false;
 	}
+
+	boolean isBreakable(int x,int y,int z){
+		for(Block block : blockArray){
+			if(this.worldObj.getBlock(x,y,z).equals(block) || this.worldObj.getTileEntity(x,y,z) != null){
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

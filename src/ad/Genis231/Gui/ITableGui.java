@@ -14,7 +14,6 @@ import org.lwjgl.opengl.GL11;
 public class ITableGui extends GuiContainer {
 	Block block;
 	ITableTile table;
-	float roar;
 	
 	public ITableGui(InventoryPlayer inventoryPlayer, ITableTile tileEntity, World world, int x, int y, int z, Block block) {
 		super(new ITableContainer(inventoryPlayer, tileEntity, world, x, y, z, block));
