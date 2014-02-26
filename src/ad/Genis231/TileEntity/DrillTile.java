@@ -2,6 +2,7 @@ package ad.Genis231.TileEntity;
 
 import ad.Genis231.BaseClasses.ADTileEntity;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -44,7 +45,7 @@ public class DrillTile extends ADTileEntity{
 		minZ = zCoord > 0 ? zCoord - range : zCoord + range;
 		maxZ = zCoord > 0 ? zCoord + range : zCoord - range;
 
-		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (2000 / rate) > 10 && !this.worldObj.isRemote){
+		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (rate * 50) < 50 && !this.worldObj.isRemote){
 			drill();
 		}
 	}
@@ -61,7 +62,7 @@ public class DrillTile extends ADTileEntity{
 							count++;
 						}
 
-						if(count >= 10) return true;
+						if(count >= 1) return true;
 					}
 				}
 			}
