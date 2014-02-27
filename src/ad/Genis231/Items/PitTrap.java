@@ -1,25 +1,32 @@
 package ad.Genis231.Items;
 
-import ad.Genis231.BaseClasses.ADBlock;
-import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.Core.Core;
-import ad.Genis231.lib.ItemTexture;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
+import ad.Genis231.BaseClasses.ADBlock;
+import ad.Genis231.BaseClasses.ADItem;
+import ad.Genis231.Blocks.PitTrapBlock;
+import ad.Genis231.Core.Core;
+import ad.Genis231.TileEntity.model.ITable1;
+import ad.Genis231.TileEntity.model.ITable2;
+import ad.Genis231.lib.ItemTexture;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class PitTrap extends ADItem {
+	public static IIcon[] IconArray = new IIcon[9];
+	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
+	public static final int[] tiers = { 8, 16, 32 };
 	
 	public PitTrap(String name) {
 		super(name);
@@ -27,12 +34,8 @@ public class PitTrap extends ADItem {
 		this.setMaxDamage(0);
 	}
 	
-	public static IIcon[] IconArray = new IIcon[9];
-	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
-	public static final int[] tiers = { 8, 16, 32 };
-	
 	/** Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer */
-	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
+	@Override public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 		if (player.isSneaking()) {
 			try {
 				System.out.println("Opening GUI");
@@ -42,7 +45,7 @@ public class PitTrap extends ADItem {
 				System.out.println("Well you fucked it! XD");
 			}
 		}
-		return item;
+		return false;
 	}
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
@@ -160,5 +163,4 @@ public class PitTrap extends ADItem {
 	@SideOnly(Side.CLIENT) public IIcon getIconFromDamage(int meta) {
 		return IconArray[meta];
 	}
-	
 }
