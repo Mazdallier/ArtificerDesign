@@ -4,9 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Containers.ITableContainer;
-import ad.Genis231.Containers.VMContainer;
 import ad.Genis231.TileEntity.ITableTile;
-import ad.Genis231.TileEntity.VMTile;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
@@ -17,8 +15,6 @@ public class GuiHandler implements IGuiHandler {
 		switch (id) {
 			case 0:
 				return new ITableContainer(player.inventory, (ITableTile) tileEntity, world, x, y, z, world.getBlock(x, y, z));
-			case 1:
-				new VMContainer(player.inventory, (VMTile) tileEntity, world, x, y, z);
 			default:
 				return null;
 		}
@@ -33,8 +29,6 @@ public class GuiHandler implements IGuiHandler {
 			case 0:
 				return new ITableGui(player.inventory, (ITableTile) tileEntity, world, x, y, z, world.getBlock(x, y, z));
 			case 1:
-				return new VineMatGUI(player);
-			case 2:
 				return new DrillGui(player, world, x, y, z);
 			default:
 				return null;

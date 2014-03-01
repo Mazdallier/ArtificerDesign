@@ -49,7 +49,6 @@ public class MainReg {
 		GameRegistry.registerTileEntity(ITable2.class, "IT2");
 		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");
 		GameRegistry.registerTileEntity(DrillTile.class, "Drill");
-		GameRegistry.registerTileEntity(ITable1.class, "ITable");
 	}
 	
 	public static void recipeGReg() {

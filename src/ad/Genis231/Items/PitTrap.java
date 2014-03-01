@@ -6,10 +6,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -17,8 +15,6 @@ import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
 import ad.Genis231.Core.Core;
-import ad.Genis231.TileEntity.model.ITable1;
-import ad.Genis231.TileEntity.model.ITable2;
 import ad.Genis231.lib.ItemTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,6 +23,7 @@ public class PitTrap extends ADItem {
 	public static IIcon[] IconArray = new IIcon[9];
 	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
 	public static final int[] tiers = { 8, 16, 32 };
+	public static Item container;
 	
 	public PitTrap(String name) {
 		super(name);
@@ -138,6 +135,11 @@ public class PitTrap extends ADItem {
 			return tiers[1];
 		else
 			return tiers[2];
+	}
+	
+	public Item setContainerItem(Item item) {
+		container = item;
+		return this;
 	}
 	
 	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {

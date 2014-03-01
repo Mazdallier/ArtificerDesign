@@ -13,8 +13,8 @@ public class DwarfModel extends ModelBase {
 	ModelRenderer leftarm;
 	ModelRenderer rightleg;
 	ModelRenderer leftleg;
-	int tw = 32;
-	int th = 64;
+	int tw = 64;
+	int th = 128;
 	
 	public DwarfModel() {
 		textureWidth = tw;

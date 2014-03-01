@@ -1,5 +1,7 @@
 package ad.Genis231.Core;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Render.Blocks.BtrapRenderer;
@@ -18,8 +20,6 @@ import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 public class ClientProxy extends CommonProxy {
 	
