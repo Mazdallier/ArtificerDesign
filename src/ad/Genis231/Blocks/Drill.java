@@ -68,6 +68,8 @@ public class Drill extends ADBlockModel {
 	
 	@Override public TileEntity createNewTileEntity(World world, int unknown) {
 		int t = r.nextInt(10);
+		while (t <= 0)
+			t = r.nextInt(10);
 		
 		System.out.println("done");
 		return new DrillTile(t * 2, t / 2);
