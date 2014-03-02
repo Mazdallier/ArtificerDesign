@@ -1,19 +1,18 @@
 package ad.Genis231.Render.Blocks;
 
-import ad.Genis231.Models.Blocks.ITable2Model;
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+import ad.Genis231.Models.Blocks.ITableModel;
 import ad.Genis231.TileEntity.model.ITable2;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.tileentity.TileEntity;
-
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
 
 @SideOnly(Side.CLIENT) public class ITableRenderer2 extends TileEntitySpecialRenderer {
 	
-	private static ITable2Model ITableModel = new ITable2Model();
-	public static long speed = ITableRenderer1.speed;
+	private static ITableModel ITableModel = new ITableModel();
+	public static long speed = ITableHelper.speed;
 	
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		

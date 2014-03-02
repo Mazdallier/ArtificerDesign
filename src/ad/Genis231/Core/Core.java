@@ -1,20 +1,19 @@
 package ad.Genis231.Core;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Global.Overlay.ClassStats;
-import ad.Genis231.Global.Overlay.OverlayHelper;
+import ad.Genis231.Global.Overlay.InventoryOveray;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Core {
 	
@@ -24,14 +23,7 @@ import net.minecraftforge.common.MinecraftForge;
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy") public static CommonProxy proxy;
 	
-	@Deprecated @EventHandler public void invalidFingerprint(FMLFingerprintViolationEvent event) {}
-	
-	@Deprecated @EventHandler public void fingerPrint(FMLFingerprintViolationEvent event) {
-		if (event.expectedFingerprint != event.expectedFingerprint) {}
-	}
-	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
-		
 		MainReg.basic();
 		MainReg.recipeGReg();
 		MainReg.Worlds();
@@ -47,11 +39,10 @@ import net.minecraftforge.common.MinecraftForge;
 	
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
 		if (event.getSide().isClient()) {
-			MinecraftForge.EVENT_BUS.register(new OverlayHelper(Minecraft.getMinecraft()));
+			MinecraftForge.EVENT_BUS.register(new InventoryOveray(Minecraft.getMinecraft()));
 			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
-		
+			
 		}
-		
 	}
 	
 }

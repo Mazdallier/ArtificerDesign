@@ -23,10 +23,10 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 	
-	public void registerRenderers() {
+	@SuppressWarnings("unchecked") public void registerRenderers() {
 		
 		for (int i = 0; i < CreatureReg.dwarfClass.length; i++) {
-			RenderingRegistry.registerEntityRenderingHandler(CreatureReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 3F, i));
+			RenderingRegistry.registerEntityRenderingHandler(CreatureReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 5F, i));
 		}
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeTileRenderer());

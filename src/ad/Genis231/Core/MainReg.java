@@ -44,6 +44,7 @@ public class MainReg {
 		GameRegistry.registerItem(ADItem.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItem.Rope, Names.ROPE);
 		
+		/* TileEntities */
 		GameRegistry.registerTileEntity(BearTrapTile.class, "BearTrap");
 		GameRegistry.registerTileEntity(ITable1.class, "IT1");
 		GameRegistry.registerTileEntity(ITable2.class, "IT2");

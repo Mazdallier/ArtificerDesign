@@ -14,35 +14,19 @@ import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.Core.Core;
 import ad.Genis231.lib.ItemTexture;
+import ad.Genis231.lib.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class PitTrap extends ADItem {
+public class VineMat extends ADItem {
 	public static IIcon[] IconArray = new IIcon[9];
-	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
 	public static final int[] tiers = { 8, 16, 32 };
-	public static Item container;
 	
-	public PitTrap(String name) {
+	public VineMat(String name) {
 		super(name);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-	}
-	
-	/** Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer */
-	@Override public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		if (player.isSneaking()) {
-			try {
-				System.out.println("Opening GUI");
-				player.openGui(Core.instance, 1, world, (int) player.posX, (int) player.posY, (int) player.posZ);
-			}
-			catch (Exception e) {
-				System.out.println("Well you fucked it! XD");
-			}
-		}
-		return false;
 	}
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
@@ -137,11 +121,6 @@ public class PitTrap extends ADItem {
 			return tiers[2];
 	}
 	
-	public Item setContainerItem(Item item) {
-		container = item;
-		return this;
-	}
-	
 	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < 9; ++i) {
 			list.add(new ItemStack(item, 1, i));
@@ -153,7 +132,7 @@ public class PitTrap extends ADItem {
 	}
 	
 	@Override public String getUnlocalizedName(ItemStack itemstack) {
-		return this.getUnlocalizedName() + UnlocalizedArray[itemstack.getItemDamage()];
+		return this.getUnlocalizedName() + Names.UnlocalizedArray[itemstack.getItemDamage()];
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {

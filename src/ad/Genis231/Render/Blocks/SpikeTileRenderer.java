@@ -22,7 +22,6 @@ import static org.lwjgl.opengl.GL11.*;
 			glPushMatrix();
 			
 			// Scale, Translate, Rotate
-			
 			glScalef(1.0F, 1.0F, 1.0F);
 			glTranslatef((float) x + 0.0F, (float) y + 0.0F, (float) z + 1.0F);
 			

@@ -1,16 +1,16 @@
 package ad.Genis231.TileEntity;
 
-import ad.Genis231.BaseClasses.ADTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import ad.Genis231.BaseClasses.ADTileEntity;
 
 public class ITableTile extends ADTileEntity implements IInventory {
 	
 	private ItemStack[] inv;
 	
-	public float rate = 30;
+	public float rate = 20;
 	float count;
 	
 	public ITableTile(int size) {
@@ -41,17 +41,17 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	}
 	
 	@Override public boolean isUseableByPlayer(EntityPlayer player) {
-		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 64;
+		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && player.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) < 32;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
-		count = tagCompound.getFloat("GUI");
+		count = tagCompound.getFloat("gui_pos");
 	}
 	
 	@Override public void writeToNBT(NBTTagCompound tagCompound) {
 		super.writeToNBT(tagCompound);
-		tagCompound.setFloat("GUI", count);
+		tagCompound.setFloat("gui_pos", count);
 	}
 	
 	public boolean hasItem() {

@@ -8,7 +8,6 @@ public class textures {
 	// GUI
 	public static final ResourceLocation t1 = new ResourceLocation("artificer", "textures/gui/ITable1.png");
 	public static final ResourceLocation t2 = new ResourceLocation("artificer", "textures/gui/ITable2.png");
-	public static final ResourceLocation VM = new ResourceLocation("artificer", "textures/gui/VM_Gui.png");
 	
 	// Mob Textures
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };

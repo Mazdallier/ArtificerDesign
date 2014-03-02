@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class dwarfRenderer extends RenderLiving {
 	DwarfModel dwarf;
-	int dwarfType = 0;
+	int dwarfType;
 	
 	public dwarfRenderer(DwarfModel model, float shadow, int type) {
 		super(model, shadow);

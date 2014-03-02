@@ -1,13 +1,15 @@
 package ad.Genis231.Render.Blocks;
 
+import static org.lwjgl.opengl.GL11.glRotatef;
+import static org.lwjgl.opengl.GL11.glScalef;
+import static org.lwjgl.opengl.GL11.glTranslatef;
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-import static org.lwjgl.opengl.GL11.*;
-
 @SideOnly(Side.CLIENT) public class ITableHelper {
+	public static long speed = 0x3FFF;
 	
 	public static void block(double x, double y, double z, float scale) {
 		glScalef(scale, scale, scale);

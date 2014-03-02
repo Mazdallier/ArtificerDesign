@@ -28,6 +28,10 @@ public class Names {
 	public static final String COIN = "coin";
 	public static final String ROPE = "rope";
 	
+	//VineMats: "VM_" + ...
+	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
+
+	
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };
 }

@@ -1,18 +1,14 @@
 package ad.Genis231.Items;
 
-import ad.Genis231.BaseClasses.ADItem;
-import ad.Genis231.Blocks.Entity.DragonBreatheEntity;
-import ad.Genis231.lib.ItemTexture;
-import ad.Genis231.lib.Ref;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClasses.ADItem;
+import ad.Genis231.Blocks.Entity.DragonBreatheEntity;
 
 public class DragonBreathe extends ADItem {
-	public DragonBreathe(String name) {
-		super(name);
-		this.setTextureName(ItemTexture.DragonBreathe);
-		this.setCreativeTab(Ref.TAB);
+	public DragonBreathe(String name, String texture) {
+		super(name, texture);
 	}
 	
 	/** Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer */

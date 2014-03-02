@@ -16,21 +16,21 @@ import static org.lwjgl.opengl.GL11.*;
 	private static BearTrapModel Model = new BearTrapModel();
 	
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		
 		if (tileEntity instanceof BearTrapTile) {
 			
 			glPushMatrix();
-			
-			glScalef(1.0F, 1.0F, 1.0F);
-			glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
-			
-			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.BearTrap);
-			
-			// Render
-			Model.RenderBase();
-			Model.RenderSide();
-			
+			{
+				glScalef(1.0F, 1.0F, 1.0F);
+				glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
+				
+				// Bind texture
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.BearTrap);
+				
+				// Render
+				Model.RenderBase();
+				Model.RenderSide();
+				
+			}
 			glPopMatrix();
 		}
 	}

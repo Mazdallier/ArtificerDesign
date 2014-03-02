@@ -29,8 +29,7 @@ public class BearTrap extends ADBlockModel {
 		return Ref.BTrapRender;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World world, int var2) {
-		System.out.println("\n\n\n\n\nWeird Bear Trap thingy!!!" + var2 + "\n\n\n\n\n");
+	@Override public TileEntity createNewTileEntity(World world, int unknown) {
 		return new BearTrapTile();
 	}
 }
