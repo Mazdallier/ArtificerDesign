@@ -39,10 +39,8 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
 		if (event.getSide().isClient()) {
-			MinecraftForge.EVENT_BUS.register(new InventoryOverlay(Minecraft.getMinecraft()));
 			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 			
-		}
+		}MinecraftForge.EVENT_BUS.register(new InventoryOverlay(Minecraft.getMinecraft()));
 	}
-	
 }

@@ -49,6 +49,7 @@ public class DrillTile extends ADTileEntity {
 		int count = 0;
 		
 		if (!drillDone) {
+			this.markDirty();
 			for (int y = yCoord - 1; y >= 0; y--) {
 				for (int x = minX; x <= maxX; x++) {
 					for (int z = minZ; z <= maxZ; z++) {

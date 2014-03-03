@@ -67,12 +67,13 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	}
 	
 	public void updateEntity() {
-		if (hasItem())
+		if (hasItem()) {
+			this.markDirty();
 			if (count >= rate)
 				count = 0;
 			else
 				count++;
-		
+		}
 	}
 	
 	@Override public ItemStack getStackInSlot(int slot) {

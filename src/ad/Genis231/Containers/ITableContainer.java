@@ -73,14 +73,13 @@ public class ITableContainer extends Container {
 		Slot slot = (Slot) this.inventorySlots.get(slotNumber);
 		
 		if (slot != null && slot.getHasStack()) {
-			ItemStack itemstack1 = slot.getStack();
-			itemstack = itemstack1.copy();
+			itemstack = slot.getStack();
 			
 			if (slotNumber < 4) {
-				if (!this.mergeItemStack(itemstack1, 4, this.inventorySlots.size(), true)) { return null; }
-			} else if (!this.mergeItemStack(itemstack1, 0, 4, false)) { return null; }
+				if (!this.mergeItemStack(itemstack, 4, this.inventorySlots.size(), true)) { return null; }
+			} else if (!this.mergeItemStack(itemstack, 0, 4, false)) { return null; }
 			
-			if (itemstack1.stackSize == 0) {
+			if (itemstack.stackSize == 0) {
 				slot.putStack((ItemStack) null);
 			} else {
 				slot.onSlotChanged();
@@ -91,7 +90,6 @@ public class ITableContainer extends Container {
 	}
 	
 	@Override public Slot getSlotFromInventory(IInventory inven, int slot) {
-		Slot slotObject = (Slot) inventorySlots.get(slot);
 		if (slot == 2)
 			inven.isItemValidForSlot(slot, null);
 		return null;
