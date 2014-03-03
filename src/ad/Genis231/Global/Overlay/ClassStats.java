@@ -17,7 +17,7 @@ public class ClassStats extends Gui {
 	}
 	@SubscribeEvent
 	public void onRenderExperienceBar(RenderGameOverlayEvent event) {
-		this.mc.thePlayer.addPotionEffect(new PotionEffect(Potion.nightVision.getId(), -1, 5, true));
-		this.mc.thePlayer.addPotionEffect(new PotionEffect(Potion.invisibility.getId(), -1, 2, true));
+		this.mc.thePlayer.addPotionEffect(new PotionEffect(Potion.nightVision.getId(), 999, 5, true));
+		this.mc.thePlayer.addPotionEffect(new PotionEffect(Potion.invisibility.getId(), 999, 2, true));
 	}
 }
