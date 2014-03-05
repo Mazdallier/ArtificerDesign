@@ -16,7 +16,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
 	public static void basic() {
-		
 		/* Blocks */
 		GameRegistry.registerBlock(ADBlock.RedGemOre, Names.RED_GEM);
 		GameRegistry.registerBlock(ADBlock.FalsePitTrap, "null");
@@ -50,6 +49,7 @@ public class MainReg {
 		GameRegistry.registerTileEntity(ITable2.class, "IT2");
 		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");
 		GameRegistry.registerTileEntity(DrillTile.class, "Drill");
+		
 	}
 	
 	public static void recipeGReg() {

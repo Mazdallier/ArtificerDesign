@@ -6,6 +6,7 @@ import ad.Genis231.Global.Overlay.ClassStats;
 import ad.Genis231.Global.Overlay.InventoryOverlay;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.lib.Ref;
+import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -40,7 +41,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
 		if (event.getSide().isClient()) {
 			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
-			
-		}MinecraftForge.EVENT_BUS.register(new InventoryOverlay(Minecraft.getMinecraft()));
+			//MinecraftForge.EVENT_BUS.register(new InventoryOverlay(Minecraft.getMinecraft()));
+		}
 	}
 }

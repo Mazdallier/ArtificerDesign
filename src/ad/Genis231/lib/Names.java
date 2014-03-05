@@ -27,6 +27,7 @@ public class Names {
 	public static final String VINE_MAT = "VM_";
 	public static final String COIN = "coin";
 	public static final String ROPE = "rope";
+	public static final String DGoggles = "dwarvenGoggles";
 	
 	//VineMats: "VM_" + ...
 	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
@@ -34,4 +35,5 @@ public class Names {
 	
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };
+	
 }
