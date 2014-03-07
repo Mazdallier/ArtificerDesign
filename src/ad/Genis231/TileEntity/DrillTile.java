@@ -9,11 +9,14 @@ import net.minecraft.nbt.NBTTagCompound;
 import ad.Genis231.BaseClasses.ADTileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.ArrayList;
+
 public class DrillTile extends ADTileEntity{
 
 	int range, minX, maxX, minZ, maxZ, rate;
 	Block[] blockArray = {Blocks.air,Blocks.water,Blocks.lava,Blocks.bedrock};
 	boolean drillDone = false;
+	ArrayList<IInventory> inventories = new ArrayList<IInventory>();
 
 	public DrillTile(int size,int speed){
 		System.out.println(size + " " + speed);
@@ -41,17 +44,19 @@ public class DrillTile extends ADTileEntity{
 	}
 
 	public void updateEntity(){
-		minX = xCoord < 0 ? xCoord - range : xCoord + range;
-		maxX = xCoord < 0 ? xCoord + range : xCoord - range;
-		minZ = zCoord < 0 ? zCoord - range : zCoord + range;
-		maxZ = zCoord < 0 ? zCoord + range : zCoord - range;
+		minX = xCoord > 0 ? xCoord - range : xCoord + range;
+		maxX = xCoord > 0 ? xCoord + range : xCoord - range;
+		minZ = zCoord > 0 ? zCoord - range : zCoord + range;
+		maxZ = zCoord > 0 ? zCoord + range : zCoord - range;
 
-		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (2000 / rate) > 10 && !this.worldObj.isRemote){
+		check();
+
+		if(this.worldObj.isBlockIndirectlyGettingPowered(xCoord,yCoord,zCoord) && System.currentTimeMillis() % (100* rate) > 50 && !this.worldObj.isRemote){
 			drill();
 		}
 	}
 
-	boolean drill(){
+	void drill(){
 		int count = 0;
 
 		if(!drillDone){
@@ -63,7 +68,7 @@ public class DrillTile extends ADTileEntity{
 							worldObj.setBlockToAir(x,y,z);
 							count++;
 						}
-						if(count >= 10) return true;
+						if(count >= 1) return;
 					}
 				}
 			}
@@ -71,20 +76,40 @@ public class DrillTile extends ADTileEntity{
 
 		drillDone = count == 0;
 
+		return;
+	}
+
+	void check(){
+		int temp;
+		if(minX > maxX){
+			temp = minX;
+			minX = maxX;
+			maxX = temp;
+		}
+
+		if(minZ > maxZ){
+			temp = minZ;
+			minZ = maxZ;
+			maxZ = temp;
+		}
+	}
+
+	boolean addBlock(Block block){
+		getInventory();
+		for(int i = 0; i < inventories.size(); i++){
+			if(InventoryHelper.addBlock(inventories.get(i),new ItemStack(block,1))){
+				return true;
+			}
+		}
 		return false;
 	}
 
-	void addBlock(Block block){
-		int dir = getInventory();
-		IInventory chest = InventoryHelper.getInventorySide(ForgeDirection.getOrientation(dir));
-		if(chest != null) InventoryHelper.addBlock(chest,new ItemStack(block,1),dir);
-	}
-
-	int getInventory(){
-		for(int i = 0; i < 6; i++){
-			if(InventoryHelper.getInventorySide(ForgeDirection.getOrientation(i)) != null) return i;
+	void getInventory(){
+		IInventory chest;
+		for(ForgeDirection dir : ForgeDirection.values()){
+			chest = InventoryHelper.getInventorySide(dir,this.worldObj,this.xCoord,this.yCoord,this.zCoord);
+			if(chest != null) inventories.add(chest);
 		}
-		return 0;
 	}
 
 	boolean isBreakable(int x,int y,int z){
@@ -93,8 +118,6 @@ public class DrillTile extends ADTileEntity{
 				return false;
 			}
 		}
-
 		return true;
 	}
-
 }

@@ -83,6 +83,6 @@ public class Drill extends ADBlockModel{
 			t = r.nextInt(20);
 		}
 		System.out.println("done");
-		return new DrillTile(t*2,t/2);
+		return new DrillTile(t*2,t*4);
 	}
 }
