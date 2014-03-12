@@ -13,9 +13,9 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 
 public class CreatureReg {
 	static int baseEntityID = 1;
-	@SuppressWarnings("rawtypes") public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
+	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
 	
-	@SuppressWarnings("unchecked") public static void mobs() {
+	public static void mobs() {
 		for (int i = 0; i < dwarfClass.length; i++) {
 			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Core.instance, 80, 3, true);
 			
@@ -34,7 +34,7 @@ public class CreatureReg {
 		return baseEntityID;
 	}
 	
-	@SuppressWarnings("unchecked") public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
+	public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
 		EntityList.IDtoClassMapping.put(id, entity);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}

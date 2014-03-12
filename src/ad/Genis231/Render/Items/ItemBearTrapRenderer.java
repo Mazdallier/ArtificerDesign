@@ -35,7 +35,7 @@ import static org.lwjgl.opengl.GL11.*;
 				return;
 				
 			case EQUIPPED:
-				renderModel(0.0F, 0.2F, 0.3F, 2F);
+				renderModel(0.1F, 0.2F, 0.1F, 2F);
 				return;
 				
 			case EQUIPPED_FIRST_PERSON:

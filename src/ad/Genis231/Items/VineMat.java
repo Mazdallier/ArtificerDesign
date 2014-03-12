@@ -14,6 +14,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.BaseClasses.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
+import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ItemTexture;
 import ad.Genis231.lib.Names;
 import cpw.mods.fml.relauncher.Side;
@@ -64,6 +65,7 @@ public class VineMat extends ADItem {
 			mZ = world.getBlock(x, y, mZ + 1) == Blocks.air ? z + i : mZ;
 			
 		}
+		
 		if (Math.abs(mX - mx) <= getRange(item) && Math.abs(mZ - mz) <= getRange(item))
 			set(world, mx, mX, y, mz, mZ, item);
 	}
@@ -82,7 +84,7 @@ public class VineMat extends ADItem {
 				System.out.println("EVERYTHING WORKS!!!");
 				
 				PitTrapBlock.toggle = false;
-				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlock.FalsePitTrap, item.getItemDamage() % 3, true);
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlocks.FalsePitTrap, item.getItemDamage() % 3, true);
 				PitTrapBlock.toggle = true;
 			}
 		}

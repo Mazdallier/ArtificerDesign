@@ -35,11 +35,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		switch (type) {
 			case ENTITY:
-				renderTable(0F, 0.0F, 0F, 2F);
+				renderTable(0F, 0.0F, 0F, 1.5F);
 				break;
 			
 			case EQUIPPED:
-				renderTable(0.2F, 0.0F, 0.2F, 1F);
+				renderTable(0.5F, 0.0F, 0.5F, 1F);
 				break;
 			
 			case EQUIPPED_FIRST_PERSON:

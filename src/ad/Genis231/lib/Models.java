@@ -8,4 +8,5 @@ public class Models {
 	public static final ResourceLocation Spike = new ResourceLocation("artificer", Folder + "Spike.obj");
 	public static final ResourceLocation ITable = new ResourceLocation("artificer", Folder + "ITable.obj");
 	public static final ResourceLocation BTrap = new ResourceLocation("artificer", Folder + "BearTrap.obj");
+	public static final ResourceLocation Drill = new ResourceLocation("artificer", Folder + "Drill.obj");
 }

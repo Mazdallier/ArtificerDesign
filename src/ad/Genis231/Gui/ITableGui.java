@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.Containers.ITableContainer;
 import ad.Genis231.TileEntity.ITableTile;
+import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.textures;
 
 public class ITableGui extends GuiContainer {
@@ -31,7 +31,7 @@ public class ITableGui extends GuiContainer {
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		this.mc.getTextureManager().bindTexture(block == ADBlock.Itable1 ? textures.t1 : textures.t2);
+		this.mc.getTextureManager().bindTexture(block == ADBlocks.Itable1 ? textures.t1 : textures.t2);
 		int x = (width - xSize) / 2;
 		int y = (height - ySize) / 2;
 		this.drawTexturedModalRect(x, y, 0, 0, 176, 165);
@@ -39,10 +39,10 @@ public class ITableGui extends GuiContainer {
 		float one = table.getBurn() * (56 / table.rate);
 		float two = table.getBurn() * (79 / table.rate);
 		
-		if (block == ADBlock.Itable1)
+		if (block == ADBlocks.Itable1)
 			this.drawTexturedModalRect(x + 55, y + 17, 176, 0, (int) one, 43);// 56
 			
-		else if (block == ADBlock.Itable2)
+		else if (block == ADBlocks.Itable2)
 			this.drawTexturedModalRect(x + 34, y + 12, 176, 0, (int) two, 55);// 79
 			
 	}

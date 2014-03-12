@@ -10,15 +10,11 @@ import ad.Genis231.BaseClasses.ADBlockModel;
 import ad.Genis231.Core.Core;
 import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.lib.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class Drill extends ADBlockModel {
-	
-	@SideOnly(Side.CLIENT) public static IIcon oddSideIcon;
-	@SideOnly(Side.CLIENT) public static IIcon evenSideIcon;
-	@SideOnly(Side.CLIENT) public static IIcon topIcon;
-	@SideOnly(Side.CLIENT) public static IIcon botIcon;
 	
 	public Drill(String name) {
 		super(Material.rock, name);
@@ -31,36 +27,8 @@ public class Drill extends ADBlockModel {
 		return false;
 	}
 	
-	@Override public boolean renderAsNormalBlock() {
-		return true;
-	}
-	
-	@Override public boolean isOpaqueCube() {
-		return true;
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
-		evenSideIcon = icon.registerIcon(BlockTexture.Drill[0]);
-		oddSideIcon = icon.registerIcon(BlockTexture.Drill[1]);
-		topIcon = icon.registerIcon(BlockTexture.Drill[2]);
-		botIcon = icon.registerIcon(BlockTexture.Drill[3]);
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
-		switch (side) {
-			case 0:
-				return botIcon;
-			case 1:
-				return topIcon;
-			case 2:
-				return evenSideIcon;
-			case 3:
-				return evenSideIcon;
-			case 4:
-				return oddSideIcon;
-			default:
-				return oddSideIcon;
-		}
+	@Override public int getRenderType() {
+		return Ref.DrillRender;
 	}
 	
 	@Override public TileEntity createNewTileEntity(World world, int unknown) {

@@ -20,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	@Instance(Ref.MOD_ID) public static Core instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy") public static CommonProxy proxy;
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ServerProxy proxy;
 	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		MainReg.basic();

@@ -3,6 +3,7 @@ package ad.Genis231.TileEntity;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -19,12 +20,16 @@ public class DrillTile extends ADTileEntity {
 	private static int drillWidth;
 	private static int drillHeight;
 	private static int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.water, Blocks.lava, Blocks.bedrock };
+	private Block[] blockArray = { Blocks.air, Blocks.redstone_block };
 	private boolean drillDone;
 	ArrayList<IInventory> inventories = new ArrayList<IInventory>();
+	public boolean drilling;
+	public int angle;
+	private int speed = 360 / 20;
 	
 	public DrillTile() {
 		drillDone = false;
+		drilling = false;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tag) {
@@ -36,6 +41,7 @@ public class DrillTile extends ADTileEntity {
 			delay = tag.getInteger("delay");
 			cooldown = tag.getInteger("cd");
 			drillDone = tag.getBoolean("status");
+			angle = tag.getInteger("angle");
 		}
 	}
 	
@@ -45,20 +51,31 @@ public class DrillTile extends ADTileEntity {
 		tag.setInteger("height", drillHeight);
 		tag.setBoolean("status", drillDone);
 		tag.setInteger("cd", cooldown);
+		tag.setInteger("angle", angle);
 		super.writeToNBT(tag);
 	}
 	
 	public void updateEntity() {
+		drilling = this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
 		
-		if (this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !this.worldObj.isRemote) {
-			if (canActivate()) {
-				setSize();
-				drill();
-				this.cooldown = delay;
-			} else {
-				cooldown--;
+		if (drilling) {
+			angle += speed * 2;
+			if (angle >= 360) {
+				getInventory();
+				angle = 0;
 			}
-		} else if (!this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !this.worldObj.isRemote) {
+			
+			if (!this.worldObj.isRemote) {
+				
+				if (canActivate()) {
+					setSize();
+					drill();
+					this.cooldown = delay;
+				} else {
+					cooldown--;
+				}
+			}
+		} else if (!drilling && !this.worldObj.isRemote) {
 			this.cooldown = delay;
 		}
 	}
@@ -118,6 +135,11 @@ public class DrillTile extends ADTileEntity {
 	
 	private void getInventory() {
 		IInventory chest;
+		
+		if (inventories != null) {
+			inventories.clear();
+		}
+		
 		for (ForgeDirection dir : ForgeDirection.values()) {
 			chest = InventoryHelper.getInventorySide(dir, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 			if (chest != null)
@@ -131,9 +153,10 @@ public class DrillTile extends ADTileEntity {
 	
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
-			if (this.worldObj.getBlock(x, y, z).equals(block) || this.worldObj.getTileEntity(x, y, z) != null) { return false; }
+			if (this.worldObj.getBlock(x, y, z).equals(block)) { return false; }
 		}
-		return true;
+		
+		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
 	}
 	
 	public static void setStats(int width, int height, int rate) {

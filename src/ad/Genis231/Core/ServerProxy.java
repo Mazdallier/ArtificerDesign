@@ -1,6 +1,6 @@
 package ad.Genis231.Core;
 
-public class CommonProxy {	
+public class ServerProxy {	
 	// Server stuff
 	public void registerRenderers() {}
 }

@@ -10,6 +10,8 @@ tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
 tile.FalseLoot.name=False Loot
 tile.DVine.name=Dried Vines
+tile.MechCoin.name=Coining Mechine
+tile.DrillParts.name=Drill Part
 
 //Items
 item.OrangeDust.name=Orange Dust

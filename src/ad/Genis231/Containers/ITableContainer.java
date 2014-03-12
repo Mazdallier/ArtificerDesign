@@ -8,8 +8,8 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADBlock;
 import ad.Genis231.TileEntity.ITableTile;
+import ad.Genis231.lib.ADBlocks;
 
 public class ITableContainer extends Container {
 	
@@ -20,9 +20,9 @@ public class ITableContainer extends Container {
 	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, Block block) {
 		tileEntity = tile;
 		world = w;
-		size = block == ADBlock.Itable1 ? 3 : 4;
+		size = block == ADBlocks.Itable1 ? 3 : 4;
 		
-		if (block == ADBlock.Itable1) {
+		if (block == ADBlocks.Itable1) {
 			addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
 			addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
 			addSlotToContainer(new Slot(tileEntity, 2, 117, 31));

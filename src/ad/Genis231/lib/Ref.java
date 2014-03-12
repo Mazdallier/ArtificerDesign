@@ -1,6 +1,5 @@
 package ad.Genis231.lib;
 
-import ad.Genis231.BaseClasses.ADItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -16,6 +15,7 @@ public class Ref {
 	public static int SpikeRender;
 	public static int TableRender;
 	public static int BTrapRender;
+	public static int DrillRender;
 }
 
 class ADCreativeTAB extends CreativeTabs {
@@ -29,6 +29,6 @@ class ADCreativeTAB extends CreativeTabs {
 	}
 	
 	@Override public Item getTabIconItem() {
-		return ADItem.PureGem;
+		return ADItems.PureGem;
 	}
 }
