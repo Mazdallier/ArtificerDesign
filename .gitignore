@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-/build/
-/bin/
-=======
-/.gradle/
-/.settings/
 /eclipse/
+/.gradle/
 /assets/
->>>>>>> refs/remotes/origin/master
-/*.ini
+/build/
+/.settings/
