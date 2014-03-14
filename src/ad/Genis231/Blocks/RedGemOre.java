@@ -1,6 +1,5 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.BaseClasses.ADBlock;
 import net.minecraft.block.material.Material;
 
 import java.util.Random;

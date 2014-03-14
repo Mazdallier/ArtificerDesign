@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import ad.Genis231.BaseClasses.ADTileEntity;
 import ad.Genis231.Core.Resources.InventoryHelper;
 
 public class DrillTile extends ADTileEntity {

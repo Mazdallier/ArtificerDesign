@@ -5,7 +5,6 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityHopper;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClasses.ADItem;
 
 public class OrangeDust extends ADItem {
 	public OrangeDust(String name, String texture) {
