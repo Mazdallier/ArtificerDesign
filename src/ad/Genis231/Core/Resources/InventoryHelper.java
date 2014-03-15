@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
-import net.minecraft.client.Minecraft;
 import net.minecraft.command.IEntitySelector;
+import net.minecraft.entity.Entity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -16,8 +16,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class InventoryHelper {
-	private static Minecraft mc = Minecraft.getMinecraft();
-	
 	public static ItemStack getItem(IInventory inv, int slot) {
 		if (inv.getSizeInventory() < slot && inv != null)
 			return inv.getStackInSlot(slot);
@@ -28,28 +26,37 @@ public class InventoryHelper {
 		return getInventory(world, x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ);
 	}
 	
+	public static IInventory getInventoryAround(World world, int x, int y, int z, ItemStack item) {
+		for (ForgeDirection i : ForgeDirection.values()) {
+			IInventory temp = getInventorySide(i, world, x, y, z);
+			if (temp != null && hasOpenSlots(temp, item))
+				return temp;
+		}
+		return null;
+	}
+	
 	// Copied code from Vanilla Minecraft Hopper code
-	public static IInventory getInventory(World world, int fx, int fy, int fz) {
+	public static IInventory getInventory(World world, int x, int y, int z) {
 		IInventory iinventory = null;
-		int x = MathHelper.floor_double(fx);
-		int y = MathHelper.floor_double(fy);
-		int z = MathHelper.floor_double(fz);
-		TileEntity tileentity = world.getTileEntity(x, y, z);
+		int i = MathHelper.floor_double(x);
+		int j = MathHelper.floor_double(y);
+		int k = MathHelper.floor_double(z);
+		TileEntity tileentity = world.getTileEntity(i, j, k);
 		
 		if (tileentity != null && tileentity instanceof IInventory) {
 			iinventory = (IInventory) tileentity;
 			
 			if (iinventory instanceof TileEntityChest) {
-				Block block = world.getBlock(x, y, z);
+				Block block = world.getBlock(i, j, k);
 				
 				if (block instanceof BlockChest) {
-					iinventory = ((BlockChest) block).func_149951_m(world, x, y, z);
+					iinventory = ((BlockChest) block).func_149951_m(world, i, j, k);
 				}
 			}
 		}
 		
 		if (iinventory == null) {
-			List list = world.getEntitiesWithinAABBExcludingEntity(null, AxisAlignedBB.getAABBPool().getAABB(fx, fy, fz, fx + 1.0D, fy + 1.0D, fz + 1.0D), IEntitySelector.selectInventories);
+			List list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D), IEntitySelector.selectInventories);
 			
 			if (list != null && list.size() > 0) {
 				iinventory = (IInventory) list.get(world.rand.nextInt(list.size()));
@@ -89,15 +96,18 @@ public class InventoryHelper {
 		return item.stackSize <= 0;
 	}
 	
-	public static boolean isFull(IInventory inv) {
+	public static boolean hasOpenSlots(IInventory inv, ItemStack item) {
 		for (int i = 0; i < inv.getSizeInventory(); i++) {
 			ItemStack current = inv.getStackInSlot(i);
 			
-			if (current != null)
-				return false;
+			if (current == null)
+				return true;
+			else if (item != null && current.getItem() == item.getItem() && current.getItemDamage() == item.getItemDamage()) {
+				if (current.stackSize + item.stackSize <= item.getMaxStackSize())
+					return true;
+			}
 		}
-		
-		return true;
+		return false;
 		
 	}
 }

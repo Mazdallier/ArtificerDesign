@@ -1,8 +1,10 @@
 package ad.Genis231.Blocks;
 
-import net.minecraft.block.material.Material;
-
 import java.util.Random;
+
+import ad.Genis231.lib.ADItems;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 
 public class RedGemOre extends ADBlock {
 	public RedGemOre(String name, String texture) {
@@ -10,11 +12,14 @@ public class RedGemOre extends ADBlock {
 		this.setLightLevel(1.0F);
 		setHardness(5.0f);
 	}
-	
-	// TODO add Gem to Drop!!!!
-	
+		
 	protected boolean canSilkHarvest() {
 		return true;
+	}
+	
+	@Override public Item getItemDropped(int one, Random rand, int two) {		
+		return ADItems.DirtyGem;
+		
 	}
 	
 	public int quantityDroppedWithBonus(int par1, Random random) {

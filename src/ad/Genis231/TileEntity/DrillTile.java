@@ -1,18 +1,15 @@
 package ad.Genis231.TileEntity;
 
-import java.util.ArrayList;
-
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Core.Resources.InventoryHelper;
 
 public class DrillTile extends ADTileEntity {
@@ -22,19 +19,20 @@ public class DrillTile extends ADTileEntity {
 	private int drillWidth;
 	private int drillHeight;
 	private int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block };
-	private boolean drillDone;
-	ArrayList<IInventory> inventories = new ArrayList<IInventory>();
-	public boolean drilling;
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block, Blocks.water, Blocks.flowing_water, Blocks.lava, Blocks.flowing_lava };
+	private boolean drillStatus;
+	public boolean canDrill;
 	public int angle;
+	public World world;
+	public int maxBreak = 5;
 	
 	boolean needsUpdate = false;
 	
 	private int speed = 360 / 20;
 	
 	public DrillTile() {
-		drillDone = false;
-		drilling = false;
+		drillStatus = false;
+		canDrill = false;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tag) {
@@ -43,9 +41,6 @@ public class DrillTile extends ADTileEntity {
 		drillWidth = tag.getInteger("width");
 		drillHeight = tag.getInteger("height");
 		delay = tag.getInteger("delay");
-		cooldown = tag.getInteger("cd");
-		drillDone = tag.getBoolean("status");
-		angle = tag.getInteger("angle");
 		
 	}
 	
@@ -54,39 +49,34 @@ public class DrillTile extends ADTileEntity {
 		tag.setInteger("delay", delay);
 		tag.setInteger("width", drillWidth);
 		tag.setInteger("height", drillHeight);
-		tag.setBoolean("status", drillDone);
-		tag.setInteger("cd", cooldown);
-		tag.setInteger("angle", angle);
 	}
 	
 	public void updateEntity() {
+		world = this.worldObj;
 		
 		if (needsUpdate) {
 			needsUpdate = false;
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		
-		drilling = this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
+		canDrill = world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillStatus;
 		
-		if (drilling) {
+		if (canDrill) {
 			angle += speed * 2;
-			if (angle >= 360) {
+			if (angle >= 360)
 				angle = 0;
-			}
 			
-			if (!this.worldObj.isRemote) {
-				
-				if (canActivate()) {
+			if (!world.isRemote) {
+				if (cooldown <= 0) {
 					setSize();
 					drill();
 					this.cooldown = delay;
-				} else {
+				} else
 					cooldown--;
-				}
 			}
-		} else if (!drilling && !this.worldObj.isRemote) {
+		} else
 			this.cooldown = delay;
-		}
+		
 	}
 	
 	private void setSize() {
@@ -113,68 +103,59 @@ public class DrillTile extends ADTileEntity {
 	private void drill() {
 		int count = 0;
 		
-		if (!drillDone) {
+		if (!drillStatus) {
 			for (int y = yCoord - 1; y >= 0; y--) {
-				for (int x = minX; x <= maxX; x++) {
-					for (int z = minZ; z <= maxZ; z++) {
+				for (int z = minZ; z <= maxZ; z++) {
+					for (int x = minX; x <= maxX; x++) {
 						if (isBreakable(x, y, z)) {
 							addBlock(worldObj, x, y, z);
 							worldObj.setBlockToAir(x, y, z);
 							count++;
 						}
-						if (count >= 1)
+						
+						if (count >= maxBreak)
 							return;
 					}
 				}
 			}
 		}
 		
-		drillDone = count == 0;
+		drillStatus = count == 0;
 		
 		return;
 	}
 	
-	private boolean addBlock(World world, int x, int y, int z) {
-		if (inventories.isEmpty())
-			getInventory();
-		
-		for (int i = 0; i < inventories.size(); i++) {
-			if (InventoryHelper.isFull(inventories.get(i)))
-				getInventory();
-			
-			if (InventoryHelper.addBlock(inventories.get(i), new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z))))
-				return true;
-		}
-		return false;
+	private void addBlock(World world, int x, int y, int z) {
+		ItemStack item = getItem(x, y, z);
+		IInventory temp = getInventory(item);
+		InventoryHelper.addBlock(temp, item);
 	}
 	
-	private void getInventory() {		
-		IInventory chest;
+	private ItemStack getItem(int x, int y, int z) {
+		Block block = world.getBlock(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
+		Item item = block.getItemDropped(meta, world.rand, 0);
+		int amount = block.quantityDropped(meta, 0, world.rand);
 		
-		if (inventories != null) {
-			inventories.clear();
-		}
-		
-		for (ForgeDirection dir : ForgeDirection.values()) {
-			chest = InventoryHelper.getInventorySide(dir, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
-			if (chest != null)
-				inventories.add(chest);
-		}
+		return new ItemStack(item, amount, 0);
 	}
 	
-	private boolean canActivate() {
-		return cooldown <= 0;
+	private IInventory getInventory(ItemStack item) {
+		return InventoryHelper.getInventoryAround(world, xCoord, yCoord, zCoord, item);
 	}
 	
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
-			if (this.worldObj.getBlock(x, y, z).equals(block)) { return false; }
+			if (world.getBlock(x, y, z) == block) {
+				System.out.println(block.getLocalizedName());
+				return false;
+			}
 		}
 		
-		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
+		return world.getTileEntity(x, y, z) == null;
 	}
 	
-	public void setStats(int width, int height, int rate) {		
+	public void setStats(int width, int height, int rate) {
 		drillWidth = width;
 		drillHeight = height;
 		delay = rate;

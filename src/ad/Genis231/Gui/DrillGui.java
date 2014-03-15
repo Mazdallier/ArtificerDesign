@@ -23,8 +23,8 @@ public class DrillGui extends GuiContainer {
 	
 	int color = Color.BLUE.getRGB();
 	
-	int width;
-	int height;
+	int Width;
+	int Height;
 	int delay;
 	
 	int tileX, tileY, tileZ;
@@ -36,8 +36,8 @@ public class DrillGui extends GuiContainer {
 		
 		this.tile = te;
 		
-		this.width = tile.getWidth();
-		this.height = tile.getHeight();
+		this.Width = tile.getWidth();
+		this.Height = tile.getHeight();
 		this.delay = tile.getDelay();
 		
 		this.tileX = tile.xCoord;
@@ -71,25 +71,25 @@ public class DrillGui extends GuiContainer {
 	}
 	
 	@Override protected void actionPerformed(GuiButton button) {
-		width = tile.getWidth();
-		height = tile.getHeight();
+		Width = tile.getWidth();
+		Height = tile.getHeight();
 		delay = tile.getDelay();
 		
 		switch (button.id) {
 			case 0:
-				this.width -= 5;
+				this.Width -= 5;
 				break;
 			
 			case 1:
-				this.width += 5;
+				this.Width += 5;
 				break;
 			
 			case 2:
-				this.height -= 5;
+				this.Height -= 5;
 				break;
 			
 			case 3:
-				this.height += 5;
+				this.Height += 5;
 				break;
 			
 			case 4:
@@ -103,12 +103,12 @@ public class DrillGui extends GuiContainer {
 				break;
 		}
 		
-		Artificer.packets.sendToServer(new DrillPacket(width, height, delay, tileX, tileY, tileZ));
+		Artificer.packets.sendToServer(new DrillPacket(Width, Height, delay, tileX, tileY, tileZ));
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
-		mc.fontRenderer.drawString("Width: " + width, buttonX - spaceing, centerY, color);
-		mc.fontRenderer.drawString("Height: " + height, buttonX, centerY, color);
+		mc.fontRenderer.drawString("Width: " + Width, buttonX - spaceing, centerY, color);
+		mc.fontRenderer.drawString("Height: " + Height, buttonX, centerY, color);
 		mc.fontRenderer.drawString("Speed: " + delay, buttonX + spaceing, centerY, color);
 	}
 }
