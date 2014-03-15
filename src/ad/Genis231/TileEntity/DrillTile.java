@@ -1,6 +1,7 @@
 package ad.Genis231.TileEntity;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -19,7 +20,7 @@ public class DrillTile extends ADTileEntity {
 	private int drillWidth;
 	private int drillHeight;
 	private int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block, Blocks.water, Blocks.flowing_water, Blocks.lava, Blocks.flowing_lava };
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block };
 	private boolean drillStatus;
 	public boolean canDrill;
 	public int angle;
@@ -68,7 +69,6 @@ public class DrillTile extends ADTileEntity {
 			
 			if (!world.isRemote) {
 				if (cooldown <= 0) {
-					setSize();
 					drill();
 					this.cooldown = delay;
 				} else
@@ -104,7 +104,8 @@ public class DrillTile extends ADTileEntity {
 		int count = 0;
 		
 		if (!drillStatus) {
-			for (int y = yCoord - 1; y >= 0; y--) {
+			setSize();
+			for (int y = yCoord - 1; y > 0; y--) {
 				for (int z = minZ; z <= maxZ; z++) {
 					for (int x = minX; x <= maxX; x++) {
 						if (isBreakable(x, y, z)) {
@@ -147,12 +148,12 @@ public class DrillTile extends ADTileEntity {
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
 			if (world.getBlock(x, y, z) == block) {
-				System.out.println(block.getLocalizedName());
+				System.out.printf(block.getLocalizedName() + "X:%d Y:%d Z:%d\n", x, y, z);
 				return false;
 			}
 		}
 		
-		return world.getTileEntity(x, y, z) == null;
+		return world.getTileEntity(x, y, z) == null && world.getBlock(x, y, z).getMaterial() == Material.water && world.getBlock(x, y, z).getMaterial() == Material.lava;
 	}
 	
 	public void setStats(int width, int height, int rate) {

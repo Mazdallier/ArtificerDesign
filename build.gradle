@@ -25,11 +25,7 @@ archivesBaseName = "Artificer's Design" // the name that all artifacts will use 
 minecraft {
     version = "1.7.2-10.12.0.1046" // McVersion-ForgeVersion     this variable is later changed to contain only the MC version, while the apiVersion variable is used for the forge version.  Yeah its stupid, and will be changed eentually.
 
-    if(file('../run').exists()){
-		assetDir = "../run/assets"
-	}else{
 		assetDir = "assets"
-	}
 
     // replacing stuff in the source
     replace '@VERSION@', project.version
@@ -43,7 +39,7 @@ sourceSets {
             srcDir 'src'
         }
         resources {
-            srcDir 'Resources'
+            srcDir 'resources'
         }
     }
 }
