@@ -66,6 +66,10 @@ public class DrillGui extends GuiContainer {
 	}
 	
 	@Override protected void actionPerformed(GuiButton button) {
+		drillWidth = tile.getWidth();
+		drillHeight = tile.getHeight();
+		delay = tile.getDelay();
+		
 		switch (button.id) {
 			case 0:
 				drillWidth -= 5;
@@ -95,10 +99,6 @@ public class DrillGui extends GuiContainer {
 		}
 		
 		Artificer.packets.sendToServer(new DrillPacket(drillWidth, drillHeight, delay, tX, tY, tZ));
-		
-		drillWidth = tile.getWidth();
-		drillHeight = tile.getHeight();
-		delay = tile.getDelay();
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {

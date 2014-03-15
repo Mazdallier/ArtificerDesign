@@ -6,7 +6,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.TileEntity.DrillTile;
-import ad.Genis231.TileEntity.model.ADBlockModel;
 import ad.Genis231.lib.Ref;
 
 public class Drill extends ADBlockModel {

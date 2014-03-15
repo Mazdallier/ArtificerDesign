@@ -1,4 +1,4 @@
-package ad.Genis231.TileEntity.model;
+package ad.Genis231.Blocks;
 
 import ad.Genis231.lib.Ref;
 import net.minecraft.block.BlockContainer;
@@ -13,6 +13,7 @@ public class ADBlockModel extends BlockContainer {
 		this.setCreativeTab(Ref.TAB);
 		this.setBlockName(name);
 		this.setHardness(0.0F);
+		this.setBlockTextureName("");
 	}
 	
 	@Override public boolean renderAsNormalBlock() {

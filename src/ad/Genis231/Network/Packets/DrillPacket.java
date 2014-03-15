@@ -7,7 +7,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Network.ADPacket;
 import ad.Genis231.TileEntity.DrillTile;
-import cpw.mods.fml.common.FMLCommonHandler;
 
 public class DrillPacket extends ADPacket {
 	int x, y, z;
@@ -54,8 +53,6 @@ public class DrillPacket extends ADPacket {
 			DrillTile tile = (DrillTile) te;
 			
 			tile.setStats(width, height, speed);
-			
-			FMLCommonHandler.instance().getClientToServerNetworkManager().scheduleOutboundPacket(te.getDescriptionPacket());
 		}
 	}
 }

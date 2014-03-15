@@ -200,6 +200,7 @@ public class DrillTile extends ADTileEntity {
 	@Override public Packet getDescriptionPacket() {
 		NBTTagCompound tag = new NBTTagCompound();
 		writeToNBT(tag);
+		System.out.println("about to crash! :D");
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
 	}
 	
