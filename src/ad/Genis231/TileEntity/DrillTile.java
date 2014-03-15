@@ -71,7 +71,6 @@ public class DrillTile extends ADTileEntity {
 		if (drilling) {
 			angle += speed * 2;
 			if (angle >= 360) {
-				getInventory();
 				angle = 0;
 			}
 			
@@ -136,14 +135,20 @@ public class DrillTile extends ADTileEntity {
 	}
 	
 	private boolean addBlock(World world, int x, int y, int z) {
-		getInventory();
+		if (inventories.isEmpty())
+			getInventory();
+		
 		for (int i = 0; i < inventories.size(); i++) {
-			if (InventoryHelper.addBlock(inventories.get(i), new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)))) { return true; }
+			if (InventoryHelper.isFull(inventories.get(i)))
+				getInventory();
+			
+			if (InventoryHelper.addBlock(inventories.get(i), new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z))))
+				return true;
 		}
 		return false;
 	}
 	
-	private void getInventory() {
+	private void getInventory() {		
 		IInventory chest;
 		
 		if (inventories != null) {
@@ -169,9 +174,7 @@ public class DrillTile extends ADTileEntity {
 		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
 	}
 	
-	public void setStats(int width, int height, int rate) {
-		System.out.println("Setting Stats! :P");
-		
+	public void setStats(int width, int height, int rate) {		
 		drillWidth = width;
 		drillHeight = height;
 		delay = rate;
@@ -200,7 +203,6 @@ public class DrillTile extends ADTileEntity {
 	@Override public Packet getDescriptionPacket() {
 		NBTTagCompound tag = new NBTTagCompound();
 		writeToNBT(tag);
-		System.out.println("about to crash! :D");
 		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
 	}
 	

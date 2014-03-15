@@ -35,7 +35,6 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.DrillPart, Names.DrillPart);
 		
 		/* Items */
-		GameRegistry.registerItem(ADItems.OrangeDust, Names.ODUST);
 		GameRegistry.registerItem(ADItems.PureGem, Names.PGEM);
 		GameRegistry.registerItem(ADItems.DirtyGem, Names.IGEM);
 		GameRegistry.registerItem(ADItems.GoldBowl, Names.GBOWL);
@@ -71,9 +70,6 @@ public class MainReg {
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.PureGem), "XXX", "XQX", "XXX", 'X', ADItems.AngelicBlood, 'Q', ADItems.DirtyGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.RestoredJournal), "SGP", "BLP", "SGP", 'S', Items.string, 'B', Items.book, 'G', Items.gold_ingot, 'L', Items.leather, 'P', Items.paper);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
-		
-		// Shapeless
-		GameRegistry.addShapelessRecipe(new ItemStack(ADItems.OrangeDust), Items.glowstone_dust, Items.redstone, Items.redstone);
 		
 		// Vine Mats
 		{

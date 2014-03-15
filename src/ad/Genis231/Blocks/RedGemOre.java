@@ -21,7 +21,6 @@ public class RedGemOre extends ADBlock {
 		int output;
 		output = random.nextInt(5);
 		
-		System.out.println(output);
 		if (output > 0) {
 			return output;
 		} else {

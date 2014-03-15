@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks.Entity;
+package ad.Genis231.Entity;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

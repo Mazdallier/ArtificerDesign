@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks.Entity;
+package ad.Genis231.Entity;
 
 import ad.Genis231.Blocks.FakeFire;
 import net.minecraft.entity.EntityLivingBase;

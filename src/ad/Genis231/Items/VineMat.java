@@ -80,7 +80,6 @@ public class VineMat extends ADItem {
 		
 		if (border(world, mx, mX, y, mz, mZ)) {
 			if (area(world, mx, mX, y, mz, mZ)) {
-				System.out.println("EVERYTHING WORKS!!!");
 				
 				PitTrapBlock.toggle = false;
 				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlocks.FalsePitTrap, item.getItemDamage() % 3, true);

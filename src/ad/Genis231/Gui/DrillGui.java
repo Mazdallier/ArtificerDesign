@@ -13,41 +13,46 @@ import ad.Genis231.TileEntity.DrillTile;
 public class DrillGui extends GuiContainer {
 	Minecraft mc = Minecraft.getMinecraft();
 	
-	int x, y;
+	DrillTile tile;
+	
+	int centerX, centerY;
 	int buttonWidth = 30;
 	int buttonHeight = 20;
 	int buttonX, buttonY;
 	int spaceing = 60;
 	
-	int drillWidth;
-	int drillHeight;
+	int color = Color.BLUE.getRGB();
+	
+	int width;
+	int height;
 	int delay;
 	
-	int tX, tY, tZ;
+	int tileX, tileY, tileZ;
 	
-	DrillTile tile;
+	
 	
 	public DrillGui(DrillTile te) {
 		super(new DrillContainer());
 		
-		tile = te;
+		this.tile = te;
 		
-		drillWidth = tile.getWidth();
-		drillHeight = tile.getHeight();
-		delay = tile.getDelay();
+		this.width = tile.getWidth();
+		this.height = tile.getHeight();
+		this.delay = tile.getDelay();
 		
-		tX = tile.xCoord;
-		tY = tile.yCoord;
-		tZ = tile.zCoord;
+		this.tileX = tile.xCoord;
+		this.tileY = tile.yCoord;
+		this.tileZ = tile.zCoord;
 	}
 	
-	@Override public void initGui() {
+	@SuppressWarnings("unchecked") @Override public void initGui() {
 		super.initGui();
-		x = this.width / 2;
-		y = this.height / 2;
 		
-		buttonX = x - (buttonWidth / 3);
-		buttonY = y - (buttonHeight / 3);
+		this.centerX = this.width / 2;
+		this.centerY = this.height / 2;
+		
+		this.buttonX = centerX - (buttonWidth / 3);
+		this.buttonY = centerY - (buttonHeight / 3);
 		
 		// make buttons
 		// id, x, y, width, height, text
@@ -66,44 +71,44 @@ public class DrillGui extends GuiContainer {
 	}
 	
 	@Override protected void actionPerformed(GuiButton button) {
-		drillWidth = tile.getWidth();
-		drillHeight = tile.getHeight();
+		width = tile.getWidth();
+		height = tile.getHeight();
 		delay = tile.getDelay();
 		
 		switch (button.id) {
 			case 0:
-				drillWidth -= 5;
+				this.width -= 5;
 				break;
 			
 			case 1:
-				drillWidth += 5;
+				this.width += 5;
 				break;
 			
 			case 2:
-				drillHeight -= 5;
+				this.height -= 5;
 				break;
 			
 			case 3:
-				drillHeight += 5;
+				this.height += 5;
 				break;
 			
 			case 4:
 				if (delay >= 5)
-					delay -= 5;
+					this.delay -= 5;
 				break;
 			
 			case 5:
-				delay += 5;
+				this.delay += 5;
 				
 				break;
 		}
 		
-		Artificer.packets.sendToServer(new DrillPacket(drillWidth, drillHeight, delay, tX, tY, tZ));
+		Artificer.packets.sendToServer(new DrillPacket(width, height, delay, tileX, tileY, tileZ));
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
-		mc.fontRenderer.drawString("Width: " + drillWidth, buttonX - spaceing, y, Color.BLUE.getRGB());
-		mc.fontRenderer.drawString("Height: " + drillHeight, buttonX, y, Color.BLUE.getRGB());
-		mc.fontRenderer.drawString("Speed: " + delay, buttonX + spaceing, y, Color.BLUE.getRGB());
+		mc.fontRenderer.drawString("Width: " + width, buttonX - spaceing, centerY, color);
+		mc.fontRenderer.drawString("Height: " + height, buttonX, centerY, color);
+		mc.fontRenderer.drawString("Speed: " + delay, buttonX + spaceing, centerY, color);
 	}
 }

@@ -88,4 +88,16 @@ public class InventoryHelper {
 			}
 		return item.stackSize <= 0;
 	}
+	
+	public static boolean isFull(IInventory inv) {
+		for (int i = 0; i < inv.getSizeInventory(); i++) {
+			ItemStack current = inv.getStackInSlot(i);
+			
+			if (current != null)
+				return false;
+		}
+		
+		return true;
+		
+	}
 }

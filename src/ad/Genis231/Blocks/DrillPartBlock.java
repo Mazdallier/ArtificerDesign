@@ -12,12 +12,10 @@ public class DrillPartBlock extends ADBlock {
 	}
 	
 	@Override public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
-		System.out.println("something changed!! :P");
 		
 		int temp = getsize(world, x, y, z);
 		
 		if (temp > 1) {
-			System.out.printf("Size:%d X:%d Y:%d Z:%d", temp, x, y, z);
 		}
 	}
 	
@@ -48,9 +46,7 @@ public class DrillPartBlock extends ADBlock {
 		
 		temp = Math.min(tx, tz);
 		temp = Math.min(ty, temp);
-		
-		System.out.println("ROAR!: " + temp);
-		
+				
 		return temp;
 	}
 	

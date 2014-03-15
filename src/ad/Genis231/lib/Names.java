@@ -17,7 +17,6 @@ public class Names {
 	public static final String MechCoin = "MechCoin";
 	
 	// Items
-	public static final String ODUST = "OrangeDust";
 	public static final String PGEM = "PureGem";
 	public static final String IGEM = "ImPureGem";
 	public static final String GBOWL = "GBowl";

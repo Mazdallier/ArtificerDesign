@@ -3,7 +3,7 @@ package ad.Genis231.Items;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.Blocks.Entity.DragonBreatheEntity;
+import ad.Genis231.Entity.DragonBreatheEntity;
 
 public class DragonBreathe extends ADItem {
 	public DragonBreathe(String name, String texture) {

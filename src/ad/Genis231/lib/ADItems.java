@@ -5,14 +5,12 @@ import ad.Genis231.Items.Blood;
 import ad.Genis231.Items.DragonBreathe;
 import ad.Genis231.Items.GoldBowl;
 import ad.Genis231.Items.Journal;
-import ad.Genis231.Items.OrangeDust;
 import ad.Genis231.Items.RedGem;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
 import ad.Genis231.Items.rope;
 
 public class ADItems {
-	public static final Item OrangeDust = new OrangeDust(Names.ODUST, ItemTexture.OrangeDust);
 	public static final Item AngelicBlood = new Blood(Names.ABLOOD, ItemTexture.AngelicBlood);
 	public static final Item DemonicBlood = new Blood(Names.DBLOOD, ItemTexture.DemonicBlood);
 	public static final Item PureGem = new RedGem(Names.PGEM, ItemTexture.PureGem);
