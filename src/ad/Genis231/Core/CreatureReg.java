@@ -17,7 +17,7 @@ public class CreatureReg {
 	
 	public static void mobs() {
 		for (int i = 0; i < dwarfClass.length; i++) {
-			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Core.instance, 80, 3, true);
+			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Artificer.instance, 80, 3, true);
 			
 			// registers the mod, args: modName, maxHoard, min spawned, max spawned, MobType/SpawnArea
 			EntityRegistry.addSpawn(dwarfClass[i], 3, 20, 50, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);

@@ -3,10 +3,7 @@ package ad.Genis231.TileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.Packet;
-import ad.Genis231.Core.PacketHandler;
 
 public class CoiningTile extends ADTileEntity implements IInventory {
 	ItemStack[] inv = new ItemStack[2];

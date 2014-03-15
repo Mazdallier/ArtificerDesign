@@ -15,12 +15,12 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Core {
+@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
 	
-	public static final PacketPipeline packetPipeline = new PacketPipeline();
+	public static final PacketPipeline packets = new PacketPipeline();
 	
 	// The instance of your mod that Forge uses.
-	@Instance(Ref.MOD_ID) public static Core instance;
+	@Instance(Ref.MOD_ID) public static Artificer instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ServerProxy proxy;
@@ -33,16 +33,15 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {
+		packets.initalise();
 		proxy.registerRenderers();
 		CreatureReg.mobs();
-		
-		packetPipeline.initialise();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 	
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
-		packetPipeline.postInitialise();
+		packets.postInitialise();
 		
 		if (event.getSide().isClient()) {
 			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));

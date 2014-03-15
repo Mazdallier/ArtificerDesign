@@ -4,6 +4,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import ad.Genis231.Generation.BDiaGen;
+import ad.Genis231.Network.PacketPipeline;
+import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.TileEntity.model.BearTrapTile;
 import ad.Genis231.TileEntity.model.ITable1;
@@ -30,7 +32,7 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.FalseLoot, Names.FALSE_LOOT);
 		GameRegistry.registerBlock(ADBlocks.DVine, Names.DVINE);
 		GameRegistry.registerBlock(ADBlocks.coingMech, Names.MechCoin);
-		GameRegistry.registerBlock(ADBlocks.DrillPart,Names.DrillPart);
+		GameRegistry.registerBlock(ADBlocks.DrillPart, Names.DrillPart);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.OrangeDust, Names.ODUST);
@@ -87,5 +89,9 @@ public class MainReg {
 	
 	public static void Worlds() {
 		GameRegistry.registerWorldGenerator(new BDiaGen(), 0);
+	}
+	
+	public static void registerPackets(PacketPipeline packets) {
+		packets.registerPacket(DrillPacket.class);
 	}
 }

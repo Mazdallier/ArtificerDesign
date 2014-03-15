@@ -4,7 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import ad.Genis231.Core.Core;
+import ad.Genis231.Core.Artificer;
 import ad.Genis231.TileEntity.model.ADBlockModel;
 import ad.Genis231.TileEntity.model.ITable1;
 import ad.Genis231.TileEntity.model.ITable2;
@@ -19,7 +19,7 @@ public class ITableBlock extends ADBlockModel {
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
-		player.openGui(Core.instance, 0, world, x, y, z);
+		player.openGui(Artificer.instance, 0, world, x, y, z);
 		return true;
 	}
 	

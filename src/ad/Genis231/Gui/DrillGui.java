@@ -6,6 +6,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import ad.Genis231.Containers.DrillContainer;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.TileEntity.DrillTile;
 
 public class DrillGui extends GuiContainer {
@@ -21,12 +23,22 @@ public class DrillGui extends GuiContainer {
 	int drillHeight;
 	int delay;
 	
-	public DrillGui(DrillTile tile) {
+	int tX, tY, tZ;
+	
+	DrillTile tile;
+	
+	public DrillGui(DrillTile te) {
 		super(new DrillContainer());
 		
-		drillWidth = DrillTile.getWidth();
-		drillHeight = DrillTile.getHeight();
-		delay = DrillTile.getDelay();
+		tile = te;
+		
+		drillWidth = tile.getWidth();
+		drillHeight = tile.getHeight();
+		delay = tile.getDelay();
+		
+		tX = tile.xCoord;
+		tY = tile.yCoord;
+		tZ = tile.zCoord;
 	}
 	
 	@Override public void initGui() {
@@ -57,35 +69,36 @@ public class DrillGui extends GuiContainer {
 		switch (button.id) {
 			case 0:
 				drillWidth -= 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
 				break;
 			
 			case 1:
 				drillWidth += 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
 				break;
 			
 			case 2:
 				drillHeight -= 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
 				break;
 			
 			case 3:
 				drillHeight += 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
 				break;
 			
 			case 4:
 				if (delay >= 5)
 					delay -= 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
 				break;
 			
 			case 5:
 				delay += 5;
-				DrillTile.setStats(drillWidth, drillHeight, delay);
+				
 				break;
 		}
+		
+		Artificer.packets.sendToServer(new DrillPacket(drillWidth, drillHeight, delay, tX, tY, tZ));
+		
+		drillWidth = tile.getWidth();
+		drillHeight = tile.getHeight();
+		delay = tile.getDelay();
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {

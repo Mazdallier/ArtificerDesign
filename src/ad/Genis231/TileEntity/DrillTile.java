@@ -8,6 +8,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Core.Resources.InventoryHelper;
@@ -16,14 +19,17 @@ public class DrillTile extends ADTileEntity {
 	
 	private int minX, maxX, minZ, maxZ;
 	private int cooldown = -1;
-	private static int drillWidth;
-	private static int drillHeight;
-	private static int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.redstone_block };
+	private int drillWidth;
+	private int drillHeight;
+	private int delay;
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block };
 	private boolean drillDone;
 	ArrayList<IInventory> inventories = new ArrayList<IInventory>();
 	public boolean drilling;
 	public int angle;
+	
+	boolean needsUpdate = false;
+	
 	private int speed = 360 / 20;
 	
 	public DrillTile() {
@@ -34,27 +40,32 @@ public class DrillTile extends ADTileEntity {
 	@Override public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
 		
-		if (tag.getInteger("delay") != -1 && tag.getBoolean("status")) {
-			drillWidth = tag.getInteger("width");
-			drillHeight = tag.getInteger("height");
-			delay = tag.getInteger("delay");
-			cooldown = tag.getInteger("cd");
-			drillDone = tag.getBoolean("status");
-			angle = tag.getInteger("angle");
-		}
+		drillWidth = tag.getInteger("width");
+		drillHeight = tag.getInteger("height");
+		delay = tag.getInteger("delay");
+		cooldown = tag.getInteger("cd");
+		drillDone = tag.getBoolean("status");
+		angle = tag.getInteger("angle");
+		
 	}
 	
 	@Override public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
 		tag.setInteger("delay", delay);
 		tag.setInteger("width", drillWidth);
 		tag.setInteger("height", drillHeight);
 		tag.setBoolean("status", drillDone);
 		tag.setInteger("cd", cooldown);
 		tag.setInteger("angle", angle);
-		super.writeToNBT(tag);
 	}
 	
 	public void updateEntity() {
+		
+		if (needsUpdate) {
+			needsUpdate = false;
+			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		}
+		
 		drilling = this.worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
 		
 		if (drilling) {
@@ -158,22 +169,44 @@ public class DrillTile extends ADTileEntity {
 		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
 	}
 	
-	public static void setStats(int width, int height, int rate) {
+	public void setStats(int width, int height, int rate) {
+		System.out.println("Setting Stats! :P");
+		
 		drillWidth = width;
 		drillHeight = height;
 		delay = rate;
+		
+		needsUpdate = true;
 	}
 	
-	public static int getWidth() {
-		return drillWidth;
+	public int getWidth() {
+		return this.drillWidth;
 	}
 	
-	public static int getHeight() {
-		return drillHeight;
+	public int getHeight() {
+		return this.drillHeight;
 	}
 	
-	public static int getDelay() {
-		return delay;
+	public int getDelay() {
+		return this.delay;
 	}
 	
+	@Override public void markDirty() {
+		updateEntity();
+		super.markDirty();
+		needsUpdate = true;
+	}
+	
+	@Override public Packet getDescriptionPacket() {
+		NBTTagCompound tag = new NBTTagCompound();
+		writeToNBT(tag);
+		return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
+	}
+	
+	@Override public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
+		readFromNBT(packet.func_148857_g());
+		markDirty();
+		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
+		this.needsUpdate = true;
+	}
 }

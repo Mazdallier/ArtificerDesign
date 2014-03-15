@@ -17,6 +17,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
+import ad.Genis231.Core.MainReg;
+import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
@@ -99,12 +101,18 @@ import cpw.mods.fml.relauncher.SideOnly;
 	}
 	
 	// Method to call from FMLInitializationEvent
-	public void initialise() {
-		this.channels = NetworkRegistry.INSTANCE.newChannel("TUT", this);
+	public void initalise() {
+		this.channels = NetworkRegistry.INSTANCE.newChannel(Ref.MOD_ID, this);
+		registerPackets();
+	}
+	
+	public void registerPackets() {
+		MainReg.registerPackets(this);
 	}
 	
 	// Method to call from FMLPostInitializationEvent
-	// Ensures that packet discriminators are common between server and client by using logical sorting
+	// Ensures that packet discriminators are common between server and client
+	// by using logical sorting
 	public void postInitialise() {
 		if (this.isPostInitialised) { return; }
 		
