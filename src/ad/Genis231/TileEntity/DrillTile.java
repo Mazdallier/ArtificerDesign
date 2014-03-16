@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Core.Resources.InventoryHelper;
 
 public class DrillTile extends ADTileEntity {
@@ -21,19 +21,19 @@ public class DrillTile extends ADTileEntity {
 	private int drillHeight;
 	private int delay;
 	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block };
-	private boolean drillStatus;
-	public boolean canDrill;
+	private boolean drillDone;
+	public boolean drilling;
 	public int angle;
-	public World world;
-	public int maxBreak = 5;
+	World world;
 	
 	boolean needsUpdate = false;
 	
 	private int speed = 360 / 20;
 	
 	public DrillTile() {
-		drillStatus = false;
-		canDrill = false;
+		this.world=this.worldObj;
+		drillDone = false;
+		drilling = false;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tag) {
@@ -42,6 +42,9 @@ public class DrillTile extends ADTileEntity {
 		drillWidth = tag.getInteger("width");
 		drillHeight = tag.getInteger("height");
 		delay = tag.getInteger("delay");
+		cooldown = tag.getInteger("cd");
+		drillDone = tag.getBoolean("status");
+		angle = tag.getInteger("angle");
 		
 	}
 	
@@ -50,6 +53,9 @@ public class DrillTile extends ADTileEntity {
 		tag.setInteger("delay", delay);
 		tag.setInteger("width", drillWidth);
 		tag.setInteger("height", drillHeight);
+		tag.setBoolean("status", drillDone);
+		tag.setInteger("cd", cooldown);
+		tag.setInteger("angle", angle);
 	}
 	
 	public void updateEntity() {
@@ -57,26 +63,31 @@ public class DrillTile extends ADTileEntity {
 		
 		if (needsUpdate) {
 			needsUpdate = false;
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			world.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		
-		canDrill = world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillStatus;
+		drilling = world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
 		
-		if (canDrill) {
+		if (drilling) {
 			angle += speed * 2;
-			if (angle >= 360)
+			if (angle >= 360) {
+				getInventory();
 				angle = 0;
+			}
 			
 			if (!world.isRemote) {
-				if (cooldown <= 0) {
+				
+				if (canActivate()) {
+					setSize();
 					drill();
 					this.cooldown = delay;
-				} else
+				} else {
 					cooldown--;
+				}
 			}
-		} else
+		} else if (!drilling && !world.isRemote) {
 			this.cooldown = delay;
-		
+		}
 	}
 	
 	private void setSize() {
@@ -103,60 +114,59 @@ public class DrillTile extends ADTileEntity {
 	private void drill() {
 		int count = 0;
 		
-		if (!drillStatus) {
-			setSize();
-			for (int y = yCoord - 1; y > 0; y--) {
-				for (int z = minZ; z <= maxZ; z++) {
-					for (int x = minX; x <= maxX; x++) {
+		if (!drillDone) {
+			for (int y = yCoord - 1; y >= 0; y--) {
+				for (int x = minX; x <= maxX; x++) {
+					for (int z = minZ; z <= maxZ; z++) {
 						if (isBreakable(x, y, z)) {
-							addBlock(worldObj, x, y, z);
-							worldObj.setBlockToAir(x, y, z);
+							addBlock(x, y, z);
+							world.setBlockToAir(x, y, z);
 							count++;
 						}
-						
-						if (count >= maxBreak)
+						if (count >= 1)
 							return;
 					}
 				}
 			}
 		}
 		
-		drillStatus = count == 0;
+		drillDone = count == 0;
 		
 		return;
 	}
 	
-	private void addBlock(World world, int x, int y, int z) {
-		ItemStack item = getItem(x, y, z);
-		IInventory temp = getInventory(item);
-		InventoryHelper.addBlock(temp, item);
-	}
-	
-	private ItemStack getItem(int x, int y, int z) {
-		Block block = world.getBlock(x, y, z);
-		int meta = world.getBlockMetadata(x, y, z);
-		Item item = block.getItemDropped(meta, world.rand, 0);
-		int amount = block.quantityDropped(meta, 0, world.rand);
+	private void addBlock(int x, int y, int z) {
+		ItemStack item = new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z));
+		IInventory chest = InventoryHelper.getInventoryAround(world, this.xCoord, this.yCoord, this.zCoord, item);
 		
-		return new ItemStack(item, amount, 0);
+		InventoryHelper.addBlock(chest,item );
 	}
 	
-	private IInventory getInventory(ItemStack item) {
-		return InventoryHelper.getInventoryAround(world, xCoord, yCoord, zCoord, item);
+	private IInventory getInventory() {
+		IInventory chest;
+		
+		for (ForgeDirection dir : ForgeDirection.values()) {
+			chest = InventoryHelper.getInventorySide(dir, world, this.xCoord, this.yCoord, this.zCoord);
+			if (chest != null)
+				return chest;
+		}
+		
+		return null;
+	}
+	
+	private boolean canActivate() {
+		return cooldown <= 0;
 	}
 	
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
-			if (world.getBlock(x, y, z) == block) {
-				System.out.printf(block.getLocalizedName() + "X:%d Y:%d Z:%d\n", x, y, z);
-				return false;
-			}
+			if (this.worldObj.getBlock(x, y, z).equals(block)) { return false; }
 		}
 		
-		return world.getTileEntity(x, y, z) == null && world.getBlock(x, y, z).getMaterial() == Material.water && world.getBlock(x, y, z).getMaterial() == Material.lava;
+		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
 	}
 	
-	public void setStats(int width, int height, int rate) {
+	public void setStats(int width, int height, int rate) {		
 		drillWidth = width;
 		drillHeight = height;
 		delay = rate;
@@ -191,7 +201,7 @@ public class DrillTile extends ADTileEntity {
 	@Override public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity packet) {
 		readFromNBT(packet.func_148857_g());
 		markDirty();
-		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
+		world.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
 		this.needsUpdate = true;
 	}
 }

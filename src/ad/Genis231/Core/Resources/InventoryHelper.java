@@ -27,11 +27,14 @@ public class InventoryHelper {
 	}
 	
 	public static IInventory getInventoryAround(World world, int x, int y, int z, ItemStack item) {
-		for (ForgeDirection i : ForgeDirection.values()) {
-			IInventory temp = getInventorySide(i, world, x, y, z);
-			if (temp != null && hasOpenSlots(temp, item))
-				return temp;
+		IInventory chest;
+		
+		for (ForgeDirection dir : ForgeDirection.values()) {
+			chest = InventoryHelper.getInventorySide(dir, world, x, y, z);
+			if (chest != null && hasOpenSlots(chest, item))
+				return chest;
 		}
+		
 		return null;
 	}
 	
