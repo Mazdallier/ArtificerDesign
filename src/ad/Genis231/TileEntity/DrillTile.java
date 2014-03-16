@@ -16,10 +16,10 @@ public class DrillTile extends ADTileEntity {
 	
 	private int minX, maxX, minZ, maxZ;
 	private int cooldown = -1;
-	private int drillWidth;
-	private int drillHeight;
+	private int drillWidth=20;
+	private int drillHeight=20;
 	private int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block };
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block, Blocks.stained_glass_pane };
 	private boolean drillDone;
 	public boolean drilling;
 	public int angle;
@@ -49,6 +49,7 @@ public class DrillTile extends ADTileEntity {
 	
 	@Override public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
+		
 		tag.setInteger("delay", delay);
 		tag.setInteger("width", drillWidth);
 		tag.setInteger("height", drillHeight);
@@ -126,17 +127,13 @@ public class DrillTile extends ADTileEntity {
 				}
 			}
 		}
-		
-		drillDone = count == 0;
-		
-		return;
+		drillDone = count == 0;		
 	}
 	
 	private void addBlock(int x, int y, int z) {
 		Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		ItemStack item = new ItemStack(block.getItemDropped(meta, world.rand, 0), block.quantityDropped(meta, 0, world.rand), block.damageDropped(meta));
-		
 		IInventory chest = InventoryHelper.getInventoryAround(world, this.xCoord, this.yCoord, this.zCoord, item);
 		InventoryHelper.addBlock(chest, item);
 	}
