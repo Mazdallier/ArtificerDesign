@@ -10,7 +10,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Core.Resources.InventoryHelper;
 
 public class DrillTile extends ADTileEntity {
@@ -31,7 +30,7 @@ public class DrillTile extends ADTileEntity {
 	private int speed = 360 / 20;
 	
 	public DrillTile() {
-		this.world=this.worldObj;
+		this.world = this.worldObj;
 		drillDone = false;
 		drilling = false;
 	}
@@ -69,14 +68,12 @@ public class DrillTile extends ADTileEntity {
 		drilling = world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
 		
 		if (drilling) {
-			angle += speed * 2;
+			angle += speed * 1;
 			if (angle >= 360) {
-				getInventory();
 				angle = 0;
 			}
 			
 			if (!world.isRemote) {
-				
 				if (canActivate()) {
 					setSize();
 					drill();
@@ -136,22 +133,12 @@ public class DrillTile extends ADTileEntity {
 	}
 	
 	private void addBlock(int x, int y, int z) {
-		ItemStack item = new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z));
+		Block block = world.getBlock(x, y, z);
+		int meta = world.getBlockMetadata(x, y, z);
+		ItemStack item = new ItemStack(block.getItemDropped(meta, world.rand, 0), block.quantityDropped(meta, 0, world.rand), block.damageDropped(meta));
+		
 		IInventory chest = InventoryHelper.getInventoryAround(world, this.xCoord, this.yCoord, this.zCoord, item);
-		
-		InventoryHelper.addBlock(chest,item );
-	}
-	
-	private IInventory getInventory() {
-		IInventory chest;
-		
-		for (ForgeDirection dir : ForgeDirection.values()) {
-			chest = InventoryHelper.getInventorySide(dir, world, this.xCoord, this.yCoord, this.zCoord);
-			if (chest != null)
-				return chest;
-		}
-		
-		return null;
+		InventoryHelper.addBlock(chest, item);
 	}
 	
 	private boolean canActivate() {
@@ -166,7 +153,7 @@ public class DrillTile extends ADTileEntity {
 		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
 	}
 	
-	public void setStats(int width, int height, int rate) {		
+	public void setStats(int width, int height, int rate) {
 		drillWidth = width;
 		drillHeight = height;
 		delay = rate;
