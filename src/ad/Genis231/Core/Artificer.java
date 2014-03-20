@@ -44,7 +44,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 		packets.postInitialise();
 		
 		if (event.getSide().isClient()) {
-			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+			//MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 		}
 	}
 }

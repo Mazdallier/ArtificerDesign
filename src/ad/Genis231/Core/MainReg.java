@@ -8,6 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
 import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
@@ -26,7 +28,12 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
+	public static final Fluid ale = new Fluid("AD_DwarvenAle");
+	
 	public static void Core() {
+		/* Fluids */
+		FluidRegistry.registerFluid(ale);
+		
 		/* Blocks */
 		GameRegistry.registerBlock(ADBlocks.RedGemOre, Names.RED_GEM);
 		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");
@@ -37,11 +44,12 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.BearTrap, Names.BTRAP);
 		GameRegistry.registerBlock(ADBlocks.Drill, Names.DRILL);
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
-		GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
+//		GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
 		GameRegistry.registerBlock(ADBlocks.FalseLoot, Names.FALSE_LOOT);
 		GameRegistry.registerBlock(ADBlocks.DVine, Names.DVINE);
 		GameRegistry.registerBlock(ADBlocks.coingMech, Names.MechCoin);
 		GameRegistry.registerBlock(ADBlocks.DrillPart, Names.DrillPart);
+		GameRegistry.registerBlock(ADBlocks.AleLiquid, Names.AleLiquid);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.PureGem, Names.PGEM);
@@ -50,7 +58,7 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.AngelicBlood, Names.ABLOOD);
 		GameRegistry.registerItem(ADItems.DemonicBlood, Names.DBLOOD);
 		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
-		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
+//		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItems.Rope, Names.ROPE);
@@ -61,7 +69,6 @@ public class MainReg {
 		GameRegistry.registerTileEntity(ITable2.class, "IT2");
 		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");
 		GameRegistry.registerTileEntity(DrillTile.class, "Drill");
-		
 	}
 	
 	public static void Recipes() {
@@ -78,7 +85,7 @@ public class MainReg {
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Spike), " X ", "XGX", 'X', Blocks.cobblestone, 'G', ADItems.PureGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.PureGem), "XXX", "XQX", "XXX", 'X', ADItems.AngelicBlood, 'Q', ADItems.DirtyGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.RestoredJournal), "SGP", "BLP", "SGP", 'S', Items.string, 'B', Items.book, 'G', Items.gold_ingot, 'L', Items.leather, 'P', Items.paper);
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
+//		GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
 		
 		// Vine Mats
 		{

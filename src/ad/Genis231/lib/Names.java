@@ -29,8 +29,11 @@ public class Names {
 	public static final String ROPE = "rope";
 	public static final String DGoggles = "dwarvenGoggles";
 	public static final String DrillPart = "DrillParts";
-
-	//VineMats: "VM_" + ...
+	
+	// Liquids
+	public static final String AleLiquid = "AleLiquid";
+	
+	// VineMats: "VM_" + ...
 	public static final String[] UnlocalizedArray = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
 	
 	// mobs

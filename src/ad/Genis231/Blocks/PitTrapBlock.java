@@ -21,7 +21,7 @@ public class PitTrapBlock extends ADBlock {
 	
 	public PitTrapBlock(String name) {
 		super(Material.rock, name);
-		setHardness(-1);
+		this.setBlockUnbreakable();
 		this.setCreativeTab(null);
 	}
 	

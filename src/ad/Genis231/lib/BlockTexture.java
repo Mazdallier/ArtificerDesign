@@ -13,6 +13,10 @@ public class BlockTexture {
 	public static final String DriedVine = Ref.Resource_FOLDER + "dried_vines";
 	public static final String Coining = Ref.Resource_FOLDER + "Temp";
 	
+	// Liquid Textures
+	public static final String aleLiquid = Ref.Resource_FOLDER + "AleLiquid";
+	public static final String aleFlowing = Ref.Resource_FOLDER + "AleFlowing";
+	
 	// Model Textures
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
 	public static final ResourceLocation ITable = new ResourceLocation(main, "textures/blocks/ITable.png");

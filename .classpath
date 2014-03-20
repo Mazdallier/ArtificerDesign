@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="ad/Genis231/Liquids/FlowingAle.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Genis/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.2-10.12.0.1046/forgeSrc-1.7.2-10.12.0.1046.jar" sourcepath="C:/Users/Genis/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.2-10.12.0.1046/forgeSrc-1.7.2-10.12.0.1046-sources.jar"/>
