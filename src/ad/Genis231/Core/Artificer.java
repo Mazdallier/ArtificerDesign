@@ -23,19 +23,19 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	@Instance(Ref.MOD_ID) public static Artificer instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ServerProxy proxy;
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ClientProxy proxy;
 	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
-		MainReg.basic();
-		MainReg.recipeGReg();
-		MainReg.Worlds();
+		MainReg.Core();
+		MainReg.Recipes();
+		MainReg.World();
 		
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {
 		packets.initalise();
 		proxy.registerRenderers();
-		CreatureReg.mobs();
+		MainReg.mobs();
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
@@ -45,7 +45,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 		
 		if (event.getSide().isClient()) {
 			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
-			// MinecraftForge.EVENT_BUS.register(new InventoryOverlay(Minecraft.getMinecraft()));
 		}
 	}
 }

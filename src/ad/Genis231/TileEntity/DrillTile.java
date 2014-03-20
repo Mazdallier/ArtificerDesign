@@ -19,7 +19,7 @@ public class DrillTile extends ADTileEntity {
 	private int drillWidth=20;
 	private int drillHeight=20;
 	private int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block, Blocks.stained_glass_pane };
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock, Blocks.redstone_block, Blocks.stained_glass_pane,Blocks.glass_pane };
 	private boolean drillDone;
 	public boolean drilling;
 	public int angle;

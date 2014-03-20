@@ -31,7 +31,6 @@ public class VineMat extends ADItem {
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
-		
 		if (!world.isRemote) {
 			switch (ForgeDirection.getOrientation(side)) {
 				case NORTH:
@@ -57,11 +56,11 @@ public class VineMat extends ADItem {
 		int mx = x, mX = x, mz = z, mZ = z;
 		
 		for (int i = 0; i <= getRange(item); i++) {
-			mx = world.getBlock(mx - 1, y, z) == Blocks.air ? x - i : mx;
-			mX = world.getBlock(mX + 1, y, z) == Blocks.air ? x + i : mX;
+			mx = world.isAirBlock(mx - 1, y, z) ? x - i : mx;
+			mX = world.isAirBlock(mX + 1, y, z) ? x + i : mX;
 			
-			mz = world.getBlock(x, y, mz - 1) == Blocks.air ? z - i : mz;
-			mZ = world.getBlock(x, y, mZ + 1) == Blocks.air ? z + i : mZ;
+			mz = world.isAirBlock(x, y, mz - 1) ? z - i : mz;
+			mZ = world.isAirBlock(x, y, mZ + 1) ? z + i : mZ;
 			
 		}
 		

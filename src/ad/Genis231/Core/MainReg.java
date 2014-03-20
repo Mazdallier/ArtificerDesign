@@ -1,9 +1,17 @@
 package ad.Genis231.Core;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityList.EntityEggInfo;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import ad.Genis231.Generation.BDiaGen;
+import ad.Genis231.Mobs.savageDwarf;
+import ad.Genis231.Mobs.traderDwarf;
+import ad.Genis231.Mobs.warriorDwarf;
 import ad.Genis231.Network.PacketPipeline;
 import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.TileEntity.DrillTile;
@@ -14,10 +22,11 @@ import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ADItems;
 import ad.Genis231.lib.Names;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
-	public static void basic() {
+	public static void Core() {
 		/* Blocks */
 		GameRegistry.registerBlock(ADBlocks.RedGemOre, Names.RED_GEM);
 		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");
@@ -55,7 +64,7 @@ public class MainReg {
 		
 	}
 	
-	public static void recipeGReg() {
+	public static void Recipes() {
 		// Blocks
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Dam), "QWQ", "ASA", "QDQ", 'Q', Blocks.stone, 'W', Blocks.trapdoor, 'A', ADItems.PureGem, 'S', Items.water_bucket, 'D', Items.redstone);
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Drill), "XXX", "BDB", "IBI", 'X', Blocks.stone, 'B', ADItems.PureGem, 'D', Items.diamond, 'I', Items.iron_ingot);
@@ -83,11 +92,36 @@ public class MainReg {
 		}
 	}
 	
-	public static void Worlds() {
+	public static void World() {
 		GameRegistry.registerWorldGenerator(new BDiaGen(), 0);
 	}
 	
-	public static void registerPackets(PacketPipeline packets) {
+	public static void Packets(PacketPipeline packets) {
 		packets.registerPacket(DrillPacket.class);
+	}
+	
+	// Mob Stuffz
+	
+	static int baseEntityID = 1;
+	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
+	
+	public static void mobs() {
+		for (int i = 0; i < dwarfClass.length; i++) {
+			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Artificer.instance, 80, 3, true);
+			EntityRegistry.addSpawn(dwarfClass[i], 3, 20, 50, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
+			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
+		}
+	}
+	
+	public static int UniqueId() {
+		do {
+			baseEntityID++;
+		} while (EntityList.getStringFromID(baseEntityID) != null);
+		return baseEntityID;
+	}
+	
+	public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
+		EntityList.IDtoClassMapping.put(id, entity);
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
 }

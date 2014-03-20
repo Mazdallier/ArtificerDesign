@@ -107,7 +107,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 	}
 	
 	public void registerPackets() {
-		MainReg.registerPackets(this);
+		MainReg.Packets(this);
 	}
 	
 	// Method to call from FMLPostInitializationEvent
