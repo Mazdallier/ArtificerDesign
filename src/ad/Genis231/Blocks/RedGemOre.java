@@ -2,6 +2,7 @@ package ad.Genis231.Blocks;
 
 import java.util.Random;
 
+import ad.Genis231.BaseClass.ADBlock;
 import ad.Genis231.lib.ADItems;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

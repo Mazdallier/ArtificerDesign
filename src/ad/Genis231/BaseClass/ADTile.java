@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks;
+package ad.Genis231.BaseClass;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

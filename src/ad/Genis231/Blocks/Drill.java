@@ -4,6 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClass.ADBlockModel;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.lib.Ref;

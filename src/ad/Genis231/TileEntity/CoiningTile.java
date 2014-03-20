@@ -1,5 +1,6 @@
 package ad.Genis231.TileEntity;
 
+import ad.Genis231.BaseClass.ADTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;

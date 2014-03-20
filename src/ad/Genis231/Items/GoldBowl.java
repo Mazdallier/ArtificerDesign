@@ -1,5 +1,7 @@
 package ad.Genis231.Items;
 
+import ad.Genis231.BaseClass.ADItem;
+
 
 public class GoldBowl extends ADItem {
 	

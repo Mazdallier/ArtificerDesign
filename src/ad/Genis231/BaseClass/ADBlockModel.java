@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks;
+package ad.Genis231.BaseClass;
 
 import ad.Genis231.lib.Ref;
 import net.minecraft.block.BlockContainer;

@@ -1,4 +1,4 @@
-package ad.Genis231.Items;
+package ad.Genis231.BaseClass;
 
 import net.minecraft.item.Item;
 import ad.Genis231.lib.Ref;

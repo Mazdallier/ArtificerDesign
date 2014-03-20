@@ -1,5 +1,6 @@
 package ad.Genis231.Blocks;
 
+import ad.Genis231.BaseClass.ADBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

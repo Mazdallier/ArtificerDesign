@@ -1,5 +1,6 @@
 package ad.Genis231.Blocks;
 
+import ad.Genis231.BaseClass.ADBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 
