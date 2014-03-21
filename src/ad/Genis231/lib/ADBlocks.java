@@ -7,7 +7,6 @@ import ad.Genis231.Blocks.DamBlock;
 import ad.Genis231.Blocks.Drill;
 import ad.Genis231.Blocks.DrillPartBlock;
 import ad.Genis231.Blocks.DwarvenStone;
-import ad.Genis231.Blocks.FakeFire;
 import ad.Genis231.Blocks.FalseLoot;
 import ad.Genis231.Blocks.ITableBlock;
 import ad.Genis231.Blocks.PitTrapBlock;
@@ -28,9 +27,9 @@ public class ADBlocks {
 	public static final Block BearTrap = new BearTrap(Names.BTRAP);
 	public static final Block Drill = new Drill(Names.DRILL);
 	public static final Block DwarvenStone = new DwarvenStone(Names.DSTONE, BlockTexture.DwarvenStone);
-	//public static final Block GreenFire = new FakeFire().setBlockName(Names.GFIRE);
+	// public static final Block GreenFire = new FakeFire().setBlockName(Names.GFIRE);
 	public static final Block DVine = new driedVine(Names.DVINE, BlockTexture.DriedVine);
 	public static final Block coingMech = new CoiningMechine(Names.MechCoin, BlockTexture.Coining);
 	public static final Block DrillPart = new DrillPartBlock(Names.DrillPart);
-	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
+	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid).setBlockTextureName(BlockTexture.aleLiquid);
 }

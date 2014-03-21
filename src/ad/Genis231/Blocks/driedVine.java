@@ -1,7 +1,7 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.BaseClass.ADBlock;
 import net.minecraft.block.material.Material;
+import ad.Genis231.BaseClass.ADBlock;
 
 public class driedVine extends ADBlock {
 	
@@ -9,4 +9,7 @@ public class driedVine extends ADBlock {
 		super(Material.vine, name, Texture);
 	}
 	
+	public boolean isOpaqueCube() {
+		return false;
+	}
 }

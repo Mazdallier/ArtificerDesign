@@ -1,8 +1,5 @@
 package ad.Genis231.Core;
 
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
-import ad.Genis231.Global.Overlay.ClassStats;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
 import ad.Genis231.lib.Ref;
@@ -23,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	@Instance(Ref.MOD_ID) public static Artificer instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ClientProxy proxy;
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ServerProxy proxy;
 	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		MainReg.Core();
@@ -44,7 +41,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 		packets.postInitialise();
 		
 		if (event.getSide().isClient()) {
-			//MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+			// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 		}
 	}
 }

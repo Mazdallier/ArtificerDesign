@@ -29,9 +29,10 @@ public class LiquidAle extends ADLiquid {
 		if (entity instanceof EntityPlayerMP) {
 			EntityPlayerMP player = (EntityPlayerMP) entity;
 			
-			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), 200, 1));
-			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 400, 5));
-			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 50, 1));
+			player.addPotionEffect(new PotionEffect(Potion.digSlowdown.getId(), 400, 2));
+			player.addPotionEffect(new PotionEffect(Potion.damageBoost.getId(), 400, 2));
+			player.addPotionEffect(new PotionEffect(Potion.confusion.getId(), 200, 2));
+			player.addPotionEffect(new PotionEffect(Potion.blindness.getId(), 40, 2));
 		}
 	}
 	
