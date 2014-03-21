@@ -1,16 +1,34 @@
 package ad.Genis231.TileEntity;
 
-import ad.Genis231.BaseClass.ADTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import ad.Genis231.BaseClass.ADTileEntity;
+import ad.Genis231.lib.ADItems;
 
 public class CoiningTile extends ADTileEntity implements IInventory {
 	ItemStack[] inv = new ItemStack[2];
 	
 	public CoiningTile() {
 		
+	}
+	
+	@Override public void updateEntity() {
+		try {
+			if (inv[1] != null)
+				if (inv[1].getItem() == Items.gold_nugget)
+					if (inv[2] != null) {
+						inv[2].stackSize++;
+						inv[1].stackSize--;
+					} else {
+						inv[2] = new ItemStack(ADItems.Coin, 1, 0);
+						inv[1].stackSize--;
+					}
+		}
+		catch (Exception e) {
+			System.out.println("BLAAH!! you fucked up yo!");
+		}
 	}
 	
 	@Override public int getSizeInventory() {

@@ -9,10 +9,8 @@ import ad.Genis231.TileEntity.CoiningTile;
 
 public class CoiningContainer extends Container {
 	CoiningTile tile;
-	World world;
-	int size=2;
 	
-	public CoiningContainer(InventoryPlayer inventoryPlayer, CoiningTile tile, World wrld, int X, int Y, int Z) {
+	public CoiningContainer(InventoryPlayer inventoryPlayer, CoiningTile tile, World world, int X, int Y, int Z) {
 		this.tile = tile;
 		
 		addSlotToContainer(new Slot(tile, 0, 33, 13));
