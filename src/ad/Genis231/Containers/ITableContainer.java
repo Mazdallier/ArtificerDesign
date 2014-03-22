@@ -13,31 +13,31 @@ import ad.Genis231.lib.ADBlocks;
 
 public class ITableContainer extends Container {
 	
-	protected ITableTile tileEntity;
+	protected ITableTile tile;
 	World world;
 	int size;
 	
-	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World w, int X, int Y, int Z, Block block) {
-		tileEntity = tile;
-		world = w;
+	public ITableContainer(InventoryPlayer inventoryPlayer, ITableTile tile, World world, int X, int Y, int Z, Block block) {
+		this.tile = tile;
+		this.world = world;
 		size = block == ADBlocks.Itable1 ? 3 : 4;
 		
 		if (block == ADBlocks.Itable1) {
-			addSlotToContainer(new Slot(tileEntity, 0, 33, 13));
-			addSlotToContainer(new Slot(tileEntity, 1, 33, 49));
-			addSlotToContainer(new Slot(tileEntity, 2, 117, 31));
+			addSlotToContainer(new Slot(tile, 0, 33, 13));
+			addSlotToContainer(new Slot(tile, 1, 33, 49));
+			addSlotToContainer(new Slot(tile, 2, 117, 31));
 		} else {
-			addSlotToContainer(new Slot(tileEntity, 0, 42, 7));
-			addSlotToContainer(new Slot(tileEntity, 1, 12, 31));
-			addSlotToContainer(new Slot(tileEntity, 2, 12, 53));
-			addSlotToContainer(new Slot(tileEntity, 3, 118, 25));
+			addSlotToContainer(new Slot(tile, 0, 42, 7));
+			addSlotToContainer(new Slot(tile, 1, 12, 31));
+			addSlotToContainer(new Slot(tile, 2, 12, 53));
+			addSlotToContainer(new Slot(tile, 3, 118, 25));
 		}
 		
 		bindPlayerInventory(inventoryPlayer);
 	}
 	
 	@Override public boolean canInteractWith(EntityPlayer player) {
-		return tileEntity.isUseableByPlayer(player);
+		return tile.isUseableByPlayer(player);
 	}
 	
 	protected void bindPlayerInventory(InventoryPlayer inventoryPlayer) {

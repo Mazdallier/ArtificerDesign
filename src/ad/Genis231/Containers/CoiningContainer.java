@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ad.Genis231.TileEntity.CoiningTile;
 
@@ -35,4 +36,24 @@ public class CoiningContainer extends Container {
 		}
 	}
 	
+	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
+		ItemStack itemstack = null;
+		Slot slot = (Slot) this.inventorySlots.get(slotNumber);
+		
+		if (slot != null && slot.getHasStack()) {
+			itemstack = slot.getStack();
+			
+			if (slotNumber < 2) {
+				if (!this.mergeItemStack(itemstack, 2, this.inventorySlots.size(), true)) { return null; }
+			} else if (!this.mergeItemStack(itemstack, 0, 2, false)) { return null; }
+			
+			if (itemstack.stackSize == 0) {
+				slot.putStack((ItemStack) null);
+			} else {
+				slot.onSlotChanged();
+			}
+		}
+		
+		return itemstack;
+	}
 }

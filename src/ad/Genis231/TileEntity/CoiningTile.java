@@ -15,20 +15,15 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 	}
 	
 	@Override public void updateEntity() {
-		try {
-			if (inv[1] != null)
-				if (inv[1].getItem() == Items.gold_nugget)
-					if (inv[2] != null) {
-						inv[2].stackSize++;
-						inv[1].stackSize--;
-					} else {
-						inv[2] = new ItemStack(ADItems.Coin, 1, 0);
-						inv[1].stackSize--;
-					}
-		}
-		catch (Exception e) {
-			System.out.println("BLAAH!! you fucked up yo!");
-		}
+		if (inv[1] != null)
+			if (inv[1].getItem() == Items.gold_nugget)
+				if (inv[2] != null) {
+					inv[2].stackSize++;
+					inv[1].stackSize--;
+				} else {
+					inv[2] = new ItemStack(ADItems.Coin, 1, 0);
+					inv[1].stackSize--;
+				}
 	}
 	
 	@Override public int getSizeInventory() {

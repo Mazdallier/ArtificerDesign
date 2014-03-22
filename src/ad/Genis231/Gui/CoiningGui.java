@@ -8,8 +8,8 @@ import ad.Genis231.TileEntity.CoiningTile;
 
 public class CoiningGui extends GuiContainer {
 	
-	public CoiningGui(InventoryPlayer inventoryPlayer, CoiningTile tile, World w, int x, int y, int z) {
-		super(new CoiningContainer(inventoryPlayer, tile, w, x, y, z));
+	public CoiningGui(InventoryPlayer inventoryPlayer, CoiningTile tile, World world, int x, int y, int z) {
+		super(new CoiningContainer(inventoryPlayer, tile, world, x, y, z));
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {}
