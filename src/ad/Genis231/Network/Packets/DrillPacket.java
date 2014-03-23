@@ -12,8 +12,6 @@ public class DrillPacket extends ADPacket {
 	int x, y, z;
 	int width, height, speed;
 	
-	public DrillPacket() {}
-	
 	public DrillPacket(int width, int height, int speed, int x, int y, int z) {
 		this.width = width;
 		this.height = height;
@@ -40,7 +38,6 @@ public class DrillPacket extends ADPacket {
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
-		
 	}
 	
 	@Override public void handleClientSide(EntityPlayer player) {}

@@ -14,8 +14,8 @@ public class CoiningContainer extends Container {
 	public CoiningContainer(InventoryPlayer inventoryPlayer, CoiningTile tile, World world, int X, int Y, int Z) {
 		this.tile = tile;
 		
-		addSlotToContainer(new Slot(tile, 0, 33, 13));
-		addSlotToContainer(new Slot(tile, 1, 33, 49));
+		addSlotToContainer(new Slot(tile, 0, 44, 29));
+		addSlotToContainer(new Slot(tile, 1, 116, 29));
 		
 		bindPlayerInventory(inventoryPlayer);
 	}

@@ -8,22 +8,32 @@ import ad.Genis231.BaseClass.ADTileEntity;
 import ad.Genis231.lib.ADItems;
 
 public class CoiningTile extends ADTileEntity implements IInventory {
-	ItemStack[] inv = new ItemStack[2];
+	ItemStack[] inv;
 	
 	public CoiningTile() {
-		
+		inv = new ItemStack[2];
 	}
 	
 	@Override public void updateEntity() {
-		if (inv[1] != null)
-			if (inv[1].getItem() == Items.gold_nugget)
-				if (inv[2] != null) {
-					inv[2].stackSize++;
-					inv[1].stackSize--;
+		if (inv[0] != null) {
+			if (inv[0].getItem() == Items.gold_nugget) {
+				
+				if (inv[1] != null) {
+					if (inv[1].stackSize >= 64)
+						return;
+					
+					inv[1].stackSize++;
+					inv[0].stackSize--;
+					
+					if (inv[0].stackSize <= 0)
+						inv[0] = null;
+					
 				} else {
-					inv[2] = new ItemStack(ADItems.Coin, 1, 0);
-					inv[1].stackSize--;
+					inv[1] = new ItemStack(ADItems.Coin, 0, 0);
 				}
+				
+			}
+		}
 	}
 	
 	@Override public int getSizeInventory() {
@@ -52,12 +62,18 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 		ItemStack stack = getStackInSlot(slot);
 		
 		if (stack != null)
-			setInventorySlotContents(slot, null);
+			setInventorySlotContents(slot, stack);
 		
 		return stack;
 	}
 	
-	@Override public void setInventorySlotContents(int var1, ItemStack var2) {}
+	@Override public void setInventorySlotContents(int slot, ItemStack stack) {
+		this.inv[slot] = stack;
+		
+		if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
+			stack.stackSize = this.getInventoryStackLimit();
+		}
+	}
 	
 	@Override public String getInventoryName() {
 		return "coiningMechine";
@@ -80,6 +96,16 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 	@Override public void closeInventory() {}
 	
 	@Override public boolean isItemValidForSlot(int slot, ItemStack item) {
-		return slot == 1 && item.getItem() == Items.gold_nugget;
+		switch (slot) {
+			case 0:
+				System.out.println("Slot One: " + item.getItem().getUnlocalizedName());
+				return item.getItem() == Items.gold_nugget;
+			case 1:
+				System.out.println("Slot Two: " + item.getItem().getUnlocalizedName());
+				return item.getItem() == ADItems.Coin;
+			default:
+				System.out.println("Invalid Slot");
+				return false;
+		}
 	}
 }

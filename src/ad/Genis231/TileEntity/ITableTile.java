@@ -1,10 +1,10 @@
 package ad.Genis231.TileEntity;
 
-import ad.Genis231.BaseClass.ADTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import ad.Genis231.BaseClass.ADTileEntity;
 
 public class ITableTile extends ADTileEntity implements IInventory {
 	
@@ -35,7 +35,7 @@ public class ITableTile extends ADTileEntity implements IInventory {
 		ItemStack stack = getStackInSlot(slot);
 		
 		if (stack != null)
-			setInventorySlotContents(slot, null);
+			setInventorySlotContents(slot, stack);
 		
 		return stack;
 	}
@@ -46,12 +46,12 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	
 	@Override public void readFromNBT(NBTTagCompound tagCompound) {
 		super.readFromNBT(tagCompound);
-		count = tagCompound.getFloat("gui_pos");
+		count = tagCompound.getFloat("gui_state");
 	}
 	
 	@Override public void writeToNBT(NBTTagCompound tagCompound) {
 		super.writeToNBT(tagCompound);
-		tagCompound.setFloat("gui_pos", count);
+		tagCompound.setFloat("gui_state", count);
 	}
 	
 	public boolean hasItem() {
@@ -81,7 +81,11 @@ public class ITableTile extends ADTileEntity implements IInventory {
 	}
 	
 	@Override public void setInventorySlotContents(int slot, ItemStack stack) {
-		inv[slot] = stack;
+		this.inv[slot] = stack;
+		
+		if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
+			stack.stackSize = this.getInventoryStackLimit();
+		}
 	}
 	
 	@Override public int getSizeInventory() {

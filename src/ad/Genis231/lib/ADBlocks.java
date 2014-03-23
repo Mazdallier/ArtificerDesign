@@ -9,12 +9,12 @@ import ad.Genis231.Blocks.DrillPartBlock;
 import ad.Genis231.Blocks.DwarvenStone;
 import ad.Genis231.Blocks.FalseLoot;
 import ad.Genis231.Blocks.ITableBlock;
+import ad.Genis231.Blocks.LiquidAle;
 import ad.Genis231.Blocks.PitTrapBlock;
 import ad.Genis231.Blocks.RedGemOre;
 import ad.Genis231.Blocks.Spike;
 import ad.Genis231.Blocks.driedVine;
 import ad.Genis231.Core.MainReg;
-import ad.Genis231.Liquids.LiquidAle;
 
 public class ADBlocks {
 	public static final Block RedGemOre = new RedGemOre(Names.RED_GEM, BlockTexture.RedGemOre);
@@ -31,5 +31,5 @@ public class ADBlocks {
 	public static final Block DVine = new driedVine(Names.DVINE, BlockTexture.DriedVine);
 	public static final Block coingMech = new CoiningMechine(Names.MechCoin, BlockTexture.Coining);
 	public static final Block DrillPart = new DrillPartBlock(Names.DrillPart);
-	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid).setBlockTextureName(BlockTexture.aleLiquid);
+	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
 }

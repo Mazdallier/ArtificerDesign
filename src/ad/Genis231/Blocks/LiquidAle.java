@@ -1,4 +1,4 @@
-package ad.Genis231.Liquids;
+package ad.Genis231.Blocks;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -21,6 +21,7 @@ public class LiquidAle extends ADLiquid {
 	
 	public LiquidAle(Fluid fluid, String name) {
 		super(fluid, name);
+		this.setBlockTextureName(BlockTexture.aleLiquid);
 	}
 	
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
