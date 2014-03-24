@@ -1,10 +1,5 @@
-/eclipse/
 /.gradle/
+/.settings/
 /assets/
 /build/
-/.settings/
 /bin
-/.idea/
-*.iws
-*.ipr
-*.iml
