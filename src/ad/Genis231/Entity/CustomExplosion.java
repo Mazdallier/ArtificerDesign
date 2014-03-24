@@ -216,7 +216,7 @@ public class CustomExplosion extends Explosion {
 				Block block1 = this.worldObj.getBlock(i, j - 1, k);
 				
 				if (block.getMaterial() == Material.air && block1.func_149730_j() && this.explosionRNG.nextInt(3) == 0) {
-					//this.worldObj.setBlock(i, j, k, ADBlocks.GreenFire);
+					this.worldObj.setBlock(i, j, k, ADBlocks.GreenFire);
 				}
 			}
 		}

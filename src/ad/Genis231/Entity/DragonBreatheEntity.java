@@ -1,12 +1,11 @@
 package ad.Genis231.Entity;
 
-import ad.Genis231.Blocks.FakeFire;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import ad.Genis231.Blocks.FakeFire;
 
 public class DragonBreatheEntity extends EntitySnowball {
 	public DragonBreatheEntity(World par1World, EntityLivingBase par2EntityLivingBase, ItemStack item) {
@@ -23,15 +22,4 @@ public class DragonBreatheEntity extends EntitySnowball {
 			this.setDead();
 		}
 	}
-	
-	/** (abstract) Protected helper method to read subclass entity data from NBT. */
-	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
-		super.readEntityFromNBT(par1NBTTagCompound);
-	}
-	
-	/** (abstract) Protected helper method to write subclass entity data to NBT. */
-	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-		super.writeEntityToNBT(par1NBTTagCompound);
-	}
-	
 }

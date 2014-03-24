@@ -13,20 +13,17 @@ public class Names {
 	public static final String DSTONE = "DwarfStone";
 	public static final String GFIRE = "GFire";
 	public static final String FALSE_LOOT = "FalseLoot";
-	public static final String DVINE = "DVine";
 	public static final String MechCoin = "MechCoin";
 	
 	// Items
 	public static final String PGEM = "PureGem";
 	public static final String IGEM = "ImPureGem";
-	public static final String GBOWL = "GBowl";
 	public static final String ABLOOD = "ABlood";
 	public static final String DBLOOD = "DBlood";
 	public static final String RESTORED_JOURNAL = "Rjournal";
 	public static final String DREATHE = "DBreathe";
 	public static final String VINE_MAT = "VM_";
 	public static final String COIN = "coin";
-	public static final String ROPE = "rope";
 	public static final String DGoggles = "dwarvenGoggles";
 	public static final String DrillPart = "DrillParts";
 	

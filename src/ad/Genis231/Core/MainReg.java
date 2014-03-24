@@ -45,24 +45,20 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.BearTrap, Names.BTRAP);
 		GameRegistry.registerBlock(ADBlocks.Drill, Names.DRILL);
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
-		// GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
+		GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
 		GameRegistry.registerBlock(ADBlocks.FalseLoot, Names.FALSE_LOOT);
-		GameRegistry.registerBlock(ADBlocks.DVine, Names.DVINE);
-		GameRegistry.registerBlock(ADBlocks.coingMech, Names.MechCoin);
-		GameRegistry.registerBlock(ADBlocks.DrillPart, Names.DrillPart);
+		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
 		GameRegistry.registerBlock(ADBlocks.AleLiquid, Names.AleLiquid);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.PureGem, Names.PGEM);
 		GameRegistry.registerItem(ADItems.DirtyGem, Names.IGEM);
-		GameRegistry.registerItem(ADItems.GoldBowl, Names.GBOWL);
 		GameRegistry.registerItem(ADItems.AngelicBlood, Names.ABLOOD);
 		GameRegistry.registerItem(ADItems.DemonicBlood, Names.DBLOOD);
 		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
-		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
+		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
-		GameRegistry.registerItem(ADItems.Rope, Names.ROPE);
 		
 		/* TileEntities */
 		GameRegistry.registerTileEntity(BearTrapTile.class, "BearTrap");
@@ -79,25 +75,19 @@ public class MainReg {
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Drill), "XXX", "BDB", "IBI", 'X', Blocks.stone, 'B', ADItems.PureGem, 'D', Items.diamond, 'I', Items.iron_ingot);
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.BearTrap), "TIT", "SSS", 'T', ADBlocks.Spike, 'I', ADItems.PureGem, 'S', Items.iron_ingot);
 		
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Itable1), "QWE", "RTR", "UIU", 'Q', ADItems.AngelicBlood, 'W', Items.bowl, 'E', ADItems.DemonicBlood, 'R', Blocks.enchanting_table, 'T', Blocks.diamond_block, 'U', ADItems.PureGem, 'I', ADItems.DirtyGem);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Itable2), "QWE", "RTR", "UIU", 'Q', ADItems.AngelicBlood, 'W', ADItems.GoldBowl, 'E', ADItems.DemonicBlood, 'R', ADBlocks.Itable1, 'T', Blocks.diamond_block, 'U', ADItems.PureGem, 'I', ADItems.DirtyGem);
-		
 		// Items
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.GoldBowl), "X X", " X ", 'X', Items.gold_ingot);
 		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Spike), " X ", "XGX", 'X', Blocks.cobblestone, 'G', ADItems.PureGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.PureGem), "XXX", "XQX", "XXX", 'X', ADItems.AngelicBlood, 'Q', ADItems.DirtyGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.RestoredJournal), "SGP", "BLP", "SGP", 'S', Items.string, 'B', Items.book, 'G', Items.gold_ingot, 'L', Items.leather, 'P', Items.paper);
-		// GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
 		
 		// Vine Mats
-		{
-			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
-			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
-			
-			for (int i = 3; i < 10; i++) {
-				GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItems.VineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
-			}
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
+		
+		for (int i = 3; i < 10; i++) {
+			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItems.VineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
 		}
 	}
 	

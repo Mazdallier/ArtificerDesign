@@ -10,7 +10,6 @@ public class BlockTexture {
 	public static final String RedGemOre = Ref.Resource_FOLDER + "Red_Gem_Ore";
 	public static final String DwarvenStone = Ref.Resource_FOLDER + "Dwarven_Stone";
 	public static final String Fire = Ref.Resource_FOLDER + "Green_Fire";
-	public static final String DriedVine = Ref.Resource_FOLDER + "dried_vines";
 	public static final String Coining = Ref.Resource_FOLDER + "Temp";
 	
 	// Liquid Textures

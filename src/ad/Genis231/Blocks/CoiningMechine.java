@@ -16,6 +16,10 @@ public class CoiningMechine extends ADTile {
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
 		player.openGui(Artificer.instance, 2, world, x, y, z);
+		return true;
+	}
+	
+	@Override public boolean isOpaqueCube() {
 		return false;
 	}
 	
