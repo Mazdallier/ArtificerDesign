@@ -15,6 +15,6 @@ public class ADItems {
 	public static final Item DirtyGem = new RedGem(Names.IGEM, ItemTexture.DirtyGem);
 	public static final Item VineMat = new VineMat(Names.VINE_MAT);
 	public static final Item RestoredJournal = new Journal(Names.RESTORED_JOURNAL, ItemTexture.RestoredJournal);
-	public static final Item DragonBreathe = new DragonBreathe(Names.DREATHE, ItemTexture.DragonBreathe);
+	//public static final Item DragonBreathe = new DragonBreathe(Names.DREATHE, ItemTexture.DragonBreathe);
 	public static final Item Coin = new coin(Names.COIN, ItemTexture.Coin);
 }

@@ -22,7 +22,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
-import ad.Genis231.lib.ADBlocks;
 
 public class CustomExplosion extends Explosion {
 	/** whether or not the explosion sets fire to blocks around it */
@@ -216,7 +215,7 @@ public class CustomExplosion extends Explosion {
 				Block block1 = this.worldObj.getBlock(i, j - 1, k);
 				
 				if (block.getMaterial() == Material.air && block1.func_149730_j() && this.explosionRNG.nextInt(3) == 0) {
-					this.worldObj.setBlock(i, j, k, ADBlocks.GreenFire);
+// this.worldObj.setBlock(i, j, k, ADBlocks.GreenFire);
 				}
 			}
 		}

@@ -25,7 +25,7 @@ public class ADBlocks {
 	public static final Block BearTrap = new BearTrap(Names.BTRAP);
 	public static final Block Drill = new Drill(Names.DRILL);
 	public static final Block DwarvenStone = new DwarvenStone(Names.DSTONE, BlockTexture.DwarvenStone);
-	public static final Block GreenFire = new ad.Genis231.Blocks.FakeFire(Names.GFIRE);
+	// public static final Block GreenFire = new ad.Genis231.Blocks.FakeFire(Names.GFIRE);
 	public static final Block coiningMech = new CoiningMechine(Names.MechCoin, ItemTexture.Coin);
 	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
 }
