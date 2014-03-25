@@ -1,7 +1,13 @@
 package ad.Genis231.Core;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
+import ad.Genis231.Global.Overlay.ClassStats;
+import ad.Genis231.Global.Overlay.ResearchPointsOverlay;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
+import ad.Genis231.Research.Player.EnterWorld;
+import ad.Genis231.Research.Player.RegisterPlayerData;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -11,16 +17,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
-	
 	public static final PacketPipeline packets = new PacketPipeline();
 	
 	// The instance of your mod that Forge uses.
 	@Instance(Ref.MOD_ID) public static Artificer instance;
 	
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static ServerProxy proxy;
+	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.ServerProxy") public static CommonProxy proxy;
 	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		MainReg.Core();
@@ -40,8 +46,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 	@EventHandler public void postInit(FMLPostInitializationEvent event) {
 		packets.postInitialise();
 		
-		if (event.getSide().isClient()) {
-			// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+		MinecraftForge.EVENT_BUS.register(new RegisterPlayerData());
+		MinecraftForge.EVENT_BUS.register(new EnterWorld());
+		
+		if (event.getSide() == Side.CLIENT) {
+			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
 		}
 	}
 }

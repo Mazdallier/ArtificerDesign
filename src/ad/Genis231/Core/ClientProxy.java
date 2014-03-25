@@ -24,7 +24,7 @@ import ad.Genis231.lib.Ref;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class ClientProxy extends ServerProxy {
+public class ClientProxy extends CommonProxy {
 	
 	public void registerRenderers() {
 		
