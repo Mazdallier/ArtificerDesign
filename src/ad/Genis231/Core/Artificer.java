@@ -32,6 +32,7 @@ import cpw.mods.fml.relauncher.Side;
 		MainReg.Core();
 		MainReg.Recipes();
 		MainReg.World();
+		
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {

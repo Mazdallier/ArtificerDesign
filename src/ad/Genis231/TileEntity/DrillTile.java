@@ -50,7 +50,6 @@ public class DrillTile extends ADTileEntity {
 	
 	@Override public void writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
-		
 		tag.setInteger("delay", delay);
 		tag.setInteger("width", drillWidth);
 		tag.setInteger("height", drillHeight);
@@ -128,13 +127,17 @@ public class DrillTile extends ADTileEntity {
 				}
 			}
 		}
-		drillDone = count == 0;		
+		
+		drillDone = count == 0;
+		
+		return;
 	}
 	
 	private void addBlock(int x, int y, int z) {
 		Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		ItemStack item = new ItemStack(block.getItemDropped(meta, world.rand, 0), block.quantityDropped(meta, 0, world.rand), block.damageDropped(meta));
+		
 		IInventory chest = InventoryHelper.getInventoryAround(world, this.xCoord, this.yCoord, this.zCoord, item);
 		InventoryHelper.addBlock(chest, item);
 	}
