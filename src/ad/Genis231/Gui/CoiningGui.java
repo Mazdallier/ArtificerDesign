@@ -3,9 +3,6 @@ package ad.Genis231.Gui;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.world.World;
-
-import org.lwjgl.opengl.GL11;
-
 import ad.Genis231.Containers.CoiningContainer;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.lib.textures;
@@ -17,7 +14,6 @@ public class CoiningGui extends GuiContainer {
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3) {
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.getTextureManager().bindTexture(textures.coining);
 		
 		int x = (width - xSize) / 2;

@@ -14,8 +14,6 @@ import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
-import ad.Genis231.Network.PacketPipeline;
-import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.TileEntity.model.BearTrapTile;
@@ -25,6 +23,11 @@ import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ADItems;
 import ad.Genis231.lib.Names;
+import ad.Genis231.lib.ItemBlocks.BearTrap;
+import ad.Genis231.lib.ItemBlocks.Drill;
+import ad.Genis231.lib.ItemBlocks.FalseLoot;
+import ad.Genis231.lib.ItemBlocks.ITable;
+import ad.Genis231.lib.ItemBlocks.LiquidAle;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -35,20 +38,22 @@ public class MainReg {
 		/* Fluids */
 		FluidRegistry.registerFluid(ale);
 		
+		/* Blocks WITH ItemBlocks */
+		GameRegistry.registerBlock(ADBlocks.BearTrap, BearTrap.class, Names.BTRAP);
+		GameRegistry.registerBlock(ADBlocks.Drill, Drill.class, Names.DRILL);
+		GameRegistry.registerBlock(ADBlocks.FalseLoot, FalseLoot.class, Names.FALSE_LOOT);
+		GameRegistry.registerBlock(ADBlocks.Itable1, ITable.class, Names.IT1);
+		GameRegistry.registerBlock(ADBlocks.Itable2, ITable.class, Names.IT2);
+		GameRegistry.registerBlock(ADBlocks.AleLiquid, LiquidAle.class, Names.AleLiquid);
+		
 		/* Blocks */
 		GameRegistry.registerBlock(ADBlocks.RedGemOre, Names.RED_GEM);
 		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");
 		GameRegistry.registerBlock(ADBlocks.Dam, Names.DAM_BLOCK);
-		GameRegistry.registerBlock(ADBlocks.Itable1, Names.IT1);
-		GameRegistry.registerBlock(ADBlocks.Itable2, Names.IT2);
 		GameRegistry.registerBlock(ADBlocks.Spike, Names.SPIKE);
-		GameRegistry.registerBlock(ADBlocks.BearTrap, Names.BTRAP);
-		GameRegistry.registerBlock(ADBlocks.Drill, Names.DRILL);
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
-		// GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
-		GameRegistry.registerBlock(ADBlocks.FalseLoot, Names.FALSE_LOOT);
 		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
-		GameRegistry.registerBlock(ADBlocks.AleLiquid, Names.AleLiquid);
+		// GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.PureGem, Names.PGEM);
@@ -56,10 +61,10 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.AngelicBlood, Names.ABLOOD);
 		GameRegistry.registerItem(ADItems.DemonicBlood, Names.DBLOOD);
 		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
-		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItems.tome, Names.Tome);
+		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		
 		GameRegistry.registerItem(ADItems.Book1, Names.Book1);
 		GameRegistry.registerItem(ADItems.Book2, Names.Book2);
@@ -109,7 +114,7 @@ public class MainReg {
 	public static void mobs() {
 		for (int i = 0; i < dwarfClass.length; i++) {
 			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Artificer.instance, 80, 3, true);
-			EntityRegistry.addSpawn(dwarfClass[i], 3, 20, 50, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
+			EntityRegistry.addSpawn(dwarfClass[i], 3, 3, 8, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
 			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
 		}
 	}

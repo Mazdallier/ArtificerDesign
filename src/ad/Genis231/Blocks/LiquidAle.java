@@ -57,5 +57,4 @@ public class LiquidAle extends ADLiquid {
 			return false;
 		return super.displaceIfPossible(world, x, y, z);
 	}
-	
 }

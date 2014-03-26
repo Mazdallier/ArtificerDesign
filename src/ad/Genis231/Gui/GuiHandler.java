@@ -17,11 +17,11 @@ public class GuiHandler implements IGuiHandler {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		
 		switch (id) {
-			case 0:
+			case 0:// Imbueing table
 				return new ITableContainer(player.inventory, (ITableTile) tile, world, x, y, z, world.getBlock(x, y, z));
-			case 1:
+			case 1:// Drill
 				return new DrillContainer();
-			case 2:
+			case 2:// Coining Mechine
 				return new CoiningContainer(player.inventory, (CoiningTile) tile, world, x, y, z);
 			default:
 				return null;
@@ -34,12 +34,14 @@ public class GuiHandler implements IGuiHandler {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		
 		switch (id) {
-			case 0:
+			case 0: // Imbueing table
 				return new ITableGui(player.inventory, (ITableTile) tile, world, x, y, z, world.getBlock(x, y, z));
-			case 1:
+			case 1: // Drill
 				return new DrillGui((DrillTile) tile);
-			case 2:
+			case 2:// Coining Mechine
 				return new CoiningGui(player.inventory, (CoiningTile) tile, world, x, y, z);
+			case 3:
+				return new SkillBookGui(player,world);
 			default:
 				return null;
 		}

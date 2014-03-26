@@ -23,17 +23,17 @@ item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
 //Vine Mats       
-item.VM_D1.name=Vine Mat Dirt Teir 1
-item.VM_SA1.name=Vine Mat Sand Teir 1
-item.VM_ST1.name=Vine Mat Stone Teir 1
+item.VM_D1.name=Dirt Trap
+item.VM_SA1.name=Sand Trap
+item.VM_ST1.name=Stone Trap
 
-item.VM_D2.name=Vine Mat Dirt Teir 2
-item.VM_SA2.name=Vine Mat Sand Teir 2
-item.VM_ST2.name=Vine Mat Stone Teir 2
+item.VM_D2.name=Dirt Trap
+item.VM_SA2.name=Sand Trap
+item.VM_ST2.name=Stone Trap 
 
-item.VM_D3.name=Vine Mat Dirt Teir 3
-item.VM_SA3.name=Vine Mat Sand Teir 3
-item.VM_ST3.name=Vine Mat Stone Teir 3
+item.VM_D3.name=Dirt Trap
+item.VM_SA3.name=Sand Trap
+item.VM_ST3.name=Stone Trap
 
 //Mobs
 entity.Artificer.Savage.name=Savage Dwarf

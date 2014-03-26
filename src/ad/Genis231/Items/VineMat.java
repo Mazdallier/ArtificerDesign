@@ -30,6 +30,11 @@ public class VineMat extends ADItem {
 		this.setMaxDamage(0);
 	}
 	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		int range = this.getRange(item);
+		list.add("Size of trap: "+ range+"x"+range);
+	}
+	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
 		if (!world.isRemote) {

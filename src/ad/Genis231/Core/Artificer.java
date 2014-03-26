@@ -50,7 +50,7 @@ import cpw.mods.fml.relauncher.Side;
 		MinecraftForge.EVENT_BUS.register(new EnterWorld());
 		
 		if (event.getSide() == Side.CLIENT) {
-			MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+			//MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
 		}
 	}
