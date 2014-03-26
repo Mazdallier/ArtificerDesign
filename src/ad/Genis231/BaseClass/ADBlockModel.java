@@ -10,7 +10,7 @@ public class ADBlockModel extends BlockContainer {
 	
 	public ADBlockModel(Material material, String name) {
 		super(material);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);
 		this.setHardness(0.0F);
 		this.setBlockTextureName("");

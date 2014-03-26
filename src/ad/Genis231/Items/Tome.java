@@ -17,11 +17,9 @@ public class Tome extends ADItem {
 		
 		if (!world.isRemote)
 			if (!player.isSneaking())
-				props.addPoints(10);
+				props.addPoints(20);
 			else
-				props.subPoints(10);
-		
-		System.out.println("Current Points: " + props.getPoints() + " Side: " + (world.isRemote ? "Client" : "Server"));
+				props.subPoints(200);
 		
 		return item;
 	}

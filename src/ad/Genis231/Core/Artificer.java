@@ -20,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
-	public static final PacketPipeline packets = new PacketPipeline();
+	public static PacketPipeline packets = new PacketPipeline();
 	
 	// The instance of your mod that Forge uses.
 	@Instance(Ref.MOD_ID) public static Artificer instance;
@@ -32,7 +32,6 @@ import cpw.mods.fml.relauncher.Side;
 		MainReg.Core();
 		MainReg.Recipes();
 		MainReg.World();
-		
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {

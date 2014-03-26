@@ -59,7 +59,12 @@ public class MainReg {
 		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
-		GameRegistry.registerItem(ADItems.tome, "   ");
+		GameRegistry.registerItem(ADItems.tome, Names.Tome);
+		
+		GameRegistry.registerItem(ADItems.Book1, Names.Book1);
+		GameRegistry.registerItem(ADItems.Book2, Names.Book2);
+		GameRegistry.registerItem(ADItems.Book3, Names.Book3);
+		GameRegistry.registerItem(ADItems.Book4, Names.Book4);
 		
 		/* TileEntities */
 		GameRegistry.registerTileEntity(BearTrapTile.class, "BearTrap");
@@ -94,10 +99,6 @@ public class MainReg {
 	
 	public static void World() {
 		GameRegistry.registerWorldGenerator(new BDiaGen(), 0);
-	}
-	
-	public static void Packets(PacketPipeline packets) {
-		packets.registerPacket(DrillPacket.class);
 	}
 	
 	// Mob Stuffz

@@ -14,7 +14,7 @@ public class ADBlock extends Block {
 	public ADBlock(Material material, String name) {
 		super(material);
 		this.setHardness(0.0F);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);
 	}
 	
@@ -22,7 +22,7 @@ public class ADBlock extends Block {
 		super(material);
 		this.setBlockTextureName(texture);
 		this.setHardness(0.0F);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);
 	}
 	

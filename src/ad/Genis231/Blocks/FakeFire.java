@@ -14,7 +14,7 @@ public class FakeFire extends BlockFire {
 		super();
 		this.disableStats();
 		this.setHardness(0.0F);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockTextureName(BlockTexture.Fire);
 		this.setLightLevel(1.0F);
 		this.setBlockName(name);

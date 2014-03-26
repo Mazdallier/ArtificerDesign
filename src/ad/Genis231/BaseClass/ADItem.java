@@ -9,7 +9,7 @@ public class ADItem extends Item {
 	 * @param name This is the UnlocalizedName */
 	public ADItem(String name) {
 		super();
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setUnlocalizedName(name);
 	}
 	
@@ -18,7 +18,7 @@ public class ADItem extends Item {
 	 * @param Texture This is the Texture for said item */
 	public ADItem(String name, String Texture) {
 		super();
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setUnlocalizedName(name);
 		this.setTextureName(Texture);
 	}

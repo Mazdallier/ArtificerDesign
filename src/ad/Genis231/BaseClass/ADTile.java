@@ -8,13 +8,13 @@ import ad.Genis231.lib.Ref;
 
 public class ADTile extends BlockContainer {
 	
-	public ADTile(Material material, String name,String texture) {
+	public ADTile(Material material, String name, String texture) {
 		super(material);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockTextureName(texture);
 		this.setBlockName(name);
 	}
-
+	
 	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return null;
 	}

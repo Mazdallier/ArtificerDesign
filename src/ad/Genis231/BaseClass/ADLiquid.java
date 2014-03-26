@@ -9,7 +9,7 @@ public class ADLiquid extends BlockFluidClassic {
 	
 	protected ADLiquid(Fluid fluid, String name) {
 		super(fluid, Material.water);
-		this.setCreativeTab(Ref.TAB);
+		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);
 		this.setBlockUnbreakable();
 		this.setLightOpacity(3);
