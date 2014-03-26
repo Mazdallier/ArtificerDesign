@@ -1,4 +1,4 @@
-package ad.Genis231.Core.Resources;
+package ad.Genis231.lib.Resources;
 
 import java.util.List;
 
