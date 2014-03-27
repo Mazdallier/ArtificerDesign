@@ -15,8 +15,6 @@ public class Ref {
 	
 	/* Render IDs */
 	public static int SpikeRender;
-	public static int TableRender;
-	public static int BTrapRender;
 	public static int DrillRender;
 }
 
@@ -27,11 +25,11 @@ class MainTAB extends CreativeTabs {
 	}
 	
 	@Override public String getTranslatedTabLabel() {
-		return "MainTab";
+		return "Artificer's Design";
 	}
 	
 	@Override public Item getTabIconItem() {
-		return ADItems.PureGem;
+		return ADItems.Book4;
 	}
 }
 
@@ -42,7 +40,7 @@ class BookTAB extends CreativeTabs {
 	}
 	
 	@Override public String getTranslatedTabLabel() {
-		return "BookTab";
+		return "Artificer's Research";
 	}
 	
 	@Override public Item getTabIconItem() {

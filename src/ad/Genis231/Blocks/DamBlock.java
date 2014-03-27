@@ -1,5 +1,6 @@
 package ad.Genis231.Blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -7,13 +8,14 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.BaseClass.ADBlock;
+import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.BlockTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class DamBlock extends ADBlock {
-	
 	@SideOnly(Side.CLIENT) public static IIcon sideIcon;
 	@SideOnly(Side.CLIENT) public static IIcon openIcon;
 	@SideOnly(Side.CLIENT) public static IIcon closeIcon;
@@ -23,27 +25,19 @@ public class DamBlock extends ADBlock {
 		this.setHardness(5.0F);
 	}
 	
-	@Override public boolean renderAsNormalBlock() {
-		return true;
-	}
-	
-	@Override public boolean isOpaqueCube() {
-		return true;
-	}
-	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase player, ItemStack item) {
 		world.setBlock(x, y, z, this, sidePlaced(x, z, player.posX, player.posZ) - 2, 3);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
-		if (!world.isBlockIndirectlyGettingPowered(x, y, z)) {
-			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z), 3);
-			set(world, x, y, z, world.getBlockMetadata(x, y, z) - 4);
-		}
+		check(world, x, y, z);
 	}
 	
-	public void onNeighborBlockChange(World world, int x, int y, int z, int blockid) {
-		
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+		check(world, x, y, z);
+	}
+	
+	void check(World world, int x, int y, int z) {
 		if (world.isBlockIndirectlyGettingPowered(x, y, z) && world.getBlockMetadata(x, y, z) <= 3) {
 			world.setBlockMetadataWithNotify(x, y, z, world.getBlockMetadata(x, y, z) + 4, 3);
 			set(world, x, y, z, world.getBlockMetadata(x, y, z) - 2);
@@ -55,7 +49,9 @@ public class DamBlock extends ADBlock {
 	}
 	
 	public void set(World world, int x, int y, int z, int side) {
-		if (blockIsSide(world, x, y, z, Blocks.water, side))
+		System.out.println("Water side: " + ForgeDirection.values()[ForgeDirection.OPPOSITES[side]] + " Placeing: " + ForgeDirection.values()[side]);
+		
+		if (blockIsSide(world, x, y, z, Blocks.water, ForgeDirection.OPPOSITES[side]))
 			setBlock(world, x, y, z, Blocks.water, side);
 	}
 	

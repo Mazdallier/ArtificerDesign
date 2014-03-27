@@ -2,7 +2,6 @@ package ad.Genis231.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
-import ad.Genis231.Global.Overlay.ClassStats;
 import ad.Genis231.Global.Overlay.ResearchPointsOverlay;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
@@ -31,8 +30,6 @@ import cpw.mods.fml.relauncher.Side;
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		MainReg.Core();
 		MainReg.Recipes();
-		MainReg.World();
-		
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {
@@ -50,7 +47,7 @@ import cpw.mods.fml.relauncher.Side;
 		MinecraftForge.EVENT_BUS.register(new EnterWorld());
 		
 		if (event.getSide() == Side.CLIENT) {
-			//MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+			// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
 		}
 	}

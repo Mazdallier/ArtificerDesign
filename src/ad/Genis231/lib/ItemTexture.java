@@ -4,8 +4,6 @@ public class ItemTexture {
 	private static String Books = Ref.Resource_FOLDER + "Book/";
 	
 	// Item Textures
-	public static final String DirtyGem = Ref.Resource_FOLDER + "Dirty_Gem";
-	public static final String PureGem = Ref.Resource_FOLDER + "Pure_Gem";
 	public static final String AngelicBlood = Ref.Resource_FOLDER + "Angelic_Blood";
 	public static final String DemonicBlood = Ref.Resource_FOLDER + "Demonic_Blood";
 	public static final String RestoredJournal = Ref.Resource_FOLDER + "Restored_Journal";

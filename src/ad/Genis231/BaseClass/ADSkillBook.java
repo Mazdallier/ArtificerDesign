@@ -30,4 +30,8 @@ public class ADSkillBook extends ADItem {
 		list.add("needs catagories (tools,armor)");
 		list.add("add a texture any time now noob >_>");
 	}
+	
+	@Override public String getUnlocalizedName(ItemStack itemstack) {
+		return this.getUnlocalizedName() + "_" + itemstack.getItemDamage();
+	}
 }

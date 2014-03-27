@@ -5,10 +5,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Containers.CoiningContainer;
 import ad.Genis231.Containers.DrillContainer;
-import ad.Genis231.Containers.ITableContainer;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DrillTile;
-import ad.Genis231.TileEntity.ITableTile;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {
@@ -17,8 +15,6 @@ public class GuiHandler implements IGuiHandler {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		
 		switch (id) {
-			case 0:// Imbueing table
-				return new ITableContainer(player.inventory, (ITableTile) tile, world, x, y, z, world.getBlock(x, y, z));
 			case 1:// Drill
 				return new DrillContainer();
 			case 2:// Coining Mechine
@@ -34,14 +30,12 @@ public class GuiHandler implements IGuiHandler {
 		TileEntity tile = world.getTileEntity(x, y, z);
 		
 		switch (id) {
-			case 0: // Imbueing table
-				return new ITableGui(player.inventory, (ITableTile) tile, world, x, y, z, world.getBlock(x, y, z));
 			case 1: // Drill
 				return new DrillGui((DrillTile) tile);
 			case 2:// Coining Mechine
 				return new CoiningGui(player.inventory, (CoiningTile) tile, world, x, y, z);
 			case 3:
-				return new SkillBookGui(player,world);
+				return new SkillBookGui(player, world);
 			default:
 				return null;
 		}

@@ -22,6 +22,11 @@ item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
+//Mobs
+entity.Artificer.Savage.name=Savage Dwarf
+entity.Artificer.Warrior.name=Warrior Dwarf
+entity.Artificer.Trader.name=Trader Dwarf
+
 //Vine Mats       
 item.VM_D1.name=Dirt Trap
 item.VM_SA1.name=Sand Trap
@@ -35,7 +40,46 @@ item.VM_D3.name=Dirt Trap
 item.VM_SA3.name=Sand Trap
 item.VM_ST3.name=Stone Trap
 
-//Mobs
-entity.Artificer.Savage.name=Savage Dwarf
-entity.Artificer.Warrior.name=Warrior Dwarf
-entity.Artificer.Trader.name=Trader Dwarf
+//Skill Books:
+
+	//T1:
+item.BookT1_0.name=[Insert Name Here]
+item.BookT1_1.name=[Insert Name Here]
+item.BookT1_2.name=[Insert Name Here]
+item.BookT1_3.name=[Insert Name Here]
+item.BookT1_4.name=[Insert Name Here]
+item.BookT1_5.name=[Insert Name Here]
+item.BookT1_6.name=[Insert Name Here]
+item.BookT1_7.name=[Insert Name Here]
+item.BookT1_8.name=[Insert Name Here]
+
+	//T2:
+item.BookT2_0.name=[Insert Name Here]
+item.BookT2_1.name=[Insert Name Here]
+item.BookT2_2.name=[Insert Name Here]
+item.BookT2_3.name=[Insert Name Here]
+item.BookT2_4.name=[Insert Name Here]
+item.BookT2_5.name=[Insert Name Here]
+item.BookT2_6.name=[Insert Name Here]
+item.BookT2_7.name=[Insert Name Here]
+item.BookT2_8.name=[Insert Name Here]
+	//T3:
+item.BookT3_0.name=[Insert Name Here]
+item.BookT3_1.name=[Insert Name Here]
+item.BookT3_2.name=[Insert Name Here]
+item.BookT3_3.name=[Insert Name Here]
+item.BookT3_4.name=[Insert Name Here]
+item.BookT3_5.name=[Insert Name Here]
+item.BookT3_6.name=[Insert Name Here]
+item.BookT3_7.name=[Insert Name Here]
+item.BookT3_8.name=[Insert Name Here]
+	//T4:
+item.BookT4_0.name=[Insert Name Here]
+item.BookT4_1.name=[Insert Name Here]
+item.BookT4_2.name=[Insert Name Here]
+item.BookT4_3.name=[Insert Name Here]
+item.BookT4_4.name=[Insert Name Here]
+item.BookT4_5.name=[Insert Name Here]
+item.BookT4_6.name=[Insert Name Here]
+item.BookT4_7.name=[Insert Name Here]
+item.BookT4_8.name=[Insert Name Here]

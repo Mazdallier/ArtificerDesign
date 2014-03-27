@@ -137,7 +137,7 @@ public class VineMat extends ADItem {
 	}
 	
 	@Override public String getUnlocalizedName(ItemStack itemstack) {
-		return this.getUnlocalizedName() + Names.UnlocalizedArray[itemstack.getItemDamage()];
+		return this.getUnlocalizedName() + Names.VineMat[itemstack.getItemDamage()];
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {

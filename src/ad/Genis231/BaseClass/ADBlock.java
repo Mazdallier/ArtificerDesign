@@ -18,12 +18,13 @@ public class ADBlock extends Block {
 		this.setBlockName(name);
 	}
 	
+	/** Basic Constructor
+	 * @param material Sets the Block's material
+	 * @param name Sets the Block's name
+	 * @param textures Sets the texture for the block */
 	public ADBlock(Material material, String name, String texture) {
-		super(material);
+		this(material, name);
 		this.setBlockTextureName(texture);
-		this.setHardness(0.0F);
-		this.setCreativeTab(Ref.MainTab);
-		this.setBlockName(name);
 	}
 	
 	public static int sidePlaced(int x, int z, double posX, double posZ) {
@@ -41,29 +42,22 @@ public class ADBlock extends Block {
 			return 2;
 	}
 	
-	/** checks if it is not touching said side on y axis: args world, x, y, z, blockID, side */
+	/** checks if it's touching side: args world, x, y, z, blockID, side */
 	public static boolean blockIsSide(World world, int x, int y, int z, Block block, int side) {
-		ForgeDirection direction = ForgeDirection.getOrientation(side);
-		return world.getBlock(x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ).equals(block);
+		ForgeDirection dir = ForgeDirection.getOrientation(side);
+		return world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == block;
 		
 	}
 	
 	/** checks if it is touching said block directly: world, x, y, z, blockID */
 	public static int blockExists(World world, int x, int y, int z, Block block) {
-		if (world.getBlock(x, y + 1, z).equals(block))
-			return 0;
-		else if (world.getBlock(x, y - 1, z).equals(block))
-			return 1;
-		else if (world.getBlock(x, y, z + 1).equals(block))
-			return 2;
-		else if (world.getBlock(x, y, z - 1).equals(block))
-			return 3;
-		else if (world.getBlock(x + 1, y, z).equals(block))
-			return 4;
-		else if (world.getBlock(x - 1, y, z).equals(block))
-			return 5;
-		else
-			return -1;
+		int i = 0;
+		for (ForgeDirection dir : ForgeDirection.values()) {
+			if (world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == block)
+				return i;
+			i++;
+		}
+		return -1;
 	}
 	
 	/** places a block relative to the coords and side: args world, x, y, z, side of block */
@@ -99,8 +93,6 @@ public class ADBlock extends Block {
 							world.setBlock(fx, fy, fz, block);
 							world.setBlockMetadataWithNotify(fx, fy, fz, meta, 3);
 						} else
-							// TODO FIX THIS!! world.destroyBlock(fx, fy, fz -
-							// 1, false);
 							world.setBlockToAir(fx, fy, fz - 1);
 					} else {
 						world.setBlock(fx, fy, fz, block);

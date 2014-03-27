@@ -10,23 +10,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import ad.Genis231.Generation.BDiaGen;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DrillTile;
-import ad.Genis231.TileEntity.model.BearTrapTile;
-import ad.Genis231.TileEntity.model.ITable1;
-import ad.Genis231.TileEntity.model.ITable2;
 import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ADItems;
 import ad.Genis231.lib.Names;
-import ad.Genis231.lib.ItemBlocks.BearTrap;
 import ad.Genis231.lib.ItemBlocks.Drill;
-import ad.Genis231.lib.ItemBlocks.FalseLoot;
-import ad.Genis231.lib.ItemBlocks.ITable;
 import ad.Genis231.lib.ItemBlocks.LiquidAle;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -39,27 +32,17 @@ public class MainReg {
 		FluidRegistry.registerFluid(ale);
 		
 		/* Blocks WITH ItemBlocks */
-		GameRegistry.registerBlock(ADBlocks.BearTrap, BearTrap.class, Names.BTRAP);
 		GameRegistry.registerBlock(ADBlocks.Drill, Drill.class, Names.DRILL);
-		GameRegistry.registerBlock(ADBlocks.FalseLoot, FalseLoot.class, Names.FALSE_LOOT);
-		GameRegistry.registerBlock(ADBlocks.Itable1, ITable.class, Names.IT1);
-		GameRegistry.registerBlock(ADBlocks.Itable2, ITable.class, Names.IT2);
 		GameRegistry.registerBlock(ADBlocks.AleLiquid, LiquidAle.class, Names.AleLiquid);
 		
 		/* Blocks */
-		GameRegistry.registerBlock(ADBlocks.RedGemOre, Names.RED_GEM);
 		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");
 		GameRegistry.registerBlock(ADBlocks.Dam, Names.DAM_BLOCK);
 		GameRegistry.registerBlock(ADBlocks.Spike, Names.SPIKE);
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
 		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
-		// GameRegistry.registerBlock(ADBlocks.GreenFire, Names.GFIRE);
 		
 		/* Items */
-		GameRegistry.registerItem(ADItems.PureGem, Names.PGEM);
-		GameRegistry.registerItem(ADItems.DirtyGem, Names.IGEM);
-		GameRegistry.registerItem(ADItems.AngelicBlood, Names.ABLOOD);
-		GameRegistry.registerItem(ADItems.DemonicBlood, Names.DBLOOD);
 		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
@@ -72,9 +55,6 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.Book4, Names.Book4);
 		
 		/* TileEntities */
-		GameRegistry.registerTileEntity(BearTrapTile.class, "BearTrap");
-		GameRegistry.registerTileEntity(ITable1.class, "IT1");
-		GameRegistry.registerTileEntity(ITable2.class, "IT2");
 		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");
 		GameRegistry.registerTileEntity(DrillTile.class, "Drill");
 		GameRegistry.registerTileEntity(CoiningTile.class, "Coining");
@@ -82,15 +62,9 @@ public class MainReg {
 	
 	public static void Recipes() {
 		// Blocks
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Dam), "QWQ", "ASA", "QDQ", 'Q', Blocks.stone, 'W', Blocks.trapdoor, 'A', ADItems.PureGem, 'S', Items.water_bucket, 'D', Items.redstone);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Drill), "XXX", "BDB", "IBI", 'X', Blocks.stone, 'B', ADItems.PureGem, 'D', Items.diamond, 'I', Items.iron_ingot);
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.BearTrap), "TIT", "SSS", 'T', ADBlocks.Spike, 'I', ADItems.PureGem, 'S', Items.iron_ingot);
 		
 		// Items
-		GameRegistry.addShapedRecipe(new ItemStack(ADBlocks.Spike), " X ", "XGX", 'X', Blocks.cobblestone, 'G', ADItems.PureGem);
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.PureGem), "XXX", "XQX", "XXX", 'X', ADItems.AngelicBlood, 'Q', ADItems.DirtyGem);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.RestoredJournal), "SGP", "BLP", "SGP", 'S', Items.string, 'B', Items.book, 'G', Items.gold_ingot, 'L', Items.leather, 'P', Items.paper);
-		// GameRegistry.addShapedRecipe(new ItemStack(ADItems.DragonBreathe), "PPP", "BLB", "PPP", 'B', Items.glass_bottle, 'L', Items.lava_bucket, 'P', Items.paper);
 		
 		// Vine Mats
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
@@ -102,12 +76,7 @@ public class MainReg {
 		}
 	}
 	
-	public static void World() {
-		GameRegistry.registerWorldGenerator(new BDiaGen(), 0);
-	}
-	
 	// Mob Stuffz
-	
 	static int baseEntityID = 1;
 	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
 	
