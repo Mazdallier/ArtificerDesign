@@ -10,7 +10,7 @@ public class ItemTexture {
 	public static final String DragonBreathe = Ref.Resource_FOLDER + "Dragon_Breathe";
 	public static final String Coin = Ref.Resource_FOLDER + "coin";
 	
-	public static final String[] book = { Books + "Book1", Books + "Book2", Books + "Book3", Books + "Book4" };
+	public static final String[] book = { Books + "Dwarf", Books + "Elf", Books + "Human", Books + "Orc" };
 	
 	// PTrap array
 	public static String[] PitTrap = { "Dirt1", "Sand1", "Stone1", "Dirt2", "Sand2", "Stone2", "Dirt3", "Sand3", "Stone3" };

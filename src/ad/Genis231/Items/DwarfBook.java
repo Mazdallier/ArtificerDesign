@@ -1,5 +1,7 @@
 package ad.Genis231.Items;
 
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -7,6 +9,8 @@ import ad.Genis231.BaseClass.ADRaceBook;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Player.PlayerData;
 import ad.Genis231.Player.PlayerRace;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class DwarfBook extends ADRaceBook {
 	
@@ -20,5 +24,12 @@ public class DwarfBook extends ADRaceBook {
 		else
 			System.out.println("You are the wrong race!!");
 		return item;
+	}
+	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		super.addInformation(item, player, list, bool);
+		if (PlayerData.get(player).getRace() != PlayerRace.DWARF && PlayerData.get(player).getRace() != PlayerRace.HUMAN) {
+			list.add("\u00A76"+"You are not a "+"\u00A75"+"Dwarf");
+		}
 	}
 }
