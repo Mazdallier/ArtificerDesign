@@ -27,9 +27,9 @@ public class ElfBook extends ADRaceBook {
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		if (PlayerData.get(player).getRace() != PlayerRace.ELF && PlayerData.get(player).getRace() != PlayerRace.HUMAN)
+			list.add(this.mainColor + "You are not an " + this.secondaryColor + "Elf");
+		
 		super.addInformation(item, player, list, bool);
-		if (PlayerData.get(player).getRace() != PlayerRace.ELF && PlayerData.get(player).getRace() != PlayerRace.HUMAN) {
-			list.add("\u00A76"+"You are not an "+"\u00A75"+"Elf");
-		}
 	}
 }

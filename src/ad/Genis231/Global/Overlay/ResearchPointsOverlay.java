@@ -35,7 +35,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		if (props == null) { return; }
 		
 		drawStatus(props, props.getRace());
-		applyAtribbute(props.getRace());
+		//applyAtribbute(props.getRace());
 	}
 	
 	public void drawStatus(PlayerData data, PlayerRace race) {

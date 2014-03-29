@@ -27,9 +27,9 @@ public class DwarfBook extends ADRaceBook {
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		if (PlayerData.get(player).getRace() != PlayerRace.DWARF && PlayerData.get(player).getRace() != PlayerRace.HUMAN)
+			list.add(this.mainColor + "You are not a " + this.secondaryColor + "Dwarf");
+		
 		super.addInformation(item, player, list, bool);
-		if (PlayerData.get(player).getRace() != PlayerRace.DWARF && PlayerData.get(player).getRace() != PlayerRace.HUMAN) {
-			list.add("\u00A76"+"You are not a "+"\u00A75"+"Dwarf");
-		}
 	}
 }
