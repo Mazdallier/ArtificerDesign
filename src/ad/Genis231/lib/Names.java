@@ -16,10 +16,11 @@ public class Names {
 	public static final String VINE_MAT = "VM_";
 	public static final String COIN = "coin";
 	public static final String Tome = "Tome";
-	public static final String Book1 = "BookT1";
-	public static final String Book2 = "BookT2";
-	public static final String Book3 = "BookT3";
-	public static final String Book4 = "BookT4";
+	
+	public static final String DwarfBook = "DwarfBook";
+	public static final String ElfBook = "ElfBook";
+	public static final String OrcBook = "OrcBook";
+	public static final String HumanBook = "HumanBook";
 	
 	// Liquids
 	public static final String AleLiquid = "AleLiquid";

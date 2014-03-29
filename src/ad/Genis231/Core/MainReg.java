@@ -49,10 +49,10 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.tome, Names.Tome);
 		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		
-		GameRegistry.registerItem(ADItems.Book1, Names.Book1);
-		GameRegistry.registerItem(ADItems.Book2, Names.Book2);
-		GameRegistry.registerItem(ADItems.Book3, Names.Book3);
-		GameRegistry.registerItem(ADItems.Book4, Names.Book4);
+		GameRegistry.registerItem(ADItems.HumanBook, Names.HumanBook);
+		GameRegistry.registerItem(ADItems.DwarfBook, Names.DwarfBook);
+		GameRegistry.registerItem(ADItems.ElfBook, Names.ElfBook);
+		GameRegistry.registerItem(ADItems.OrcBook, Names.OrcBook);
 		
 		/* TileEntities */
 		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");

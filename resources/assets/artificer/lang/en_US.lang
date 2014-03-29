@@ -1,13 +1,22 @@
 //Blocks
+tile.RedGemOre.name=Red Gem Ore
 tile.DamBlock.name=Dam
+tile.ITable1.name=Imbueing Table (teir 1)
+tile.ITable2.name=Imbueing Table (teir 2)
 tile.Spike.name=Spike Pit
+tile.BTrap.name=Bear Trap
 tile.Drill.name=Drill (Broken)
 tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
+tile.FalseLoot.name=False Loot
 tile.MechCoin.name=Coining Mechine
 tile.AleLiquid.name=Liquid Ale
 
 //Items
+item.PureGem.name=Purified Gem
+item.ImPureGem.name=Impure Gem
+item.ABlood.name=Blessed Elve's Blood
+item.DBlood.name=Tainted Orc's Blood
 item.Rjournal.name=Restored Journal
 item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
@@ -19,6 +28,12 @@ entity.Artificer.Warrior.name=Warrior Dwarf
 entity.Artificer.Trader.name=Trader Dwarf
 
 //Vine Mats       
-item.VM_Dirt.name=Dirt Trap
-item.VM_Sand.name=Sand Trap
-item.VM_Stone.name=Stone Trap
+item.Dirt.name=Dirt Trap
+item.Sand.name=Sand Trap
+item.Stone.name=Stone Trap
+
+//RaceBooks
+item.HumanBook.name=Human SkillBook
+item.DwarfBook.name=Dwarf SkillBook
+item.ElfBook.name=Elf SkillBook
+item.OrcBook.name=Orc SkillBook

@@ -11,7 +11,6 @@ public class Ref {
 	public static final String Resource_FOLDER = "artificer:";
 	
 	public static final CreativeTabs MainTab = new MainTAB("Artificer's Design");
-	public static final CreativeTabs BookTab = new BookTAB("Artificer's Research");
 	
 	/* Render IDs */
 	public static int SpikeRender;
@@ -29,21 +28,6 @@ class MainTAB extends CreativeTabs {
 	}
 	
 	@Override public Item getTabIconItem() {
-		return ADItems.Book4;
-	}
-}
-
-class BookTAB extends CreativeTabs {
-	
-	public BookTAB(String label) {
-		super(label);
-	}
-	
-	@Override public String getTranslatedTabLabel() {
-		return "Artificer's Research";
-	}
-	
-	@Override public Item getTabIconItem() {
-		return ADItems.Book4;
+		return ADItems.HumanBook;
 	}
 }
