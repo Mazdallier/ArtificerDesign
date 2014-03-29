@@ -5,11 +5,13 @@ import java.awt.Color;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import ad.Genis231.Research.Player.PlayerData;
-import ad.Genis231.lib.ADItems;
+import ad.Genis231.Player.PlayerData;
+import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.lib.textures;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -32,19 +34,30 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		if (props == null) { return; }
 		
+		drawStatus(props, props.getRace());
+		applyAtribbute(props.getRace());
+	}
+	
+	public void drawStatus(PlayerData data, PlayerRace race) {
 		this.mc.getTextureManager().bindTexture(textures.ResearchPoints);
-		this.drawTexturedModalRect(20, 20, 0, 10, 200-20, 10);
-		this.drawTexturedModalRect(20, 20, 0, 0, props.getPoints() % 200, 10);
-		font.drawStringWithShadow("Level: " + props.getPoints() / 200 + "      Total Points: " + props.getPoints(), 20, 10, Color.GREEN.getRGB());
+		this.drawTexturedModalRect(20, 20, 0, 10, 200 - 20, 10);
+		this.drawTexturedModalRect(20, 20, 0, 0, data.getPoints() % 200, 10);
+		font.drawStringWithShadow("Level: " + data.getPoints() / 200 + "      Total Points: " + data.getPoints(), 20, 10, Color.GREEN.getRGB());
 		
-		ItemStack item = mc.thePlayer.inventory.getStackInSlot(mc.thePlayer.inventory.currentItem);
-		
-		if (item == null)
-			return;
-		
-		if (item.getItem() == ADItems.tome) {
-			font.drawStringWithShadow("Right click give you 20 points", 20, 30, Color.GREEN.getRGB());
-			font.drawStringWithShadow("shift-Right click takes away 200 points", 20, 40, Color.GREEN.getRGB());
+		font.drawString("Current Class: " + race.getName(), 20, 30, Color.RED.getRGB());
+	}
+	
+	void applyAtribbute(PlayerRace race) {
+		for (int size = 0; size < 65; size++) {
+			for (int meta = 0; meta < 16; meta++) {
+				this.mc.thePlayer.curePotionEffects(new ItemStack(Items.milk_bucket, size, meta));
+			}
 		}
+		
+		if (race != PlayerRace.HUMAN) {
+			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot1(), 200, race.getLevel()));
+			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot2(), 200, race.getLevel()));
+		}
+		
 	}
 }

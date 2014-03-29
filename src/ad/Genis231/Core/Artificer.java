@@ -2,11 +2,11 @@ package ad.Genis231.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
+import ad.Genis231.Global.Overlay.EnterWorld;
 import ad.Genis231.Global.Overlay.ResearchPointsOverlay;
 import ad.Genis231.Gui.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
-import ad.Genis231.Research.Player.EnterWorld;
-import ad.Genis231.Research.Player.RegisterPlayerData;
+import ad.Genis231.Player.RegisterPlayerData;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,7 +16,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
 	public static PacketPipeline packets = new PacketPipeline();
@@ -46,9 +45,7 @@ import cpw.mods.fml.relauncher.Side;
 		MinecraftForge.EVENT_BUS.register(new RegisterPlayerData());
 		MinecraftForge.EVENT_BUS.register(new EnterWorld());
 		
-		if (event.getSide() == Side.CLIENT) {
-			// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
-			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
-		}
+		// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
+		MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
 	}
 }

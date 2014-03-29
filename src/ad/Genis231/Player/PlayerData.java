@@ -1,4 +1,4 @@
-package ad.Genis231.Research.Player;
+package ad.Genis231.Player;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,13 +8,15 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import ad.Genis231.lib.Ref;
 
 public class PlayerData implements IExtendedEntityProperties {
-	private int dataWatcher = 20;
+	private int pointWatcher = 20;
+	private int raceWatcher = 21; // human=0 ,elf=1 ,orc=2 ,dwarf=3
 	public static String PlayerData_ID = Ref.MOD_ID + "_PlayerData";
 	private EntityPlayer player;
 	
 	public PlayerData(EntityPlayer player) {
 		this.player = player;
-		this.player.getDataWatcher().addObject(this.dataWatcher, 0);
+		this.player.getDataWatcher().addObject(this.pointWatcher, 0);
+		this.player.getDataWatcher().addObject(this.raceWatcher, 0);
 	}
 	
 	/** Used to register these extended properties for the player during EntityConstructing event This method is for convenience only; it will make your code look nicer */
@@ -29,7 +31,8 @@ public class PlayerData implements IExtendedEntityProperties {
 	
 	@Override public void saveNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = new NBTTagCompound();
-		properties.setInteger("Points", this.player.getDataWatcher().getWatchableObjectInt(dataWatcher));
+		properties.setInteger("Points", this.player.getDataWatcher().getWatchableObjectInt(this.pointWatcher));
+		properties.setInteger("Class", this.player.getDataWatcher().getWatchableObjectInt(this.raceWatcher));
 		
 		compound.setTag(PlayerData_ID, properties);
 	}
@@ -37,32 +40,42 @@ public class PlayerData implements IExtendedEntityProperties {
 	@Override public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(PlayerData_ID);
 		
-		this.player.getDataWatcher().updateObject(dataWatcher, properties.getInteger("Points"));
+		this.player.getDataWatcher().updateObject(this.pointWatcher, properties.getInteger("Points"));
+		this.player.getDataWatcher().updateObject(this.raceWatcher, properties.getInteger("Class"));
 	}
 	
 	@Override public void init(Entity entity, World world) {}
 	
+	public PlayerRace getRace() {
+		int id = this.player.getDataWatcher().getWatchableObjectInt(this.raceWatcher);
+		return PlayerRace.getRace(id);
+	}
+	
+	public void setRace(PlayerRace race) {
+		this.player.getDataWatcher().updateObject(this.raceWatcher, race.getID());
+		
+	}
+	
 	public int getPoints() {
-		return this.player.getDataWatcher().getWatchableObjectInt(dataWatcher);
+		return this.player.getDataWatcher().getWatchableObjectInt(pointWatcher);
 	}
 	
 	public void setPoints(int i) {
-		this.player.getDataWatcher().updateObject(dataWatcher, i);
-		
+		this.player.getDataWatcher().updateObject(pointWatcher, i);
 	}
 	
 	public void addPoints(int i) {
-		int temp = this.player.getDataWatcher().getWatchableObjectInt(dataWatcher);
-		this.player.getDataWatcher().updateObject(dataWatcher, temp + i);
+		int temp = this.player.getDataWatcher().getWatchableObjectInt(pointWatcher);
+		this.player.getDataWatcher().updateObject(pointWatcher, temp + i);
 	}
 	
 	public void subPoints(int i) {
-		int temp = this.player.getDataWatcher().getWatchableObjectInt(dataWatcher);
+		int temp = this.player.getDataWatcher().getWatchableObjectInt(pointWatcher);
 		
 		if (temp - i <= 0)
-			this.player.getDataWatcher().updateObject(dataWatcher, 0);
+			this.player.getDataWatcher().updateObject(pointWatcher, 0);
 		else
-			this.player.getDataWatcher().updateObject(dataWatcher, temp - i);
+			this.player.getDataWatcher().updateObject(pointWatcher, temp - i);
 	}
 	
 	/** Does everything I did in onLivingDeathEvent and it's static, so you now only need to use the following in the above event: ExtendedPlayer.saveProxyData((EntityPlayer) event.entity)); */

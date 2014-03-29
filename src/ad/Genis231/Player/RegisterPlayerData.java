@@ -1,4 +1,4 @@
-package ad.Genis231.Research.Player;
+package ad.Genis231.Player;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

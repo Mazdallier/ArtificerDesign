@@ -6,7 +6,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ad.Genis231.BaseClass.ADItem;
-import ad.Genis231.Research.Player.PlayerData;
+import ad.Genis231.Player.PlayerData;
+import ad.Genis231.Player.PlayerRace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -19,11 +20,13 @@ public class Tome extends ADItem {
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
 		PlayerData props = PlayerData.get(player);
 		
+		int i = props.getRace().getID();
+		
 		if (!world.isRemote)
-			if (!player.isSneaking())
-				props.addPoints(20);
+			if (i < 3)
+				props.setRace(PlayerRace.getRace((i + 1)%4));
 			else
-				props.subPoints(200);
+				props.setRace(PlayerRace.getRace((i + 1)%4));
 		
 		return item;
 	}

@@ -25,7 +25,7 @@ public class Names {
 	public static final String AleLiquid = "AleLiquid";
 	
 	// VineMats: "VM_" + ...
-	public static final String[] VineMat = { "D1", "SA1", "ST1", "D2", "SA2", "ST2", "D3", "SA3", "ST3" };
+	public static final String[] VineMat = { "Dirt", "Sand", "Stone"};
 	
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };

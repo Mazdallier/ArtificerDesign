@@ -1,22 +1,13 @@
 //Blocks
-tile.RedGemOre.name=Red Gem Ore
 tile.DamBlock.name=Dam
-tile.ITable1.name=Imbueing Table (teir 1)
-tile.ITable2.name=Imbueing Table (teir 2)
 tile.Spike.name=Spike Pit
-tile.BTrap.name=Bear Trap
 tile.Drill.name=Drill (Broken)
 tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
-tile.FalseLoot.name=False Loot
 tile.MechCoin.name=Coining Mechine
 tile.AleLiquid.name=Liquid Ale
 
 //Items
-item.PureGem.name=Purified Gem
-item.ImPureGem.name=Impure Gem
-item.ABlood.name=Blessed Elve's Blood
-item.DBlood.name=Tainted Orc's Blood
 item.Rjournal.name=Restored Journal
 item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
@@ -28,58 +19,6 @@ entity.Artificer.Warrior.name=Warrior Dwarf
 entity.Artificer.Trader.name=Trader Dwarf
 
 //Vine Mats       
-item.VM_D1.name=Dirt Trap
-item.VM_SA1.name=Sand Trap
-item.VM_ST1.name=Stone Trap
-
-item.VM_D2.name=Dirt Trap
-item.VM_SA2.name=Sand Trap
-item.VM_ST2.name=Stone Trap 
-
-item.VM_D3.name=Dirt Trap
-item.VM_SA3.name=Sand Trap
-item.VM_ST3.name=Stone Trap
-
-//Skill Books:
-
-	//T1:
-item.BookT1_0.name=[Insert Name Here]
-item.BookT1_1.name=[Insert Name Here]
-item.BookT1_2.name=[Insert Name Here]
-item.BookT1_3.name=[Insert Name Here]
-item.BookT1_4.name=[Insert Name Here]
-item.BookT1_5.name=[Insert Name Here]
-item.BookT1_6.name=[Insert Name Here]
-item.BookT1_7.name=[Insert Name Here]
-item.BookT1_8.name=[Insert Name Here]
-
-	//T2:
-item.BookT2_0.name=[Insert Name Here]
-item.BookT2_1.name=[Insert Name Here]
-item.BookT2_2.name=[Insert Name Here]
-item.BookT2_3.name=[Insert Name Here]
-item.BookT2_4.name=[Insert Name Here]
-item.BookT2_5.name=[Insert Name Here]
-item.BookT2_6.name=[Insert Name Here]
-item.BookT2_7.name=[Insert Name Here]
-item.BookT2_8.name=[Insert Name Here]
-	//T3:
-item.BookT3_0.name=[Insert Name Here]
-item.BookT3_1.name=[Insert Name Here]
-item.BookT3_2.name=[Insert Name Here]
-item.BookT3_3.name=[Insert Name Here]
-item.BookT3_4.name=[Insert Name Here]
-item.BookT3_5.name=[Insert Name Here]
-item.BookT3_6.name=[Insert Name Here]
-item.BookT3_7.name=[Insert Name Here]
-item.BookT3_8.name=[Insert Name Here]
-	//T4:
-item.BookT4_0.name=[Insert Name Here]
-item.BookT4_1.name=[Insert Name Here]
-item.BookT4_2.name=[Insert Name Here]
-item.BookT4_3.name=[Insert Name Here]
-item.BookT4_4.name=[Insert Name Here]
-item.BookT4_5.name=[Insert Name Here]
-item.BookT4_6.name=[Insert Name Here]
-item.BookT4_7.name=[Insert Name Here]
-item.BookT4_8.name=[Insert Name Here]
+item.VM_Dirt.name=Dirt Trap
+item.VM_Sand.name=Sand Trap
+item.VM_Stone.name=Stone Trap

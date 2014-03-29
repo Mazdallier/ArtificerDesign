@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="ad/Genis231/Research/Player/PlayerProperties.java" kind="src" path="src"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Genis/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.2-10.12.0.1047/forgeSrc-1.7.2-10.12.0.1047.jar" sourcepath="C:/Users/Genis/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.2-10.12.0.1047/forgeSrc-1.7.2-10.12.0.1047-sources.jar"/>
