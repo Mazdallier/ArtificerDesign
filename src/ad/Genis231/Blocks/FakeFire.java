@@ -4,7 +4,6 @@ import net.minecraft.block.BlockFire;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.Entity.CustomExplosion;
 import ad.Genis231.lib.BlockTexture;
 import ad.Genis231.lib.Ref;
 
@@ -26,11 +25,6 @@ public class FakeFire extends BlockFire {
 	}
 	
 	public static void explode(World world, int x, int y, int z) {
-		CustomExplosion explosion = new CustomExplosion(world, (Entity) null, x, y, z, 5.0f);
-		explosion.isFlaming = true;
-		explosion.isSmoking = true;
-		explosion.doExplosionA();
-		explosion.doExplosionB(true);
-		
+		world.createExplosion((Entity) null, (double) x, (double) y, (double) z, 5.0f, true);
 	}
 }

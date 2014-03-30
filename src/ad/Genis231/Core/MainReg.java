@@ -41,13 +41,14 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.Spike, Names.SPIKE);
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
 		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
+		GameRegistry.registerBlock(ADBlocks.FakeFire, Names.GFIRE);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItems.tome, Names.Tome);
-		// GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
+		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		
 		GameRegistry.registerItem(ADItems.HumanBook, Names.HumanBook);
 		GameRegistry.registerItem(ADItems.DwarfBook, Names.DwarfBook);

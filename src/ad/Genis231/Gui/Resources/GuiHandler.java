@@ -1,10 +1,13 @@
-package ad.Genis231.Gui;
+package ad.Genis231.Gui.Resources;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Containers.CoiningContainer;
 import ad.Genis231.Containers.DrillContainer;
+import ad.Genis231.Gui.CoiningGui;
+import ad.Genis231.Gui.DrillGui;
+import ad.Genis231.Gui.SkillBookGui;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DrillTile;
 import cpw.mods.fml.common.network.IGuiHandler;

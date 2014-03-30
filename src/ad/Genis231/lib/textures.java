@@ -7,7 +7,7 @@ public class textures {
 	
 	// GUI
 	public static final ResourceLocation coining = new ResourceLocation(main, "textures/gui/coining.png");
-	public static final ResourceLocation SkillBook = new ResourceLocation(main, "textures/gui/SkillBook.png");
+	public static final ResourceLocation SkillBook = new ResourceLocation(main, "textures/gui/Book.png");
 	
 	// Overlay
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");
