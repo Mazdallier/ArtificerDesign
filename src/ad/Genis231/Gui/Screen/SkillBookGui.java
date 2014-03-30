@@ -1,8 +1,12 @@
-package ad.Genis231.Gui;
+package ad.Genis231.Gui.Screen;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import ad.Genis231.Gui.RenderIcons;
+import ad.Genis231.Gui.Tab;
+import ad.Genis231.Player.PlayerData;
+import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.lib.textures;
 
 public class SkillBookGui extends GuiScreen {
@@ -12,12 +16,14 @@ public class SkillBookGui extends GuiScreen {
 	int tabWidth = 12;
 	int tabHeight = 24;
 	int space = 20;
-	int currentTab = 0;
-	
+	Tab currentTab = Tab.ONE;
+	PlayerRace race;
 	int x;
 	int y;
 	
-	public SkillBookGui(EntityPlayer player, World world) {}
+	public SkillBookGui(EntityPlayer player, World world) {
+		race = PlayerData.get(player).getRace();
+	}
 	
 	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
 		if (clicked == 0)
@@ -32,20 +38,21 @@ public class SkillBookGui extends GuiScreen {
 		
 		this.drawTexturedModalRect(x, y, 0, 0, textWidth, textHeight);
 		drawTabWithPriority(this.currentTab);
+		drawIcons();
 		
 		super.drawScreen(mouseX, mouseY, par3);
 	}
 	
-	void drawTabWithPriority(int tabNumber) {
+	void drawTabWithPriority(Tab tab) {
 		for (int i = 0; i < 8; i++) {
-			if (i != tabNumber)
+			if (i != tab.getID())
 				this.drawTexturedModalRect(x - tabWidth, y + (space * i) + 5, this.textWidth + 1, (tabHeight + 1) * i, tabWidth, tabHeight);
 		}
 		
-		this.drawTexturedModalRect(x - tabWidth - 5, y + (space * tabNumber) + 5, this.textWidth + 1, (tabHeight + 1) * tabNumber, tabWidth + 5, tabHeight);
+		this.drawTexturedModalRect(x - tabWidth - 5, y + (space * tab.getID()) + 5, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + 5, tabHeight);
 	}
 	
-	int getClickedTab(int x, int y, int mouseX, int mouseY) {
+	Tab getClickedTab(int x, int y, int mouseX, int mouseY) {
 		
 		for (int i = 0; i < 8; i++) {
 			int minX = x - tabWidth;
@@ -55,9 +62,17 @@ public class SkillBookGui extends GuiScreen {
 			int maxY = minY + tabHeight;
 			
 			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
-				return i;
+				return Tab.values()[i];
 		}
 		
 		return this.currentTab;
+	}
+	
+	public void drawIcons() {
+		RenderIcons icons = new RenderIcons(this, this.currentTab, this.race);
+		
+		icons.registerIcons();
+		
+		icons.draw();
 	}
 }

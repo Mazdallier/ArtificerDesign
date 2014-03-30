@@ -15,4 +15,6 @@ public class textures {
 	// Mob Textures
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
 	
+	public static final ResourceLocation[] SkillBookIcons = { new ResourceLocation(main, "textures/gui/Human_Icons.png"), new ResourceLocation(main, "textures/gui/Elf_Icons.png"), new ResourceLocation(main, "textures/gui/Orc_Icons.png"), new ResourceLocation(main, "textures/gui/Dwarf_Icons.png") };
+	
 }
