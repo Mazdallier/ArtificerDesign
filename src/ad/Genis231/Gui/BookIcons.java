@@ -3,9 +3,15 @@ package ad.Genis231.Gui;
 public class BookIcons {
 	int gridX, gridY;
 	int x, y;
-	final int width = 13, height = 13;
-	boolean isActive = false;
+	final int width = 16, height = 16;
 	
+	// boolean isActive = false;
+	
+	/** ALWAYS start counting from 0
+	 * @param xGrix count from the left side over
+	 * @param yGrid row+extra row, 'row' will put u at the first row so dont add if you just want that
+	 * @param x this is where you want it to render in the book
+	 * @param y this is where you want it to render in the book */
 	public BookIcons(int gridX, int gridY, int x, int y) {
 		this.gridX = gridX;
 		this.gridY = gridY;
@@ -23,11 +29,11 @@ public class BookIcons {
 	}
 	
 	public int getGridX() {
-		return this.gridX * this.width - 1;
+		return this.gridX * this.width;
 	}
 	
 	public int getGridY() {
-		return this.gridY * this.height - 1;
+		return this.gridY * this.height;
 	}
 	
 	public int getWidth() {

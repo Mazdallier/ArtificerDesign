@@ -2,6 +2,7 @@ package ad.Genis231.Gui;
 
 import java.util.ArrayList;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;
 import ad.Genis231.Player.PlayerRace;
@@ -13,68 +14,77 @@ public class RenderIcons {
 	PlayerRace race;
 	ArrayList<BookIcons> icons = new ArrayList<BookIcons>();
 	ResourceLocation texture;
+	int x, y;
+	Minecraft mc;
 	
-	public RenderIcons(Gui gui, Tab tab, PlayerRace race) {
+	public RenderIcons(Minecraft mc, Gui gui, Tab tab, PlayerRace race, int x, int y) {
 		this.gui = gui;
 		this.tab = tab;
 		this.race = race;
-		
+		this.x = x;
+		this.y = y;
 		this.texture = textures.SkillBookIcons[race.getID()];
+		this.mc = mc;
 		
 	}
 	
 	public void registerIcons() {
+		icons.clear();
+		
 		switch (tab) {
 			case ONE:
-				this.registerTabOne();
+				this.registerTabOne(0);
 				break;
 			case TWO:
-				this.registerTabTwo();
+				this.registerTabTwo(2);
 				break;
 			case THREE:
-				this.registerTabThree();
+				this.registerTabThree(4);
 				break;
 			case FOUR:
-				this.registerTabFour();
+				this.registerTabFour(6);
 				break;
 			case FIVE:
-				this.registerTabFive();
+				this.registerTabFive(8);
 				break;
 			case SIX:
-				this.registerTabSix();
+				this.registerTabSix(10);
 				break;
 			case SEVEN:
-				this.registerTabSeven();
+				this.registerTabSeven(12);
 				break;
 			case EIGHT:
-				this.registerTabEight();
+				this.registerTabEight(14);
 				break;
 			default:
 				break;
 		}
 	}
 	
-	public void registerTabOne() {}
+	void registerTabOne(int row) {}
 	
-	public void registerTabTwo() {}
+	void registerTabTwo(int row) {}
 	
-	public void registerTabThree() {}
+	void registerTabThree(int row) {}
 	
-	public void registerTabFour() {}
+	void registerTabFour(int row) {}
 	
-	public void registerTabFive() {}
+	void registerTabFive(int row) {}
 	
-	public void registerTabSix() {}
+	void registerTabSix(int row) {}
 	
-	public void registerTabSeven() {}
+	void registerTabSeven(int row) {}
 	
-	public void registerTabEight() {}
+	void registerTabEight(int row) {}
 	
 	public void draw() {
+		Minecraft.getMinecraft().getTextureManager().bindTexture(this.texture);
+		
 		if (icons == null)
 			return;
 		
 		for (BookIcons i : icons) {
+			System.out.printf("X:%d Y:%d GridX:%d GridY:%d Width:%d Height:%d\n", i.getX(), i.getY(), i.getGridX(), i.getGridY(), i.getWidth(), i.getHeight());
 			gui.drawTexturedModalRect(i.getX(), i.getY(), i.getGridX(), i.getGridY(), i.getWidth(), i.getHeight());
 		}
 		
