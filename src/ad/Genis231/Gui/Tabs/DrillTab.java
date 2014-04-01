@@ -10,7 +10,7 @@ import ad.Genis231.lib.StringColor;
 public class DrillTab extends BookTabs {
 	
 	public DrillTab(int x, int y) {
-		super(0, 0, x, y, PlayerRace.DWARF, Tab.ONE);
+		super(0, 0, x, y,"Drill", PlayerRace.DWARF, Tab.ONE);
 	}
 	
 	@Override public ArrayList<String> toolTip(ArrayList<String> list) {

@@ -1,8 +1,10 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.BaseClass.ADBlock;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClass.ADBlock;
+import ad.Genis231.SkillBooks.BookReader;
 
 public class DwarvenStone extends ADBlock {
 	
@@ -11,5 +13,10 @@ public class DwarvenStone extends ADBlock {
 		setHardness(10.0f);
 	}
 	
-	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {}
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
+		
+		BookReader file = new BookReader("Drill");
+		
+		return true;
+	}
 }

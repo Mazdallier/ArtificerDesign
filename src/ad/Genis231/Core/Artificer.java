@@ -2,12 +2,14 @@ package ad.Genis231.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import ad.Genis231.Global.Overlay.EnterWorld;
 import ad.Genis231.Global.Overlay.ResearchPointsOverlay;
 import ad.Genis231.Gui.Resources.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
 import ad.Genis231.Player.RegisterPlayerData;
 import ad.Genis231.lib.Ref;
+import ad.Genis231.lib.config;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,16 +22,17 @@ import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
 	public static PacketPipeline packets = new PacketPipeline();
-	
-	// The instance of your mod that Forge uses.
+		
 	@Instance(Ref.MOD_ID) public static Artificer instance;
 	
-	// Says where the client and server 'proxy' code is loaded.
 	@SidedProxy(clientSide = "ad.Genis231.Core.ClientProxy", serverSide = "ad.Genis231.Core.CommonProxy") public static CommonProxy proxy;
 	
 	@EventHandler public void preInit(FMLPreInitializationEvent event) {
 		MainReg.Core();
 		MainReg.Recipes();
+		
+		new config(event);
+		
 	}
 	
 	@EventHandler public void load(FMLInitializationEvent event) {
@@ -48,7 +51,8 @@ import cpw.mods.fml.relauncher.Side;
 		
 		// MinecraftForge.EVENT_BUS.register(new ClassStats(Minecraft.getMinecraft()));
 		
-		if(event.getSide() == Side.CLIENT){
-		MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
-	}}
+		if (event.getSide() == Side.CLIENT) {
+			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
+		}
+	}
 }

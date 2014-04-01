@@ -3,6 +3,7 @@ package ad.Genis231.Gui.Resources;
 import java.util.ArrayList;
 
 import ad.Genis231.Player.PlayerRace;
+import ad.Genis231.SkillBooks.BookReader;
 
 public class BookTabs {
 	int gridX, gridY;
@@ -10,17 +11,19 @@ public class BookTabs {
 	final int width = 16, height = 16;
 	PlayerRace race;
 	Tab tab;
+	String desc;
 	
 	/** ALWAYS start counting from 0
 	 * @param xGrix count from the left side over
 	 * @param yGrid row+extra row, 'row' will put u at the first row so dont add if you just want that
 	 * @param x this is where you want it to render in the book
 	 * @param y this is where you want it to render in the book */
-	public BookTabs(int gridX, int gridY, int x, int y, PlayerRace race, Tab tab) {
+	public BookTabs(int gridX, int gridY, int x, int y, String desc, PlayerRace race, Tab tab) {
 		this.gridX = gridX;
 		this.gridY = gridY;
 		this.x = x;
 		this.y = y;
+		this.desc = desc;
 		this.race = race;
 		this.tab = tab;
 	}
@@ -31,6 +34,10 @@ public class BookTabs {
 		list.add("THIS HAS NO TOOLTIP!");
 		
 		return list;
+	}
+	
+	public ArrayList<String> getDesc() {
+		return new BookReader(this.desc).getText();
 	}
 	
 	public int getX() {

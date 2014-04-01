@@ -32,7 +32,7 @@ public class RenderIcons {
 	public void registerIcons() {
 		icons.clear();
 		{
-			icons.add(new DrillTab(x + 90, y + 85));
+			icons.add(new DrillTab(x + 200, y + 85));
 		}
 		clean();
 	}
@@ -44,7 +44,7 @@ public class RenderIcons {
 		}
 	}
 	
-	public ArrayList renderToolTip(int x, int y, int mouseX, int mouseY) {
+	public ArrayList mouseOver(int x, int y, int mouseX, int mouseY, boolean isToolTip) {
 		if (icons == null)
 			return null;
 		
@@ -57,7 +57,12 @@ public class RenderIcons {
 			int maxY = minY + i.getHeight();
 			
 			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY) {
-				list = i.toolTip(new ArrayList<String>());
+				
+				if (isToolTip)
+					list = i.toolTip(new ArrayList<String>());
+				else
+					list = i.getDesc();
+				
 				return list;
 			}
 		}
