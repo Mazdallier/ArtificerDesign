@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import ad.Genis231.Blocks.ItemBlocks.Drill;
+import ad.Genis231.Blocks.ItemBlocks.LiquidAle;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
@@ -19,8 +21,6 @@ import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ADItems;
 import ad.Genis231.lib.Names;
-import ad.Genis231.lib.ItemBlocks.Drill;
-import ad.Genis231.lib.ItemBlocks.LiquidAle;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 

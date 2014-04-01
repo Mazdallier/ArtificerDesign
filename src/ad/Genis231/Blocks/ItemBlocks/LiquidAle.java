@@ -1,4 +1,4 @@
-package ad.Genis231.lib.ItemBlocks;
+package ad.Genis231.Blocks.ItemBlocks;
 
 import java.util.List;
 
@@ -9,16 +9,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class Drill extends ItemBlock{
-
-	public Drill(Block block) {
+public class LiquidAle extends ItemBlock {
+	
+	public LiquidAle(Block block) {
 		super(block);
 	}
-	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
-		list.add("100% works just needs restone");
-		list.add("needs balanceing");
-		list.add("needs a new texture cough* cough*");
+		list.add(":3 dont drink too much!!");
 	}
-	
 }

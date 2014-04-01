@@ -1,4 +1,4 @@
-package ad.Genis231.Gui;
+package ad.Genis231.Gui.Resources;
 
 public enum Tab {
 	ONE(0), 

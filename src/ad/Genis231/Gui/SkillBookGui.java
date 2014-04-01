@@ -1,11 +1,18 @@
-package ad.Genis231.Gui.Screen;
+package ad.Genis231.Gui;
 
+import java.util.ArrayList;
+
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.Gui.RenderIcons;
-import ad.Genis231.Gui.Tab;
+
+import org.lwjgl.opengl.GL11;
+
+import ad.Genis231.Gui.Resources.RenderIcons;
+import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.lib.ADItems;
 import ad.Genis231.lib.textures;
@@ -19,8 +26,8 @@ public class SkillBookGui extends GuiScreen {
 	int space = 20;
 	Tab currentTab = Tab.ONE;
 	PlayerRace race;
-	int x;
-	int y;
+	int x, y;
+	RenderIcons icons;
 	
 	public SkillBookGui(EntityPlayer player, World world) {
 		ItemStack temp = player.inventory.getStackInSlot(player.inventory.currentItem);
@@ -41,7 +48,7 @@ public class SkillBookGui extends GuiScreen {
 		
 		this.drawTexturedModalRect(x, y, 0, 0, textWidth, textHeight);
 		drawTabWithPriority(this.currentTab);
-		drawIcons();
+		drawIcons(mouseX, mouseY);
 		
 		super.drawScreen(mouseX, mouseY, par3);
 	}
@@ -71,12 +78,25 @@ public class SkillBookGui extends GuiScreen {
 		return this.currentTab;
 	}
 	
-	void drawIcons() {
-		RenderIcons icons = new RenderIcons(this.mc,this, this.currentTab, this.race, this.x, this.y);
-		
+	void drawIcons(int mouseX, int mouseY) {
+		icons = new RenderIcons(this.mc, this, this.currentTab, this.race, this.x, this.y);
 		icons.registerIcons();
-		
 		icons.draw();
+		
+		ArrayList list = icons.renderToolTip(x, y, mouseX, mouseY);
+		FontRenderer font = this.fontRendererObj;
+		ScaledResolution scale = new ScaledResolution(this.mc.gameSettings, this.width, this.height);
+		float width = scale.getScaledWidth()/1.4f;
+		float height = scale.getScaledHeight() / 4.0f;
+		
+		if (list != null) {
+			GL11.glPushMatrix();
+			GL11.glScalef(0.75f, 0.75f, 0.0f);
+			GL11.glTranslatef(width, height, 0.0f);
+			this.drawHoveringText(list, mouseX, mouseY, font);
+			GL11.glPopMatrix();
+		}
+		
 	}
 	
 	PlayerRace getRacefromBook(ItemStack item) {

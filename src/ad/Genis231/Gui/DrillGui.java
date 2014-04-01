@@ -1,4 +1,4 @@
-package ad.Genis231.Gui.Screen;
+package ad.Genis231.Gui;
 
 import java.awt.Color;
 

@@ -1,4 +1,4 @@
-package ad.Genis231.Gui.Screen;
+package ad.Genis231.Gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
