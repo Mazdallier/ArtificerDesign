@@ -32,7 +32,7 @@ public class RenderIcons {
 	public void registerIcons() {
 		icons.clear();
 		{
-			icons.add(new DrillTab(x + 90, y + 85, PlayerRace.DWARF, Tab.ONE));
+			icons.add(new DrillTab(x + 90, y + 85));
 		}
 		clean();
 	}
