@@ -2,6 +2,7 @@ package ad.Genis231.Gui.Tabs;
 
 import java.util.ArrayList;
 
+import net.minecraft.client.renderer.texture.TextureMap;
 import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;

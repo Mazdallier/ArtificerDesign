@@ -31,7 +31,7 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
-		if (clicked == 0) {
+		if (clicked == 0 && this.isMain) {
 			currentTab = getClickedTab(x, y, mouseX, mouseY);
 			renderDesc(mouseX, mouseY);
 		} else if (clicked == 1) {
@@ -96,7 +96,7 @@ public class SkillBookGui extends GuiScreen {
 	void renderDesc(int mouseX, int mouseY) {
 		if (initIcons()) {
 			this.desc = icons.mouseOver(this.x, this.y, mouseX, mouseY, false);
-			this.isMain = desc==null;
+			this.isMain = desc == null;
 		}
 	}
 	
