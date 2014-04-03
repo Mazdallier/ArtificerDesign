@@ -2,11 +2,19 @@ package ad.Genis231.Gui;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.List;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import org.lwjgl.opengl.GL11;
+
+import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.RenderIcons;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
@@ -22,19 +30,30 @@ public class SkillBookGui extends GuiScreen {
 	PlayerRace race;
 	RenderIcons icons;
 	boolean isMain = true;
-	ArrayList<String> desc = new ArrayList<String>();
+	List<String> page = new ArrayList<String>();
+	BookTabs currentNode;
+	int currentPage;
+	int arrowX, arrowY;
+	int arrowSpace;
+	int arrowW, arrowH;
+	FontRenderer font;
+	Minecraft mc = Minecraft.getMinecraft();
 	
 	public SkillBookGui(EntityPlayer player, World world) {
+		this.font = this.mc.fontRenderer;
+		
 		ItemStack temp = player.inventory.getStackInSlot(player.inventory.currentItem);
 		if (temp != null)
 			race = this.getRacefromBook(temp);
 	}
 	
 	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
-		if (clicked == 0 && this.isMain) {
-			currentTab = getClickedTab(x, y, mouseX, mouseY);
-			renderDesc(mouseX, mouseY);
+		if (clicked == 0) {
+			if (this.isMain)
+				currentTab = getClickedTab(x, y, mouseX, mouseY);
+			renderPage(mouseX, mouseY, true);
 		} else if (clicked == 1) {
+			this.currentNode = null;
 			this.isMain = true;
 		}
 	}
@@ -45,15 +64,26 @@ public class SkillBookGui extends GuiScreen {
 		this.mc.getTextureManager().bindTexture(textures.SkillBook);
 		this.drawTexturedModalRect(x, y, 0, 0, textWidth, textHeight);
 		
+		arrowX = x + 10;
+		arrowY = y + 175;
+		arrowSpace = 155;
+		arrowW = 16;
+		arrowH = 9;
+		
 		if (this.isMain) {
 			drawTabWithPriority(this.currentTab);
 			drawIcons(mouseX, mouseY);
+			this.currentPage = 0;
 		} else {
-			if (desc != null) {
-				for (int i = 0; i < this.desc.size(); i++) {
-					this.fontRendererObj.drawString(this.desc.get(i), x + 6, y + 6 + (10 * i), Color.BLACK.getRGB());
+			if (this.currentPage > 0)
+				this.drawTexturedModalRect(arrowX, arrowY, 0, textHeight + 1, arrowW, arrowH);
+			if (hasNextPage())
+				this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + 1, arrowW, arrowH);
+			
+			if (page != null)
+				for (int i = 0; i < this.page.size(); i++) {
+					this.fontRendererObj.drawString(this.page.get(i), x + 6, y + 6 + (10 * i), Color.BLACK.getRGB());
 				}
-			}
 		}
 		
 		super.drawScreen(mouseX, mouseY, par3);
@@ -85,19 +115,73 @@ public class SkillBookGui extends GuiScreen {
 	
 	void drawIcons(int mouseX, int mouseY) {
 		if (initIcons()) {
-			ArrayList<String> list = icons.mouseOver(x, y, mouseX, mouseY, true);
+			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
+			
+			ScaledResolution scale = new ScaledResolution(this.mc.gameSettings, this.width, this.height);
+			float width = scale.getScaledWidth() / 1.6f;
+			float height = scale.getScaledHeight() / 4.0f;
 			
 			icons.draw();
-			if (list != null)
-				this.drawHoveringText(list, mouseX, mouseY, this.fontRendererObj);
+			if (list != null) {
+				GL11.glPushMatrix();
+				GL11.glScalef(0.75f, 0.75f, 0.0f);
+				GL11.glTranslatef(width, height, 0.0f);
+				this.drawHoveringText(list, mouseX, mouseY, this.font);
+				GL11.glPopMatrix();
+			}
 		}
 	}
 	
-	void renderDesc(int mouseX, int mouseY) {
+	boolean renderPage(int mouseX, int mouseY, boolean clicked) {
+		List<String> temp = new ArrayList<String>();
+		int pageNumber = this.currentPage;
+		if (clicked)
+			pageNumber += this.getNewPage(mouseX, mouseY);
+		
+		if (pageNumber < 0)
+			pageNumber = 0;
+		
 		if (initIcons()) {
-			this.desc = icons.mouseOver(this.x, this.y, mouseX, mouseY, false);
-			this.isMain = desc == null;
+			
+			if (this.currentNode == null)
+				this.currentNode = icons.getNode(mouseX, mouseY);
+			
+			temp = icons.renderPage(mouseX, mouseY, pageNumber, this.currentNode);
+			
+			if (temp != null) {
+				this.page = temp;
+				this.currentPage = pageNumber;
+				this.isMain = false;
+				return true;
+			}
 		}
+		
+		return false;
+	}
+	
+	int getNewPage(int mouseX, int mouseY) {
+		int minX = this.arrowX;
+		int maxX = minX + this.arrowW;
+		
+		int minY = this.arrowY;
+		int maxY = minY + this.arrowH;
+		
+		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
+			return -1;
+		
+		minX += this.arrowSpace;
+		maxX += this.arrowSpace;
+		
+		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
+			return 1;
+		
+		return 0;
+	}
+	
+	boolean hasNextPage() {
+		if (initIcons() && this.currentNode != null)
+			return this.currentPage < icons.getMaxPages(this.currentNode);
+		return false;
 	}
 	
 	boolean initIcons() {
