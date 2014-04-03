@@ -76,7 +76,7 @@ public class RenderIcons {
 		int newSize = this.maxLines * (newPage + 1);
 		
 		if (maxPages >= newPage) {
-			page = list.subList(this.maxLines * newPage, newSize < list.size() ? newSize : list.size() - 1);
+			page = list.subList(this.maxLines * newPage, newSize < list.size() ? newSize : list.size());
 			return page;
 		} else
 			return list;
