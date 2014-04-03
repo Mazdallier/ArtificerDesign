@@ -17,7 +17,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import ad.Genis231.Core.MainReg;
 import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.FMLCommonHandler;

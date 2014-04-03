@@ -1,7 +1,6 @@
 package ad.Genis231.lib;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import ad.Genis231.Blocks.CoiningMechine;
 import ad.Genis231.Blocks.DamBlock;
 import ad.Genis231.Blocks.Drill;

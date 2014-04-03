@@ -33,6 +33,6 @@ public class Tome extends ADItem {
 	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
 		list.add("This needs a texture!!");
-		list.add("This NEEDS to be balanced");
+		list.add("This will change the current class of the player");
 	}
 }

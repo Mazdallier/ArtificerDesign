@@ -32,7 +32,7 @@ public class VineMat extends ADItem {
 	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
 		int range = this.getRange(item);
-		list.add("Size of trap: "+ range+"x"+range);
+		list.add("Size of trap: " + range + "x" + range);
 	}
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
@@ -137,7 +137,7 @@ public class VineMat extends ADItem {
 	}
 	
 	@Override public String getUnlocalizedName(ItemStack itemstack) {
-		return this.getUnlocalizedName() + Names.VineMat[itemstack.getItemDamage()%3];
+		return this.getUnlocalizedName() + Names.VineMat[itemstack.getItemDamage() % 3];
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {

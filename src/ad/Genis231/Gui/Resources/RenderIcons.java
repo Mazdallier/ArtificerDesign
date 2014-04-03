@@ -44,7 +44,7 @@ public class RenderIcons {
 		}
 	}
 	
-	public ArrayList mouseOver(int x, int y, int mouseX, int mouseY, boolean isToolTip) {
+	public ArrayList<String> mouseOver(int x, int y, int mouseX, int mouseY, boolean isToolTip) {
 		if (icons == null)
 			return null;
 		

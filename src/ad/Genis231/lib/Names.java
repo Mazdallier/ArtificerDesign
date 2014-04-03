@@ -11,7 +11,6 @@ public class Names {
 	public static final String MechCoin = "MechCoin";
 	
 	// Items
-	public static final String RESTORED_JOURNAL = "Rjournal";
 	public static final String DREATHE = "DBreathe";
 	public static final String VINE_MAT = "VM_";
 	public static final String COIN = "coin";

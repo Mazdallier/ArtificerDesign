@@ -44,12 +44,12 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.FakeFire, Names.GFIRE);
 		
 		/* Items */
-		GameRegistry.registerItem(ADItems.RestoredJournal, Names.RESTORED_JOURNAL);
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
 		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
 		GameRegistry.registerItem(ADItems.tome, Names.Tome);
 		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		
+		/* Skill Books */
 		GameRegistry.registerItem(ADItems.HumanBook, Names.HumanBook);
 		GameRegistry.registerItem(ADItems.DwarfBook, Names.DwarfBook);
 		GameRegistry.registerItem(ADItems.ElfBook, Names.ElfBook);
@@ -62,11 +62,6 @@ public class MainReg {
 	}
 	
 	public static void Recipes() {
-		// Blocks
-		
-		// Items
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.RestoredJournal), "SGP", "BLP", "SGP", 'S', Items.string, 'B', Items.book, 'G', Items.gold_ingot, 'L', Items.leather, 'P', Items.paper);
-		
 		// Vine Mats
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
