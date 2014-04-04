@@ -22,7 +22,7 @@ group= "ad.Genis231"
 archivesBaseName = "Artificer's Design"
 
 minecraft {
-    version = "1.7.2-10.12.0.1048"
+    version = "1.7.2-10.12.0.1052"
     assetDir = "eclipse/assets"
 }
 
