@@ -1,10 +1,11 @@
-package ad.Genis231.Global.Overlay;
+package ad.Genis231.eventHandler;
 
 import java.awt.Color;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -35,7 +36,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		if (props == null) { return; }
 		
 		drawStatus(props, props.getRace());
-		//applyAtribbute(props.getRace());
+		applyAtribbute(props.getRace(), mc.thePlayer);
 	}
 	
 	public void drawStatus(PlayerData data, PlayerRace race) {
@@ -47,7 +48,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 		font.drawString("Current Class: " + race.getName(), 20, 30, Color.RED.getRGB());
 	}
 	
-	void applyAtribbute(PlayerRace race) {
+	void applyAtribbute(PlayerRace race, EntityPlayer player) {
+		player.sendPlayerAbilities();
+		
 		for (int size = 0; size < 65; size++) {
 			for (int meta = 0; meta < 16; meta++) {
 				this.mc.thePlayer.curePotionEffects(new ItemStack(Items.milk_bucket, size, meta));

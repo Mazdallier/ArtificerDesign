@@ -1,4 +1,4 @@
-package ad.Genis231.Global.Overlay;
+package ad.Genis231.eventHandler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;

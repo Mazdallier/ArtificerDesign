@@ -16,7 +16,7 @@ public class Drill extends ADBlockModel {
 		this.setHardness(5.0F);
 	}
 	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float posX, float posY, float posZ) {
 		if (player.isSneaking())
 			player.openGui(Artificer.instance, 1, world, x, y, z);
 		return false;

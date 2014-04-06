@@ -9,7 +9,7 @@ import ad.Genis231.lib.Ref;
 
 public class PlayerData implements IExtendedEntityProperties {
 	private int pointWatcher = 20;
-	private int raceWatcher = 21; // human=0 ,elf=1 ,orc=2 ,dwarf=3
+	private int raceWatcher = 21;
 	public static String PlayerData_ID = Ref.MOD_ID + "_PlayerData";
 	private EntityPlayer player;
 	

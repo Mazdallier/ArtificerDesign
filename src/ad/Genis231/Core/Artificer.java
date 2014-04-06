@@ -2,11 +2,11 @@ package ad.Genis231.Core;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
-import ad.Genis231.Global.Overlay.EnterWorld;
-import ad.Genis231.Global.Overlay.ResearchPointsOverlay;
 import ad.Genis231.Gui.Resources.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
 import ad.Genis231.Player.RegisterPlayerData;
+import ad.Genis231.eventHandler.EnterWorld;
+import ad.Genis231.eventHandler.ResearchPointsOverlay;
 import ad.Genis231.lib.Ref;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

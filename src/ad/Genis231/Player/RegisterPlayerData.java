@@ -15,5 +15,11 @@ public class RegisterPlayerData {
 		
 		if (player instanceof EntityPlayer && player.getExtendedProperties(PlayerData.PlayerData_ID) == null)
 			player.registerExtendedProperties(PlayerData.PlayerData_ID, new PlayerData((EntityPlayer) player));
+		
+		if (player instanceof EntityPlayer && PlayerResearch.get((EntityPlayer) player) == null)
+			PlayerResearch.register((EntityPlayer) player);
+		
+		if (player instanceof EntityPlayer && player.getExtendedProperties(PlayerResearch.PlayerData_ID) == null)
+			player.registerExtendedProperties(PlayerResearch.PlayerData_ID, new PlayerResearch((EntityPlayer) player));
 	}
 }

@@ -22,7 +22,7 @@ group= "ad.Genis231"
 archivesBaseName = "Artificer's Design"
 
 minecraft {
-    version = "1.7.2-10.12.0.1052"
+    version = "1.7.2-10.12.0.1054"
     assetDir = "eclipse/assets"
 }
 
@@ -31,7 +31,6 @@ sourceSets {
     main {
         java {
             srcDir 'src'
-            srcDir 'resources/assets/artificer/SkillBooks'
         }
         resources {
             srcDir 'resources'
@@ -53,7 +52,7 @@ processResources
         expand 'version':project.version, 'mcversion':project.minecraft.version
         
     }
-        
+    
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
