@@ -13,5 +13,5 @@ public class ItemTexture {
 	public static final String[] book = { Books + "Dwarf", Books + "Elf", Books + "Human", Books + "Orc" };
 	
 	// PTrap array
-	public static String[] PitTrap = { "Dirt1", "Sand1", "Stone1", "Dirt2", "Sand2", "Stone2", "Dirt3", "Sand3", "Stone3" };
+	public static String[] PitTrap = { "Teir1","Teir2","Teir3","dirt","sand","stone" };
 }

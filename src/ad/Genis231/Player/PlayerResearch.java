@@ -72,7 +72,6 @@ public class PlayerResearch implements IExtendedEntityProperties {
 	
 	@Override public void init(Entity entity, World world) {}
 	
-	/** Does everything I did in onLivingDeathEvent and it's static, so you now only need to use the following in the above event: ExtendedPlayer.saveProxyData((EntityPlayer) event.entity)); */
 	public static void saveProxyData(EntityPlayer player) {
 		PlayerResearch playerData = PlayerResearch.get(player);
 		NBTTagCompound savedData = new NBTTagCompound();

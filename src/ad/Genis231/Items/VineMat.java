@@ -21,7 +21,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class VineMat extends ADItem {
-	public static IIcon[] IconArray = new IIcon[9];
+	public static IIcon[] IconArray = new IIcon[6];
 	public static final int[] tiers = { 8, 16, 32 };
 	
 	public VineMat(String name) {
@@ -33,6 +33,10 @@ public class VineMat extends ADItem {
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
 		int range = this.getRange(item);
 		list.add("Size of trap: " + range + "x" + range);
+	}
+	
+	@Override @SideOnly(Side.CLIENT) public boolean requiresMultipleRenderPasses() {
+		return true;
 	}
 	
 	/** item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5 */
@@ -145,8 +149,21 @@ public class VineMat extends ADItem {
 			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + ItemTexture.PitTrap[i]);
 	}
 	
-	/** Gets an icon index based on an item's damage value */
-	@SideOnly(Side.CLIENT) public IIcon getIconFromDamage(int meta) {
-		return IconArray[meta];
+	@Override public IIcon getIcon(ItemStack item, int pass) {
+		int damage = item.getItemDamage();
+		int type = (damage % 3) + 3;
+		
+		if (pass == 0)
+			if (damage < 3)
+				return IconArray[0];
+			else if (damage < 6)
+				return IconArray[1];
+			else
+				return IconArray[2];
+		
+		else {
+			return IconArray[type];
+		}
+		
 	}
 }

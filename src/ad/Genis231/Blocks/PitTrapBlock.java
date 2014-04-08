@@ -1,8 +1,5 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.BaseClass.ADBlock;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +7,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import ad.Genis231.BaseClass.ADBlock;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class PitTrapBlock extends ADBlock {
 	
@@ -26,7 +26,9 @@ public class PitTrapBlock extends ADBlock {
 	}
 	
 	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
-		world.setBlockToAir(x, y, z);
+		System.out.printf("X:%d Y:%d Z:%d \n", player.chunkCoordX, player.chunkCoordX, player.chunkCoordX);
+		
+		// world.setBlockToAir(x, y, z);
 		
 		super.onEntityWalking(world, x, y, z, player);
 	}

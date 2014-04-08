@@ -2,9 +2,13 @@ package ad.Genis231.Player;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Core.CommonProxy;
+import ad.Genis231.Network.Packets.researchPacket;
 import ad.Genis231.lib.Ref;
 
 public class PlayerData implements IExtendedEntityProperties {
@@ -78,14 +82,23 @@ public class PlayerData implements IExtendedEntityProperties {
 			this.player.getDataWatcher().updateObject(pointWatcher, temp - i);
 	}
 	
-	/** Does everything I did in onLivingDeathEvent and it's static, so you now only need to use the following in the above event: ExtendedPlayer.saveProxyData((EntityPlayer) event.entity)); */
+	private static final String getSaveKey(EntityPlayer player) {
+		return player.getCommandSenderName() + ":" + PlayerData_ID;
+	}
+	
 	public static void saveProxyData(EntityPlayer player) {
 		PlayerData playerData = PlayerData.get(player);
 		NBTTagCompound savedData = new NBTTagCompound();
 		
 		playerData.saveNBTData(savedData);
+		CommonProxy.storeEntityData(getSaveKey(player), savedData);
 	}
 	
-	/** This cleans up the onEntityJoinWorld event by replacing most of the code with a single line: ExtendedPlayer.loadProxyData((EntityPlayer) event.entity)); */
-	public static void loadProxyData(EntityPlayer player) {}
+	public static final void loadProxyData(EntityPlayer player) {
+		PlayerResearch playerData = PlayerResearch.get(player);
+		NBTTagCompound savedData = CommonProxy.getEntityData(getSaveKey(player));
+		
+		if (savedData != null)
+			playerData.loadNBTData(savedData);
+	}
 }

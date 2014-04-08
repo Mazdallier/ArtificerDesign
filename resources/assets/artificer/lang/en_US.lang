@@ -1,4 +1,4 @@
-//Blocks
+# Blocks
 tile.DamBlock.name=Dam
 tile.Spike.name=Spike Pit
 tile.Drill.name=Drill (Broken)
@@ -7,22 +7,22 @@ tile.GFire.name=Green Fire of DOOM!!
 tile.MechCoin.name=Coining Mechine
 tile.AleLiquid.name=Liquid Ale
 
-//Items
+# Items
 item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
-//Mobs
+# Mobs
 entity.Artificer.Savage.name=Savage Dwarf
 entity.Artificer.Warrior.name=Warrior Dwarf
 entity.Artificer.Trader.name=Trader Dwarf
 
-//Vine Mats       
-item.Dirt.name=Dirt Trap
-item.Sand.name=Sand Trap
-item.Stone.name=Stone Trap
+# Vine Mats       
+item.VM_Dirt.name=Dirt Trap
+item.VM_Sand.name=Sand Trap
+item.VM_Stone.name=Stone Trap
 
-//SkillBooks
+# SkillBooks
 item.HumanBook.name=Human SkillBook
 item.DwarfBook.name=Dwarf SkillBook
 item.ElfBook.name=Elf SkillBook
