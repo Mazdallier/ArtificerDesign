@@ -38,6 +38,7 @@ public class SkillBookGui extends GuiScreen {
 	int arrowW, arrowH;
 	int arrowGap = 11;
 	FontRenderer font;
+	int maxPages;
 	Minecraft mc = Minecraft.getMinecraft();
 	
 	public SkillBookGui(EntityPlayer player, World world) {
@@ -87,6 +88,8 @@ public class SkillBookGui extends GuiScreen {
 					this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + arrowGap, arrowW, arrowH);
 				else
 					this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + 1, arrowW, arrowH);
+			
+			this.font.drawString(this.currentPage+"/"+this.maxPages, this.arrowX+(this.arrowSpace/2), this.arrowY, Color.BLACK.getRGB());
 			
 			if (page != null)
 				for (int i = 0; i < this.page.size(); i++) {
@@ -188,8 +191,9 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	boolean hasNextPage() {
-		if (initIcons() && this.currentNode != null)
-			return this.currentPage < icons.getMaxPages(this.currentNode);
+		if (initIcons() && this.currentNode != null){
+			this.maxPages = icons.getMaxPages(this.currentNode);
+			return this.currentPage < this.maxPages;}
 		return false;
 	}
 	
