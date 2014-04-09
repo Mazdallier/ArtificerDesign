@@ -25,6 +25,7 @@ public class ClientProxy extends CommonProxy {
 		
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.DrillRender = RenderingRegistry.getNextAvailableRenderId();
+		Ref.DwarvenRender = RenderingRegistry.getNextAvailableRenderId();
 		
 		ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeTileRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(DrillTile.class, new DrillRenderer());

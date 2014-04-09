@@ -1,24 +1,38 @@
 package ad.Genis231.SkillBooks;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import ad.Genis231.Gui.Resources.RenderIcons;
 
 public class BookReader {
 	Scanner scanner;
 	ArrayList<String> list = new ArrayList<String>();
 	
 	public BookReader(String name) {
-		try {
-			InputStream file = this.getClass().getResourceAsStream(name + ".artificer");
-			this.scanner = new Scanner(file);
-		}
-		catch (NullPointerException e) {
-			System.out.println("File '" + name + ".artificer" + "' Dose not Exist");
-		}
+		File file = new File("mods/desc/" + name + ".artificer");
+		
+		if (file.exists()) {
+			try {
+				this.scanner = new Scanner(file);
+			}
+			catch (FileNotFoundException e) {
+				System.out.println("ROAR!!!!");
+			}
+			
+		} else
+			try {
+				InputStream stream = this.getClass().getResourceAsStream(name + ".artificer");
+				this.scanner = new Scanner(stream);
+			}
+			catch (NullPointerException e) {
+				System.out.println("File '" + name + ".artificer" + "' Dose not Exist");
+			}
 		
 	}
 	
@@ -39,6 +53,11 @@ public class BookReader {
 				list.add(total);
 				total = "";
 				list.add("");
+				continue;
+			}
+			
+			if (part.contains("[tab]")) {
+				total += "   ";
 				continue;
 			}
 			

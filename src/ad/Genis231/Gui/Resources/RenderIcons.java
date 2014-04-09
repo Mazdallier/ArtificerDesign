@@ -17,7 +17,7 @@ public class RenderIcons {
 	ArrayList<BookTabs> icons = new ArrayList<BookTabs>();
 	ResourceLocation texture;
 	int x, y;
-	int maxLines = 16;
+	public static final int maxLines = 16;
 	Minecraft mc;
 	
 	public RenderIcons(Minecraft mc, GuiScreen gui, Tab tab, PlayerRace race, int x, int y) {

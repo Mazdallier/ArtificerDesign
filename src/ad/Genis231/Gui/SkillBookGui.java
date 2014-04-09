@@ -25,7 +25,7 @@ public class SkillBookGui extends GuiScreen {
 	int textWidth = 192, textHeight = 192;
 	int tabWidth = 12, tabHeight = 24;
 	int x, y;
-	int space = 20;
+	int tabSpace = 19;
 	Tab currentTab = Tab.ONE;
 	PlayerRace race;
 	RenderIcons icons;
@@ -36,6 +36,7 @@ public class SkillBookGui extends GuiScreen {
 	int arrowX, arrowY;
 	int arrowSpace;
 	int arrowW, arrowH;
+	int arrowGap = 11;
 	FontRenderer font;
 	Minecraft mc = Minecraft.getMinecraft();
 	
@@ -76,9 +77,16 @@ public class SkillBookGui extends GuiScreen {
 			this.currentPage = 0;
 		} else {
 			if (this.currentPage > 0)
-				this.drawTexturedModalRect(arrowX, arrowY, 0, textHeight + 1, arrowW, arrowH);
+				if (getNewPage(mouseX, mouseY) == -1)
+					this.drawTexturedModalRect(arrowX, arrowY, 0, textHeight + arrowGap, arrowW, arrowH);
+				else
+					this.drawTexturedModalRect(arrowX, arrowY, 0, textHeight + 1, arrowW, arrowH);
+			
 			if (hasNextPage())
-				this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + 1, arrowW, arrowH);
+				if (getNewPage(mouseX, mouseY) == 1)
+					this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + arrowGap, arrowW, arrowH);
+				else
+					this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + 1, arrowW, arrowH);
 			
 			if (page != null)
 				for (int i = 0; i < this.page.size(); i++) {
@@ -92,10 +100,10 @@ public class SkillBookGui extends GuiScreen {
 	void drawTabWithPriority(Tab tab) {
 		for (int i = 0; i < Tab.values().length; i++) {
 			if (i != tab.getID())
-				this.drawTexturedModalRect(x - tabWidth, y + (space * i) + 5, this.textWidth + 1, (tabHeight + 1) * i, tabWidth, tabHeight);
+				this.drawTexturedModalRect(x - tabWidth, y + (tabSpace * i) + 5, this.textWidth + 1, (tabHeight + 1) * i, tabWidth, tabHeight);
 		}
 		
-		this.drawTexturedModalRect(x - tabWidth - 5, y + (space * tab.getID()) + 5, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + 5, tabHeight);
+		this.drawTexturedModalRect(x - tabWidth - 5, y + (tabSpace * tab.getID()) + 5, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + 5, tabHeight);
 	}
 	
 	Tab getClickedTab(int x, int y, int mouseX, int mouseY) {
@@ -103,7 +111,7 @@ public class SkillBookGui extends GuiScreen {
 			int minX = x - tabWidth;
 			int maxX = minX + tabWidth;
 			
-			int minY = y + (space * i) + 5;
+			int minY = y + (tabSpace * i) + 5;
 			int maxY = minY + tabHeight;
 			
 			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
@@ -135,6 +143,7 @@ public class SkillBookGui extends GuiScreen {
 	boolean renderPage(int mouseX, int mouseY, boolean clicked) {
 		List<String> temp = new ArrayList<String>();
 		int pageNumber = this.currentPage;
+		
 		if (clicked)
 			pageNumber += this.getNewPage(mouseX, mouseY);
 		

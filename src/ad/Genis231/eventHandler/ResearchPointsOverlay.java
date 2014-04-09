@@ -7,10 +7,12 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+import ad.Genis231.BaseClass.ADSkillBook;
 import ad.Genis231.Player.PlayerData;
 import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.lib.textures;
@@ -46,6 +48,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 		font.drawStringWithShadow("Level: " + data.getPoints() / 200 + "      Total Points: " + data.getPoints(), 20, 10, Color.GREEN.getRGB());
 		
 		font.drawString("Current Class: " + race.getName(), 20, 30, Color.RED.getRGB());
+		
+		ItemStack stack = this.mc.thePlayer.inventory.getStackInSlot(this.mc.thePlayer.inventory.currentItem);
+		Item item;
+		
+		if (stack != null) {
+			item = stack.getItem();
+			if (item instanceof ADSkillBook) {
+				font.drawStringWithShadow("add a folder called 'desc' to ur mods folder", 20, 40, 0xFF63FF);
+				font.drawStringWithShadow("and fill it with *.artificer files that are in dropbox", 20, 50, 0xFF63FF);
+
+				font.drawStringWithShadow("To update the file just save the file!", 20, 70, 0xFF63FF);
+				font.drawStringWithShadow("If it dosent update then click on minecraft", 20, 80, 0xFF63FF);
+				font.drawStringWithShadow("if that dosent work let me know! :P", 20, 90, 0xFF63FF);
+			}
+		}
 	}
 	
 	void applyAtribbute(PlayerRace race, EntityPlayer player) {

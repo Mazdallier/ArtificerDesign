@@ -3,10 +3,10 @@ package ad.Genis231.Items;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClass.ADRaceBook;
+import ad.Genis231.BaseClass.ADSkillBook;
 import ad.Genis231.Core.Artificer;
 
-public class HumanBook extends ADRaceBook {
+public class HumanBook extends ADSkillBook {
 	
 	public HumanBook(String name, String Texture) {
 		super(name, Texture);

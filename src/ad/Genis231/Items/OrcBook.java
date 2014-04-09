@@ -7,14 +7,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClass.ADRaceBook;
+import ad.Genis231.BaseClass.ADSkillBook;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Player.PlayerData;
 import ad.Genis231.Player.PlayerRace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class OrcBook extends ADRaceBook {
+public class OrcBook extends ADSkillBook {
 	
 	public OrcBook(String name, String Texture) {
 		super(name, Texture);
