@@ -15,7 +15,6 @@ public class Ref {
 	/* Render IDs */
 	public static int SpikeRender;
 	public static int DrillRender;
-	public static int DwarvenRender;
 }
 
 class MainTAB extends CreativeTabs {

@@ -89,7 +89,7 @@ public class SkillBookGui extends GuiScreen {
 				else
 					this.drawTexturedModalRect(arrowX + arrowSpace, arrowY, 17, textHeight + 1, arrowW, arrowH);
 			
-			this.font.drawString(this.currentPage+"/"+this.maxPages, this.arrowX+(this.arrowSpace/2), this.arrowY, Color.BLACK.getRGB());
+			this.font.drawString(this.currentPage + 1 + "/" + (this.maxPages + 1), this.arrowX + (this.arrowSpace / 2), this.arrowY, Color.BLACK.getRGB());
 			
 			if (page != null)
 				for (int i = 0; i < this.page.size(); i++) {
@@ -158,7 +158,7 @@ public class SkillBookGui extends GuiScreen {
 			if (this.currentNode == null)
 				this.currentNode = icons.getNode(mouseX, mouseY);
 			
-			temp = icons.renderPage(mouseX, mouseY, pageNumber, this.currentNode);
+			temp = icons.renderPage(mouseX, mouseY, pageNumber,clicked, this.currentNode);
 			
 			if (temp != null) {
 				this.page = temp;
@@ -191,9 +191,10 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	boolean hasNextPage() {
-		if (initIcons() && this.currentNode != null){
+		if (initIcons() && this.currentNode != null) {
 			this.maxPages = icons.getMaxPages(this.currentNode);
-			return this.currentPage < this.maxPages;}
+			return this.currentPage < this.maxPages;
+		}
 		return false;
 	}
 	

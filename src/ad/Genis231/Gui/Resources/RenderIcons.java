@@ -19,6 +19,7 @@ public class RenderIcons {
 	int x, y;
 	public static final int maxLines = 16;
 	Minecraft mc;
+	List<String> page = new ArrayList<String>();
 	
 	public RenderIcons(Minecraft mc, GuiScreen gui, Tab tab, PlayerRace race, int x, int y) {
 		this.gui = gui;
@@ -58,15 +59,17 @@ public class RenderIcons {
 		return list;
 	}
 	
-	public List<String> renderPage(int mouseX, int mouseY, int newPage, BookTabs tab) {
+	public List<String> renderPage(int mouseX, int mouseY, int newPage, boolean clicked, BookTabs tab) {
+		if(!clicked && page!=null)return page;
+		
 		List<String> list = new ArrayList<String>();
-		List<String> page = new ArrayList<String>();
+		
 		double maxPages;
 		
 		if (this.icons == null || tab == null)
 			return null;
 		
-		list = tab.getDesc();
+		list = tab.getDesc(clicked);
 		
 		maxPages = (double) list.size() / (double) this.maxLines;
 		
@@ -85,7 +88,7 @@ public class RenderIcons {
 	
 	public int getMaxPages(BookTabs tab) {
 		List<String> list = new ArrayList<String>();
-		list = tab.getDesc();
+		list = tab.getDesc(false);
 		return (list.size() - 1) / this.maxLines;
 	}
 	
@@ -106,7 +109,7 @@ public class RenderIcons {
 				if (isToolTip)
 					list = i.toolTip(new ArrayList<String>());
 				else
-					list = i.getDesc();
+					list = i.getDesc(false);
 				
 				return list;
 			}

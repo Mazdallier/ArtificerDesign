@@ -31,12 +31,14 @@ public class BookReader {
 				this.scanner = new Scanner(stream);
 			}
 			catch (NullPointerException e) {
-				System.out.println("File '" + name + ".artificer" + "' Dose not Exist");
+				System.out.println("File: '" + name + ".artificer" + "' Dose not Exist");
 			}
 		
 	}
 	
 	public ArrayList<String> getText() {
+		System.out.println(":/ re-reading this stupid file");
+		
 		if (scanner == null) {
 			ArrayList<String> temp = new ArrayList<String>();
 			temp.add("This has no Description! :P");

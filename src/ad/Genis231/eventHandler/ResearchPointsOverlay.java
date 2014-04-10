@@ -1,6 +1,7 @@
 package ad.Genis231.eventHandler;
 
 import java.awt.Color;
+import java.io.File;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -55,12 +56,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 		if (stack != null) {
 			item = stack.getItem();
 			if (item instanceof ADSkillBook) {
-				font.drawStringWithShadow("add a folder called 'desc' to ur mods folder", 20, 40, 0xFF63FF);
-				font.drawStringWithShadow("and fill it with *.artificer files that are in dropbox", 20, 50, 0xFF63FF);
-
-				font.drawStringWithShadow("To update the file just save the file!", 20, 70, 0xFF63FF);
-				font.drawStringWithShadow("If it dosent update then click on minecraft", 20, 80, 0xFF63FF);
-				font.drawStringWithShadow("if that dosent work let me know! :P", 20, 90, 0xFF63FF);
+				if (!new File("mods/desc").exists()) {
+					font.drawStringWithShadow("add a folder called 'desc' to ur mods folder", 20, 45, 0xFF63FF);
+					font.drawStringWithShadow("and fill it with *.artificer files that are in dropbox", 20, 55, 0xFF63FF);
+					
+				} else {
+					
+					font.drawStringWithShadow("To update the file just save the file!", 19, 45, 0xFF63FF);
+					font.drawStringWithShadow("If it dosent update then try to change pages", 20, 55, 0xFF63FF);
+					font.drawStringWithShadow("If that dosent work let me know! :P", 20, 65, 0xFF63FF);
+				}
 			}
 		}
 	}

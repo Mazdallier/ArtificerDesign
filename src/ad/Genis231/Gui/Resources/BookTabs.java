@@ -11,6 +11,7 @@ public class BookTabs {
 	final int width = 16, height = 16;
 	PlayerRace race;
 	Tab tab;
+	ArrayList<String> total = new ArrayList<String>();
 	String desc;
 	
 	/** ALWAYS start counting from 0
@@ -36,8 +37,11 @@ public class BookTabs {
 		return list;
 	}
 	
-	public ArrayList<String> getDesc() {
-		return new BookReader(this.desc).getText();
+	public ArrayList<String> getDesc(boolean clicked) {
+		if (clicked)
+			this.total = new BookReader(this.desc).getText();
+		
+		return this.total;
 	}
 	
 	public int getX() {
