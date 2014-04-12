@@ -62,9 +62,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 					
 				} else {
 					
-					font.drawStringWithShadow("To update the file just save the file!", 19, 45, 0xFF63FF);
-					font.drawStringWithShadow("If it dosent update then try to change pages", 20, 55, 0xFF63FF);
-					font.drawStringWithShadow("If that dosent work let me know! :P", 20, 65, 0xFF63FF);
+					font.drawStringWithShadow("To update the file just save the file!", 20, 45, 0xFF63FF);
+					font.drawStringWithShadow("Then just click anywhere", 20, 55, 0xFF63FF);
 				}
 			}
 		}

@@ -6,13 +6,16 @@ This is a Description for the Drill node that can be changed from a text file th
 [n]
 [tab] this is far from the final version but this will be the temp. setup for it! :D
 [n]
-:D it will scale it down for you so don't worrie about paragraphing
-It will also auto-create pages! :D you better enjoy it cause it was a huge headache to do! xD but hey it works now and im happy!!
+[tab] It will scale it down for you so don't worrie about paragraphing!
+This will also auto-create pages! :D so you better enjoy it cause it was a huge headache to do! xD but hey it works now and i'm happy!! ^.^
 [n]
 I can also have it so it shows two pages at once like in thaumcraft, or keap it as is! :)
 this is to be added but i can also add pics to these pages and just have you add in a command like with the paragraphs but hey baby steps :3
 [n]
 
 [n] [n] 
-[n_] by it self it will make a new line!
-[tab_] it will add a tab
+[n ] by it self it will make a new line!
+[tab ] it will add a tab
+[n]
+if you do any of these commands but without seprateing them from the next word, it will still do the command but it will eat the word that is touching. [n]
+[n ]ROARZ == -new line- ~~NOT~~ -new line- ROARZ

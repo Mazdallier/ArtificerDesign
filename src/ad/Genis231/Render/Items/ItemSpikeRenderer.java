@@ -1,13 +1,6 @@
 package ad.Genis231.Render.Items;
 
-import static org.lwjgl.opengl.GL11.GL_LIGHTING;
-import static org.lwjgl.opengl.GL11.glDisable;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glRotatef;
-import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import ad.Genis231.Models.Blocks.SpikeModel;
@@ -37,7 +30,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		switch (type) {
 			case ENTITY:
-				renderSpikes(-0.5F, 0.0F, 0.5F, 2F);
+				renderSpikes(-0.5F, 0.0F, 0.5F, 1.5F);
 				return;
 				
 			case EQUIPPED:

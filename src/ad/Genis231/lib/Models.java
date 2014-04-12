@@ -7,4 +7,5 @@ public class Models {
 	
 	public static final ResourceLocation Spike = new ResourceLocation("artificer", Folder + "Spike.obj");
 	public static final ResourceLocation Drill = new ResourceLocation("artificer", Folder + "Drill.obj");
+	public static final ResourceLocation Generator = new ResourceLocation("artificer", Folder + "Generator.obj");
 }

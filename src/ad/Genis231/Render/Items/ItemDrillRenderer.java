@@ -1,9 +1,6 @@
 package ad.Genis231.Render.Items;
 
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glTranslatef;
+import static org.lwjgl.opengl.GL11.*;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import ad.Genis231.Models.Blocks.DrillModel;
@@ -33,7 +30,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 	@Override public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		switch (type) {
 			case ENTITY:
-				renderModel(0F, 0.0F, 0F, 2F);
+				 renderModel(0F, 0.0F, 0F, 2F);
 				return;
 				
 			case EQUIPPED:

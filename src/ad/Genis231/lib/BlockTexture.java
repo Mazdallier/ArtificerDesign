@@ -17,7 +17,7 @@ public class BlockTexture {
 	
 	// Model Textures
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
-	public static final ResourceLocation BearTrap = new ResourceLocation(main, "textures/blocks/Bear_Trap.png");
+	public static final ResourceLocation Generator = new ResourceLocation(main, "textures/blocks/Generator.png");
 	public static final ResourceLocation Drill = new ResourceLocation(main, "textures/blocks/Drill.png");
 	
 	// Dam array
