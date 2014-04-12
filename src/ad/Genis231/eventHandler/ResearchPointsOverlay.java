@@ -32,7 +32,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 	}
 	
 	@SubscribeEvent public void onRenderExperienceBar(RenderGameOverlayEvent event) {
-		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo) { return; }
+		
+		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo || true) { return; }
 		
 		PlayerData props = PlayerData.get(mc.thePlayer);
 		
