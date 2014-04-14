@@ -2,19 +2,24 @@ package ad.Genis231.SkillBooks;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import ad.Genis231.Gui.Resources.RenderIcons;
+import net.minecraft.util.ResourceLocation;
+import ad.Genis231.lib.Ref;
 
 public class BookReader {
 	Scanner scanner;
+	InputStream stream;
 	ArrayList<String> list = new ArrayList<String>();
 	
 	public BookReader(String name) {
+		ResourceLocation stuff = new ResourceLocation(Ref.Resource_FOLDER, "SkillBook/" + name + ".artificer");
+		
 		File file = new File("mods/desc/" + name + ".artificer");
 		
 		if (file.exists()) {
@@ -22,15 +27,18 @@ public class BookReader {
 				this.scanner = new Scanner(file);
 			}
 			catch (FileNotFoundException e) {
-				System.out.println("ROAR!!!!");
+				System.out.println("Scanner failed to initalize");
 			}
 			
 		} else
 			try {
-				InputStream stream = this.getClass().getResourceAsStream(name + ".artificer");
+				stream = Ref.getResource(stuff);
 				this.scanner = new Scanner(stream);
 			}
 			catch (NullPointerException e) {
+				System.out.println("Scanner failed to initalize");
+			}
+			catch (IOException e) {
 				System.out.println("File: '" + name + ".artificer" + "' Dose not Exist");
 			}
 		
@@ -73,6 +81,14 @@ public class BookReader {
 		list.add(total);
 		
 		scanner.close();
+		
+//		try {
+//			
+//			//stream.close();
+//		}
+//		catch (IOException e) {
+//			System.out.println("Scanner or InputStream Failed to close! :(");
+//		}
 		return list;
 		
 	}

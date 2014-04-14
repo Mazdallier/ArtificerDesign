@@ -3,12 +3,11 @@ package ad.Genis231.lib;
 import net.minecraft.util.ResourceLocation;
 
 public class textures {
-	private static String main = "artificer";
+	private static String main = Ref.Resource_FOLDER;
 	
 	// GUI
 	public static final ResourceLocation coining = new ResourceLocation(main, "textures/gui/coining.png");
-	//public static final ResourceLocation SkillBook = new ResourceLocation(main, "textures/gui/Book.png");
-	public static final ResourceLocation SkillBook = new ResourceLocation(main, "textures/gui/null.png");
+	public static final ResourceLocation SkillBook = new ResourceLocation(main, "textures/gui/Book.png");
 	
 	// Overlay
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");

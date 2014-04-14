@@ -32,15 +32,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 	}
 	
 	@SubscribeEvent public void onRenderExperienceBar(RenderGameOverlayEvent event) {
-		
-		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo || true) { return; }
+		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo) { return; }
 		
 		PlayerData props = PlayerData.get(mc.thePlayer);
 		
 		if (props == null) { return; }
 		
 		drawStatus(props, props.getRace());
-		applyAtribbute(props.getRace(), mc.thePlayer);
+		//applyAtribbute(props.getRace(), mc.thePlayer);
 	}
 	
 	public void drawStatus(PlayerData data, PlayerRace race) {

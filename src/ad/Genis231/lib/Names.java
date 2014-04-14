@@ -9,7 +9,6 @@ public class Names {
 	public static final String DSTONE = "DwarfStone";
 	public static final String GFIRE = "GFire";
 	public static final String MechCoin = "MechCoin";
-	public static final String Generator = "Gen";
 	
 	// Items
 	public static final String DREATHE = "DBreathe";
@@ -26,7 +25,7 @@ public class Names {
 	public static final String AleLiquid = "AleLiquid";
 	
 	// VineMats: "VM_" + ...
-	public static final String[] VineMat = { "Dirt", "Sand", "Stone"};
+	public static final String[] VineMat = { "Dirt", "Sand", "Stone" };
 	
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };

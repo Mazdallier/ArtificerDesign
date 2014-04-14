@@ -42,7 +42,6 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
 		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
 		GameRegistry.registerBlock(ADBlocks.FakeFire, Names.GFIRE);
-		GameRegistry.registerBlock(ADBlocks.Generator,Names.Generator);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
