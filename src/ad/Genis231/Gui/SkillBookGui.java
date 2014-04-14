@@ -63,7 +63,7 @@ public class SkillBookGui extends GuiScreen {
 	@Override public void drawScreen(int mouseX, int mouseY, float par3) {
 		x = (width - textWidth) / 2;
 		y = (height - textHeight) / 2;
-		this.mc.getTextureManager().bindTexture(textures.SkillBook);
+		this.mc.getTextureManager().bindTexture(textures.SkillBooks[race.getID()]);
 		this.drawTexturedModalRect(x, y, 0, 0, textWidth, textHeight);
 		
 		arrowX = x + 10;

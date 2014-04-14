@@ -17,7 +17,7 @@ public class RenderIcons {
 	ArrayList<BookTabs> icons = new ArrayList<BookTabs>();
 	ResourceLocation texture;
 	int x, y;
-	public static final int maxLines = 16;
+	public final int maxLines = 16;
 	Minecraft mc;
 	List<String> page = new ArrayList<String>();
 	
