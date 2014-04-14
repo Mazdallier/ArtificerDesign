@@ -15,6 +15,12 @@ public class ADTile extends BlockContainer {
 		this.setBlockName(name);
 	}
 	
+	public ADTile(Material material, String name) {
+		super(material);
+		this.setCreativeTab(Ref.MainTab);
+		this.setBlockName(name);
+	}
+	
 	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return null;
 	}

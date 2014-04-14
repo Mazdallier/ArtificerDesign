@@ -17,6 +17,7 @@ import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
 import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.model.DTableTile;
 import ad.Genis231.TileEntity.model.SpikeTile;
 import ad.Genis231.lib.ADBlocks;
 import ad.Genis231.lib.ADItems;
@@ -42,6 +43,7 @@ public class MainReg {
 		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
 		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
 		GameRegistry.registerBlock(ADBlocks.FakeFire, Names.GFIRE);
+		GameRegistry.registerBlock(ADBlocks.DTable, Names.DTable);
 		
 		/* Items */
 		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
@@ -56,9 +58,10 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.OrcBook, Names.OrcBook);
 		
 		/* TileEntities */
-		GameRegistry.registerTileEntity(SpikeTile.class, "SpikeTrap");
-		GameRegistry.registerTileEntity(DrillTile.class, "Drill");
-		GameRegistry.registerTileEntity(CoiningTile.class, "Coining");
+		GameRegistry.registerTileEntity(SpikeTile.class, Names.SPIKE);
+		GameRegistry.registerTileEntity(DrillTile.class, Names.DRILL);
+		GameRegistry.registerTileEntity(CoiningTile.class, Names.MechCoin);
+		GameRegistry.registerTileEntity(DTableTile.class, Names.DTable);
 	}
 	
 	public static void Recipes() {

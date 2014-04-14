@@ -21,6 +21,7 @@ public class Ref {
 	/* Render IDs */
 	public static int SpikeRender;
 	public static int DrillRender;
+	public static int DTableRender;
 	
 	public static InputStream getResource(ResourceLocation resource) throws IOException {
 		return Minecraft.getMinecraft().getResourceManager().getResource(resource).getInputStream();

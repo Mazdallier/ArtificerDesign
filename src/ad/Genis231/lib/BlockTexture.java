@@ -17,6 +17,7 @@ public class BlockTexture {
 	// Model Textures
 	public static final ResourceLocation Spike = new ResourceLocation(Ref.Resource_FOLDER, "textures/blocks/Spikes.png");
 	public static final ResourceLocation Drill = new ResourceLocation(Ref.Resource_FOLDER, "textures/blocks/Drill.png");
+	public static final ResourceLocation DTable = new ResourceLocation(Ref.Resource_FOLDER, "textures/blocks/DTable.png");
 	
 	// Dam array
 	public static final String[] Dam = { dam + "side", dam + "open", dam + "close" };

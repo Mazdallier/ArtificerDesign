@@ -11,7 +11,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import static org.lwjgl.opengl.GL11.*;
 
-@SideOnly(Side.CLIENT) public class SpikeTileRenderer extends TileEntitySpecialRenderer {
+@SideOnly(Side.CLIENT) public class SpikeRenderer extends TileEntitySpecialRenderer {
 	
 	private SpikeModel model = new SpikeModel();
 	

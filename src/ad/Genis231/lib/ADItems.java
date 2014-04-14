@@ -13,7 +13,7 @@ import ad.Genis231.Items.coin;
 public class ADItems {
 	public static final Item VineMat = new VineMat(Names.VINE_MAT);
 	public static final Item Coin = new coin(Names.COIN, ItemTexture.Coin);
-	public static final Item tome = new Tome(Names.Tome, "");
+	public static final Item tome = new Tome(Names.Tome, ItemTexture.tome);
 	public static final Item DragonBreathe = new DragonBreathe(Names.DREATHE, ItemTexture.DragonBreathe);
 	public static final Item DwarfBook = new DwarfBook(Names.DwarfBook, ItemTexture.book[0]);
 	public static final Item ElfBook = new ElfBook(Names.ElfBook, ItemTexture.book[1]);
