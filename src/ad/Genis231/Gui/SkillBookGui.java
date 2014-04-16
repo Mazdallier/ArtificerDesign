@@ -69,7 +69,7 @@ public class SkillBookGui extends GuiScreen {
 		arrowX = x + 10;
 		arrowY = y + 175;
 		arrowSpace = 155;
-		arrowW = 16;
+		arrowW = 17;
 		arrowH = 9;
 		
 		if (this.isMain) {
