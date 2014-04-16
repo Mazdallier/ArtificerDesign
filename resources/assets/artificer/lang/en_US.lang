@@ -15,6 +15,14 @@ item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
+item.EHoe.name=Elven Hoe
+item.EBow.name=Elven Bow
+item.EArrow.name=Elven Arrow
+item.EShovel.name=Elven Shovel
+item.EAxe.name=Elven Axe
+item.EPick.name=Elven Pick
+item.ESword.name=Elven Sword
+
 # Mobs
 entity.Artificer.Savage.name=Savage Dwarf
 entity.Artificer.Warrior.name=Warrior Dwarf
@@ -30,3 +38,9 @@ item.HumanBook.name=Human SkillBook
 item.DwarfBook.name=Dwarf SkillBook
 item.ElfBook.name=Elf SkillBook
 item.OrcBook.name=Orc SkillBook
+
+# CreativeTabs
+MainTab=Artificer's Design
+DwarfTab=Dwarven Equipment
+ElfTab=Elven Equipment
+OrcTab=Orc Equipment

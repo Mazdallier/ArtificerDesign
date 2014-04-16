@@ -26,10 +26,7 @@ public class PitTrapBlock extends ADBlock {
 	}
 	
 	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
-		System.out.printf("X:%d Y:%d Z:%d \n", player.chunkCoordX, player.chunkCoordX, player.chunkCoordX);
-		
-		// world.setBlockToAir(x, y, z);
-		
+		world.setBlockToAir(x, y, z);
 		super.onEntityWalking(world, x, y, z, player);
 	}
 	

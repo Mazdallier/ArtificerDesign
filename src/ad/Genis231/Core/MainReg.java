@@ -1,11 +1,15 @@
 package ad.Genis231.Core;
 
+import java.util.List;
+
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityList.EntityEggInfo;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fluids.Fluid;
@@ -26,44 +30,22 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MainReg {
-	public static final Fluid ale = new Fluid("AD_DwarvenAle");
+	public static final Fluid ale = new Fluid("DwarvenAle");
 	
 	public static void Core() {
-		/* Fluids */
 		FluidRegistry.registerFluid(ale);
+		
+		List<Block> blocks = ADBlocks.getBlocks();
+		List<Item> items = ADItems.getItems();
+		
+		for (Block current : blocks)
+			GameRegistry.registerBlock(current, current.getUnlocalizedName());
+		for (Item current : items)
+			GameRegistry.registerItem(current, current.getUnlocalizedName());		
 		
 		/* Blocks WITH ItemBlocks */
 		GameRegistry.registerBlock(ADBlocks.Drill, DrillIBlock.class, Names.DRILL);
 		GameRegistry.registerBlock(ADBlocks.AleLiquid, AleIBlock.class, Names.AleLiquid);
-		
-		/* Blocks */
-		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");
-		GameRegistry.registerBlock(ADBlocks.Dam, Names.DAM_BLOCK);
-		GameRegistry.registerBlock(ADBlocks.Spike, Names.SPIKE);
-		GameRegistry.registerBlock(ADBlocks.DwarvenStone, Names.DSTONE);
-		GameRegistry.registerBlock(ADBlocks.coiningMech, Names.MechCoin);
-		GameRegistry.registerBlock(ADBlocks.FakeFire, Names.GFIRE);
-		GameRegistry.registerBlock(ADBlocks.DTable, Names.DTable);
-		
-		/* Items */
-		GameRegistry.registerItem(ADItems.VineMat, Names.VINE_MAT);
-		GameRegistry.registerItem(ADItems.Coin, Names.COIN);
-		GameRegistry.registerItem(ADItems.tome, Names.Tome);
-		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
-		
-		GameRegistry.registerItem(ADItems.ElfArrow, Names.ElfArrow);
-		GameRegistry.registerItem(ADItems.ElfBow, Names.ElfBow);
-		GameRegistry.registerItem(ADItems.ElfAxe, Names.ElfAxe);
-		GameRegistry.registerItem(ADItems.ElfHoe, Names.ElfHoe);
-		GameRegistry.registerItem(ADItems.ElfPickaxe, Names.ElfPickaxe);
-		GameRegistry.registerItem(ADItems.ElfShovel, Names.ElfShovel);
-		GameRegistry.registerItem(ADItems.ElfSword, Names.ElfSword);
-		
-		/* Skill Books */
-		GameRegistry.registerItem(ADItems.HumanBook, Names.HumanBook);
-		GameRegistry.registerItem(ADItems.DwarfBook, Names.DwarfBook);
-		GameRegistry.registerItem(ADItems.ElfBook, Names.ElfBook);
-		GameRegistry.registerItem(ADItems.OrcBook, Names.OrcBook);
 		
 		/* TileEntities */
 		GameRegistry.registerTileEntity(SpikeTile.class, Names.SPIKE);

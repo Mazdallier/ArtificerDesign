@@ -45,11 +45,9 @@ public class BookReader {
 	}
 	
 	public ArrayList<String> getText() {
-		System.out.println(":/ re-reading this stupid file");
-		
 		if (scanner == null) {
 			ArrayList<String> temp = new ArrayList<String>();
-			temp.add("This has no Description! :P");
+			temp.add("This has no File to be read! :P");
 			return temp;
 		}
 		FontRenderer font = Minecraft.getMinecraft().fontRenderer;
@@ -81,14 +79,6 @@ public class BookReader {
 		list.add(total);
 		
 		scanner.close();
-		
-//		try {
-//			
-//			//stream.close();
-//		}
-//		catch (IOException e) {
-//			System.out.println("Scanner or InputStream Failed to close! :(");
-//		}
 		return list;
 		
 	}

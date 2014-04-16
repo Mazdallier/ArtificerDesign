@@ -1,5 +1,8 @@
 package ad.Genis231.Refrence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.item.Item;
 import ad.Genis231.Items.DragonBreathe;
 import ad.Genis231.Items.DwarfBook;
@@ -34,4 +37,28 @@ public class ADItems {
 	public static final Item ElfPickaxe = new ElfPickaxe(Names.ElfPickaxe);
 	public static final Item ElfShovel = new ElfShovel(Names.ElfShovel);
 	public static final Item ElfSword = new ElfSword(Names.ElfSword);
+	
+	public static List<Item> getItems() {
+		List<Item> items = new ArrayList<Item>();
+		
+		items.add(VineMat);
+		items.add(Coin);
+		items.add(tome);
+		items.add(DragonBreathe);
+		
+		items.add(HumanBook);
+		items.add(DwarfBook);
+		items.add(ElfBook);
+		items.add(OrcBook);
+		
+		items.add(ElfSword);
+		items.add(ElfBow);
+		items.add(ElfArrow);
+		items.add(ElfPickaxe);
+		items.add(ElfAxe);
+		items.add(ElfShovel);
+		items.add(ElfHoe);
+		
+		return items;
+	}
 }

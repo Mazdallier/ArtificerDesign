@@ -16,9 +16,9 @@ public class Ref {
 	public static final String Resource_FOLDER = "artificer";
 	
 	public static final CreativeTabs MainTab = new MainTAB("Artificer's Design");
-	public static final CreativeTabs DwarfTab = new DwarfTAB("Dwarf Equipment");
-	public static final CreativeTabs OrcTab = new OrcTAB("Orc Equipment");
-	public static final CreativeTabs ElfTab = new ElfTAB("Elf Equipment");
+	public static final CreativeTabs DwarfTab = new DwarfTAB("DwarfTab");
+	public static final CreativeTabs ElfTab = new ElfTAB("ElfTab");
+	public static final CreativeTabs OrcTab = new OrcTAB("OrcTab");
 	
 	/* Render IDs */
 	public static int SpikeRender;

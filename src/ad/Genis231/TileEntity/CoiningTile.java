@@ -98,13 +98,10 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 	@Override public boolean isItemValidForSlot(int slot, ItemStack item) {
 		switch (slot) {
 			case 0:
-				System.out.println("Slot One: " + item.getItem().getUnlocalizedName());
 				return item.getItem() == Items.gold_nugget;
 			case 1:
-				System.out.println("Slot Two: " + item.getItem().getUnlocalizedName());
 				return item.getItem() == ADItems.Coin;
 			default:
-				System.out.println("Invalid Slot");
 				return false;
 		}
 	}

@@ -1,5 +1,8 @@
 package ad.Genis231.Refrence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import ad.Genis231.Blocks.CoiningMechine;
 import ad.Genis231.Blocks.DamBlock;
@@ -22,4 +25,19 @@ public class ADBlocks {
 	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
 	public static final Block FakeFire = new FakeFire(Names.GFIRE).setCreativeTab(Ref.MainTab);
 	public static final Block DTable = new DwarfTable(Names.DTable);
+	
+	public static List<Block> getBlocks() {
+		List<Block> blocks = new ArrayList<Block>();
+		
+		blocks.add(coiningMech);
+		blocks.add(Dam);
+		blocks.add(Spike);
+		blocks.add(FalsePitTrap);
+		blocks.add(FakeFire);
+		
+		blocks.add(DTable);
+		blocks.add(DwarvenStone);
+		
+		return blocks;
+	}
 }

@@ -39,7 +39,7 @@ public class textures {
 	public static final String Coin = items + "coin";
 	public static final String tome = items + "tome";
 	
-	public static final String ElfBow = Elf + "bow_standby";
+	public static final String ElfBow = Elf + "bow_idle";
 	public static final String ElfArrow = Elf + "Arrow";
 	public static final String ElfAxe = Elf + "Axe";
 	public static final String ElfHoe = Elf + "Hoe";

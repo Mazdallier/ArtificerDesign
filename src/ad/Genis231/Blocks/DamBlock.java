@@ -47,9 +47,7 @@ public class DamBlock extends ADBlock {
 		}
 	}
 	
-	public void set(World world, int x, int y, int z, int side) {
-		System.out.println("Water side: " + ForgeDirection.values()[ForgeDirection.OPPOSITES[side]] + " Placeing: " + ForgeDirection.values()[side]);
-		
+	public void set(World world, int x, int y, int z, int side) {		
 		if (blockIsSide(world, x, y, z, Blocks.water, ForgeDirection.OPPOSITES[side]))
 			setBlock(world, x, y, z, Blocks.water, side);
 	}
