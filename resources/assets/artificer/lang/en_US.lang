@@ -21,8 +21,16 @@ item.EBow.name=Elven Bow
 item.EArrow.name=Elven Arrow
 item.EShovel.name=Elven Shovel
 item.EAxe.name=Elven Axe
-item.EPick.name=Elven Pick
+item.EPick.name=Elven Pickaxe
 item.ESword.name=Elven Sword
+
+item.OHoe.name=Orcish Hoe
+item.OBow.name=Orcish Bow
+item.OArrow.name=Orcish Arrow
+item.OShovel.name=Orcish Shovel
+item.OAxe.name=Orcish Axe
+item.OPick.name=Orcish Hammer
+item.OSword.name=Orcish Sword
 
 # Mobs
 entity.Artificer.Savage.name=Savage Dwarf

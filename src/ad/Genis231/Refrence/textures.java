@@ -52,4 +52,12 @@ public class textures{
 	public static final String ElfPickaxe = Elf + "Pickaxe";
 	public static final String ElfShovel = Elf + "Shovel";
 	public static final String ElfSword = Elf + "Sword";
+	
+	public static final String OrcBow = Orc + "Bow";
+	public static final String OrcArrow = Orc + "Arrow";
+	public static final String OrcAxe = Orc + "Axe";
+	public static final String OrcHoe = Orc + "Hoe";
+	public static final String OrcHammer = Orc + "Hammer";
+	public static final String OrcShovel = Orc + "Shovel";
+	public static final String OrcSword = Orc + "Sword";
 }
