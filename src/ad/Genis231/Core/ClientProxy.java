@@ -1,7 +1,5 @@
 package ad.Genis231.Core;
 
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.MinecraftForgeClient;
 import ad.Genis231.Models.mobs.DwarfModel;
 import ad.Genis231.Refrence.ADBlocks;
 import ad.Genis231.Refrence.Ref;
@@ -17,25 +15,27 @@ import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.TileEntity.SpikeTile;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.MinecraftForgeClient;
 
-public class ClientProxy extends CommonProxy {
-	
-	public void registerRenderers() {
-		
-		for (int i = 0; i < MainReg.dwarfClass.length; i++) {
-			RenderingRegistry.registerEntityRenderingHandler(MainReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 5F, i));
+public class ClientProxy extends CommonProxy{
+
+	public void registerRenderers(){
+
+		for(int i = 0; i < MainReg.dwarfClass.length; i++){
+			RenderingRegistry.registerEntityRenderingHandler(MainReg.dwarfClass[i],new dwarfRenderer(new DwarfModel(),5F,i));
 		}
-		
+
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.DrillRender = RenderingRegistry.getNextAvailableRenderId();
 		Ref.DTableRender = RenderingRegistry.getNextAvailableRenderId();
-		
-		ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class, new SpikeRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(DrillTile.class, new DrillRenderer());
-		ClientRegistry.bindTileEntitySpecialRenderer(DTableTile.class, new DTableRenderer());
-		
-		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.Spike).getItem(), new ItemSpikeRenderer());
-		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.Drill).getItem(), new ItemDrillRenderer());
-		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.DTable).getItem(), new ItemDTableRenderer());
+
+		ClientRegistry.bindTileEntitySpecialRenderer(SpikeTile.class,new SpikeRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(DrillTile.class,new DrillRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(DTableTile.class,new DTableRenderer());
+
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.Spike).getItem(),new ItemSpikeRenderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.Drill).getItem(),new ItemDrillRenderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.DTable).getItem(),new ItemDTableRenderer());
 	}
 }

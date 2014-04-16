@@ -1,19 +1,20 @@
 package ad.Genis231.Gui.Tabs;
 
-import java.util.ArrayList;
-
 import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.Resources.StringColor;
 
-public class DrillTab extends BookTabs {
-	
-	public DrillTab(int x, int y) {
-		super(0, 0, x, y, "Drill", PlayerRace.DWARF, Tab.ONE);
+import java.util.ArrayList;
+
+public class DrillTab extends BookTabs{
+
+	public DrillTab(int x,int y){
+		super(0,0,x,y,"Drill",PlayerRace.DWARF,Tab.ONE);
 	}
-	
-	@Override public ArrayList<String> toolTip(ArrayList<String> list) {
+
+	@Override
+	public ArrayList<String> toolTip(ArrayList<String> list){
 		list.add(StringColor.Light_Red + "If the tooltip dose not render correctly change ur window size");
 		list.add(StringColor.Light_Red + "this will be fixed soon-ish");
 		list.add("");
@@ -27,7 +28,7 @@ public class DrillTab extends BookTabs {
 		list.add("each node will have its own page in more detail :)");
 		list.add("");
 		list.add(StringColor.Purple + "You " + StringColor.Orange + "can " + StringColor.Pink + "add " + StringColor.Light_Green + "colors!!");
-		
+
 		return list;
 	}
 }

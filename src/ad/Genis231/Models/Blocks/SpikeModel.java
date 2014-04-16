@@ -7,16 +7,17 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-@SideOnly(Side.CLIENT) public class SpikeModel extends ModelBase {
-	
+@SideOnly(Side.CLIENT)
+public class SpikeModel extends ModelBase{
+
 	private IModelCustom model;
-	
-	public SpikeModel() {
-		
+
+	public SpikeModel(){
+
 		model = AdvancedModelLoader.loadModel(Models.Spike);
 	}
-	
-	public void render() {
+
+	public void render(){
 		model.renderAll();
 	}
 }

@@ -10,6 +10,7 @@ tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
 tile.MechCoin.name=Coining Mechine
 tile.AleLiquid.name=Liquid Ale
+tile.DTable.name=Dwarven Research Table
 
 # Items
 item.DBreathe.name=Dragon's Breathe
