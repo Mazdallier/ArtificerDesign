@@ -51,6 +51,14 @@ public class MainReg {
 		GameRegistry.registerItem(ADItems.tome, Names.Tome);
 		GameRegistry.registerItem(ADItems.DragonBreathe, Names.DREATHE);
 		
+		GameRegistry.registerItem(ADItems.ElfArrow, Names.ElfArrow);
+		GameRegistry.registerItem(ADItems.ElfBow, Names.ElfBow);
+		GameRegistry.registerItem(ADItems.ElfAxe, Names.ElfAxe);
+		GameRegistry.registerItem(ADItems.ElfHoe, Names.ElfHoe);
+		GameRegistry.registerItem(ADItems.ElfPickaxe, Names.ElfPickaxe);
+		GameRegistry.registerItem(ADItems.ElfShovel, Names.ElfShovel);
+		GameRegistry.registerItem(ADItems.ElfSword, Names.ElfSword);
+		
 		/* Skill Books */
 		GameRegistry.registerItem(ADItems.HumanBook, Names.HumanBook);
 		GameRegistry.registerItem(ADItems.DwarfBook, Names.DwarfBook);
@@ -70,7 +78,7 @@ public class MainReg {
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
 		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
 		
-		for (int i = 3; i < 10; i++) {
+		for (int i = 3; i < 9; i++) {
 			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItems.VineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
 		}
 	}

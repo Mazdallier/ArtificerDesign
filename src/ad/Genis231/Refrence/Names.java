@@ -30,4 +30,12 @@ public class Names {
 	
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };
+	
+	public static final String ElfBow = "EBow";
+	public static final String ElfArrow = "EArrow";
+	public static final String ElfAxe = "EAxe";
+	public static final String ElfHoe = "EHoe";
+	public static final String ElfPickaxe = "EPick";
+	public static final String ElfShovel = "EShovel";
+	public static final String ElfSword = "ESword";
 }
