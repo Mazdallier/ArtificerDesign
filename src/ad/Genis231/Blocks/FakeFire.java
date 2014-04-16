@@ -25,6 +25,6 @@ public class FakeFire extends BlockFire{
 	}
 
 	public static void explode(World world,int x,int y,int z){
-		world.createExplosion((Entity) null,(double) x,(double) y,(double) z,5.0f,true);
+		world.createExplosion( null,(double) x,(double) y,(double) z,5.0f,true);
 	}
 }

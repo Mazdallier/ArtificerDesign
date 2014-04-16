@@ -40,7 +40,7 @@ public class GuiHandler implements IGuiHandler{
 			case 2:// Coining Mechine
 				return new CoiningGui(player.inventory,(CoiningTile) tile,world,x,y,z);
 			case 3:
-				return new SkillBookGui(player,world);
+				return new SkillBookGui(player);
 			default:
 				return null;
 		}

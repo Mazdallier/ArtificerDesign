@@ -21,14 +21,14 @@ import java.util.List;
 
 public class SkillBookGui extends GuiScreen{
 	int textWidth = 192, textHeight = 192;
-	int tabWidth = 12, tabHeight = 24;
+	int tabWidth = 15, tabHeight = 30;
 	int x, y;
-	int tabSpace = 19;
+	int tabSpace =23;
 	Tab currentTab = Tab.ONE;
 	PlayerRace race;
 	RenderIcons icons;
 	boolean isMain = true;
-	List<String> page = new ArrayList<String>();
+	List<String> page;
 	BookTabs currentNode;
 	int currentPage;
 	int arrowX, arrowY;
@@ -39,7 +39,7 @@ public class SkillBookGui extends GuiScreen{
 	int maxPages;
 	Minecraft mc = Minecraft.getMinecraft();
 
-	public SkillBookGui(EntityPlayer player,World world){
+	public SkillBookGui(EntityPlayer player){
 		this.font = this.mc.fontRenderer;
 
 		ItemStack temp = player.inventory.getStackInSlot(player.inventory.currentItem);
@@ -93,12 +93,26 @@ public class SkillBookGui extends GuiScreen{
 	}
 
 	void drawTabWithPriority(Tab tab){
-		for(int i = 0; i < Tab.values().length; i++){
-			if(i != tab.getID())
-				this.drawTexturedModalRect(x - tabWidth,y + (tabSpace * i) + 5,this.textWidth + 1,(tabHeight + 1) * i,tabWidth,tabHeight);
+		int gap;
+		if(race==PlayerRace.DWARF){
+			this.tabHeight=30;
+			this.tabWidth=15;
+			this.tabSpace=23;
+			gap=7;
+		}else{
+			this.tabHeight = 24;
+			this.tabWidth = 12;
+			this.tabSpace = 19;
+			gap=5;
 		}
 
-		this.drawTexturedModalRect(x - tabWidth - 5,y + (tabSpace * tab.getID()) + 5,this.textWidth + 1,(tabHeight + 1) * tab.getID(),tabWidth + 5,tabHeight);
+
+		for(int i = 0; i < Tab.values().length; i++){
+			if(i != tab.getID())
+				this.drawTexturedModalRect(x - tabWidth,y + (tabSpace * i)+1,this.textWidth + 1,(tabHeight + 1) * i,tabWidth,tabHeight);
+		}
+
+		this.drawTexturedModalRect(x - tabWidth - gap,y + (tabSpace * tab.getID())+1,this.textWidth + 1,(tabHeight + 1) * tab.getID(),tabWidth + gap,tabHeight);
 	}
 
 	Tab getClickedTab(int x,int y,int mouseX,int mouseY){
@@ -148,7 +162,7 @@ public class SkillBookGui extends GuiScreen{
 
 			if(this.currentNode == null) this.currentNode = icons.getNode(mouseX,mouseY);
 
-			temp = icons.renderPage(mouseX,mouseY,pageNumber,clicked,this.currentNode);
+			temp = icons.renderPage(pageNumber,clicked,this.currentNode);
 
 			if(temp != null){
 				this.page = temp;

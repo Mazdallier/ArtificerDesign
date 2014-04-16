@@ -14,12 +14,12 @@ public class RenderIcons{
 	GuiScreen gui;
 	Tab tab;
 	PlayerRace race;
-	ArrayList<BookTabs> icons = new ArrayList<BookTabs>();
+	ArrayList<BookTabs> icons;
 	ResourceLocation texture;
 	int x, y;
 	public final int maxLines = 16;
 	Minecraft mc;
-	List<String> page = new ArrayList<String>();
+	List<String> page;
 
 	public RenderIcons(Minecraft mc,GuiScreen gui,Tab tab,PlayerRace race,int x,int y){
 		this.gui = gui;
@@ -47,7 +47,7 @@ public class RenderIcons{
 	}
 
 	public ArrayList<String> renderToolTip(int mouseX,int mouseY){
-		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list;
 		BookTabs tab = getNode(mouseX,mouseY);
 
 		if(this.icons == null || tab == null) return null;
@@ -57,10 +57,10 @@ public class RenderIcons{
 		return list;
 	}
 
-	public List<String> renderPage(int mouseX,int mouseY,int newPage,boolean clicked,BookTabs tab){
+	public List<String> renderPage(int newPage,boolean clicked,BookTabs tab){
 		if(!clicked && page != null) return page;
 
-		List<String> list = new ArrayList<String>();
+		List<String> list;
 
 		double maxPages;
 
@@ -82,32 +82,9 @@ public class RenderIcons{
 	}
 
 	public int getMaxPages(BookTabs tab){
-		List<String> list = new ArrayList<String>();
+		List<String> list;
 		list = tab.getDesc(false);
 		return (list.size() - 1) / this.maxLines;
-	}
-
-	public ArrayList<String> mouseOver(int x,int y,int mouseX,int mouseY,boolean isToolTip){
-		if(icons == null) return null;
-
-		ArrayList<String> list = new ArrayList<String>();
-
-		for(BookTabs i : icons){
-			int minX = i.getX();
-			int maxX = minX + i.getWidth();
-			int minY = i.getY();
-			int maxY = minY + i.getHeight();
-
-			if(minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY){
-
-				if(isToolTip) list = i.toolTip(new ArrayList<String>());
-				else list = i.getDesc(false);
-
-				return list;
-			}
-		}
-
-		return null;
 	}
 
 	public BookTabs getNode(int mouseX,int mouseY){

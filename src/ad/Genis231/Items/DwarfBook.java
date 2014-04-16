@@ -36,7 +36,8 @@ public class DwarfBook extends ADSkillBook{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack item,EntityPlayer player,List list,boolean bool){
-		if(PlayerData.get(player).getRace() != PlayerRace.DWARF && PlayerData.get(player).getRace() != PlayerRace.HUMAN)
+		PlayerRace race = PlayerData.get(player).getRace();
+		if(race != PlayerRace.DWARF && race != PlayerRace.HUMAN)
 			list.add(this.mainColor + "You are not a " + this.secondaryColor + "Dwarf");
 
 		super.addInformation(item,player,list,bool);

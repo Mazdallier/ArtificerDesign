@@ -36,7 +36,8 @@ public class ElfBook extends ADSkillBook{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack item,EntityPlayer player,List list,boolean bool){
-		if(PlayerData.get(player).getRace() != PlayerRace.ELF && PlayerData.get(player).getRace() != PlayerRace.HUMAN)
+		PlayerRace race = PlayerData.get(player).getRace();
+		if(race != PlayerRace.ELF && race != PlayerRace.HUMAN)
 			list.add(this.mainColor + "You are not an " + this.secondaryColor + "Elf");
 
 		super.addInformation(item,player,list,bool);

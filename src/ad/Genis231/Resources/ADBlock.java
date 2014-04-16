@@ -26,7 +26,7 @@ public class ADBlock extends Block{
 	 *
 	 * @param material Sets the Block's material
 	 * @param name     Sets the Block's name
-	 * @param textures Sets the texture for the block
+	 * @param texture Sets the texture for the block
 	 */
 	public ADBlock(Material material,String name,String texture){
 		this(material,name);

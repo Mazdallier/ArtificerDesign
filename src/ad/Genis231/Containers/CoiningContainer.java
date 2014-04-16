@@ -54,7 +54,7 @@ public class CoiningContainer extends Container{
 			}
 
 			if(itemstack.stackSize == 0){
-				slot.putStack((ItemStack) null);
+				slot.putStack( null);
 			}else{
 				slot.onSlotChanged();
 			}
