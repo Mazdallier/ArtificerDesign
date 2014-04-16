@@ -5,9 +5,9 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClass.ADItem;
 import ad.Genis231.Player.PlayerData;
 import ad.Genis231.Player.PlayerRace;
+import ad.Genis231.Resources.ADItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

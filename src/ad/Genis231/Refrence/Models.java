@@ -1,4 +1,4 @@
-package ad.Genis231.lib;
+package ad.Genis231.Refrence;
 
 import net.minecraft.util.ResourceLocation;
 

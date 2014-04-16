@@ -9,9 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import ad.Genis231.BaseClass.ADBlock;
-import ad.Genis231.lib.ADBlocks;
-import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.Resources.ADBlock;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -56,9 +55,9 @@ public class DamBlock extends ADBlock {
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
-		sideIcon = icon.registerIcon(BlockTexture.Dam[0]);
-		openIcon = icon.registerIcon(BlockTexture.Dam[1]);
-		closeIcon = icon.registerIcon(BlockTexture.Dam[2]);
+		sideIcon = icon.registerIcon(textures.Dam[0]);
+		openIcon = icon.registerIcon(textures.Dam[1]);
+		closeIcon = icon.registerIcon(textures.Dam[2]);
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {

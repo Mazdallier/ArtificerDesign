@@ -4,8 +4,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClass.ADTile;
 import ad.Genis231.Core.Artificer;
+import ad.Genis231.Resources.ADTile;
 import ad.Genis231.TileEntity.CoiningTile;
 
 public class CoiningMechine extends ADTile {

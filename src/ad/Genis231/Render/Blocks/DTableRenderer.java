@@ -9,8 +9,8 @@ import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Models.Blocks.DTableModel;
-import ad.Genis231.TileEntity.model.DTableTile;
-import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.TileEntity.DTableTile;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,7 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			
 			//glDisable(GL_LIGHTING);
 			
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.DTable);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DTable);
 			
 			renderFrame(x, y, z);
 			

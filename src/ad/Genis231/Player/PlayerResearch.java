@@ -12,7 +12,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Core.CommonProxy;
 import ad.Genis231.Network.Packets.researchPacket;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
 
 public class PlayerResearch implements IExtendedEntityProperties {
 	public static String PlayerData_ID = Ref.MOD_ID + "_PlayerResearch";

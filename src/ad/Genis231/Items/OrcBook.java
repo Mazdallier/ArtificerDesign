@@ -2,15 +2,17 @@ package ad.Genis231.Items;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import ad.Genis231.BaseClass.ADSkillBook;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Player.PlayerData;
 import ad.Genis231.Player.PlayerRace;
+import ad.Genis231.Resources.ADSkillBook;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,5 +39,13 @@ public class OrcBook extends ADSkillBook {
 			list.add(this.mainColor + "You are not an " + this.secondaryColor + "Orc");
 		
 		super.addInformation(item, player, list, bool);
+	}
+	
+	@Override public IIcon getIcon(ItemStack item, int pass) {
+		PlayerRace race = PlayerData.get(Minecraft.getMinecraft().thePlayer).getRace();
+		if ((race == PlayerRace.ORC || race == PlayerRace.HUMAN) &&pass==1)
+			return open;
+		
+		return this.itemIcon;
 	}
 }

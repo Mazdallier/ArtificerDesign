@@ -4,8 +4,8 @@ import net.minecraft.block.BlockFire;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import ad.Genis231.lib.BlockTexture;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
+import ad.Genis231.Refrence.textures;
 
 public class FakeFire extends BlockFire {
 	
@@ -14,7 +14,7 @@ public class FakeFire extends BlockFire {
 		this.disableStats();
 		this.setHardness(0.0F);
 		this.setCreativeTab(Ref.MainTab);
-		this.setBlockTextureName(BlockTexture.Fire);
+		this.setBlockTextureName(textures.Fire);
 		this.setLightLevel(1.0F);
 		this.setBlockName(name);
 	}

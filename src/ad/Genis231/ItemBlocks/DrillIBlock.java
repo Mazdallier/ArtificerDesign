@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks.ItemBlocks;
+package ad.Genis231.ItemBlocks;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Drill extends ItemBlock {
+public class DrillIBlock extends ItemBlock {
 	
-	public Drill(Block block) {
+	public DrillIBlock(Block block) {
 		super(block);
 	}
 	

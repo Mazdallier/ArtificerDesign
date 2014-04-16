@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 import ad.Genis231.Gui.Tabs.DrillTab;
 import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.lib.textures;
+import ad.Genis231.Refrence.textures;
 
 public class RenderIcons {
 	GuiScreen gui;

@@ -1,8 +1,8 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.BaseClass.ADBlockModel;
-import ad.Genis231.TileEntity.model.SpikeTile;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
+import ad.Genis231.Resources.ADBlockModel;
+import ad.Genis231.TileEntity.SpikeTile;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;

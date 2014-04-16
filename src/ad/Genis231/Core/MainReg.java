@@ -10,18 +10,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import ad.Genis231.Blocks.ItemBlocks.Drill;
-import ad.Genis231.Blocks.ItemBlocks.LiquidAle;
+import ad.Genis231.ItemBlocks.AleIBlock;
+import ad.Genis231.ItemBlocks.DrillIBlock;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
+import ad.Genis231.Refrence.ADBlocks;
+import ad.Genis231.Refrence.ADItems;
+import ad.Genis231.Refrence.Names;
 import ad.Genis231.TileEntity.CoiningTile;
+import ad.Genis231.TileEntity.DTableTile;
 import ad.Genis231.TileEntity.DrillTile;
-import ad.Genis231.TileEntity.model.DTableTile;
-import ad.Genis231.TileEntity.model.SpikeTile;
-import ad.Genis231.lib.ADBlocks;
-import ad.Genis231.lib.ADItems;
-import ad.Genis231.lib.Names;
+import ad.Genis231.TileEntity.SpikeTile;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -33,8 +33,8 @@ public class MainReg {
 		FluidRegistry.registerFluid(ale);
 		
 		/* Blocks WITH ItemBlocks */
-		GameRegistry.registerBlock(ADBlocks.Drill, Drill.class, Names.DRILL);
-		GameRegistry.registerBlock(ADBlocks.AleLiquid, LiquidAle.class, Names.AleLiquid);
+		GameRegistry.registerBlock(ADBlocks.Drill, DrillIBlock.class, Names.DRILL);
+		GameRegistry.registerBlock(ADBlocks.AleLiquid, AleIBlock.class, Names.AleLiquid);
 		
 		/* Blocks */
 		GameRegistry.registerBlock(ADBlocks.FalsePitTrap, "null");

@@ -1,9 +1,9 @@
-package ad.Genis231.BaseClass;
+package ad.Genis231.Resources;
 
+import ad.Genis231.Refrence.Ref;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
-import ad.Genis231.lib.Ref;
 
 public class ADLiquid extends BlockFluidClassic {
 	

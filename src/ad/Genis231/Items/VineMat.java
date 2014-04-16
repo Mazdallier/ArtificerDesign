@@ -11,12 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import ad.Genis231.BaseClass.ADBlock;
-import ad.Genis231.BaseClass.ADItem;
 import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.lib.ADBlocks;
-import ad.Genis231.lib.ItemTexture;
-import ad.Genis231.lib.Names;
+import ad.Genis231.Refrence.ADBlocks;
+import ad.Genis231.Refrence.Names;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.Resources.ADBlock;
+import ad.Genis231.Resources.ADItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -146,7 +146,7 @@ public class VineMat extends ADItem {
 	
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {
 		for (int i = 0; i < IconArray.length; i++)
-			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + ItemTexture.PitTrap[i]);
+			IconArray[i] = icon.registerIcon("artificer:Pit_Trap/" + textures.PitTrap[i]);
 	}
 	
 	@Override public IIcon getIcon(ItemStack item, int pass) {

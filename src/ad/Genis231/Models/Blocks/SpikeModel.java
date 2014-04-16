@@ -1,6 +1,6 @@
 package ad.Genis231.Models.Blocks;
 
-import ad.Genis231.lib.Models;
+import ad.Genis231.Refrence.Models;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;

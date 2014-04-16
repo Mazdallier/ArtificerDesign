@@ -1,11 +1,10 @@
-package ad.Genis231.lib;
+package ad.Genis231.Refrence;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 
 public class Ref {
@@ -17,6 +16,9 @@ public class Ref {
 	public static final String Resource_FOLDER = "artificer";
 	
 	public static final CreativeTabs MainTab = new MainTAB("Artificer's Design");
+	public static final CreativeTabs DwarfTab = new DwarfTAB("Dwarf Equipment");
+	public static final CreativeTabs OrcTab = new OrcTAB("Orc Equipment");
+	public static final CreativeTabs ElfTab = new ElfTAB("Elf Equipment");
 	
 	/* Render IDs */
 	public static int SpikeRender;
@@ -25,20 +27,5 @@ public class Ref {
 	
 	public static InputStream getResource(ResourceLocation resource) throws IOException {
 		return Minecraft.getMinecraft().getResourceManager().getResource(resource).getInputStream();
-	}
-}
-
-class MainTAB extends CreativeTabs {
-	
-	public MainTAB(String label) {
-		super(label);
-	}
-	
-	@Override public String getTranslatedTabLabel() {
-		return "Artificer's Design";
-	}
-	
-	@Override public Item getTabIconItem() {
-		return ADItems.HumanBook;
 	}
 }

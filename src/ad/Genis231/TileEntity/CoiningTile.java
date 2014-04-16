@@ -4,8 +4,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-import ad.Genis231.BaseClass.ADTileEntity;
-import ad.Genis231.lib.ADItems;
+import ad.Genis231.Refrence.ADItems;
+import ad.Genis231.Resources.ADTileEntity;
 
 public class CoiningTile extends ADTileEntity implements IInventory {
 	ItemStack[] inv;

@@ -1,4 +1,4 @@
-package ad.Genis231.lib;
+package ad.Genis231.Resources;
 
 public class StringColor {
 	public static String Black = "\u00A70";

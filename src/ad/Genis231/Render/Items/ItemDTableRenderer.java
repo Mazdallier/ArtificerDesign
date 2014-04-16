@@ -8,7 +8,7 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import ad.Genis231.Models.Blocks.DTableModel;
-import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.Refrence.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -63,7 +63,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glRotatef(0F, 1F, 0, 0);
 		
 		// Bind texture
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.DTable);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DTable);
 		
 		// Render
 		model.renderFrame();
@@ -77,7 +77,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glRotatef(0F, 1F, 0, 0);
 		
 		// Bind texture
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(BlockTexture.DTable);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DTable);
 		
 		// Render
 		for (int i = 1; i <= 4; i++)

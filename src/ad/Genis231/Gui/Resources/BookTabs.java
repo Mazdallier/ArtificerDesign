@@ -3,7 +3,7 @@ package ad.Genis231.Gui.Resources;
 import java.util.ArrayList;
 
 import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.SkillBooks.BookReader;
+import ad.Genis231.Resources.BookReader;
 
 public class BookTabs {
 	int gridX, gridY;

@@ -19,7 +19,7 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
 import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.Network.Packets.researchPacket;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;

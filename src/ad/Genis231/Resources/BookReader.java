@@ -1,4 +1,4 @@
-package ad.Genis231.SkillBooks;
+package ad.Genis231.Resources;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.ResourceLocation;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
 
 public class BookReader {
 	Scanner scanner;

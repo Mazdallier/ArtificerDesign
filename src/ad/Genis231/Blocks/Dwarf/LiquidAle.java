@@ -1,4 +1,4 @@
-package ad.Genis231.Blocks;
+package ad.Genis231.Blocks.Dwarf;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -9,8 +9,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.Fluid;
-import ad.Genis231.BaseClass.ADLiquid;
-import ad.Genis231.lib.BlockTexture;
+import ad.Genis231.Refrence.Ref;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.Resources.ADLiquid;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,7 +22,8 @@ public class LiquidAle extends ADLiquid {
 	
 	public LiquidAle(Fluid fluid, String name) {
 		super(fluid, name);
-		this.setBlockTextureName(BlockTexture.aleLiquid);
+		this.setBlockTextureName(textures.aleLiquid);
+		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
@@ -42,8 +44,8 @@ public class LiquidAle extends ADLiquid {
 	}
 	
 	@SideOnly(Side.CLIENT) @Override public void registerBlockIcons(IIconRegister register) {
-		stillIcon = register.registerIcon(BlockTexture.aleLiquid);
-		flowingIcon = register.registerIcon(BlockTexture.aleFlowing);
+		stillIcon = register.registerIcon(textures.aleLiquid);
+		flowingIcon = register.registerIcon(textures.aleFlowing);
 	}
 	
 	@Override public boolean canDisplace(IBlockAccess world, int x, int y, int z) {

@@ -9,7 +9,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Core.CommonProxy;
 import ad.Genis231.Network.Packets.researchPacket;
-import ad.Genis231.lib.Ref;
+import ad.Genis231.Refrence.Ref;
 
 public class PlayerData implements IExtendedEntityProperties {
 	private int pointWatcher = 20;

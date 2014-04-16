@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.lib.StringColor;
+import ad.Genis231.Resources.StringColor;
 
 public class DrillTab extends BookTabs {
 	

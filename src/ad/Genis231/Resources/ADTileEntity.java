@@ -1,4 +1,4 @@
-package ad.Genis231.BaseClass;
+package ad.Genis231.Resources;
 
 import net.minecraft.tileentity.TileEntity;
 

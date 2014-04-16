@@ -2,7 +2,7 @@ package ad.Genis231.Render.Mobs;
 
 import ad.Genis231.Mobs.dwarfMob;
 import ad.Genis231.Models.mobs.DwarfModel;
-import ad.Genis231.lib.textures;
+import ad.Genis231.Refrence.textures;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;

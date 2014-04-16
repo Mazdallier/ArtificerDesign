@@ -3,7 +3,7 @@ package ad.Genis231.Models.Blocks;
 import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-import ad.Genis231.lib.Models;
+import ad.Genis231.Refrence.Models;
 
 public class DrillModel extends ModelBase {
 	

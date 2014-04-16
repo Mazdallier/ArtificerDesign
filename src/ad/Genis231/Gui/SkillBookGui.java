@@ -18,8 +18,8 @@ import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.RenderIcons;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.lib.ADItems;
-import ad.Genis231.lib.textures;
+import ad.Genis231.Refrence.ADItems;
+import ad.Genis231.Refrence.textures;
 
 public class SkillBookGui extends GuiScreen {
 	int textWidth = 192, textHeight = 192;

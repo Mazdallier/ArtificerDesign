@@ -4,8 +4,8 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.world.World;
 import ad.Genis231.Containers.CoiningContainer;
+import ad.Genis231.Refrence.textures;
 import ad.Genis231.TileEntity.CoiningTile;
-import ad.Genis231.lib.textures;
 
 public class CoiningGui extends GuiContainer {
 	
