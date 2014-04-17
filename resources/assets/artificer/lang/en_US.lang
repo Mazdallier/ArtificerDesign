@@ -16,6 +16,11 @@ item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
+item.sword0.name=Fliegen
+item.sword1.name=Schneller
+item.sword2.name=Schnelligkeit
+item.sword3.name=Schalldämpfer
+
 item.EHoe.name=Elven Hoe
 item.EBow.name=Elven Bow
 item.EArrow.name=Elven Arrow

@@ -9,6 +9,7 @@ import ad.Genis231.Items.DwarfBook;
 import ad.Genis231.Items.ElfBook;
 import ad.Genis231.Items.HumanBook;
 import ad.Genis231.Items.OrcBook;
+import ad.Genis231.Items.Swords;
 import ad.Genis231.Items.Tome;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
@@ -36,6 +37,7 @@ public class ADItems {
 	public static final Item ElfBook = new ElfBook(Names.ElfBook, textures.book[1]);
 	public static final Item HumanBook = new HumanBook(Names.HumanBook, textures.book[2]);
 	public static final Item OrcBook = new OrcBook(Names.OrcBook, textures.book[3]);
+	public static final Item Sword = new Swords();
 	
 	public static final Item ElfBow = new ElfBow(Names.ElfBow);
 	public static final Item ElfArrow = new ElfArrow(Names.ElfArrow);
@@ -60,6 +62,7 @@ public class ADItems {
 		items.add(Coin);
 		items.add(tome);
 		items.add(DragonBreathe);
+		items.add(Sword);
 		
 		items.add(HumanBook);
 		items.add(DwarfBook);
