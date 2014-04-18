@@ -1,4 +1,4 @@
-package ad.Genis231.Items.uni;
+package ad.Genis231.Items;
 
 import java.util.Set;
 

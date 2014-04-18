@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.item.Item;
+import ad.Genis231.Items.Arrow;
+import ad.Genis231.Items.Axe;
+import ad.Genis231.Items.Bow;
 import ad.Genis231.Items.DragonBreathe;
 import ad.Genis231.Items.DwarfBook;
 import ad.Genis231.Items.ElfBook;
+import ad.Genis231.Items.Hoe;
 import ad.Genis231.Items.HumanBook;
 import ad.Genis231.Items.OrcBook;
+import ad.Genis231.Items.Pickaxe;
+import ad.Genis231.Items.Shovel;
+import ad.Genis231.Items.Sword;
 import ad.Genis231.Items.Swords;
 import ad.Genis231.Items.Tome;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
-import ad.Genis231.Items.uni.Arrow;
-import ad.Genis231.Items.uni.Axe;
-import ad.Genis231.Items.uni.Bow;
-import ad.Genis231.Items.uni.Hoe;
-import ad.Genis231.Items.uni.Pickaxe;
-import ad.Genis231.Items.uni.Shovel;
-import ad.Genis231.Items.uni.Sword;
 
 public class ADItems {
 	public static final Item VineMat = new VineMat(Names.VINE_MAT);
