@@ -19,6 +19,7 @@ public class ADTool extends ItemTool {
 	 * @param Texture This is the Texture for said item */
 	public ADTool(String name, String Texture, float damage, Item.ToolMaterial tool, Set EffBlocks) {
 		super(damage, tool, EffBlocks);
+		this.setUnlocalizedName(name);
 		this.setCreativeTab(Ref.MainTab);
 		this.setTextureName(Texture);
 	}

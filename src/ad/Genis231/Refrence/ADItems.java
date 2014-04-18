@@ -32,6 +32,14 @@ public class ADItems {
 	public static final Item OrcBook = new OrcBook(Names.OrcBook, textures.book[3]);
 	public static final Item Sword = new Swords();
 	
+	public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
+	public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);
+	public static final Item DwarfAxe = new Axe(Names.DwarfAxe, textures.DwarfAxe, Ref.DwarfTab);
+	public static final Item DwarfHoe = new Hoe(Names.DwarfHoe, textures.DwarfHoe, Ref.DwarfTab);
+	public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer, textures.DwarfHammer, Ref.DwarfTab);
+	public static final Item DwarfShovel = new Shovel(Names.DwarfShovel, textures.DwarfShovel, Ref.DwarfTab);
+	public static final Item DwarfSword = new Sword(Names.DwarfSword, textures.DwarfSword, Ref.DwarfTab);	
+	
 	public static final Item ElfBow = new Bow(Names.ElfBow, textures.ElfBow, Ref.ElfTab);
 	public static final Item ElfArrow = new Arrow(Names.ElfArrow, textures.ElfArrow, Ref.ElfTab);
 	public static final Item ElfAxe = new Axe(Names.ElfAxe, textures.ElfAxe, Ref.ElfTab);
@@ -47,14 +55,6 @@ public class ADItems {
 	public static final Item OrcHammer = new Pickaxe(Names.OrcHammer, textures.OrcHammer, Ref.OrcTab);
 	public static final Item OrcShovel = new Shovel(Names.OrcShovel, textures.OrcShovel, Ref.OrcTab);
 	public static final Item OrcSword = new Sword(Names.OrcSword, textures.OrcSword, Ref.OrcTab);
-	
-	public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
-	public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);
-	public static final Item DwarfAxe = new Axe(Names.DwarfAxe, textures.DwarfAxe, Ref.DwarfTab);
-	public static final Item DwarfHoe = new Hoe(Names.DwarfHoe, textures.DwarfHoe, Ref.DwarfTab);
-	public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer, textures.DwarfHammer, Ref.DwarfTab);
-	public static final Item DwarfShovel = new Shovel(Names.DwarfShovel, textures.DwarfShovel, Ref.DwarfTab);
-	public static final Item DwarfSword = new Sword(Names.DwarfSword, textures.DwarfSword, Ref.DwarfTab);
 	
 	public static List<Item> getItems() {
 		List<Item> items = new ArrayList<Item>();
