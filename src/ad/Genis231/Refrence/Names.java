@@ -31,7 +31,16 @@ public class Names {
 	// mobs
 	public static final String[] dwarf = { "Savage", "Warrior", "Trader" };
 	
-	//Elf
+	// Dwarf
+	public static final String DwarfBow = "DBow";
+	public static final String DwarfArrow = "DArrow";
+	public static final String DwarfAxe = "DAxe";
+	public static final String DwarfHoe = "DHoe";
+	public static final String DwarfHammer = "DPick";
+	public static final String DwarfShovel = "DShovel";
+	public static final String DwarfSword = "DSword";
+	
+	// Elf
 	public static final String ElfBow = "EBow";
 	public static final String ElfArrow = "EArrow";
 	public static final String ElfAxe = "EAxe";
@@ -40,12 +49,12 @@ public class Names {
 	public static final String ElfShovel = "EShovel";
 	public static final String ElfSword = "ESword";
 	
-	//Orc
+	// Orc
 	public static final String OrcBow = "OBow";
 	public static final String OrcArrow = "OArrow";
 	public static final String OrcAxe = "OAxe";
 	public static final String OrcHoe = "OHoe";
-	public static final String OrcHammer = "OHammer";
+	public static final String OrcHammer = "OPick";
 	public static final String OrcShovel = "OShovel";
 	public static final String OrcSword = "OSword";
 }
