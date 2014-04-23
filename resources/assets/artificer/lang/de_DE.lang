@@ -17,14 +17,30 @@ item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
 
+item.sword0.name=Fliegen
+item.sword1.name=Schneller
+item.sword2.name=Schnelligkeit
+item.sword3.name=Schalldämpfer
+
+#Dwarven
+item.DHoe.name=Dwarven Hoe
+item.DBow.name=Dwarven Bow
+item.DArrow.name=Dwarven Arrow
+item.DShovel.name=Dwarven Shovel
+item.DAxe.name=Dwarven Axe
+item.DPick.name=Dwarven Pickaxe
+item.DSword.name=Dwarven Sword
+
+# Elven
 item.EHoe.name=Elven Hoe
 item.EBow.name=Elven Bow
 item.EArrow.name=Elven Arrow
 item.EShovel.name=Elven Shovel
 item.EAxe.name=Elven Axe
-item.EPick.name=Elven Pick
+item.EPick.name=Elven Pickaxe
 item.ESword.name=Elven Sword
 
+# Orcish
 item.OHoe.name=Orcish Hoe
 item.OBow.name=Orcish Bow
 item.OArrow.name=Orcish Arrow

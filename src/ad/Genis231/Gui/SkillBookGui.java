@@ -22,9 +22,9 @@ import ad.Genis231.Refrence.textures;
 
 public class SkillBookGui extends GuiScreen {
 	int textWidth = 192, textHeight = 192;
-	int tabWidth = 12, tabHeight = 24;
+	int tabWidth = 15, tabHeight = 30;
 	int x, y;
-	int tabSpace = 19;
+	int tabSpace = 23;
 	Tab currentTab = Tab.ONE;
 	PlayerRace race;
 	RenderIcons icons;
@@ -38,14 +38,16 @@ public class SkillBookGui extends GuiScreen {
 	int arrowGap = 11;
 	FontRenderer font;
 	int maxPages;
-	Minecraft mc = Minecraft.getMinecraft();
+	Minecraft mc;
 	
 	public SkillBookGui(EntityPlayer player) {
-		this.font = this.mc.fontRenderer;
+		mc = Minecraft.getMinecraft();
+		this.font = mc.fontRenderer;
 		
-		ItemStack temp = player.inventory.getStackInSlot(player.inventory.currentItem);
-		if (temp != null)
-			race = this.getRacefromBook(temp);
+		ItemStack currentBook = player.inventory.getStackInSlot(player.inventory.currentItem);
+		
+		if (currentBook != null)
+			race = this.getRacefromBook(currentBook);
 	}
 	
 	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
@@ -100,25 +102,13 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	void drawTabWithPriority(Tab tab) {
-		int gap;
-		if (race == PlayerRace.DWARF) {
-			this.tabHeight = 30;
-			this.tabWidth = 15;
-			this.tabSpace = 23;
-			gap = 7;
-		} else {
-			this.tabHeight = 24;
-			this.tabWidth = 12;
-			this.tabSpace = 19;
-			gap = 5;
-		}
 		
 		for (int i = 0; i < Tab.values().length; i++) {
 			if (i != tab.getID())
 				this.drawTexturedModalRect(x - tabWidth, y + (tabSpace * i) + 1, this.textWidth + 1, (tabHeight + 1) * i, tabWidth, tabHeight);
 		}
 		
-		this.drawTexturedModalRect(x - tabWidth - gap, y + (tabSpace * tab.getID()) + 1, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + gap, tabHeight);
+		this.drawTexturedModalRect(x - tabWidth - 7, y + (tabSpace * tab.getID()) + 1, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + 7, tabHeight);
 	}
 	
 	Tab getClickedTab(int x, int y, int mouseX, int mouseY) {
