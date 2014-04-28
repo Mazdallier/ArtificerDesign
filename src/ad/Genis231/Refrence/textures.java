@@ -31,6 +31,7 @@ public class textures {
 	/** Liquid Textures */
 	public static final String aleLiquid = items + "AleLiquid";
 	public static final String aleFlowing = items + "AleFlowing";
+	
 	/** Item Textures */
 	public static String[] PitTrap = { "Teir1", "Teir2", "Teir3", "dirt", "sand", "stone" };
 	public static final String[] book = { Book + "Dwarf", Book + "Elf", Book + "Human", Book + "Orc" };

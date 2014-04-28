@@ -44,6 +44,7 @@ public class OrcBook extends ADSkillBook{
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(ItemStack item,int pass){
 		PlayerRace race = PlayerData.get(Minecraft.getMinecraft().thePlayer).getRace();
 		if((race == PlayerRace.ORC || race == PlayerRace.HUMAN) && pass == 1) return open;

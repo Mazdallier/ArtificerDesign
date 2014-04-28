@@ -1,5 +1,7 @@
 package ad.Genis231.Items;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Resources.ADSkillBook;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +21,7 @@ public class HumanBook extends ADSkillBook{
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(ItemStack item,int pass){
 		if(pass == 1) return open;
 
