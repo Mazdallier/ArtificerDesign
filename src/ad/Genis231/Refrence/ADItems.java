@@ -20,6 +20,7 @@ import ad.Genis231.Items.Swords;
 import ad.Genis231.Items.Tome;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
+import ad.Genis231.Items.Drill.Drill;
 
 public class ADItems {
 	public static final Item VineMat = new VineMat(Names.VINE_MAT);
@@ -31,14 +32,15 @@ public class ADItems {
 	public static final Item HumanBook = new HumanBook(Names.HumanBook, textures.book[2]);
 	public static final Item OrcBook = new OrcBook(Names.OrcBook, textures.book[3]);
 	public static final Item Sword = new Swords();
+	public static final Item Drill = new Drill(Names.DRILL);
 	
-//	public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
-//	public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);
-//	public static final Item DwarfAxe = new Axe(Names.DwarfAxe, textures.DwarfAxe, Ref.DwarfTab);
-//	public static final Item DwarfHoe = new Hoe(Names.DwarfHoe, textures.DwarfHoe, Ref.DwarfTab);
-//	public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer, textures.DwarfHammer, Ref.DwarfTab);
-//	public static final Item DwarfShovel = new Shovel(Names.DwarfShovel, textures.DwarfShovel, Ref.DwarfTab);
-//	public static final Item DwarfSword = new Sword(Names.DwarfSword, textures.DwarfSword, Ref.DwarfTab);	
+	// public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
+	// public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);
+	// public static final Item DwarfAxe = new Axe(Names.DwarfAxe, textures.DwarfAxe, Ref.DwarfTab);
+	// public static final Item DwarfHoe = new Hoe(Names.DwarfHoe, textures.DwarfHoe, Ref.DwarfTab);
+	// public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer, textures.DwarfHammer, Ref.DwarfTab);
+	// public static final Item DwarfShovel = new Shovel(Names.DwarfShovel, textures.DwarfShovel, Ref.DwarfTab);
+	// public static final Item DwarfSword = new Sword(Names.DwarfSword, textures.DwarfSword, Ref.DwarfTab);
 	
 	public static final Item ElfBow = new Bow(Names.ElfBow, textures.ElfBow, Ref.ElfTab);
 	public static final Item ElfArrow = new Arrow(Names.ElfArrow, textures.ElfArrow, Ref.ElfTab);
@@ -63,6 +65,7 @@ public class ADItems {
 		items.add(Coin);
 		items.add(tome);
 		items.add(DragonBreathe);
+		items.add(Drill);
 		items.add(Sword);
 		
 		items.add(HumanBook);
@@ -70,13 +73,13 @@ public class ADItems {
 		items.add(ElfBook);
 		items.add(OrcBook);
 		
-//		items.add(DwarfSword);
-//		items.add(DwarfBow);
-//		items.add(DwarfArrow);
-//		items.add(DwarfHammer);
-//		items.add(DwarfAxe);
-//		items.add(DwarfShovel);
-//		items.add(DwarfHoe);
+		// items.add(DwarfSword);
+		// items.add(DwarfBow);
+		// items.add(DwarfArrow);
+		// items.add(DwarfHammer);
+		// items.add(DwarfAxe);
+		// items.add(DwarfShovel);
+		// items.add(DwarfHoe);
 		
 		items.add(ElfSword);
 		items.add(ElfBow);

@@ -11,12 +11,12 @@ import net.minecraftforge.client.IItemRenderer;
 import static org.lwjgl.opengl.GL11.*;
 
 @SideOnly(Side.CLIENT)
-public class ItemDrillRenderer implements IItemRenderer{
+public class ItemDrillFrameRenderer implements IItemRenderer{
 	public static long speed = 0x3FFF / 8;
 	float rotation;
 	private DrillModel model;
 
-	public ItemDrillRenderer(){
+	public ItemDrillFrameRenderer(){
 
 		model = new DrillModel();
 	}
@@ -35,7 +35,7 @@ public class ItemDrillRenderer implements IItemRenderer{
 	public void renderItem(ItemRenderType type,ItemStack item,Object... data){
 		switch(type){
 			case ENTITY:
-				renderModel(0F,0.0F,0F,1F);
+				renderModel(0F,0.0F,0F,2F);
 				return;
 
 			case EQUIPPED:
@@ -64,10 +64,10 @@ public class ItemDrillRenderer implements IItemRenderer{
 			glTranslatef(x,y,z);
 
 			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Drill);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DrillFrame);
 
 			// Render
-			model.renderDrill();
+			model.renderFrame();
 		}
 		glPopMatrix();
 	}

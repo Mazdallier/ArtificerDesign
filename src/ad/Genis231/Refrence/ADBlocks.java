@@ -15,7 +15,7 @@ public class ADBlocks{
 	public static final Block Dam = new DamBlock(Names.DAM_BLOCK);
 	public static final Block FalsePitTrap = new PitTrapBlock(Names.VINE_MAT);
 	public static final Block Spike = new Spike(Names.SPIKE);
-	public static final Block Drill = new Drill(Names.DRILL);
+	public static final Block DrillFrame = new Drill(Names.DRILLFrame);
 	public static final Block DwarvenStone = new DwarvenStone(Names.DSTONE,textures.DwarvenStone);
 	public static final Block coiningMech = new CoiningMechine(Names.MechCoin,textures.Coin);
 	public static final Block AleLiquid = new LiquidAle(MainReg.ale,Names.AleLiquid);

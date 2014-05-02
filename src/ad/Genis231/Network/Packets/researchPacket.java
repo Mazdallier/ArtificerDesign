@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 public class researchPacket extends ADPacket{
 	private NBTTagCompound data;
 
+	public researchPacket(){}
+	
 	public researchPacket(EntityPlayer player){
 		data = new NBTTagCompound();
 		PlayerResearch.get(player).saveNBTData(data);

@@ -47,6 +47,8 @@ public class VineMat extends ADItem{
 	 * item ~~ player ~~ world ~~ x ~~ y ~~ z ~~ side ~~ south = 2 ~~ north = 3 ~~ east = 4 ~~ west = 5
 	 */
 	public boolean onItemUse(ItemStack item,EntityPlayer player,World world,int x,int y,int z,int side,float Bx,float By,float Bz){
+		world.spawnParticle("hugeexplosion", x, y, z, 1.0D, 0, 0);
+		
 		if(!world.isRemote){
 			switch(ForgeDirection.getOrientation(side)){
 				case NORTH:

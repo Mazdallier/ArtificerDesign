@@ -21,9 +21,9 @@ public class DrillTile extends ADTileEntity {
 	private int drillWidth = 20;
 	private int drillHeight = 20;
 	private int delay;
-	private Block[] blockArray = { Blocks.air, Blocks.bedrock};
+	private Block[] blockArray = { Blocks.air, Blocks.bedrock };
 	private boolean drillDone;
-	public boolean drilling;
+	private ItemStack currentDrill;
 	public int angle;
 	World world;
 	
@@ -34,7 +34,6 @@ public class DrillTile extends ADTileEntity {
 	public DrillTile() {
 		this.world = this.worldObj;
 		drillDone = false;
-		drilling = false;
 	}
 	
 	@Override public void readFromNBT(NBTTagCompound tag) {
@@ -67,26 +66,36 @@ public class DrillTile extends ADTileEntity {
 			world.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		
-		drilling = world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone;
-		
-		if (drilling) {
-			angle += speed * 1;
-			if (angle >= 360) {
-				angle = 0;
+		if (canDrill()) {
+			angle = angle >= 360 ? 0 : angle + speed * 2;
+			
+			if (this.currentDrill.getItemDamage() <= 0) {
+				this.currentDrill = null;
+				
+				double x = this.xCoord - 1;
+				double y = this.yCoord - 1;
+				double z = this.zCoord - 1;
+				
+				System.out.println(world.isRemote);
+				
+				world.spawnParticle("hugeexplosion", x, y, z, 2, 2, 2);
+				return;
 			}
 			
-			if (!world.isRemote) {
-				if (canActivate()) {
-					setSize();
-					drill();
-					this.cooldown = delay;
-				} else {
-					cooldown--;
-				}
-			}
-		} else if (!drilling && !world.isRemote) {
+			if (cooldown == 0) {
+				this.currentDrill.setItemDamage(this.currentDrill.getItemDamage() - 1);
+				setSize();
+				drill();
+				this.cooldown = delay;
+			} else
+				cooldown--;
+		} else
 			this.cooldown = delay;
-		}
+		
+	}
+	
+	private boolean canDrill() {
+		return world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone && this.currentDrill != null;
 	}
 	
 	private void setSize() {
@@ -117,7 +126,7 @@ public class DrillTile extends ADTileEntity {
 			for (int y = yCoord - 1; y >= 0; y--) {
 				for (int x = minX; x <= maxX; x++) {
 					for (int z = minZ; z <= maxZ; z++) {
-						if (isBreakable(x, y, z)) {
+						if (!world.isRemote && isBreakable(x, y, z)) {
 							addBlock(x, y, z);
 							world.setBlockToAir(x, y, z);
 							count++;
@@ -150,10 +159,6 @@ public class DrillTile extends ADTileEntity {
 		}
 	}
 	
-	private boolean canActivate() {
-		return cooldown <= 0;
-	}
-	
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
 			if (this.worldObj.getBlock(x, y, z).equals(block)) { return false; }
@@ -182,6 +187,15 @@ public class DrillTile extends ADTileEntity {
 		return this.delay;
 	}
 	
+	public ItemStack getDrill() {
+		return this.currentDrill;
+	}
+	
+	public void setDrill(ItemStack item) {
+		if (item != null)
+			this.currentDrill = item;
+	}
+	
 	@Override public void markDirty() {
 		updateEntity();
 		super.markDirty();
@@ -200,4 +214,5 @@ public class DrillTile extends ADTileEntity {
 		world.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
 		this.needsUpdate = true;
 	}
+	
 }

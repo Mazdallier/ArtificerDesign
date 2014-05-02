@@ -4,7 +4,7 @@
 # Blocks
 tile.DamBlock.name=Dam
 tile.Spike.name=Spike Pit
-tile.Drill.name=Drill (Broken)
+tile.DrillFrame.name=DrillFrame
 tile.DwarfStone.name=Dwarven Stone
 tile.GFire.name=Green Fire of DOOM!!
 tile.MechCoin.name=Coining Mechine
@@ -15,6 +15,7 @@ tile.DTable.name=Dwarven Research Table
 item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
+item.Drill.name=Drill
 
 item.sword0.name=Fliegen
 item.sword1.name=Schneller

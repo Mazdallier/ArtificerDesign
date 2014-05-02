@@ -5,6 +5,7 @@ public class Names {
 	// Blocks
 	public static final String DAM_BLOCK = "DamBlock";
 	public static final String SPIKE = "Spike";
+	public static final String DRILLFrame = "DrillFrame";
 	public static final String DRILL = "Drill";
 	public static final String DSTONE = "DwarfStone";
 	public static final String GFIRE = "GFire";
