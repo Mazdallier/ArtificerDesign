@@ -20,11 +20,12 @@ public class XMLReader {
 	HashMap<String, String> map = new HashMap<String, String>();
 	ArrayList<HashMap<String, String>> nodes = new ArrayList<HashMap<String, String>>();
 	String parent = "Object";
-	String[] keys = { "title", "tab", "posX", "posY", "gridX", "gridY", "desc", "page" };
+	String[] keys = { "name", "tab", "posX", "posY", "gridX", "gridY", "desc", "page" };
+	String[] objects = { "Name", "Map", "Desc", "Page" };
 	
 	public void initXML(String file) {
 		try {
-			ResourceLocation stuff = new ResourceLocation(Ref.Resource_FOLDER, "SkillBook/" + file + ".artificer");
+			ResourceLocation stuff = new ResourceLocation(Ref.Resource_FOLDER, "SkillBook/" + file);
 			
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
@@ -35,17 +36,18 @@ public class XMLReader {
 			for (int i = 0; i < listOfNodes.getLength(); i++) {
 				Node currentNode = listOfNodes.item(i);
 				if (currentNode.getNodeType() == Node.ELEMENT_NODE) {
-					map.put(keys[0], readNode(currentNode, "Name").getNodeValue().trim());
-					String[] tempDim = (readNode(currentNode, "Map").getNodeValue().trim()).split("\n");
+					map.put(keys[0], readNode(currentNode, objects[0]).getNodeValue().trim());
 					
-					map.put(keys[1], tempDim[0]);
-					map.put(keys[2], tempDim[1]);
-					map.put(keys[3], tempDim[2]);
-					map.put(keys[4], tempDim[3]);
-					map.put(keys[5], tempDim[4]);
+					String[] tempDim = (readNode(currentNode, objects[1]).getNodeValue().trim()).split(" ");
 					
-					map.put(keys[6], readNode(currentNode, "Desc").getNodeValue().trim());
-					map.put(keys[7], readNode(currentNode, "Page").getNodeValue().trim());
+					map.put(keys[1], tempDim[0]); // Tab
+					map.put(keys[2], tempDim[1]); // PosX
+					map.put(keys[3], tempDim[2]); // PosY
+					map.put(keys[4], tempDim[3]); // GridX
+					map.put(keys[5], tempDim[4]); // GridY
+					
+					map.put(keys[6], readNode(currentNode, objects[2]).getNodeValue().trim());
+					map.put(keys[7], readNode(currentNode, objects[3]).getNodeValue().trim());
 					
 					nodes.add((HashMap<String, String>) map.clone());
 				}
@@ -53,6 +55,9 @@ public class XMLReader {
 		}
 		catch (FileNotFoundException e) {
 			System.out.println("File: '" + file + "' does not exist");
+		}
+		catch (NullPointerException e) {
+			System.out.println("One of the Objects is empty or dose not exist!! fix it fucker");
 		}
 		catch (Exception e) {
 			System.out.println("Had Trouble parseing file: " + file);

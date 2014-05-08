@@ -2,45 +2,16 @@
 
 <Elf>
 	<Object>
-		<Name>
-			ToolSet
-		</Name>
-		<Map>
-2
-0
-0
-0
-0
-		</Map>
-
-		<Desc>
-			desc
-		</Desc>
-
-		<Page>
-			ToolSet.artificer
-		</Page>
+		<Name>elf ToolSet</Name>
+		<Map>2 50 80 0 2</Map>
+		<Desc>Elf Tool Set Stuff!!</Desc>
+		<Page>ToolSet</Page>
 	</Object>	
 	
 	<Object>
-		<Name>
-			Armor
-		</Name>
-		<Map>
-2
-0
-0
-0
-0
-		</Map>
-
-		<Desc>
-			desc
-		</Desc>
-
-		<Page>
-			Armor.artificer
-		</Page>
+		<Name>Elven Armor</Name>
+		<Map>2 80 50 0 3</Map>
+		<Desc>Elf Armor shtuff! :3</Desc>
+		<Page>Armor</Page>
 	</Object>
-
 </Elf>

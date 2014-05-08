@@ -23,8 +23,8 @@ import ad.Genis231.Refrence.textures;
 public class SkillBookGui extends GuiScreen {
 	int textWidth = 192, textHeight = 192;
 	int tabWidth = 15, tabHeight = 30;
-	int x, y;
-	int tabSpace = 23;
+	public static int x, y;
+	public static int tabSpace = 23;
 	Tab currentTab = Tab.ONE;
 	PlayerRace race;
 	RenderIcons icons;
@@ -131,8 +131,8 @@ public class SkillBookGui extends GuiScreen {
 			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
 			
 			ScaledResolution scale = new ScaledResolution(this.mc.gameSettings, this.width, this.height);
-			float width = scale.getScaledWidth() / 1.6f;
-			float height = scale.getScaledHeight() / 4.0f;
+			float width = scale.getScaledWidth()/12;
+			float height = scale.getScaledHeight()/4.5f;
 			
 			icons.draw();
 			if (list != null) {
@@ -203,7 +203,7 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	boolean initIcons() {
-		icons = new RenderIcons(this.mc, this, this.currentTab, this.race, this.x, this.y);
+		icons = new RenderIcons(this.mc, this, this.currentTab, this.race, x, y);
 		icons.registerIcons();
 		
 		return icons != null;

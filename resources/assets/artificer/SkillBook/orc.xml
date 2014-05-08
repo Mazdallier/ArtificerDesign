@@ -2,24 +2,9 @@
 
 <Orc>
 	<Object>
-		<Name>
-			ToolSet
-		</Name>
-		<Map>
-2
-0
-0
-0
-0
-		</Map>
-
-		<Desc>
-			desc
-		</Desc>
-
-		<Page>
-			ToolSet.artificer
-		</Page>
+		<Name>Orc ToolSet</Name>
+		<Map>2 50 50 0 2</Map>
+		<Desc>desc</Desc>
+		<Page>ToolSet</Page>
 	</Object>
-
 </Orc>
