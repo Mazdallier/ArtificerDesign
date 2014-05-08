@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+
+<Dwarf>
+	<Object>
+		<Name>
+			Unstable Crystal
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			UCrystal.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			toolSet
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			toolSet.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Armor
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Armor.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Pit Trap
+		</Name>
+		<Map>
+3
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Pit Trap.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Water Mill
+		</Name>
+		<Map>
+4
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			WaterMill.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Grinder
+		</Name>
+		<Map>
+4
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Grinder.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Crane
+		</Name>
+		<Map>
+4
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Crane.artificer
+		</Page>
+	</Object>
+	
+</Dwarf>

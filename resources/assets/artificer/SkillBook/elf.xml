@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<Elf>
+	<Object>
+		<Name>
+			ToolSet
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			ToolSet.artificer
+		</Page>
+	</Object>	
+	
+	<Object>
+		<Name>
+			Armor
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Armor.artificer
+		</Page>
+	</Object>
+
+</Elf>

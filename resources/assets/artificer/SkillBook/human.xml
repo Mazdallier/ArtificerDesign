@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<Human>
+	<Object>
+		<Name>
+			Hammer
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Drill.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			Wedge
+		</Name>
+		<Map>
+3
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			Drill.artificer
+		</Page>
+	</Object>
+	
+	<Object>
+		<Name>
+			WindMill
+		</Name>
+		<Map>
+4
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			WindMill.artificer
+		</Page>
+	</Object>
+
+</Human>

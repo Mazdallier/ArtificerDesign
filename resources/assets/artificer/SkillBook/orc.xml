@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<Orc>
+	<Object>
+		<Name>
+			ToolSet
+		</Name>
+		<Map>
+2
+0
+0
+0
+0
+		</Map>
+
+		<Desc>
+			desc
+		</Desc>
+
+		<Page>
+			ToolSet.artificer
+		</Page>
+	</Object>
+
+</Orc>
