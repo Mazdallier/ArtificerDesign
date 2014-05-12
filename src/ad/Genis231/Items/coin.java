@@ -19,7 +19,7 @@ public class coin extends ADItem {
 	}
 	
 	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
-		if (Keyboard.getEventKeyState() && Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
 			list.add("This little item will send you all the way over to....");
 			list.add("X: 31999999");
 			list.add("Y: 5");

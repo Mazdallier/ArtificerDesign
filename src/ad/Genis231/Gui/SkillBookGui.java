@@ -10,7 +10,9 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import ad.Genis231.Gui.Resources.BookTabs;
@@ -18,6 +20,7 @@ import ad.Genis231.Gui.Resources.RenderIcons;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
 import ad.Genis231.Refrence.ADItems;
+import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Refrence.textures;
 
 public class SkillBookGui extends GuiScreen {
@@ -109,6 +112,19 @@ public class SkillBookGui extends GuiScreen {
 		}
 		
 		this.drawTexturedModalRect(x - tabWidth - 7, y + (tabSpace * tab.getID()) + 1, this.textWidth + 1, (tabHeight + 1) * tab.getID(), tabWidth + 7, tabHeight);
+		
+		if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+			for (int i = 0; i < 8; i++) {
+				int minX = x - tabWidth;
+				int maxX = minX + tabWidth;
+				
+				int minY = y + (tabSpace * i) + 5;
+				int maxY = minY + tabHeight - 10;
+				
+				this.mc.getTextureManager().bindTexture(new ResourceLocation(Ref.Resource_FOLDER, "textures/gui/temp.png"));
+				
+				this.drawTexturedModalRect(minX, minY, 0, 0, maxX - minX, maxY - minY);
+			}
 	}
 	
 	Tab getClickedTab(int x, int y, int mouseX, int mouseY) {
@@ -117,7 +133,7 @@ public class SkillBookGui extends GuiScreen {
 			int maxX = minX + tabWidth;
 			
 			int minY = y + (tabSpace * i) + 5;
-			int maxY = minY + tabHeight;
+			int maxY = minY + tabHeight - 10;
 			
 			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
 				return Tab.values()[i];
@@ -131,8 +147,8 @@ public class SkillBookGui extends GuiScreen {
 			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
 			
 			ScaledResolution scale = new ScaledResolution(this.mc.gameSettings, this.width, this.height);
-			float width = scale.getScaledWidth()/12;
-			float height = scale.getScaledHeight()/4.5f;
+			float width = scale.getScaledWidth() / 12;
+			float height = scale.getScaledHeight() / 4.5f;
 			
 			icons.draw();
 			if (list != null) {
