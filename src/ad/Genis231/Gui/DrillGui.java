@@ -108,12 +108,7 @@ public class DrillGui extends GuiContainer {
 	}
 	
 	@Override protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
-		item = tile.getDrill();
-		
-		if (item != null)
-			mc.fontRenderer.drawString("Drill Damage: " + item.getItemDamage(), this.centerX - 30, this.centerY - 100, color);
-		else
-			mc.fontRenderer.drawString("Drill Damage: " + 0, this.centerX - 30, this.centerY - 100, color);
+		mc.fontRenderer.drawString("Drill Damage: " + tile.getDrillDamage(), this.centerX - 30, this.centerY - 100, color);
 		
 		mc.fontRenderer.drawString("Width: " + Width, buttonX - spaceing, centerY, color);
 		mc.fontRenderer.drawString("Height: " + Height, buttonX, centerY, color);

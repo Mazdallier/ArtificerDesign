@@ -11,6 +11,8 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.world.World;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Network.Packets.DrillPacket;
 import ad.Genis231.Resources.ADTileEntity;
 import ad.Genis231.Resources.InventoryHelper;
 
@@ -23,7 +25,8 @@ public class DrillTile extends ADTileEntity {
 	private int delay;
 	private Block[] blockArray = { Blocks.air, Blocks.bedrock };
 	private boolean drillDone;
-	private ItemStack currentDrill;
+	private int type = -1;
+	private int damage = 0;
 	public int angle;
 	World world;
 	
@@ -45,7 +48,8 @@ public class DrillTile extends ADTileEntity {
 		cooldown = tag.getInteger("cd");
 		drillDone = tag.getBoolean("status");
 		angle = tag.getInteger("angle");
-		
+		type = tag.getInteger("type");
+		damage = tag.getInteger("damage");
 	}
 	
 	@Override public void writeToNBT(NBTTagCompound tag) {
@@ -56,6 +60,8 @@ public class DrillTile extends ADTileEntity {
 		tag.setBoolean("status", drillDone);
 		tag.setInteger("cd", cooldown);
 		tag.setInteger("angle", angle);
+		tag.setInteger("type", type);
+		tag.setInteger("damage", damage);
 	}
 	
 	public void updateEntity() {
@@ -66,24 +72,26 @@ public class DrillTile extends ADTileEntity {
 			world.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		
+		if (this.damage <= 0) {
+			
+			double x = this.xCoord - 1;
+			double y = this.yCoord - 1;
+			double z = this.zCoord - 1;
+			
+			if (type != -1) {
+				world.spawnParticle("hugeexplosion", x, y, z, 2, 2, 2);
+				this.type = -1;
+			}
+			
+			return;
+		}
+		
 		if (canDrill()) {
 			angle = angle >= 360 ? 0 : angle + speed * 2;
 			
-			if (this.currentDrill.getItemDamage() <= 0) {
-				this.currentDrill = null;
-				
-				double x = this.xCoord - 1;
-				double y = this.yCoord - 1;
-				double z = this.zCoord - 1;
-				
-				System.out.println(world.isRemote);
-				
-				world.spawnParticle("hugeexplosion", x, y, z, 2, 2, 2);
-				return;
-			}
-			
 			if (cooldown == 0) {
-				this.currentDrill.setItemDamage(this.currentDrill.getItemDamage() - 1);
+				this.damage--;
+				Artificer.packets.sendToAll(new DrillPacket(type, damage, this.xCoord, this.yCoord, this.zCoord));
 				setSize();
 				drill();
 				this.cooldown = delay;
@@ -95,7 +103,7 @@ public class DrillTile extends ADTileEntity {
 	}
 	
 	private boolean canDrill() {
-		return world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone && this.currentDrill != null;
+		return world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone && this.type != -1 && !this.world.isRemote;
 	}
 	
 	private void setSize() {
@@ -126,7 +134,7 @@ public class DrillTile extends ADTileEntity {
 			for (int y = yCoord - 1; y >= 0; y--) {
 				for (int x = minX; x <= maxX; x++) {
 					for (int z = minZ; z <= maxZ; z++) {
-						if (!world.isRemote && isBreakable(x, y, z)) {
+						if (isBreakable(x, y, z)) {
 							addBlock(x, y, z);
 							world.setBlockToAir(x, y, z);
 							count++;
@@ -168,9 +176,16 @@ public class DrillTile extends ADTileEntity {
 	}
 	
 	public void setStats(int width, int height, int rate) {
-		drillWidth = width;
-		drillHeight = height;
-		delay = rate;
+		this.drillWidth = width;
+		this.drillHeight = height;
+		this.delay = rate;
+		
+		needsUpdate = true;
+	}
+	
+	public void setDrillStats(int type, int damage) {
+		this.type = type;
+		this.damage = damage;
 		
 		needsUpdate = true;
 	}
@@ -187,13 +202,20 @@ public class DrillTile extends ADTileEntity {
 		return this.delay;
 	}
 	
-	public ItemStack getDrill() {
-		return this.currentDrill;
+	public int getDrillType() {
+		return this.type;
+	}
+	
+	public int getDrillDamage() {
+		return this.damage;
 	}
 	
 	public void setDrill(ItemStack item) {
-		if (item != null)
-			this.currentDrill = item;
+		if (item == null)
+			return;
+		
+		this.type = 1;
+		this.damage = item.getItemDamage();
 	}
 	
 	@Override public void markDirty() {

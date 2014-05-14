@@ -25,7 +25,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers() {
 		
 		for (int i = 0; i < MainReg.dwarfClass.length; i++) {
-			RenderingRegistry.registerEntityRenderingHandler(MainReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 5F, i));
+			RenderingRegistry.registerEntityRenderingHandler(MainReg.dwarfClass[i], new dwarfRenderer(new DwarfModel(), 0.5F, i));
 		}
 		
 		Ref.SpikeRender = RenderingRegistry.getNextAvailableRenderId();

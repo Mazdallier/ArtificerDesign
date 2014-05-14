@@ -26,7 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		if (tileEntity instanceof DrillTile) {
 			renderFrame(x, y, z);
 			
-			if (tile.getDrill() != null && tile.getDrill().getItemDamage() > 0)
+			if (tile.getDrillType() != -1)
 				renderDrill(x, y, z, tile.angle);
 		}
 	}
