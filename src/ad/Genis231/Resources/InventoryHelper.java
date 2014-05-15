@@ -66,11 +66,11 @@ public class InventoryHelper {
 		return inventory;
 	}
 	
-	public static boolean addBlock(IInventory inv, ItemStack temp) {
+	public static void addBlock(IInventory inv, ItemStack temp) {
 		ItemStack item = temp.copy();
 		ItemStack invItem;
 		
-		if (inv != null) {
+		if (inv != null && item != null) {
 			for (int slot = 0; slot < inv.getSizeInventory() && item.stackSize > 0; slot++) {
 				invItem = inv.getStackInSlot(slot);
 				if (inv.isItemValidForSlot(slot, item)) {
@@ -78,7 +78,8 @@ public class InventoryHelper {
 						if (invItem.stackSize < invItem.getMaxStackSize() && invItem.getItem() == item.getItem() && invItem.getItemDamage() == item.getItemDamage()) {
 							if (invItem.stackSize + item.stackSize < invItem.getMaxStackSize()) {
 								inv.setInventorySlotContents(slot, new ItemStack(item.getItem(), invItem.stackSize + item.stackSize, item.getItemDamage()));
-								item.stackSize = (invItem.stackSize + item.stackSize) - item.getMaxStackSize();
+								item = null;
+								return;
 							} else {
 								inv.setInventorySlotContents(slot, new ItemStack(item.getItem(), item.getMaxStackSize(), item.getItemDamage()));
 								item.stackSize = (invItem.stackSize + item.stackSize) - item.getMaxStackSize();
@@ -86,15 +87,15 @@ public class InventoryHelper {
 						}
 					} else if (invItem == null || invItem.stackSize <= 0) {
 						inv.setInventorySlotContents(slot, item);
-						item.stackSize = 0;
+						item = null;
+						return;
+						
 					}
 				}
 			}
 			
 			inv.markDirty();
 		}
-		
-		return item.stackSize <= 0;
 	}
 	
 	public static boolean hasOpenSlots(IInventory inv, ItemStack item) {
@@ -106,7 +107,7 @@ public class InventoryHelper {
 		for (int i = 0; i < inv.getSizeInventory(); i++) {
 			ItemStack current = inv.getStackInSlot(i);
 			
-			if (current == null)
+			if (current == null || inv == null)
 				return true;
 			
 			if (current == item) {

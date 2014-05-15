@@ -20,8 +20,8 @@ public class DrillTile extends ADTileEntity {
 	
 	private int minX, maxX, minZ, maxZ;
 	private int cooldown = -1;
-	private int drillWidth = 20;
-	private int drillHeight = 20;
+	private int drillWidth = 5;
+	private int drillHeight = 5;
 	private int delay;
 	private Block[] blockArray = { Blocks.air, Blocks.bedrock };
 	private boolean drillDone;
@@ -81,16 +81,14 @@ public class DrillTile extends ADTileEntity {
 			this.worldObj.playSoundEffect(x, y, z, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
 			
 			// particalName minX,minY,minZ,maxX,maxY,maxZ
-			world.spawnParticle("hugeexplosion", x, y, z, 1, 1, 1);
+			world.spawnParticle("hugeexplosion", x, y, z, 0.5, 0.5, 0.5);
 			this.type = -1;
 		}
 		
 		if (canDrill()) {
 			angle = angle >= 360 ? 0 : angle + speed * 2;
 			
-			if (cooldown == 0) {
-				this.damage--;
-				Artificer.packets.sendToAll(new DrillPacket(type, damage, this.xCoord, this.yCoord, this.zCoord));
+			if (cooldown == 0 && !this.worldObj.isRemote) {
 				setSize();
 				drill();
 				this.cooldown = delay;
@@ -102,7 +100,7 @@ public class DrillTile extends ADTileEntity {
 	}
 	
 	private boolean canDrill() {
-		return world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone && this.type != -1 && !this.world.isRemote;
+		return world.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord) && !drillDone && this.type != -1;
 	}
 	
 	private void setSize() {
@@ -129,21 +127,22 @@ public class DrillTile extends ADTileEntity {
 	private void drill() {
 		int count = 0;
 		
-		if (!drillDone) {
-			for (int y = yCoord - 1; y >= 0; y--) {
-				for (int x = minX; x <= maxX; x++) {
-					for (int z = minZ; z <= maxZ; z++) {
+		if (!drillDone && !this.worldObj.isRemote)
+			for (int y = yCoord - 1; y >= 0; y--)
+				for (int x = minX; x <= maxX-1; x++)
+					for (int z = minZ; z <= maxZ-1; z++) {
 						if (isBreakable(x, y, z)) {
+							this.damage--;
+							Artificer.packets.sendToAll(new DrillPacket(type, damage, this.xCoord, this.yCoord, this.zCoord));
+							
 							addBlock(x, y, z);
 							world.setBlockToAir(x, y, z);
 							count++;
 						}
-						if (count >= 1)
+						
+						if (count > 0)
 							return;
 					}
-				}
-			}
-		}
 		
 		drillDone = count == 0;
 		
@@ -154,13 +153,12 @@ public class DrillTile extends ADTileEntity {
 		Block block = world.getBlock(x, y, z);
 		int meta = world.getBlockMetadata(x, y, z);
 		
-		Item temp = block.getItemDropped(meta, world.rand, 0);
-		int quantity = block.quantityDropped(world.rand);
+		Item tempItem = block.getItemDropped(meta, world.rand, 0);
+		int stacksize = block.quantityDropped(world.rand);
 		int damage = block.damageDropped(meta);
 		
-		if (temp != null && quantity != 0) {
-			ItemStack item = new ItemStack(temp, quantity, damage);
-			
+		if (tempItem != null && stacksize != 0) {
+			ItemStack item = new ItemStack(tempItem, stacksize, damage);
 			IInventory chest = InventoryHelper.getInventoryAround(world, this.xCoord, this.yCoord, this.zCoord, item);
 			InventoryHelper.addBlock(chest, item);
 		}
@@ -168,7 +166,7 @@ public class DrillTile extends ADTileEntity {
 	
 	private boolean isBreakable(int x, int y, int z) {
 		for (Block block : blockArray) {
-			if (this.worldObj.getBlock(x, y, z).equals(block)) { return false; }
+			if (this.worldObj.getBlock(x, y, z) == block) { return false; }
 		}
 		
 		return this.worldObj.getTileEntity(x, y, z) == null && this.worldObj.getBlock(x, y, z).getMaterial() != Material.water && this.worldObj.getBlock(x, y, z).getMaterial() != Material.lava;
@@ -178,6 +176,13 @@ public class DrillTile extends ADTileEntity {
 		this.drillWidth = width;
 		this.drillHeight = height;
 		this.delay = rate;
+		
+		needsUpdate = true;
+	}
+	
+	public void setDrill(int type, int damage) {
+		this.type = type;
+		this.damage = damage;
 		
 		needsUpdate = true;
 	}
@@ -204,12 +209,6 @@ public class DrillTile extends ADTileEntity {
 	
 	public int getAngle() {
 		return this.angle;
-	}
-	
-	public void setDrill(int type, int damage) {
-		this.type = type;
-		this.damage = damage;
-		needsUpdate = true;
 	}
 	
 	@Override public void markDirty() {

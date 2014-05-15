@@ -15,8 +15,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class DrillPart extends ADItem {
 	int type;
-	int[] damage = { 100, 200, 300 };
-	String[] names = { "Stone_", "Iron_", "Diamond_" };
+	int[] damage = { 100, 250, 500, 1000 };
+	String[] names = { "Wood_", "Stone_", "Iron_", "Diamond_" };
 	
 	public DrillPart() {
 		super("");
@@ -44,5 +44,10 @@ public class DrillPart extends ADItem {
 	
 	@Override public String getUnlocalizedName(ItemStack item) {
 		return "item." + this.names[item.getItemDamage()] + Names.DRILL;
+	}
+	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		list.add("Number of Blocks: " + damage[item.getItemDamage()]);
+		list.add("(does " + ((double) damage[item.getItemDamage()]) / 100 + " layers in a 10x10 hole)");
 	}
 }

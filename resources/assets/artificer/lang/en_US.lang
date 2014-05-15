@@ -22,6 +22,7 @@ item.sword2.name=Schnelligkeit
 item.sword3.name=Schalldämpfer
 
 #Drills
+item.Wood_Drill.name=Wooden Drill
 item.Stone_Drill.name=Stone Drill
 item.Iron_Drill.name=Iron Drill
 item.Diamond_Drill.name=Diamond Drill
