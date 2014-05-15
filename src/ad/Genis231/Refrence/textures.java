@@ -22,6 +22,7 @@ public class textures {
 	public static final ResourceLocation coining = new ResourceLocation(main, "textures/gui/coining.png");
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
+	public static final ResourceLocation WMMasts = new ResourceLocation(main, "textures/blocks/WMMast.png");
 	public static final ResourceLocation DrillFrame = new ResourceLocation(main, Frame + "Frame.png");
 	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Wood_Drill.png"),new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };
 	public static final ResourceLocation DTable = new ResourceLocation(main, "textures/blocks/DTable.png");
