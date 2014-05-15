@@ -72,18 +72,17 @@ public class DrillTile extends ADTileEntity {
 			world.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 		
-		if (this.damage <= 0) {
+		if (this.damage <= 0 && type != -1) {
+			double x = this.xCoord;
+			double y = this.yCoord;
+			double z = this.zCoord;
 			
-			double x = this.xCoord - 1;
-			double y = this.yCoord - 1;
-			double z = this.zCoord - 1;
+			// soundName, x, y, z, volume, pitch
+			this.worldObj.playSoundEffect(x, y, z, "random.explode", 4.0F, (1.0F + (this.worldObj.rand.nextFloat() - this.worldObj.rand.nextFloat()) * 0.2F) * 0.7F);
 			
-			if (type != -1) {
-				world.spawnParticle("hugeexplosion", x, y, z, 2, 2, 2);
-				this.type = -1;
-			}
-			
-			return;
+			// particalName minX,minY,minZ,maxX,maxY,maxZ
+			world.spawnParticle("hugeexplosion", x, y, z, 1, 1, 1);
+			this.type = -1;
 		}
 		
 		if (canDrill()) {
@@ -183,13 +182,6 @@ public class DrillTile extends ADTileEntity {
 		needsUpdate = true;
 	}
 	
-	public void setDrillStats(int type, int damage) {
-		this.type = type;
-		this.damage = damage;
-		
-		needsUpdate = true;
-	}
-	
 	public int getWidth() {
 		return this.drillWidth;
 	}
@@ -210,12 +202,14 @@ public class DrillTile extends ADTileEntity {
 		return this.damage;
 	}
 	
-	public void setDrill(ItemStack item) {
-		if (item == null)
-			return;
-		
-		this.type = 1;
-		this.damage = item.getItemDamage();
+	public int getAngle() {
+		return this.angle;
+	}
+	
+	public void setDrill(int type, int damage) {
+		this.type = type;
+		this.damage = damage;
+		needsUpdate = true;
 	}
 	
 	@Override public void markDirty() {

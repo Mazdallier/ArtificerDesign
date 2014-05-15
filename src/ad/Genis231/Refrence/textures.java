@@ -7,8 +7,8 @@ public class textures {
 	private static final String items = Ref.Texture_FOLDER;
 	private static final String icons = "textures/gui/Icons/";
 	private static final String books = "textures/gui/Books/";
-	private static final String drill = "textures/blocks/Drill/Drill/";
-	private static final String Frame = "textures/blocks/Drill/Frame/";
+	private static final String drill = "textures/items/Drill/";
+	private static final String Frame = "textures/blocks/Drill/";
 	private static final String dam = items + "dam/";
 	private static final String Book = items + "Book/";
 	private static final String Elf = items + "Elf/";
@@ -23,7 +23,7 @@ public class textures {
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
 	public static final ResourceLocation DrillFrame = new ResourceLocation(main, Frame + "Frame.png");
-	public static final ResourceLocation Drill = new ResourceLocation(main, drill + "Drill.png");
+	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };
 	public static final ResourceLocation DTable = new ResourceLocation(main, "textures/blocks/DTable.png");
 	
 	/** Block Textures */

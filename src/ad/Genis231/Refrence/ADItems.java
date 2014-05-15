@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.item.Item;
+import ad.Genis231.Blocks.Dwarf.Drill;
 import ad.Genis231.Items.Arrow;
 import ad.Genis231.Items.Axe;
 import ad.Genis231.Items.Bow;
 import ad.Genis231.Items.DragonBreathe;
+import ad.Genis231.Items.DrillPart;
 import ad.Genis231.Items.DwarfBook;
 import ad.Genis231.Items.ElfBook;
 import ad.Genis231.Items.Hoe;
@@ -20,7 +22,6 @@ import ad.Genis231.Items.Swords;
 import ad.Genis231.Items.Tome;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
-import ad.Genis231.Items.Drill.Drill;
 
 public class ADItems {
 	public static final Item VineMat = new VineMat(Names.VINE_MAT);
@@ -32,7 +33,7 @@ public class ADItems {
 	public static final Item HumanBook = new HumanBook(Names.HumanBook, textures.book[2]);
 	public static final Item OrcBook = new OrcBook(Names.OrcBook, textures.book[3]);
 	public static final Item Sword = new Swords();
-	public static final Item Drill = new Drill(Names.DRILL);
+	public static final Item Drill = new DrillPart();
 	
 	// public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
 	// public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);

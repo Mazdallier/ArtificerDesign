@@ -17,7 +17,7 @@ public class DragonBreathe extends ADItem{
 	public ItemStack onItemRightClick(ItemStack item,World world,EntityPlayer player){
 
 		if(!player.capabilities.isCreativeMode){
-			--item.stackSize;
+			item.stackSize--;
 		}
 
 		world.playSoundAtEntity(player,"random.bow",0.5F,0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));

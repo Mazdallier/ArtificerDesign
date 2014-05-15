@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			renderFrame(x, y, z);
 			
 			if (tile.getDrillType() != -1)
-				renderDrill(x, y, z, tile.angle);
+				renderDrill(x, y, z, tile.angle,tile.getDrillType());
 		}
 	}
 	
@@ -47,7 +47,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glPopMatrix();
 	}
 	
-	void renderDrill(double x, double y, double z, float rotate) {
+	void renderDrill(double x, double y, double z, float rotate,int type) {
 		glPushMatrix();
 		
 		glScalef(scale, scale, scale);
@@ -55,7 +55,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		glRotatef(-rotate, 0.0F, 1.0F, 0.0F);
 		
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Drill);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Drill[type]);
 		
 		// Render
 		Model.renderDrill();

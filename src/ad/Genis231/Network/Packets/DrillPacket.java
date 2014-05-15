@@ -78,7 +78,7 @@ public class DrillPacket extends ADPacket {
 		if (this.isClientSide && te instanceof DrillTile) {
 			DrillTile tile = (DrillTile) te;
 			
-			tile.setDrillStats(type, damage);
+			tile.setDrill(type, damage);
 		}
 	}
 	
@@ -90,7 +90,7 @@ public class DrillPacket extends ADPacket {
 			DrillTile tile = (DrillTile) te;
 			
 			if (this.isClientSide)
-				tile.setDrillStats(type, damage);
+				tile.setDrill(type, damage);
 			else
 				tile.setStats(width, height, speed);
 			

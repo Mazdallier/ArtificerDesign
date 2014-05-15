@@ -15,12 +15,16 @@ tile.DTable.name=Dwarven Research Table
 item.DBreathe.name=Dragon's Breathe
 item.coin.name=Coin
 item.Tome.name=Tome of Infinite POWER!!!
-item.Drill.name=Drill
 
 item.sword0.name=Fliegen
 item.sword1.name=Schneller
 item.sword2.name=Schnelligkeit
 item.sword3.name=Schalldämpfer
+
+#Drills
+item.Stone_Drill.name=Stone Drill
+item.Iron_Drill.name=Iron Drill
+item.Diamond_Drill.name=Diamond Drill
 
 #Dwarven
 item.DHoe.name=Dwarven Hoe
