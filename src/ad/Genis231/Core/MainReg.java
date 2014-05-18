@@ -26,6 +26,7 @@ import ad.Genis231.TileEntity.CoiningTile;
 import ad.Genis231.TileEntity.DTableTile;
 import ad.Genis231.TileEntity.DrillTile;
 import ad.Genis231.TileEntity.SpikeTile;
+import ad.Genis231.TileEntity.WMMastTile;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -52,6 +53,7 @@ public class MainReg {
 		GameRegistry.registerTileEntity(DrillTile.class, Names.DRILLFrame);
 		GameRegistry.registerTileEntity(CoiningTile.class, Names.MechCoin);
 		GameRegistry.registerTileEntity(DTableTile.class, Names.DTable);
+		GameRegistry.registerTileEntity(WMMastTile.class, "WMMast");
 	}
 	
 	public static void Recipes() {

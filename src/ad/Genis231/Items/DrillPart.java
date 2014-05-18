@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import ad.Genis231.Refrence.Names;
+import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Resources.ADItem;
 import ad.Genis231.TileEntity.DrillTile;
 import cpw.mods.fml.relauncher.Side;
@@ -21,6 +22,7 @@ public class DrillPart extends ADItem {
 	public DrillPart() {
 		super("");
 		this.setHasSubtypes(true);
+		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {

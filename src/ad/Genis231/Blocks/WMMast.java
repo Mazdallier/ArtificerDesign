@@ -7,10 +7,9 @@ import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Resources.ADBlockModel;
 import ad.Genis231.TileEntity.WMMastTile;
 
-public class WMTemp extends ADBlockModel {
-	public WMTemp(String name) {
+public class WMMast extends ADBlockModel {
+	public WMMast(String name) {
 		super(Material.rock, name);
-		this.setBlockBounds(-1F, -1.0F, -1.0F, 2F, 2F, 2F);
 		this.setBlockUnbreakable();
 	}
 	
