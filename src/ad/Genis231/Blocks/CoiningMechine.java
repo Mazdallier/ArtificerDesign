@@ -18,12 +18,7 @@ public class CoiningMechine extends ADTile{
 		player.openGui(Artificer.instance,2,world,x,y,z);
 		return true;
 	}
-
-	@Override
-	public boolean isOpaqueCube(){
-		return false;
-	}
-
+	
 	@Override
 	public TileEntity createNewTileEntity(World world,int unknown){
 		return new CoiningTile();

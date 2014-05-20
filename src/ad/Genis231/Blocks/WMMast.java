@@ -11,6 +11,7 @@ public class WMMast extends ADBlockModel {
 	public WMMast(String name) {
 		super(Material.rock, name);
 		this.setBlockUnbreakable();
+		this.setCreativeTab(null);
 	}
 	
 	@Override public int getRenderType() {

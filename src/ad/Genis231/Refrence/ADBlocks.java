@@ -24,13 +24,13 @@ public class ADBlocks {
 	public static final Block Spike = new Spike(Names.SPIKE);
 	public static final Block DrillFrame = new Drill(Names.DRILLFrame);
 	public static final Block DwarvenStone = new DwarvenStone(Names.DSTONE, textures.DwarvenStone);
-	public static final Block coiningMech = new CoiningMechine(Names.MechCoin, textures.Coin);
+	public static final Block coiningMech = new CoiningMechine(Names.MechCoin, textures.CoiningMechine);
 	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
 	public static final Block FakeFire = new FakeFire(Names.GFIRE).setCreativeTab(Ref.MainTab);
 	public static final Block DTable = new DwarfTable(Names.DTable);
 	public static final Block WMMast = new WMMast("WindMill_null");
 	public static final Block ADAir = new AirBlock("Air_Block");
-	public static final Block Windmill = new WindMill("Windmill");
+	public static final Block Windmill = new WindMill(Names.WindMill,textures.WindMill);
 	
 	public static List<Block> getBlocks() {
 		List<Block> blocks = new ArrayList<Block>();

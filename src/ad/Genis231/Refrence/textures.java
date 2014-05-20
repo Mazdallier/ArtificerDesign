@@ -4,45 +4,47 @@ import net.minecraft.util.ResourceLocation;
 
 public class textures {
 	private static final String main = Ref.Resource_FOLDER;
-	private static final String items = Ref.Texture_FOLDER;
+	private static final String root = Ref.Texture_FOLDER;
 	private static final String icons = "textures/gui/Icons/";
 	private static final String books = "textures/gui/Books/";
 	private static final String drill = "textures/items/Drill/";
 	private static final String Frame = "textures/blocks/Drill/";
-	private static final String dam = items + "dam/";
-	private static final String Book = items + "Book/";
-	private static final String Elf = items + "Elf/";
-	private static final String Orc = items + "Orc/";
-	private static final String Dwarf = items + "Dwarf/";
+	private static final String dam = root + "dam/";
+	private static final String Book = root + "Book/";
+	private static final String Elf = root + "Elf/";
+	private static final String Orc = root + "Orc/";
+	private static final String Dwarf = root + "Dwarf/";
 	
 	// GUI
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
 	public static final ResourceLocation[] SkillBooks = { new ResourceLocation(main, books + "Human_SkillBook.png"), new ResourceLocation(main, books + "Dwarf_SkillBook.png"), new ResourceLocation(main, books + "Elf_SkillBook.png"), new ResourceLocation(main, books + "Orc_SkillBook.png") };
 	public static final ResourceLocation[] SkillBookIcons = { new ResourceLocation(main, icons + "Human_Icons.png"), new ResourceLocation(main, icons + "Dwarf_Icons.png"), new ResourceLocation(main, icons + "Elf_Icons.png"), new ResourceLocation(main, icons + "Orc_Icons.png") };
-	public static final ResourceLocation coining = new ResourceLocation(main, "textures/gui/coining.png");
+	public static final ResourceLocation CoiningGui = new ResourceLocation(main, "textures/gui/coining.png");
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
 	public static final ResourceLocation WMMasts = new ResourceLocation(main, "textures/blocks/WMMast.png");
 	public static final ResourceLocation DrillFrame = new ResourceLocation(main, Frame + "Frame.png");
-	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Wood_Drill.png"),new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };
+	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Wood_Drill.png"), new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };
 	public static final ResourceLocation DTable = new ResourceLocation(main, "textures/blocks/DTable.png");
 	
 	/** Block Textures */
 	public static final String[] Dam = { dam + "side", dam + "open", dam + "close" };
-	public static final String DwarvenStone = items + "Dwarven_Stone";
-	public static final String Fire = items + "Green_Fire";
+	public static final String DwarvenStone = root + "Dwarven_Stone";
+	public static final String Fire = root + "Green_Fire";
+	public static final String WindMill = root + "WindMill";
+	public static final String CoiningMechine = root + "Coining_Mechine";
 	
 	/** Liquid Textures */
-	public static final String aleLiquid = items + "AleLiquid";
-	public static final String aleFlowing = items + "AleFlowing";
+	public static final String aleLiquid = root + "AleLiquid";
+	public static final String aleFlowing = root + "AleFlowing";
 	
 	/** Item Textures */
 	public static String[] PitTrap = { "Teir1", "Teir2", "Teir3", "dirt", "sand", "stone" };
 	public static final String[] book = { Book + "Dwarf", Book + "Elf", Book + "Human", Book + "Orc" };
 	public static final String BookOpen = Book + "open";
-	public static final String DragonBreathe = items + "Dragon_Breathe";
-	public static final String Coin = items + "coin";
-	public static final String tome = items + "tome";
+	public static final String DragonBreathe = root + "Dragon_Breathe";
+	public static final String Coin = root + "coin";
+	public static final String tome = root + "tome";
 	
 	// Elven
 	public static final String ElfBow = Elf + "bow_idle";

@@ -11,6 +11,7 @@ public class Names {
 	public static final String GFIRE = "GFire";
 	public static final String MechCoin = "MechCoin";
 	public static final String DTable = "DTable";
+	public static final String WindMill = "WindMill";
 	
 	// Items
 	public static final String DREATHE = "DBreathe";

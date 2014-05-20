@@ -9,8 +9,8 @@ import ad.Genis231.Resources.ADTile;
 
 public class WindMill extends ADTile {
 	
-	public WindMill(String name) {
-		super(Material.rock, name);
+	public WindMill(String name,String texture) {
+		super(Material.rock, name,texture);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
