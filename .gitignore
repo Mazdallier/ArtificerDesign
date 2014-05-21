@@ -1,12 +1,9 @@
 /.gradle/
 /.settings/
-/assets/
 /build/
 /bin
-/eclipse/
 /.classpath
 /.project
-/.iml
-/.ipr
-/.iws
-/bin
+*.iws
+*.ipr
+*.iml
