@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Network.ADPacket;
-import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.DrillTileEntity;
 
 public class DrillPacket extends ADPacket {
 	int x, y, z;
@@ -75,8 +75,8 @@ public class DrillPacket extends ADPacket {
 	@Override public void handleClientSide(EntityPlayer player) {
 		World world = player.worldObj;
 		TileEntity te = world.getTileEntity(x, y, z);
-		if (this.isClientSide && te instanceof DrillTile) {
-			DrillTile tile = (DrillTile) te;
+		if (this.isClientSide && te instanceof DrillTileEntity) {
+			DrillTileEntity tile = (DrillTileEntity) te;
 			
 			tile.setDrill(type, damage);
 		}
@@ -86,8 +86,8 @@ public class DrillPacket extends ADPacket {
 		World world = player.worldObj;
 		TileEntity te = world.getTileEntity(x, y, z);
 		
-		if (te instanceof DrillTile) {
-			DrillTile tile = (DrillTile) te;
+		if (te instanceof DrillTileEntity) {
+			DrillTileEntity tile = (DrillTileEntity) te;
 			
 			if (this.isClientSide)
 				tile.setDrill(type, damage);

@@ -226,13 +226,13 @@ public class SkillBookGui extends GuiScreen {
 	}
 	
 	PlayerRace getRacefromBook(ItemStack item) {
-		if (item.getItem() == ADItems.HumanBook)
+		if (item.getItem() == ADItems.humanBook)
 			return PlayerRace.HUMAN;
-		if (item.getItem() == ADItems.DwarfBook)
+		if (item.getItem() == ADItems.dwarfBook)
 			return PlayerRace.DWARF;
-		if (item.getItem() == ADItems.ElfBook)
+		if (item.getItem() == ADItems.elfBook)
 			return PlayerRace.ELF;
-		if (item.getItem() == ADItems.OrcBook)
+		if (item.getItem() == ADItems.orcBook)
 			return PlayerRace.ORC;
 		
 		return null;

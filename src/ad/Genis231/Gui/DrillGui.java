@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import ad.Genis231.Containers.DrillContainer;
 import ad.Genis231.Core.Artificer;
 import ad.Genis231.Network.Packets.DrillPacket;
-import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.DrillTileEntity;
 
 public class DrillGui extends GuiContainer {
 	Minecraft mc = Minecraft.getMinecraft();
 	
-	DrillTile tile;
+	DrillTileEntity tile;
 	
 	ItemStack item;
 	
@@ -32,7 +32,7 @@ public class DrillGui extends GuiContainer {
 	
 	int tileX, tileY, tileZ;
 	
-	public DrillGui(DrillTile te) {
+	public DrillGui(DrillTileEntity te) {
 		super(new DrillContainer());
 		
 		this.tile = te;

@@ -91,7 +91,7 @@ public class VineMat extends ADItem {
 			if (area(world, mx, mX, y, mz, mZ)) {
 				
 				PitTrapBlock.toggle = false;
-				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlocks.FalsePitTrap, item.getItemDamage() % 3, true);
+				ADBlock.fill(world, mx, y, mz, mX, y, mZ, ADBlocks.falsePitTrap, item.getItemDamage() % 3, true);
 				PitTrapBlock.toggle = true;
 			}
 		}

@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Resources.ADBlockModel;
-import ad.Genis231.TileEntity.WMMastTile;
+import ad.Genis231.TileEntity.WMMastTileEntity;
 
 public class WMMast extends ADBlockModel {
 	public WMMast(String name) {
@@ -19,6 +19,6 @@ public class WMMast extends ADBlockModel {
 	}
 	
 	@Override public TileEntity createNewTileEntity(World var1, int var2) {
-		return new WMMastTile();
+		return new WMMastTileEntity();
 	}
 }

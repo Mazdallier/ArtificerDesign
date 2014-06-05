@@ -9,25 +9,25 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import ad.Genis231.Models.Blocks.DrillModel;
 import ad.Genis231.Refrence.textures;
-import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.DrillTileEntity;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class DrillRenderer extends TileEntitySpecialRenderer {
 	private DrillModel Model = new DrillModel();
-	DrillTile tile;
+	DrillTileEntity tile;
 	
 	float scale = 1.0F;
 	
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		tile = (DrillTile) tileEntity;
+		tile = (DrillTileEntity) tileEntity;
 		
-		if (tileEntity instanceof DrillTile) {
+		if (tileEntity instanceof DrillTileEntity) {
 			renderFrame(x, y, z);
 			
 			if (tile.getDrillType() != -1)
-				renderDrill(x, y, z, tile.angle,tile.getDrillType());
+				renderDrill(x, y, z, tile.angle, tile.getDrillType());
 		}
 	}
 	
@@ -47,7 +47,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glPopMatrix();
 	}
 	
-	void renderDrill(double x, double y, double z, float rotate,int type) {
+	void renderDrill(double x, double y, double z, float rotate, int type) {
 		glPushMatrix();
 		
 		glScalef(scale, scale, scale);

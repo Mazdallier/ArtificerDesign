@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import ad.Genis231.Refrence.Names;
 import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Resources.ADItem;
-import ad.Genis231.TileEntity.DrillTile;
+import ad.Genis231.TileEntity.DrillTileEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,8 +26,8 @@ public class DrillPart extends ADItem {
 	}
 	
 	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
-		if (world.getTileEntity(x, y, z) instanceof DrillTile) {
-			DrillTile tile = (DrillTile) world.getTileEntity(x, y, z);
+		if (world.getTileEntity(x, y, z) instanceof DrillTileEntity) {
+			DrillTileEntity tile = (DrillTileEntity) world.getTileEntity(x, y, z);
 			tile.setDrill(item.getItemDamage(), damage[item.getItemDamage()]);
 			
 			if (!player.capabilities.isCreativeMode) {

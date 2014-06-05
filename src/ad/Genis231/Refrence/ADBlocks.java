@@ -19,32 +19,32 @@ import ad.Genis231.Blocks.Dwarf.LiquidAle;
 import ad.Genis231.Core.MainReg;
 
 public class ADBlocks {
-	public static final Block Dam = new DamBlock(Names.DAM_BLOCK);
-	public static final Block FalsePitTrap = new PitTrapBlock("PitTrap_Null");
-	public static final Block Spike = new Spike(Names.SPIKE);
-	public static final Block DrillFrame = new Drill(Names.DRILLFrame);
-	public static final Block DwarvenStone = new DwarvenStone(Names.DSTONE, textures.DwarvenStone);
+	public static final Block dam = new DamBlock(Names.DAM_BLOCK);
+	public static final Block falsePitTrap = new PitTrapBlock("PitTrap_Null");
+	public static final Block spike = new Spike(Names.SPIKE);
+	public static final Block drillFrame = new Drill(Names.DRILLFrame);
+	public static final Block dwarvenStone = new DwarvenStone(Names.DSTONE, textures.DwarvenStone);
 	public static final Block coiningMech = new CoiningMechine(Names.MechCoin, textures.CoiningMechine);
-	public static final Block AleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
-	public static final Block FakeFire = new FakeFire(Names.GFIRE).setCreativeTab(Ref.MainTab);
-	public static final Block DTable = new DwarfTable(Names.DTable);
-	public static final Block WMMast = new WMMast("WindMill_null");
-	public static final Block ADAir = new AirBlock("Air_Block");
-	public static final Block Windmill = new WindMill(Names.WindMill,textures.WindMill);
+	public static final Block aleLiquid = new LiquidAle(MainReg.ale, Names.AleLiquid);
+	public static final Block fakeFire = new FakeFire(Names.GFIRE).setCreativeTab(Ref.MainTab);
+	public static final Block dwarvenTable = new DwarfTable(Names.DwarvenTable);
+	public static final Block windmillMast = new WMMast("WindMill_null");
+	public static final Block airBlock = new AirBlock("Air_Block");
+	public static final Block windmill = new WindMill(Names.WindMill,textures.WindMill);
 	
 	public static List<Block> getBlocks() {
 		List<Block> blocks = new ArrayList<Block>();
 		
 		blocks.add(coiningMech);
-		blocks.add(Dam);
-		blocks.add(Spike);
-		blocks.add(FalsePitTrap);
-		blocks.add(FakeFire);
-		blocks.add(WMMast);
-		blocks.add(ADAir);
-		blocks.add(DTable);
-		blocks.add(DwarvenStone);
-		blocks.add(Windmill);
+		blocks.add(dam);
+		blocks.add(spike);
+		blocks.add(falsePitTrap);
+		blocks.add(fakeFire);
+		blocks.add(windmillMast);
+		blocks.add(airBlock);
+		blocks.add(dwarvenTable);
+		blocks.add(dwarvenStone);
+		blocks.add(windmill);
 		
 		return blocks;
 	}

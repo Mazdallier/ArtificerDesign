@@ -1,11 +1,15 @@
 package ad.Genis231.Render.Blocks;
 
-import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
+import static org.lwjgl.opengl.GL11.glRotatef;
+import static org.lwjgl.opengl.GL11.glScalef;
+import static org.lwjgl.opengl.GL11.glTranslatef;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import ad.Genis231.Models.Blocks.WMillModel;
 import ad.Genis231.Refrence.textures;
-import ad.Genis231.TileEntity.WMMastTile;
+import ad.Genis231.TileEntity.WMMastTileEntity;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		float angle = (float) (360.0 * (System.currentTimeMillis() & speed) / (speed / 8));
 		
-		if (tileEntity instanceof WMMastTile) {
+		if (tileEntity instanceof WMMastTileEntity) {
 			
 			glPushMatrix();
 			

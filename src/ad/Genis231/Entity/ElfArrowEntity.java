@@ -448,7 +448,7 @@ public class ElfArrowEntity extends EntityArrow{
 		if(!this.worldObj.isRemote && this.inGround && this.arrowShake <= 0){
 			boolean flag = this.canBePickedUp == 1 || this.canBePickedUp == 2 && player.capabilities.isCreativeMode;
 
-			if(this.canBePickedUp == 1 && !player.inventory.addItemStackToInventory(new ItemStack(ADItems.ElfArrow,1))){
+			if(this.canBePickedUp == 1 && !player.inventory.addItemStackToInventory(new ItemStack(ADItems.elfArrow,1))){
 				flag = false;
 			}
 

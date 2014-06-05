@@ -7,10 +7,10 @@ import net.minecraft.item.ItemStack;
 import ad.Genis231.Refrence.ADItems;
 import ad.Genis231.Resources.ADTileEntity;
 
-public class CoiningTile extends ADTileEntity implements IInventory {
+public class CoiningTileEntity extends ADTileEntity implements IInventory {
 	ItemStack[] inv;
 	
-	public CoiningTile() {
+	public CoiningTileEntity() {
 		inv = new ItemStack[2];
 	}
 	
@@ -29,7 +29,7 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 						inv[0] = null;
 					
 				} else {
-					inv[1] = new ItemStack(ADItems.Coin, 0, 0);
+					inv[1] = new ItemStack(ADItems.coin, 0, 0);
 				}
 				
 			}
@@ -100,7 +100,7 @@ public class CoiningTile extends ADTileEntity implements IInventory {
 			case 0:
 				return item.getItem() == Items.gold_nugget;
 			case 1:
-				return item.getItem() == ADItems.Coin;
+				return item.getItem() == ADItems.coin;
 			default:
 				return false;
 		}

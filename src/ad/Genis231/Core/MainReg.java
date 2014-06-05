@@ -22,11 +22,11 @@ import ad.Genis231.Mobs.warriorDwarf;
 import ad.Genis231.Refrence.ADBlocks;
 import ad.Genis231.Refrence.ADItems;
 import ad.Genis231.Refrence.Names;
-import ad.Genis231.TileEntity.CoiningTile;
-import ad.Genis231.TileEntity.DTableTile;
-import ad.Genis231.TileEntity.DrillTile;
-import ad.Genis231.TileEntity.SpikeTile;
-import ad.Genis231.TileEntity.WMMastTile;
+import ad.Genis231.TileEntity.CoiningTileEntity;
+import ad.Genis231.TileEntity.DTableTileEntity;
+import ad.Genis231.TileEntity.DrillTileEntity;
+import ad.Genis231.TileEntity.SpikeTileEntity;
+import ad.Genis231.TileEntity.WMMastTileEntity;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -45,25 +45,25 @@ public class MainReg {
 			GameRegistry.registerItem(current, current.getUnlocalizedName());
 		
 		/* Blocks WITH ItemBlocks */
-		GameRegistry.registerBlock(ADBlocks.DrillFrame, DrillIBlock.class, Names.DRILLFrame);
-		GameRegistry.registerBlock(ADBlocks.AleLiquid, AleIBlock.class, Names.AleLiquid);
+		GameRegistry.registerBlock(ADBlocks.drillFrame, DrillIBlock.class, Names.DRILLFrame);
+		GameRegistry.registerBlock(ADBlocks.aleLiquid, AleIBlock.class, Names.AleLiquid);
 		
 		/* TileEntities */
-		GameRegistry.registerTileEntity(SpikeTile.class, Names.SPIKE);
-		GameRegistry.registerTileEntity(DrillTile.class, Names.DRILLFrame);
-		GameRegistry.registerTileEntity(CoiningTile.class, Names.MechCoin);
-		GameRegistry.registerTileEntity(DTableTile.class, Names.DTable);
-		GameRegistry.registerTileEntity(WMMastTile.class, "WMMast");
+		GameRegistry.registerTileEntity(SpikeTileEntity.class, Names.SPIKE);
+		GameRegistry.registerTileEntity(DrillTileEntity.class, Names.DRILLFrame);
+		GameRegistry.registerTileEntity(CoiningTileEntity.class, Names.MechCoin);
+		GameRegistry.registerTileEntity(DTableTileEntity.class, Names.DwarvenTable);
+		GameRegistry.registerTileEntity(WMMastTileEntity.class, "WMMast");
 	}
 	
 	public static void Recipes() {
 		// Vine Mats
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
-		GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.vineMat, 1, 0), "QQQ", "VXV", "XVX", 'Q', Blocks.dirt, 'V', Blocks.vine, 'X', Items.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.vineMat, 1, 1), "QQQ", "VXV", "XVX", 'Q', Blocks.sand, 'V', Blocks.vine, 'X', Items.stick);
+		GameRegistry.addShapedRecipe(new ItemStack(ADItems.vineMat, 1, 2), "QQQ", "VXV", "XVX", 'Q', Blocks.stone, 'V', Blocks.vine, 'X', Items.stick);
 		
 		for (int i = 3; i < 9; i++) {
-			GameRegistry.addShapedRecipe(new ItemStack(ADItems.VineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItems.VineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
+			GameRegistry.addShapedRecipe(new ItemStack(ADItems.vineMat, 1, i), "QQQ", "VXV", "XVX", 'Q', new ItemStack(ADItems.vineMat, 1, i - 3), 'X', Items.stick, 'V', Blocks.vine);
 		}
 	}
 	

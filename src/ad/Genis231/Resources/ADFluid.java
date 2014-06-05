@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
-public class ADLiquid extends BlockFluidClassic{
+public class ADFluid extends BlockFluidClassic{
 
-	protected ADLiquid(Fluid fluid,String name){
+	protected ADFluid(Fluid fluid,String name){
 		super(fluid,Material.water);
 		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);

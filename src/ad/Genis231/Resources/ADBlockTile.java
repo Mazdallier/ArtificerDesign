@@ -6,16 +6,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class ADTile extends BlockContainer{
+public class ADBlockTile extends BlockContainer{
 
-	public ADTile(Material material,String name,String texture){
+	public ADBlockTile(Material material,String name,String texture){
 		super(material);
 		this.setCreativeTab(Ref.MainTab);
 		this.setBlockTextureName(texture);
 		this.setBlockName(name);
 	}
 
-	public ADTile(Material material,String name){
+	public ADBlockTile(Material material,String name){
 		super(material);
 		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);

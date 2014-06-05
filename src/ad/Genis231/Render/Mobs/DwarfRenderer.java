@@ -8,11 +8,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class dwarfRenderer extends RenderLiving{
+public class DwarfRenderer extends RenderLiving{
 	DwarfModel dwarf;
 	int dwarfType;
 
-	public dwarfRenderer(DwarfModel model,float shadow,int type){
+	public DwarfRenderer(DwarfModel model,float shadow,int type){
 		super(model,shadow);
 		dwarfType = type;
 		dwarf = ((DwarfModel) mainModel);

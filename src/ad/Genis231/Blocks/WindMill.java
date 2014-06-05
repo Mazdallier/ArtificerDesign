@@ -5,18 +5,19 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import ad.Genis231.Refrence.ADBlocks;
-import ad.Genis231.Resources.ADTile;
+import ad.Genis231.Resources.ADBlockTile;
+import ad.Genis231.Resources.ADTileEntity;
 
-public class WindMill extends ADTile {
+public class WindMill extends ADBlockTile {
 	
 	public WindMill(String name,String texture) {
 		super(Material.rock, name,texture);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
-		placeBlocks(world, x, y, z, ADBlocks.ADAir);
+		placeBlocks(world, x, y, z, ADBlocks.airBlock);
 		
-		world.setBlock(x + 1, y, z, ADBlocks.WMMast);
+		world.setBlock(x + 1, y, z, ADBlocks.windmillMast);
 	}
 	
 	public void breakBlock(World world, int x, int y, int z, Block block, int unknown) {
