@@ -16,10 +16,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 		model = AdvancedModelLoader.loadModel(Models.Pipe);
 	}
 	
-	public void render() {
-		model.renderOnly("Center");
-	}
-	
 	public void renderPart(int i, boolean extended) {
 		
 		switch (i) {

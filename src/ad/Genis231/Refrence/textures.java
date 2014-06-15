@@ -15,8 +15,7 @@ public class textures {
 	private static final String Orc = root + "Orc/";
 	private static final String Dwarf = root + "Dwarf/";
 	
-		public static final ResourceLocation Temp = new ResourceLocation(main, "textures/blocks/Temp.png");
-
+	public static final ResourceLocation Temp = new ResourceLocation(main, "textures/blocks/Temp.png");
 	
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
 	public static final ResourceLocation[] SkillBooks = { new ResourceLocation(main, books + "Human_SkillBook.png"), new ResourceLocation(main, books + "Dwarf_SkillBook.png"), new ResourceLocation(main, books + "Elf_SkillBook.png"), new ResourceLocation(main, books + "Orc_SkillBook.png") };
@@ -24,6 +23,7 @@ public class textures {
 	public static final ResourceLocation CoiningGui = new ResourceLocation(main, "textures/gui/coining.png");
 	public static final ResourceLocation ResearchPoints = new ResourceLocation(main, "textures/gui/Research Points.png");
 	public static final ResourceLocation Spike = new ResourceLocation(main, "textures/blocks/Spikes.png");
+	public static final ResourceLocation Pipe = new ResourceLocation(main, "textures/blocks/Pipe.png");
 	public static final ResourceLocation WMMasts = new ResourceLocation(main, "textures/blocks/WMMast.png");
 	public static final ResourceLocation DrillFrame = new ResourceLocation(main, Frame + "Frame.png");
 	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Wood_Drill.png"), new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };

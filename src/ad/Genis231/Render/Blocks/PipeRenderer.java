@@ -5,6 +5,7 @@ import static org.lwjgl.opengl.GL11.glPushMatrix;
 import static org.lwjgl.opengl.GL11.glScalef;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Models.Blocks.PipeModel;
@@ -28,7 +29,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 			glTranslatef((float) posX + 0.5F, (float) posY + 0.0F, (float) posZ + 0.5F);
 			
 			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Temp);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Pipe);
 			
 			// Render
 			int i = 0;
@@ -37,8 +38,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 				
 				if (temp == null)
 					model.renderPart(i, false);
-				else
-					model.renderPart(i, temp instanceof PipeTileEntity);
+				else {
+					boolean inv = temp instanceof IInventory;
+					model.renderPart(i, temp instanceof PipeTileEntity || inv);
+				}
 				
 				i++;
 			}

@@ -12,6 +12,7 @@ import ad.Genis231.Render.Blocks.WMillRenderer;
 import ad.Genis231.Render.Items.ItemDTableRenderer;
 import ad.Genis231.Render.Items.ItemDrillFrameRenderer;
 import ad.Genis231.Render.Items.ItemDrillRenderer;
+import ad.Genis231.Render.Items.ItemPipeRenderer;
 import ad.Genis231.Render.Items.ItemSpikeRenderer;
 import ad.Genis231.Render.Mobs.DwarfRenderer;
 import ad.Genis231.TileEntity.DTableTileEntity;
@@ -46,5 +47,6 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.drillFrame).getItem(), new ItemDrillFrameRenderer());
 		MinecraftForgeClient.registerItemRenderer(ADItems.drill, new ItemDrillRenderer());
 		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.dwarvenTable).getItem(), new ItemDTableRenderer());
+		MinecraftForgeClient.registerItemRenderer(new ItemStack(ADBlocks.genericPipe).getItem(), new ItemPipeRenderer());
 	}
 }
