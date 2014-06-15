@@ -11,55 +11,50 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class PitTrapBlock extends ADBlock{
-
-	@SideOnly(Side.CLIENT)
-	public static IIcon sandIcon;
-	@SideOnly(Side.CLIENT)
-	public static IIcon stoneIcon;
-	@SideOnly(Side.CLIENT)
-	public static IIcon dirtIcon;
-
-	public static boolean toggle = true; // TODO Get rid of this stupid toggle thing!! -.-
-
-	public PitTrapBlock(String name){
-		super(Material.rock,name);
+public class PitTrapBlock extends ADBlock {
+	
+	@SideOnly(Side.CLIENT) public static IIcon sandIcon;
+	@SideOnly(Side.CLIENT) public static IIcon stoneIcon;
+	@SideOnly(Side.CLIENT) public static IIcon dirtIcon;
+	
+	public static boolean toggle = true; // TODO Get rid of this stupid toggle
+											// thing!! -.-
+	
+	public PitTrapBlock(String name) {
+		super(Material.rock, name);
 		this.setBlockUnbreakable();
 		this.setCreativeTab(null);
 	}
-
-	public void onEntityWalking(World world,int x,int y,int z,Entity player){
-		world.setBlockToAir(x,y,z);
-		super.onEntityWalking(world,x,y,z,player);
+	
+	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
+		world.setBlockToAir(x, y, z);
+		super.onEntityWalking(world, x, y, z, player);
 	}
-
-	public void onNeighborBlockChange(World world,int x,int y,int z,Block neighbor){
-		if(toggle){
-			if(check(world,x,y,z)){
-				world.setBlockToAir(x,y,z);
+	
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbor) {
+		if (toggle) {
+			if (check(world, x, y, z)) {
+				world.setBlockToAir(x, y, z);
 			}
 		}
 	}
-
-	private boolean check(World world,int x,int y,int z){
-		for(int i = 2; i <= 5; i++){
-			if(blockIsSide(world,x,y,z,Blocks.air,i)) return true;
+	
+	private boolean check(World world, int x, int y, int z) {
+		for (int i = 2; i <= 5; i++) {
+			if (blockIsSide(world, x, y, z, Blocks.air, i))
+				return true;
 		}
 		return false;
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister icon){
+	
+	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
 		sandIcon = icon.registerIcon("sand");
 		stoneIcon = icon.registerIcon("stone");
 		dirtIcon = icon.registerIcon("dirt");
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side,int meta){
-		switch(meta){
+	
+	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
+		switch (meta) {
 			case 0:
 				return dirtIcon;
 			case 1:

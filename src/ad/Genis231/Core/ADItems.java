@@ -1,4 +1,4 @@
-package ad.Genis231.Refrence;
+package ad.Genis231.Core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,9 @@ import ad.Genis231.Items.Swords;
 import ad.Genis231.Items.Tome;
 import ad.Genis231.Items.VineMat;
 import ad.Genis231.Items.coin;
+import ad.Genis231.Refrence.Names;
+import ad.Genis231.Refrence.Ref;
+import ad.Genis231.Refrence.textures;
 
 public class ADItems {
 	public static final Item vineMat = new VineMat(Names.VINE_MAT);
@@ -34,13 +37,20 @@ public class ADItems {
 	public static final Item aword = new Swords();
 	public static final Item drill = new DrillPart();
 	
-	// public static final Item DwarfBow = new Bow(Names.DwarfBow, textures.DwarfBow, Ref.DwarfTab);
-	// public static final Item DwarfArrow = new Arrow(Names.DwarfArrow, textures.DwarfArrow, Ref.DwarfTab);
-	// public static final Item DwarfAxe = new Axe(Names.DwarfAxe, textures.DwarfAxe, Ref.DwarfTab);
-	// public static final Item DwarfHoe = new Hoe(Names.DwarfHoe, textures.DwarfHoe, Ref.DwarfTab);
-	// public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer, textures.DwarfHammer, Ref.DwarfTab);
-	// public static final Item DwarfShovel = new Shovel(Names.DwarfShovel, textures.DwarfShovel, Ref.DwarfTab);
-	// public static final Item DwarfSword = new Sword(Names.DwarfSword, textures.DwarfSword, Ref.DwarfTab);
+	// public static final Item DwarfBow = new Bow(Names.DwarfBow,
+	// textures.DwarfBow, Ref.DwarfTab);
+	// public static final Item DwarfArrow = new Arrow(Names.DwarfArrow,
+	// textures.DwarfArrow, Ref.DwarfTab);
+	// public static final Item DwarfAxe = new Axe(Names.DwarfAxe,
+	// textures.DwarfAxe, Ref.DwarfTab);
+	// public static final Item DwarfHoe = new Hoe(Names.DwarfHoe,
+	// textures.DwarfHoe, Ref.DwarfTab);
+	// public static final Item DwarfHammer = new Pickaxe(Names.DwarfHammer,
+	// textures.DwarfHammer, Ref.DwarfTab);
+	// public static final Item DwarfShovel = new Shovel(Names.DwarfShovel,
+	// textures.DwarfShovel, Ref.DwarfTab);
+	// public static final Item DwarfSword = new Sword(Names.DwarfSword,
+	// textures.DwarfSword, Ref.DwarfTab);
 	
 	public static final Item elfBow = new Bow(Names.ElfBow, textures.ElfBow, Ref.ElfTab);
 	public static final Item elfArrow = new Arrow(Names.ElfArrow, textures.ElfArrow, Ref.ElfTab);

@@ -7,17 +7,16 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-@SideOnly(Side.CLIENT)
-public class WMillModel extends ModelBase{
-
+@SideOnly(Side.CLIENT) public class WMillModel extends ModelBase {
+	
 	private IModelCustom model;
-
-	public WMillModel(){
-
+	
+	public WMillModel() {
+		
 		model = AdvancedModelLoader.loadModel(Models.WindMill);
 	}
-
-	public void render(){
+	
+	public void render() {
 		model.renderAll();
 	}
 }

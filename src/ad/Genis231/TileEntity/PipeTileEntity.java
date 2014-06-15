@@ -1,5 +1,7 @@
 package ad.Genis231.TileEntity;
 
-public class PipeTileEntity {
+import ad.Genis231.Resources.ADTileEntity;
+
+public class PipeTileEntity extends ADTileEntity {
 	
 }

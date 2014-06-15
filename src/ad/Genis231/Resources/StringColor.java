@@ -1,6 +1,6 @@
 package ad.Genis231.Resources;
 
-public class StringColor{
+public class StringColor {
 	public static String Black = "\u00A70";
 	public static String Dark_Blue = "\u00A71";
 	public static String Dark_Green = "\u00A72";

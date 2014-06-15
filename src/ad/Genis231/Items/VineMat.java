@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Blocks.PitTrapBlock;
-import ad.Genis231.Refrence.ADBlocks;
+import ad.Genis231.Core.ADBlocks;
 import ad.Genis231.Refrence.Names;
 import ad.Genis231.Refrence.textures;
 import ad.Genis231.Resources.ADBlock;

@@ -11,26 +11,27 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class Tome extends ADItem{
-
-	public Tome(String name,String Texture){
-		super(name,Texture);
+public class Tome extends ADItem {
+	
+	public Tome(String name, String Texture) {
+		super(name, Texture);
 	}
-
-	public ItemStack onItemRightClick(ItemStack item,World world,EntityPlayer player){
+	
+	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
 		PlayerData props = PlayerData.get(player);
-
+		
 		int i = props.getRace().getID();
-
-		if(!world.isRemote) if(i < 3) props.setRace(PlayerRace.getRace((i + 1) % 4));
-		else props.setRace(PlayerRace.getRace((i + 1) % 4));
-
+		
+		if (!world.isRemote)
+			if (i < 3)
+				props.setRace(PlayerRace.getRace((i + 1) % 4));
+			else
+				props.setRace(PlayerRace.getRace((i + 1) % 4));
+		
 		return item;
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack item,EntityPlayer player,List list,boolean bool){
+	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
 		list.add("This needs a texture!!");
 		list.add("This will change the current class of the player");
 	}

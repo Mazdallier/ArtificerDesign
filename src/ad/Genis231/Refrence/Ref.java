@@ -28,6 +28,7 @@ public class Ref {
 	public static int WMillRender;
 	public static int DrillRender;
 	public static int DTableRender;
+	public static int PipeRender;
 	
 	public static InputStream getResource(ResourceLocation resource) throws IOException {
 		return Minecraft.getMinecraft().getResourceManager().getResource(resource).getInputStream();

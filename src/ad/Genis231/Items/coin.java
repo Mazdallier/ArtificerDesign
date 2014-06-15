@@ -31,8 +31,8 @@ public class coin extends ADItem {
 	}
 	
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-		if(player.isSneaking())
-		player.setPositionAndUpdate(32000000 - 1, 5, 32000000 - 1);
+		if (player.isSneaking())
+			player.setPositionAndUpdate(32000000 - 1, 5, 32000000 - 1);
 		
 		return item;
 	}

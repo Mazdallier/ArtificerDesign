@@ -15,7 +15,9 @@ public class textures {
 	private static final String Orc = root + "Orc/";
 	private static final String Dwarf = root + "Dwarf/";
 	
-	// GUI
+		public static final ResourceLocation Temp = new ResourceLocation(main, "textures/blocks/Temp.png");
+
+	
 	public static final ResourceLocation[] dwarf = { new ResourceLocation(main, "textures/mobs/SavageDwarf.png"), new ResourceLocation(main, "textures/mobs/WarriorDwarf.png"), new ResourceLocation(main, "textures/mobs/TraderDwarf.png") };
 	public static final ResourceLocation[] SkillBooks = { new ResourceLocation(main, books + "Human_SkillBook.png"), new ResourceLocation(main, books + "Dwarf_SkillBook.png"), new ResourceLocation(main, books + "Elf_SkillBook.png"), new ResourceLocation(main, books + "Orc_SkillBook.png") };
 	public static final ResourceLocation[] SkillBookIcons = { new ResourceLocation(main, icons + "Human_Icons.png"), new ResourceLocation(main, icons + "Dwarf_Icons.png"), new ResourceLocation(main, icons + "Elf_Icons.png"), new ResourceLocation(main, icons + "Orc_Icons.png") };
@@ -27,18 +29,18 @@ public class textures {
 	public static final ResourceLocation[] Drill = { new ResourceLocation(main, drill + "Wood_Drill.png"), new ResourceLocation(main, drill + "Stone_Drill.png"), new ResourceLocation(main, drill + "Iron_Drill.png"), new ResourceLocation(main, drill + "Diamond_Drill.png") };
 	public static final ResourceLocation DTable = new ResourceLocation(main, "textures/blocks/DTable.png");
 	
-	/** Block Textures */
+	// Block Textures
 	public static final String[] Dam = { dam + "side", dam + "open", dam + "close" };
 	public static final String DwarvenStone = root + "Dwarven_Stone";
 	public static final String Fire = root + "Green_Fire";
 	public static final String WindMill = root + "WindMill";
 	public static final String CoiningMechine = root + "Coining_Mechine";
 	
-	/** Liquid Textures */
+	// Liquid Textures
 	public static final String aleLiquid = root + "AleLiquid";
 	public static final String aleFlowing = root + "AleFlowing";
 	
-	/** Item Textures */
+	// Item Textures
 	public static String[] PitTrap = { "Teir1", "Teir2", "Teir3", "dirt", "sand", "stone" };
 	public static final String[] book = { Book + "Dwarf", Book + "Elf", Book + "Human", Book + "Orc" };
 	public static final String BookOpen = Book + "open";

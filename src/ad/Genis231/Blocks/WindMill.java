@@ -4,14 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import ad.Genis231.Refrence.ADBlocks;
+import ad.Genis231.Core.ADBlocks;
 import ad.Genis231.Resources.ADBlockTile;
 import ad.Genis231.Resources.ADTileEntity;
 
 public class WindMill extends ADBlockTile {
 	
-	public WindMill(String name,String texture) {
-		super(Material.rock, name,texture);
+	public WindMill(String name, String texture) {
+		super(Material.rock, name, texture);
 	}
 	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {

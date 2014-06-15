@@ -19,12 +19,11 @@ import ad.Genis231.ItemBlocks.DrillIBlock;
 import ad.Genis231.Mobs.savageDwarf;
 import ad.Genis231.Mobs.traderDwarf;
 import ad.Genis231.Mobs.warriorDwarf;
-import ad.Genis231.Refrence.ADBlocks;
-import ad.Genis231.Refrence.ADItems;
 import ad.Genis231.Refrence.Names;
 import ad.Genis231.TileEntity.CoiningTileEntity;
 import ad.Genis231.TileEntity.DTableTileEntity;
 import ad.Genis231.TileEntity.DrillTileEntity;
+import ad.Genis231.TileEntity.PipeTileEntity;
 import ad.Genis231.TileEntity.SpikeTileEntity;
 import ad.Genis231.TileEntity.WMMastTileEntity;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -54,6 +53,7 @@ public class MainReg {
 		GameRegistry.registerTileEntity(CoiningTileEntity.class, Names.MechCoin);
 		GameRegistry.registerTileEntity(DTableTileEntity.class, Names.DwarvenTable);
 		GameRegistry.registerTileEntity(WMMastTileEntity.class, "WMMast");
+		GameRegistry.registerTileEntity(PipeTileEntity.class, "GenericPipe");
 	}
 	
 	public static void Recipes() {

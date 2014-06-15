@@ -7,7 +7,6 @@ import java.util.List;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -15,11 +14,11 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import ad.Genis231.Core.ADItems;
 import ad.Genis231.Gui.Resources.BookTabs;
 import ad.Genis231.Gui.Resources.RenderIcons;
 import ad.Genis231.Gui.Resources.Tab;
 import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.Refrence.ADItems;
 import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Refrence.textures;
 
@@ -146,16 +145,17 @@ public class SkillBookGui extends GuiScreen {
 		if (initIcons()) {
 			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
 			
-			ScaledResolution scale = new ScaledResolution(this.mc.gameSettings, this.width, this.height);
-			float width = scale.getScaledWidth() / 12;
-			float height = scale.getScaledHeight() / 4.5f;
+			// ScaledResolution scale = new
+			// ScaledResolution(this.mc.gameSettings, this.width, this.height);
+			// float width = scale.getScaledWidth() / 12;
+			// float height = scale.getScaledHeight() / 4.5f;
 			
 			icons.draw();
 			if (list != null) {
 				GL11.glPushMatrix();
 				{
-					GL11.glScalef(0.75f, 0.75f, 0.0f);
-					GL11.glTranslatef(width, height, 0.0f);
+					// GL11.glScalef(0.75f, 0.75f, 0.0f);
+					// GL11.glTranslatef(width, height, 0.0f);
 					this.drawHoveringText(list, mouseX, mouseY, this.font);
 				}
 				GL11.glPopMatrix();

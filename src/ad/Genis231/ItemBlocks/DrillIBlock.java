@@ -9,18 +9,16 @@ import net.minecraft.item.ItemStack;
 
 import java.util.List;
 
-public class DrillIBlock extends ItemBlock{
-
-	public DrillIBlock(Block block){
+public class DrillIBlock extends ItemBlock {
+	
+	public DrillIBlock(Block block) {
 		super(block);
 	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack item,EntityPlayer player,List list,boolean bool){
+	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
 		list.add("100% works just needs restone");
 		list.add("needs balanceing");
 		list.add("needs a new texture cough* cough*");
 	}
-
+	
 }
