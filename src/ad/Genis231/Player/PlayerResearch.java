@@ -1,9 +1,7 @@
 package ad.Genis231.Player;
 
-import ad.Genis231.Core.Artificer;
-import ad.Genis231.Core.CommonProxy;
-import ad.Genis231.Network.Packets.researchPacket;
-import ad.Genis231.Refrence.Ref;
+import java.util.HashMap;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -11,8 +9,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
-
-import java.util.HashMap;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Core.CommonProxy;
+import ad.Genis231.Network.Packets.researchPacket;
+import ad.Genis231.Refrence.Ref;
 
 public class PlayerResearch implements IExtendedEntityProperties {
 	public static String PlayerData_ID = Ref.MOD_ID + "_PlayerResearch";

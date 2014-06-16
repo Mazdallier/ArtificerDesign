@@ -1,13 +1,13 @@
 package ad.Genis231.Items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import ad.Genis231.Core.Artificer;
-import ad.Genis231.Resources.ADSkillBook;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Resources.ADSkillBook;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class HumanBook extends ADSkillBook {
 	

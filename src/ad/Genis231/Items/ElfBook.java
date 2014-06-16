@@ -1,11 +1,7 @@
 package ad.Genis231.Items;
 
-import ad.Genis231.Core.Artificer;
-import ad.Genis231.Player.PlayerData;
-import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.Resources.ADSkillBook;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,8 +9,12 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-
-import java.util.List;
+import ad.Genis231.Core.Artificer;
+import ad.Genis231.Player.PlayerData;
+import ad.Genis231.Player.PlayerRace;
+import ad.Genis231.Resources.ADSkillBook;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ElfBook extends ADSkillBook {
 	

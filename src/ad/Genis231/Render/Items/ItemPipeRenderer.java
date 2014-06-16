@@ -34,26 +34,26 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		switch (type) {
 			case ENTITY:
-				renderSpikes(0.0F, 0.0F, -0.0F, 3F,false);
+				renderSpikes(0.0F, 0.0F, -0.0F, 3F, false);
 				return;
 				
 			case EQUIPPED:
-				renderSpikes(0.7F, 0.3F, 0.0F, 2F,false);
+				renderSpikes(0.7F, 0.3F, 0.0F, 2F, false);
 				return;
 				
 			case EQUIPPED_FIRST_PERSON:
-				renderSpikes(0.5F, -0.3F, 0.375F, 3F,false);
+				renderSpikes(0.5F, -0.3F, 0.375F, 3F, false);
 				return;
 				
 			case INVENTORY:
-				renderSpikes(0.0F, -0.225F, -0.7F, 3.5F,true);
+				renderSpikes(0.0F, -0.225F, -0.7F, 3.5F, true);
 				return;
 			default:
 				break;
 		}
 	}
 	
-	private void renderSpikes(float x, float y, float z, float size,boolean rotate) {
+	private void renderSpikes(float x, float y, float z, float size, boolean rotate) {
 		
 		glPushMatrix();
 		// glDisable(GL_LIGHTING);
@@ -62,10 +62,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glScalef(size, size, size);
 		glTranslatef(x, y, z);
 		
-		if(rotate){
-		glRotatef(50F, 1F, 0, 0);
-		glRotatef(35F, 0, 1F, 0);
-		glRotatef(60F, 0, 0, 1F);
+		if (rotate) {
+			glRotatef(50F, 1F, 0, 0);
+			glRotatef(35F, 0, 1F, 0);
+			glRotatef(60F, 0, 0, 1F);
 		}
 		
 		// Bind texture
@@ -74,7 +74,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		// Render
 		
 		for (int i = 0; i < 6; i++)
-			model.renderPart(i,false);
+			model.renderPart(i, false);
 		
 		// glEnable(GL_LIGHTING);
 		glPopMatrix();

@@ -1,9 +1,9 @@
 package ad.Genis231.eventHandler;
 
-import ad.Genis231.Player.PlayerData;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import ad.Genis231.Player.PlayerData;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EnterWorld {
 	@SubscribeEvent public void onEntityJoinWorld(EntityJoinWorldEvent event) {

@@ -1,14 +1,16 @@
 package ad.Genis231.Render.Items;
 
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
+import static org.lwjgl.opengl.GL11.glScalef;
+import static org.lwjgl.opengl.GL11.glTranslatef;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.IItemRenderer;
 import ad.Genis231.Models.Blocks.DrillModel;
 import ad.Genis231.Refrence.textures;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.IItemRenderer;
-
-import static org.lwjgl.opengl.GL11.*;
 
 @SideOnly(Side.CLIENT) public class ItemDrillFrameRenderer implements IItemRenderer {
 	public static long speed = 0x3FFF / 8;

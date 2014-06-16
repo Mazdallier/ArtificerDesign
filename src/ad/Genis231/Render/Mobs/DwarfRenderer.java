@@ -1,12 +1,12 @@
 package ad.Genis231.Render.Mobs;
 
-import ad.Genis231.Mobs.dwarfMob;
-import ad.Genis231.Models.mobs.DwarfModel;
-import ad.Genis231.Refrence.textures;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
+import ad.Genis231.Mobs.dwarfMob;
+import ad.Genis231.Models.mobs.DwarfModel;
+import ad.Genis231.Refrence.textures;
 
 public class DwarfRenderer extends RenderLiving {
 	DwarfModel dwarf;

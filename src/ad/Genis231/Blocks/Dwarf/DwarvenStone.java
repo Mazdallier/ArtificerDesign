@@ -1,8 +1,8 @@
 package ad.Genis231.Blocks.Dwarf;
 
+import net.minecraft.block.material.Material;
 import ad.Genis231.Refrence.Ref;
 import ad.Genis231.Resources.ADBlock;
-import net.minecraft.block.material.Material;
 
 public class DwarvenStone extends ADBlock {
 	

@@ -6,7 +6,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import ad.Genis231.Core.ADBlocks;
 import ad.Genis231.Resources.ADBlockTile;
-import ad.Genis231.Resources.ADTileEntity;
 
 public class WindMill extends ADBlockTile {
 	

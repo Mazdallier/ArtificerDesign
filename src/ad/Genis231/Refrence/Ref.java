@@ -1,11 +1,11 @@
 package ad.Genis231.Refrence;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.ResourceLocation;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 public class Ref {
 	

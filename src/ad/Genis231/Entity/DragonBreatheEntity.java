@@ -1,11 +1,11 @@
 package ad.Genis231.Entity;
 
-import ad.Genis231.Blocks.FakeFire;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import ad.Genis231.Blocks.FakeFire;
 
 public class DragonBreatheEntity extends EntitySnowball {
 	public DragonBreatheEntity(World par1World, EntityLivingBase par2EntityLivingBase, ItemStack item) {

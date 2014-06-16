@@ -1,9 +1,9 @@
 package ad.Genis231.Player;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class RegisterPlayerData {
 	@SubscribeEvent public void onEntityConstructing(EntityConstructing event) {

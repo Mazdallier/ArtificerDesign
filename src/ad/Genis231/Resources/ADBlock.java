@@ -1,11 +1,11 @@
 package ad.Genis231.Resources;
 
-import ad.Genis231.Refrence.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import ad.Genis231.Refrence.Ref;
 
 public class ADBlock extends Block {
 	/** Basic Constructor

@@ -1,9 +1,9 @@
 package ad.Genis231.Core;
 
-import net.minecraft.nbt.NBTTagCompound;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import net.minecraft.nbt.NBTTagCompound;
 
 public class CommonProxy {
 	private static final Map<String, NBTTagCompound> playerInfo = new HashMap<String, NBTTagCompound>();

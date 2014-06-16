@@ -1,9 +1,5 @@
 package ad.Genis231.Blocks;
 
-import ad.Genis231.Refrence.textures;
-import ad.Genis231.Resources.ADBlock;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,6 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.Resources.ADBlock;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class DamBlock extends ADBlock {
 	@SideOnly(Side.CLIENT) public static IIcon sideIcon;

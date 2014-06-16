@@ -1,5 +1,7 @@
 package ad.Genis231.Core;
 
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
 import ad.Genis231.Gui.Resources.GuiHandler;
 import ad.Genis231.Network.PacketPipeline;
 import ad.Genis231.Player.RegisterPlayerData;
@@ -15,8 +17,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.client.Minecraft;
-import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.MOD_VERSION) public class Artificer {
 	public static PacketPipeline packets = new PacketPipeline();

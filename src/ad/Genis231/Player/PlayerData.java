@@ -1,12 +1,12 @@
 package ad.Genis231.Player;
 
-import ad.Genis231.Core.CommonProxy;
-import ad.Genis231.Refrence.Ref;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
+import ad.Genis231.Core.CommonProxy;
+import ad.Genis231.Refrence.Ref;
 
 public class PlayerData implements IExtendedEntityProperties {
 	private int pointWatcher = 20;

@@ -20,7 +20,7 @@ public class PipeBlock extends ADBlockModel {
 		return Ref.PipeRender;
 	}
 	
-	//TODO: fix this mess! .-.
+	// TODO: fix this mess! .-.
 	
 	// public void addCollisionBoxesToList(World world, int x, int y, int z, AxisAlignedBB AABB, List list, Entity entity) {
 	// if (world.isRemote)

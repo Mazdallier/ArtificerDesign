@@ -1,12 +1,12 @@
 package ad.Genis231.Network.Packets;
 
-import ad.Genis231.Network.ADPacket;
-import ad.Genis231.Player.PlayerResearch;
-import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import ad.Genis231.Network.ADPacket;
+import ad.Genis231.Player.PlayerResearch;
+import cpw.mods.fml.common.network.ByteBufUtils;
 
 public class researchPacket extends ADPacket {
 	private NBTTagCompound data;

@@ -1,12 +1,8 @@
 package ad.Genis231.eventHandler;
 
-import ad.Genis231.Player.PlayerData;
-import ad.Genis231.Player.PlayerRace;
-import ad.Genis231.Refrence.textures;
-import ad.Genis231.Resources.ADSkillBook;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.awt.Color;
+import java.io.File;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -17,9 +13,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-
-import java.awt.*;
-import java.io.File;
+import ad.Genis231.Player.PlayerData;
+import ad.Genis231.Player.PlayerRace;
+import ad.Genis231.Refrence.textures;
+import ad.Genis231.Resources.ADSkillBook;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT) public class ResearchPointsOverlay extends Gui {
 	protected Minecraft mc;
