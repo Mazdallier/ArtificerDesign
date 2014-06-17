@@ -34,7 +34,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 		
 		switch (type) {
 			case ENTITY:
-				renderSpikes(0.0F, 0.0F, -0.0F, 3F, false);
+				renderSpikes(0.0F, -0.5F, -0.0F, 3F, false);
 				return;
 				
 			case EQUIPPED:
