@@ -26,6 +26,22 @@ public class LiquidAle extends ADFluid {
 		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
+	@Override public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
+		if (world.getBlock(x, y, z).getMaterial().isLiquid())
+			return false;
+		return super.canDisplace(world, x, y, z);
+	}
+	
+	@Override public boolean displaceIfPossible(World world, int x, int y, int z) {
+		if (world.getBlock(x, y, z).getMaterial().isLiquid())
+			return false;
+		return super.displaceIfPossible(world, x, y, z);
+	}
+	
+	@Override public IIcon getIcon(int side, int meta) {
+		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
+	}
+	
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		super.onEntityWalking(world, x, y, z, entity);
 		
@@ -39,24 +55,8 @@ public class LiquidAle extends ADFluid {
 		}
 	}
 	
-	@Override public IIcon getIcon(int side, int meta) {
-		return (side == 0 || side == 1) ? stillIcon : flowingIcon;
-	}
-	
 	@SideOnly(Side.CLIENT) @Override public void registerBlockIcons(IIconRegister register) {
 		stillIcon = register.registerIcon(textures.aleLiquid);
 		flowingIcon = register.registerIcon(textures.aleFlowing);
-	}
-	
-	@Override public boolean canDisplace(IBlockAccess world, int x, int y, int z) {
-		if (world.getBlock(x, y, z).getMaterial().isLiquid())
-			return false;
-		return super.canDisplace(world, x, y, z);
-	}
-	
-	@Override public boolean displaceIfPossible(World world, int x, int y, int z) {
-		if (world.getBlock(x, y, z).getMaterial().isLiquid())
-			return false;
-		return super.displaceIfPossible(world, x, y, z);
 	}
 }

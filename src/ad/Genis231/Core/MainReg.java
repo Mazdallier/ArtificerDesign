@@ -32,6 +32,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class MainReg {
 	public static final Fluid ale = new Fluid("DwarvenAle");
 	
+	// Mob Stuffz
+	static int baseEntityID = 1;
+	
+	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
+	
 	public static void Core() {
 		FluidRegistry.registerFluid(ale);
 		
@@ -55,6 +60,13 @@ public class MainReg {
 		GameRegistry.registerTileEntity(WMMastTileEntity.class, "WMMast");
 		GameRegistry.registerTileEntity(PipeTileEntity.class, "GenericPipe");
 	}
+	public static void mobs() {
+		for (int i = 0; i < dwarfClass.length; i++) {
+			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Artificer.instance, 80, 3, true);
+			EntityRegistry.addSpawn(dwarfClass[i], 3, 3, 8, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
+			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
+		}
+	}
 	
 	public static void Recipes() {
 		// Vine Mats
@@ -67,16 +79,9 @@ public class MainReg {
 		}
 	}
 	
-	// Mob Stuffz
-	static int baseEntityID = 1;
-	public static Class[] dwarfClass = { savageDwarf.class, warriorDwarf.class, traderDwarf.class };
-	
-	public static void mobs() {
-		for (int i = 0; i < dwarfClass.length; i++) {
-			EntityRegistry.registerModEntity(dwarfClass[i], Names.dwarf[i], i, Artificer.instance, 80, 3, true);
-			EntityRegistry.addSpawn(dwarfClass[i], 3, 3, 8, EnumCreatureType.creature, BiomeGenBase.plains, BiomeGenBase.desert, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.taiga, BiomeGenBase.swampland, BiomeGenBase.river);
-			registerNewEgg(dwarfClass[i], UniqueId(), 0xFF0000, 0xBBFF00);
-		}
+	public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
+		EntityList.IDtoClassMapping.put(id, entity);
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
 	
 	public static int UniqueId() {
@@ -84,10 +89,5 @@ public class MainReg {
 			baseEntityID++;
 		} while (EntityList.getStringFromID(baseEntityID) != null);
 		return baseEntityID;
-	}
-	
-	public static void registerNewEgg(Class<? extends Entity> entity, int id, int primaryColor, int secondaryColor) {
-		EntityList.IDtoClassMapping.put(id, entity);
-		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
 }

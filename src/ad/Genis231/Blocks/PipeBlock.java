@@ -16,8 +16,8 @@ public class PipeBlock extends ADBlockModel {
 		this.setBlockBounds(min, min, min, max, max, max);
 	}
 	
-	@Override public int getRenderType() {
-		return Ref.PipeRender;
+	@Override public TileEntity createNewTileEntity(World var1, int var2) {
+		return new PipeTileEntity();
 	}
 	
 	// TODO: fix this mess! .-.
@@ -48,7 +48,7 @@ public class PipeBlock extends ADBlockModel {
 	// this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 	// }
 	
-	@Override public TileEntity createNewTileEntity(World var1, int var2) {
-		return new PipeTileEntity();
+	@Override public int getRenderType() {
+		return Ref.PipeRender;
 	}
 }

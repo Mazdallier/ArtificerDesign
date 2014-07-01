@@ -46,31 +46,6 @@ public class DrillGui extends GuiContainer {
 		this.tileZ = tile.zCoord;
 	}
 	
-	@SuppressWarnings("unchecked") @Override public void initGui() {
-		super.initGui();
-		
-		this.centerX = this.width / 2;
-		this.centerY = this.height / 2;
-		
-		this.buttonX = centerX - (buttonWidth / 3);
-		this.buttonY = centerY - (buttonHeight / 3);
-		
-		// make buttons
-		// id, x, y, width, height, text
-		
-		// Width
-		buttonList.add(new GuiButton(0, buttonX - spaceing, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
-		buttonList.add(new GuiButton(1, buttonX - spaceing, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
-		
-		// Height
-		buttonList.add(new GuiButton(2, buttonX, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
-		buttonList.add(new GuiButton(3, buttonX, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
-		
-		// Speed
-		buttonList.add(new GuiButton(4, buttonX + spaceing, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
-		buttonList.add(new GuiButton(5, buttonX + spaceing, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
-	}
-	
 	@Override protected void actionPerformed(GuiButton button) {
 		Width = tile.getWidth();
 		Height = tile.getHeight();
@@ -113,5 +88,30 @@ public class DrillGui extends GuiContainer {
 		mc.fontRenderer.drawString("Width: " + Width, buttonX - spaceing, centerY, color);
 		mc.fontRenderer.drawString("Height: " + Height, buttonX, centerY, color);
 		mc.fontRenderer.drawString("Speed: " + delay, buttonX + spaceing, centerY, color);
+	}
+	
+	@SuppressWarnings("unchecked") @Override public void initGui() {
+		super.initGui();
+		
+		this.centerX = this.width / 2;
+		this.centerY = this.height / 2;
+		
+		this.buttonX = centerX - (buttonWidth / 3);
+		this.buttonY = centerY - (buttonHeight / 3);
+		
+		// make buttons
+		// id, x, y, width, height, text
+		
+		// Width
+		buttonList.add(new GuiButton(0, buttonX - spaceing, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
+		buttonList.add(new GuiButton(1, buttonX - spaceing, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
+		
+		// Height
+		buttonList.add(new GuiButton(2, buttonX, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
+		buttonList.add(new GuiButton(3, buttonX, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
+		
+		// Speed
+		buttonList.add(new GuiButton(4, buttonX + spaceing, buttonY - spaceing, buttonWidth, buttonHeight, "--"));
+		buttonList.add(new GuiButton(5, buttonX + spaceing, buttonY + spaceing, buttonWidth, buttonHeight, "++"));
 	}
 }

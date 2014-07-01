@@ -13,14 +13,14 @@ public class WindMill extends ADBlockTile {
 		super(Material.rock, name, texture);
 	}
 	
+	public void breakBlock(World world, int x, int y, int z, Block block, int unknown) {
+		placeBlocks(world, x, y, z, Blocks.air);
+	}
+	
 	public void onPostBlockPlaced(World world, int x, int y, int z, int meta) {
 		placeBlocks(world, x, y, z, ADBlocks.airBlock);
 		
 		world.setBlock(x + 1, y, z, ADBlocks.windmillMast);
-	}
-	
-	public void breakBlock(World world, int x, int y, int z, Block block, int unknown) {
-		placeBlocks(world, x, y, z, Blocks.air);
 	}
 	
 	void placeBlocks(World world, int x, int y, int z, Block block) {

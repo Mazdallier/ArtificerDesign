@@ -6,18 +6,18 @@ import ad.Genis231.Core.ADItems;
 
 public class CreativeTab {}
 
-class MainTAB extends CreativeTabs {
+class DwarfTAB extends CreativeTabs {
 	
-	public MainTAB(String label) {
+	public DwarfTAB(String label) {
 		super(label);
 	}
 	
-	@Override public String getTranslatedTabLabel() {
-		return "MainTab";
+	@Override public Item getTabIconItem() {
+		return ADItems.dwarfBook;
 	}
 	
-	@Override public Item getTabIconItem() {
-		return ADItems.humanBook;
+	@Override public String getTranslatedTabLabel() {
+		return "DwarfTab";
 	}
 }
 
@@ -27,12 +27,27 @@ class ElfTAB extends CreativeTabs {
 		super(label);
 	}
 	
+	@Override public Item getTabIconItem() {
+		return ADItems.elfBook;
+	}
+	
 	@Override public String getTranslatedTabLabel() {
 		return "ElfTab";
 	}
+}
+
+class MainTAB extends CreativeTabs {
+	
+	public MainTAB(String label) {
+		super(label);
+	}
 	
 	@Override public Item getTabIconItem() {
-		return ADItems.elfBook;
+		return ADItems.humanBook;
+	}
+	
+	@Override public String getTranslatedTabLabel() {
+		return "MainTab";
 	}
 }
 
@@ -42,26 +57,11 @@ class OrcTAB extends CreativeTabs {
 		super(label);
 	}
 	
-	@Override public String getTranslatedTabLabel() {
-		return "OrcTab";
-	}
-	
 	@Override public Item getTabIconItem() {
 		return ADItems.orcBook;
 	}
-}
-
-class DwarfTAB extends CreativeTabs {
-	
-	public DwarfTAB(String label) {
-		super(label);
-	}
 	
 	@Override public String getTranslatedTabLabel() {
-		return "DwarfTab";
-	}
-	
-	@Override public Item getTabIconItem() {
-		return ADItems.dwarfBook;
+		return "OrcTab";
 	}
 }

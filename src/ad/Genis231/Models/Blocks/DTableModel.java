@@ -20,11 +20,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 		model.renderAll();
 	}
 	
-	public void renderPart(int i) {
-		model.renderOnly("Gear" + i, "Center" + i);
-	}
-	
 	public void renderFrame() {
 		model.renderOnly("Top", "Bot", "Pillar1", "Pillar2", "Pillar3", "Pillar4", "Box001");
+	}
+	
+	public void renderPart(int i) {
+		model.renderOnly("Gear" + i, "Center" + i);
 	}
 }

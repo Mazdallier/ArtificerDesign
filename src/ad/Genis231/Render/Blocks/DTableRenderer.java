@@ -20,21 +20,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 	private DTableModel model = new DTableModel();
 	public static long speed = 16383;
 	
-	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		
-		if (tileEntity instanceof DTableTileEntity) {
-			float rotation = (float) (360.0 * (System.currentTimeMillis() & speed) / (speed / 8));
-			
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DTable);
-			
-			renderFrame(x, y, z);
-			
-			for (int i = 1; i <= 4; i++) {
-				renderPart(x, y, z, i, rotation);
-			}
-		}
-	}
-	
 	private void renderFrame(double x, double y, double z) {
 		glPushMatrix();
 		
@@ -58,5 +43,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 		model.renderPart(part);
 		
 		glPopMatrix();
+	}
+	
+	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
+		
+		if (tileEntity instanceof DTableTileEntity) {
+			float rotation = (float) (360.0 * (System.currentTimeMillis() & speed) / (speed / 8));
+			
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.DTable);
+			
+			renderFrame(x, y, z);
+			
+			for (int i = 1; i <= 4; i++) {
+				renderPart(x, y, z, i, rotation);
+			}
+		}
 	}
 }

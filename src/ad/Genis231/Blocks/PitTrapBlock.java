@@ -26,6 +26,25 @@ public class PitTrapBlock extends ADBlock {
 		this.setCreativeTab(null);
 	}
 	
+	private boolean check(World world, int x, int y, int z) {
+		for (int i = 2; i <= 5; i++) {
+			if (blockIsSide(world, x, y, z, Blocks.air, i))
+				return true;
+		}
+		return false;
+	}
+	
+	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
+		switch (meta) {
+			case 0:
+				return dirtIcon;
+			case 1:
+				return sandIcon;
+			default:
+				return stoneIcon;
+		}
+	}
+	
 	public void onEntityWalking(World world, int x, int y, int z, Entity player) {
 		world.setBlockToAir(x, y, z);
 		super.onEntityWalking(world, x, y, z, player);
@@ -39,28 +58,9 @@ public class PitTrapBlock extends ADBlock {
 		}
 	}
 	
-	private boolean check(World world, int x, int y, int z) {
-		for (int i = 2; i <= 5; i++) {
-			if (blockIsSide(world, x, y, z, Blocks.air, i))
-				return true;
-		}
-		return false;
-	}
-	
 	@Override @SideOnly(Side.CLIENT) public void registerBlockIcons(IIconRegister icon) {
 		sandIcon = icon.registerIcon("sand");
 		stoneIcon = icon.registerIcon("stone");
 		dirtIcon = icon.registerIcon("dirt");
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(int side, int meta) {
-		switch (meta) {
-			case 0:
-				return dirtIcon;
-			case 1:
-				return sandIcon;
-			default:
-				return stoneIcon;
-		}
 	}
 }

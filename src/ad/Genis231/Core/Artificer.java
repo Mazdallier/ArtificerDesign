@@ -25,12 +25,6 @@ import cpw.mods.fml.relauncher.Side;
 	
 	@SidedProxy(clientSide = Ref.ClientProxy, serverSide = Ref.CommonProxy) public static CommonProxy proxy;
 	
-	@EventHandler public void preInit(FMLPreInitializationEvent event) {
-		MainReg.Core();
-		MainReg.Recipes();
-		
-	}
-	
 	@EventHandler public void load(FMLInitializationEvent event) {
 		packets.initalise();
 		proxy.registerRenderers();
@@ -48,5 +42,11 @@ import cpw.mods.fml.relauncher.Side;
 		if (event.getSide() == Side.CLIENT) {
 			MinecraftForge.EVENT_BUS.register(new ResearchPointsOverlay(Minecraft.getMinecraft()));
 		}
+	}
+	
+	@EventHandler public void preInit(FMLPreInitializationEvent event) {
+		MainReg.Core();
+		MainReg.Recipes();
+		
 	}
 }

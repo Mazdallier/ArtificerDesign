@@ -33,20 +33,39 @@ public class RenderIcons {
 		
 	}
 	
-	public void registerIcons() {
-		this.icons.clear();
-		{
-			XMLReader reader = initXML(race);
-			
-			ArrayList<HashMap<String, String>> temp = reader.getNodes();
-			
-			for (HashMap<String, String> nodes : temp) {
-				BookTabs tabs = new BookTabs(nodes, race);
-				
-				if (this.tab == tabs.getTab())
-					icons.add(tabs);
-			}
+	public void draw() {
+		mc.getTextureManager().bindTexture(this.texture);
+		
+		if (icons == null)
+			return;
+		
+		for (BookTabs i : icons) {
+			gui.drawTexturedModalRect(i.getX(), i.getY(), i.getGridX(), i.getGridY(), i.getWidth(), i.getHeight());
 		}
+		
+	}
+	
+	public int getMaxPages(BookTabs tab) {
+		List<String> list = new ArrayList<String>();
+		list = tab.getDesc(false);
+		return (list.size() - 1) / this.maxLines;
+	}
+	
+	public BookTabs getNode(int mouseX, int mouseY) {
+		if (icons == null)
+			return null;
+		
+		for (BookTabs i : icons) {
+			int minX = i.getX();
+			int maxX = minX + i.getWidth();
+			int minY = i.getY();
+			int maxY = minY + i.getHeight();
+			
+			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
+				return i;
+		}
+		
+		return null;
 	}
 	
 	private XMLReader initXML(PlayerRace race) {
@@ -71,16 +90,20 @@ public class RenderIcons {
 		}
 	}
 	
-	public ArrayList<String> renderToolTip(int mouseX, int mouseY) {
-		ArrayList<String> list = new ArrayList<String>();
-		BookTabs tab = getNode(mouseX, mouseY);
-		
-		if (this.icons == null || tab == null)
-			return null;
-		
-		list = tab.toolTip(new ArrayList<String>());
-		
-		return list;
+	public void registerIcons() {
+		this.icons.clear();
+		{
+			XMLReader reader = initXML(race);
+			
+			ArrayList<HashMap<String, String>> temp = reader.getNodes();
+			
+			for (HashMap<String, String> nodes : temp) {
+				BookTabs tabs = new BookTabs(nodes, race);
+				
+				if (this.tab == tabs.getTab())
+					icons.add(tabs);
+			}
+		}
 	}
 	
 	public List<String> renderPage(int mouseX, int mouseY, int newPage, boolean clicked, BookTabs tab) {
@@ -111,38 +134,15 @@ public class RenderIcons {
 		
 	}
 	
-	public int getMaxPages(BookTabs tab) {
-		List<String> list = new ArrayList<String>();
-		list = tab.getDesc(false);
-		return (list.size() - 1) / this.maxLines;
-	}
-	
-	public BookTabs getNode(int mouseX, int mouseY) {
-		if (icons == null)
+	public ArrayList<String> renderToolTip(int mouseX, int mouseY) {
+		ArrayList<String> list = new ArrayList<String>();
+		BookTabs tab = getNode(mouseX, mouseY);
+		
+		if (this.icons == null || tab == null)
 			return null;
 		
-		for (BookTabs i : icons) {
-			int minX = i.getX();
-			int maxX = minX + i.getWidth();
-			int minY = i.getY();
-			int maxY = minY + i.getHeight();
-			
-			if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
-				return i;
-		}
+		list = tab.toolTip(new ArrayList<String>());
 		
-		return null;
-	}
-	
-	public void draw() {
-		mc.getTextureManager().bindTexture(this.texture);
-		
-		if (icons == null)
-			return;
-		
-		for (BookTabs i : icons) {
-			gui.drawTexturedModalRect(i.getX(), i.getY(), i.getGridX(), i.getGridY(), i.getWidth(), i.getHeight());
-		}
-		
+		return list;
 	}
 }

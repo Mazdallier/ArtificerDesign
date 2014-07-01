@@ -15,15 +15,15 @@ public class HumanBook extends ADSkillBook {
 		super(name, Texture);
 	}
 	
-	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-		player.openGui(Artificer.instance, 3, world, (int) player.posX, (int) player.posY, (int) player.posZ);
-		return item;
-	}
-	
 	@Override @SideOnly(Side.CLIENT) public IIcon getIcon(ItemStack item, int pass) {
 		if (pass == 1)
 			return open;
 		
 		return this.itemIcon;
+	}
+	
+	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
+		player.openGui(Artificer.instance, 3, world, (int) player.posX, (int) player.posY, (int) player.posZ);
+		return item;
 	}
 }

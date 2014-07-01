@@ -18,12 +18,12 @@ public class researchPacket extends ADPacket {
 		PlayerResearch.get(player).saveNBTData(data);
 	}
 	
-	@Override public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		ByteBufUtils.writeTag(buffer, data);
-	}
-	
 	@Override public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
 		data = ByteBufUtils.readTag(buffer);
+	}
+	
+	@Override public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+		ByteBufUtils.writeTag(buffer, data);
 	}
 	
 	@Override public void handleClientSide(EntityPlayer player) {

@@ -14,13 +14,13 @@ public class CoiningMechine extends ADBlockTile {
 		super(Material.rock, name, texture);
 	}
 	
+	@Override public TileEntity createNewTileEntity(World world, int unknown) {
+		return new CoiningTileEntity();
+	}
+	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float what, float these, float are) {
 		player.openGui(Artificer.instance, 2, world, x, y, z);
 		return true;
-	}
-	
-	@Override public TileEntity createNewTileEntity(World world, int unknown) {
-		return new CoiningTileEntity();
 	}
 	
 }

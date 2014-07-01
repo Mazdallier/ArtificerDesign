@@ -14,11 +14,11 @@ public class DwarfTable extends ADBlockModel {
 		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
-	@Override public int getRenderType() {
-		return Ref.DTableRender;
-	}
-	
 	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return new DTableTileEntity();
+	}
+	
+	@Override public int getRenderType() {
+		return Ref.DTableRender;
 	}
 }

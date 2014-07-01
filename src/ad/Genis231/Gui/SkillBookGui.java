@@ -52,14 +52,25 @@ public class SkillBookGui extends GuiScreen {
 			race = this.getRacefromBook(currentBook);
 	}
 	
-	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
-		if (clicked == 0) {
-			if (this.isMain)
-				currentTab = getClickedTab(x, y, mouseX, mouseY);
-			renderPage(mouseX, mouseY, true);
-		} else if (clicked == 1) {
-			this.currentNode = null;
-			this.isMain = true;
+	void drawIcons(int mouseX, int mouseY) {
+		if (initIcons()) {
+			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
+			
+			// ScaledResolution scale = new
+			// ScaledResolution(this.mc.gameSettings, this.width, this.height);
+			// float width = scale.getScaledWidth() / 12;
+			// float height = scale.getScaledHeight() / 4.5f;
+			
+			icons.draw();
+			if (list != null) {
+				GL11.glPushMatrix();
+				{
+					// GL11.glScalef(0.75f, 0.75f, 0.0f);
+					// GL11.glTranslatef(width, height, 0.0f);
+					this.drawHoveringText(list, mouseX, mouseY, this.font);
+				}
+				GL11.glPopMatrix();
+			}
 		}
 	}
 	
@@ -141,25 +152,61 @@ public class SkillBookGui extends GuiScreen {
 		return this.currentTab;
 	}
 	
-	void drawIcons(int mouseX, int mouseY) {
-		if (initIcons()) {
-			ArrayList<String> list = icons.renderToolTip(mouseX, mouseY);
-			
-			// ScaledResolution scale = new
-			// ScaledResolution(this.mc.gameSettings, this.width, this.height);
-			// float width = scale.getScaledWidth() / 12;
-			// float height = scale.getScaledHeight() / 4.5f;
-			
-			icons.draw();
-			if (list != null) {
-				GL11.glPushMatrix();
-				{
-					// GL11.glScalef(0.75f, 0.75f, 0.0f);
-					// GL11.glTranslatef(width, height, 0.0f);
-					this.drawHoveringText(list, mouseX, mouseY, this.font);
-				}
-				GL11.glPopMatrix();
-			}
+	int getNewPage(int mouseX, int mouseY) {
+		int minX = this.arrowX;
+		int maxX = minX + this.arrowW;
+		
+		int minY = this.arrowY;
+		int maxY = minY + this.arrowH;
+		
+		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
+			return -1;
+		
+		minX += this.arrowSpace;
+		maxX += this.arrowSpace;
+		
+		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
+			return 1;
+		
+		return 0;
+	}
+	
+	PlayerRace getRacefromBook(ItemStack item) {
+		if (item.getItem() == ADItems.humanBook)
+			return PlayerRace.HUMAN;
+		if (item.getItem() == ADItems.dwarfBook)
+			return PlayerRace.DWARF;
+		if (item.getItem() == ADItems.elfBook)
+			return PlayerRace.ELF;
+		if (item.getItem() == ADItems.orcBook)
+			return PlayerRace.ORC;
+		
+		return null;
+	}
+	
+	boolean hasNextPage() {
+		if (initIcons() && this.currentNode != null) {
+			this.maxPages = icons.getMaxPages(this.currentNode);
+			return this.currentPage < this.maxPages;
+		}
+		return false;
+	}
+	
+	boolean initIcons() {
+		icons = new RenderIcons(this.mc, this, this.currentTab, this.race, x, y);
+		icons.registerIcons();
+		
+		return icons != null;
+	}
+	
+	protected void mouseClicked(int mouseX, int mouseY, int clicked) {
+		if (clicked == 0) {
+			if (this.isMain)
+				currentTab = getClickedTab(x, y, mouseX, mouseY);
+			renderPage(mouseX, mouseY, true);
+		} else if (clicked == 1) {
+			this.currentNode = null;
+			this.isMain = true;
 		}
 	}
 	
@@ -189,52 +236,5 @@ public class SkillBookGui extends GuiScreen {
 		}
 		
 		return false;
-	}
-	
-	int getNewPage(int mouseX, int mouseY) {
-		int minX = this.arrowX;
-		int maxX = minX + this.arrowW;
-		
-		int minY = this.arrowY;
-		int maxY = minY + this.arrowH;
-		
-		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
-			return -1;
-		
-		minX += this.arrowSpace;
-		maxX += this.arrowSpace;
-		
-		if (minX <= mouseX && maxX >= mouseX && minY <= mouseY && maxY >= mouseY)
-			return 1;
-		
-		return 0;
-	}
-	
-	boolean hasNextPage() {
-		if (initIcons() && this.currentNode != null) {
-			this.maxPages = icons.getMaxPages(this.currentNode);
-			return this.currentPage < this.maxPages;
-		}
-		return false;
-	}
-	
-	boolean initIcons() {
-		icons = new RenderIcons(this.mc, this, this.currentTab, this.race, x, y);
-		icons.registerIcons();
-		
-		return icons != null;
-	}
-	
-	PlayerRace getRacefromBook(ItemStack item) {
-		if (item.getItem() == ADItems.humanBook)
-			return PlayerRace.HUMAN;
-		if (item.getItem() == ADItems.dwarfBook)
-			return PlayerRace.DWARF;
-		if (item.getItem() == ADItems.elfBook)
-			return PlayerRace.ELF;
-		if (item.getItem() == ADItems.orcBook)
-			return PlayerRace.ORC;
-		
-		return null;
 	}
 }

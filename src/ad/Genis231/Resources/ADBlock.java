@@ -8,47 +8,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 import ad.Genis231.Refrence.Ref;
 
 public class ADBlock extends Block {
-	/** Basic Constructor
-	 * @param material The material of said block
-	 * @param name This is the UnlocalizedName */
-	public ADBlock(Material material, String name) {
-		super(material);
-		this.setHardness(0.0F);
-		this.setCreativeTab(Ref.MainTab);
-		this.setBlockName(name);
-	}
-	
-	/** Basic Constructor
-	 * @param material Sets the Block's material
-	 * @param name Sets the Block's name
-	 * @param texture Sets the texture for the block */
-	public ADBlock(Material material, String name, String texture) {
-		this(material, name);
-		this.setBlockTextureName(texture);
-	}
-	
-	public static int sidePlaced(int x, int z, double posX, double posZ) {
-		double Dx = x - posX;
-		double Dz = z - posZ;
-		double angle = Math.atan2(Dz, Dx) / Math.PI * 180 + 180;
-		
-		if (angle < 45 || angle > 315)
-			return 5;
-		else if (angle < 135)
-			return 3;
-		else if (angle < 225)
-			return 4;
-		else
-			return 2;
-	}
-	
-	/** checks if it's touching side: args world, x, y, z, blockID, side */
-	public static boolean blockIsSide(World world, int x, int y, int z, Block block, int side) {
-		ForgeDirection dir = ForgeDirection.getOrientation(side);
-		return world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == block;
-		
-	}
-	
 	/** checks if it is touching said block directly: world, x, y, z, blockID */
 	public static int blockExists(World world, int x, int y, int z, Block block) {
 		int i = 0;
@@ -60,15 +19,10 @@ public class ADBlock extends Block {
 		return -1;
 	}
 	
-	/** places a block relative to the coords and side: args world, x, y, z, side of block */
-	public static void setBlock(World world, int x, int y, int z, Block block, int side) {
-		setBlock(world, x, y, z, block, side, 0);
-	}
-	
-	/** places a block relative to the coords and side: args world, x, y, z, side of block, meta */
-	public static void setBlock(World world, int x, int y, int z, Block block, int side, int meta) {
-		ForgeDirection direction = ForgeDirection.getOrientation(side);
-		world.setBlock(x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, block, meta, 3);
+	/** checks if it's touching side: args world, x, y, z, blockID, side */
+	public static boolean blockIsSide(World world, int x, int y, int z, Block block, int side) {
+		ForgeDirection dir = ForgeDirection.getOrientation(side);
+		return world.getBlock(x + dir.offsetX, y + dir.offsetY, z + dir.offsetZ) == block;
 		
 	}
 	
@@ -101,5 +55,51 @@ public class ADBlock extends Block {
 				}
 			}
 		}
+	}
+	
+	/** places a block relative to the coords and side: args world, x, y, z, side of block */
+	public static void setBlock(World world, int x, int y, int z, Block block, int side) {
+		setBlock(world, x, y, z, block, side, 0);
+	}
+	
+	/** places a block relative to the coords and side: args world, x, y, z, side of block, meta */
+	public static void setBlock(World world, int x, int y, int z, Block block, int side, int meta) {
+		ForgeDirection direction = ForgeDirection.getOrientation(side);
+		world.setBlock(x + direction.offsetX, y + direction.offsetY, z + direction.offsetZ, block, meta, 3);
+		
+	}
+	
+	public static int sidePlaced(int x, int z, double posX, double posZ) {
+		double Dx = x - posX;
+		double Dz = z - posZ;
+		double angle = Math.atan2(Dz, Dx) / Math.PI * 180 + 180;
+		
+		if (angle < 45 || angle > 315)
+			return 5;
+		else if (angle < 135)
+			return 3;
+		else if (angle < 225)
+			return 4;
+		else
+			return 2;
+	}
+	
+	/** Basic Constructor
+	 * @param material The material of said block
+	 * @param name This is the UnlocalizedName */
+	public ADBlock(Material material, String name) {
+		super(material);
+		this.setHardness(0.0F);
+		this.setCreativeTab(Ref.MainTab);
+		this.setBlockName(name);
+	}
+	
+	/** Basic Constructor
+	 * @param material Sets the Block's material
+	 * @param name Sets the Block's name
+	 * @param texture Sets the texture for the block */
+	public ADBlock(Material material, String name, String texture) {
+		this(material, name);
+		this.setBlockTextureName(texture);
 	}
 }

@@ -17,17 +17,17 @@ public class Drill extends ADBlockModel {
 		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float posX, float posY, float posZ) {
-		if (player.isSneaking())
-			player.openGui(Artificer.instance, 1, world, x, y, z);
-		return false;
+	@Override public TileEntity createNewTileEntity(World world, int unknown) {
+		return new DrillTileEntity();
 	}
 	
 	@Override public int getRenderType() {
 		return Ref.DrillRender;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World world, int unknown) {
-		return new DrillTileEntity();
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float posX, float posY, float posZ) {
+		if (player.isSneaking())
+			player.openGui(Artificer.instance, 1, world, x, y, z);
+		return false;
 	}
 }

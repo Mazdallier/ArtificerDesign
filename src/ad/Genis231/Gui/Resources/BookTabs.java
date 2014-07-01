@@ -29,6 +29,41 @@ public class BookTabs {
 		this.file = race.getName() + "/" + nodes.get("page");
 	}
 	
+	public ArrayList<String> getDesc(boolean clicked) {
+		if (clicked)
+			this.total = new BookReader(this.file).getText();
+		
+		return this.total;
+	}
+	
+	public int getGridX() {
+		return this.gridX * this.width;
+	}
+	
+	public int getGridY() {
+		return this.gridY * this.height;
+	}
+	
+	public int getHeight() {
+		return this.height - 1;
+	}
+	
+	public Tab getTab() {
+		return this.tab;
+	}
+	
+	public int getWidth() {
+		return this.width - 1;
+	}
+	
+	public int getX() {
+		return this.x + SkillBookGui.x;
+	}
+	
+	public int getY() {
+		return this.y + SkillBookGui.y;
+	}
+	
 	public void renderPage() {}
 	
 	public ArrayList<String> toolTip(ArrayList<String> list) {
@@ -40,40 +75,5 @@ public class BookTabs {
 			list.add(i);
 		
 		return list;
-	}
-	
-	public ArrayList<String> getDesc(boolean clicked) {
-		if (clicked)
-			this.total = new BookReader(this.file).getText();
-		
-		return this.total;
-	}
-	
-	public int getX() {
-		return this.x + SkillBookGui.x;
-	}
-	
-	public int getY() {
-		return this.y + SkillBookGui.y;
-	}
-	
-	public int getGridX() {
-		return this.gridX * this.width;
-	}
-	
-	public int getGridY() {
-		return this.gridY * this.height;
-	}
-	
-	public int getWidth() {
-		return this.width - 1;
-	}
-	
-	public int getHeight() {
-		return this.height - 1;
-	}
-	
-	public Tab getTab() {
-		return this.tab;
 	}
 }

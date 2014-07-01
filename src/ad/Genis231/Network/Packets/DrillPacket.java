@@ -38,23 +38,6 @@ public class DrillPacket extends ADPacket {
 		this.isClientSide = false;
 	}
 	
-	@Override public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
-		buffer.writeBoolean(this.isClientSide);
-		
-		if (this.isClientSide) {
-			buffer.writeInt(type);
-			buffer.writeInt(damage);
-		} else {
-			buffer.writeInt(width);
-			buffer.writeInt(height);
-			buffer.writeInt(speed);
-		}
-		
-		buffer.writeInt(x);
-		buffer.writeInt(y);
-		buffer.writeInt(z);
-	}
-	
 	@Override public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
 		this.isClientSide = buffer.readBoolean();
 		
@@ -70,6 +53,23 @@ public class DrillPacket extends ADPacket {
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
+	}
+	
+	@Override public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer) {
+		buffer.writeBoolean(this.isClientSide);
+		
+		if (this.isClientSide) {
+			buffer.writeInt(type);
+			buffer.writeInt(damage);
+		} else {
+			buffer.writeInt(width);
+			buffer.writeInt(height);
+			buffer.writeInt(speed);
+		}
+		
+		buffer.writeInt(x);
+		buffer.writeInt(y);
+		buffer.writeInt(z);
 	}
 	
 	@Override public void handleClientSide(EntityPlayer player) {

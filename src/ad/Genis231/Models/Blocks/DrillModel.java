@@ -14,11 +14,11 @@ public class DrillModel extends ModelBase {
 		model = AdvancedModelLoader.loadModel(Models.Drill);
 	}
 	
-	public void renderFrame() {
-		model.renderAllExcept("Drill");
-	}
-	
 	public void renderDrill() {
 		model.renderPart("Drill");
+	}
+	
+	public void renderFrame() {
+		model.renderAllExcept("Drill");
 	}
 }

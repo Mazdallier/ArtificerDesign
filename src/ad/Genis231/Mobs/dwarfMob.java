@@ -31,14 +31,14 @@ public class dwarfMob extends EntityMob {
 		
 	}
 	
-	protected boolean isAIEnabled() {
-		return true;
-	}
-	
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0D);
+	}
+	
+	protected boolean isAIEnabled() {
+		return true;
 	}
 	
 	// TODO DROP GOD DAMN ITEMS

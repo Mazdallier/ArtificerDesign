@@ -14,11 +14,11 @@ public class WMMast extends ADBlockModel {
 		this.setCreativeTab(null);
 	}
 	
-	@Override public int getRenderType() {
-		return Ref.WMillRender;
-	}
-	
 	@Override public TileEntity createNewTileEntity(World var1, int var2) {
 		return new WMMastTileEntity();
+	}
+	
+	@Override public int getRenderType() {
+		return Ref.WMillRender;
 	}
 }

@@ -26,6 +26,68 @@ public class PipeTileEntity extends ADTileEntity implements IInventory {
 		
 	}
 	
+	@Override public void closeInventory() {}
+	
+	@Override public ItemStack decrStackSize(int var1, int var2) {
+		return null;
+	}
+	
+	@Override public String getInventoryName() {
+		return "GenericPipes";
+	}
+	
+	@Override public int getInventoryStackLimit() {
+		return 64;
+	}
+	
+	@Override public int getSizeInventory() {
+		return 1;
+	}
+	
+	@Override public ItemStack getStackInSlot(int var1) {
+		return null;
+	}
+	
+	@Override public ItemStack getStackInSlotOnClosing(int var1) {
+		return null;
+	}
+	
+	@Override public boolean hasCustomInventoryName() {
+		return false;
+	}
+	
+	@Override public boolean isItemValidForSlot(int var1, ItemStack var2) {
+		return true;
+	}
+	
+	@Override public boolean isUseableByPlayer(EntityPlayer var1) {
+		return false;
+	}
+	
+	@Override public void openInventory() {}
+	
+	public void readFromNBT(NBTTagCompound NBT) {
+		super.readFromNBT(NBT);
+		
+		for (int count = 0; count < 6; count++) {
+			NBTTagList tagList = NBT.getTagList("Items_" + count, 10);
+			
+			for (int i = 0; i < tagList.tagCount(); i++) {
+				NBTTagCompound temp = tagList.getCompoundTagAt(i);
+				map.get(ForgeDirection.values()[count]).add(ItemStack.loadItemStackFromNBT(temp));
+			}
+		}
+	}
+	
+	public void sendItems(List<ItemStack> itemList, ForgeDirection dir) {
+		for (ItemStack item : itemList)
+			map.get(dir).add(item);
+	}
+	
+	@Override public void setInventorySlotContents(int slot, ItemStack item) {
+		map.get(ForgeDirection.DOWN).add(item);
+	}
+	
 	public void updateEntity() {
 		if (worldObj.isRemote)
 			return;
@@ -51,11 +113,6 @@ public class PipeTileEntity extends ADTileEntity implements IInventory {
 			}
 	}
 	
-	public void sendItems(List<ItemStack> itemList, ForgeDirection dir) {
-		for (ItemStack item : itemList)
-			map.get(dir).add(item);
-	}
-	
 	public void writeToNBT(NBTTagCompound NBT) {
 		super.writeToNBT(NBT);
 		
@@ -72,62 +129,5 @@ public class PipeTileEntity extends ADTileEntity implements IInventory {
 			NBT.setTag("Items_" + i, tagList);
 		}
 		
-	}
-	
-	public void readFromNBT(NBTTagCompound NBT) {
-		super.readFromNBT(NBT);
-		
-		for (int count = 0; count < 6; count++) {
-			NBTTagList tagList = NBT.getTagList("Items_" + count, 10);
-			
-			for (int i = 0; i < tagList.tagCount(); i++) {
-				NBTTagCompound temp = tagList.getCompoundTagAt(i);
-				map.get(ForgeDirection.values()[count]).add(ItemStack.loadItemStackFromNBT(temp));
-			}
-		}
-	}
-	
-	@Override public int getSizeInventory() {
-		return 1;
-	}
-	
-	@Override public ItemStack getStackInSlot(int var1) {
-		return null;
-	}
-	
-	@Override public ItemStack decrStackSize(int var1, int var2) {
-		return null;
-	}
-	
-	@Override public ItemStack getStackInSlotOnClosing(int var1) {
-		return null;
-	}
-	
-	@Override public void setInventorySlotContents(int slot, ItemStack item) {
-		map.get(ForgeDirection.DOWN).add(item);
-	}
-	
-	@Override public String getInventoryName() {
-		return "GenericPipes";
-	}
-	
-	@Override public boolean hasCustomInventoryName() {
-		return false;
-	}
-	
-	@Override public int getInventoryStackLimit() {
-		return 64;
-	}
-	
-	@Override public boolean isUseableByPlayer(EntityPlayer var1) {
-		return false;
-	}
-	
-	@Override public void openInventory() {}
-	
-	@Override public void closeInventory() {}
-	
-	@Override public boolean isItemValidForSlot(int var1, ItemStack var2) {
-		return true;
 	}
 }

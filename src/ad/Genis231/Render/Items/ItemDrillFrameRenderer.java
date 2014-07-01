@@ -26,10 +26,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 		return true;
 	}
 	
-	@Override public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		return true;
-	}
-	
 	@Override public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		switch (type) {
 			case ENTITY:
@@ -68,5 +64,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 			model.renderFrame();
 		}
 		glPopMatrix();
+	}
+	
+	@Override public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
+		return true;
 	}
 }

@@ -35,22 +35,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 		this.font = mc.fontRenderer;
 	}
 	
-	@SubscribeEvent public void onRenderExperienceBar(RenderGameOverlayEvent event) {
-		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo) { return; }
+	void applyAtribbute(PlayerRace race, EntityPlayer player) {
+		player.sendPlayerAbilities();
 		
-		PlayerData props = PlayerData.get(mc.thePlayer);
-		
-		if (props == null) { return; }
-		
-		List<Entity> entity = mc.theWorld.loadedEntityList;
-		
-		for (Entity i : entity) {
-			if (i instanceof EntityMob || i instanceof IAnimals)
-				i.isDead = true;
+		for (int size = 0; size < 65; size++) {
+			for (int meta = 0; meta < 16; meta++) {
+				this.mc.thePlayer.curePotionEffects(new ItemStack(Items.milk_bucket, size, meta));
+			}
 		}
 		
-		drawStatus(props, props.getRace());
-		// applyAtribbute(props.getRace(), mc.thePlayer);
+		if (race != PlayerRace.HUMAN) {
+			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot1(), 200, race.getLevel()));
+			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot2(), 200, race.getLevel()));
+		}
+		
 	}
 	
 	public void drawStatus(PlayerData data, PlayerRace race) {
@@ -80,19 +78,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 		}
 	}
 	
-	void applyAtribbute(PlayerRace race, EntityPlayer player) {
-		player.sendPlayerAbilities();
+	@SubscribeEvent public void onRenderExperienceBar(RenderGameOverlayEvent event) {
+		if (event.isCancelable() || event.type != ElementType.EXPERIENCE || mc.gameSettings.showDebugInfo) { return; }
 		
-		for (int size = 0; size < 65; size++) {
-			for (int meta = 0; meta < 16; meta++) {
-				this.mc.thePlayer.curePotionEffects(new ItemStack(Items.milk_bucket, size, meta));
-			}
+		PlayerData props = PlayerData.get(mc.thePlayer);
+		
+		if (props == null) { return; }
+		
+		List<Entity> entity = mc.theWorld.loadedEntityList;
+		
+		for (Entity i : entity) {
+			if (i instanceof EntityMob || i instanceof IAnimals)
+				i.isDead = true;
 		}
 		
-		if (race != PlayerRace.HUMAN) {
-			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot1(), 200, race.getLevel()));
-			this.mc.thePlayer.addPotionEffect(new PotionEffect(race.getPot2(), 200, race.getLevel()));
-		}
-		
+		drawStatus(props, props.getRace());
+		// applyAtribbute(props.getRace(), mc.thePlayer);
 	}
 }

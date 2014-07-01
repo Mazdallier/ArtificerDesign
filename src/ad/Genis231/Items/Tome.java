@@ -17,6 +17,11 @@ public class Tome extends ADItem {
 		super(name, Texture);
 	}
 	
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		list.add("This needs a texture!!");
+		list.add("This will change the current class of the player");
+	}
+	
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
 		PlayerData props = PlayerData.get(player);
 		
@@ -29,10 +34,5 @@ public class Tome extends ADItem {
 				props.setRace(PlayerRace.getRace((i + 1) % 4));
 		
 		return item;
-	}
-	
-	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
-		list.add("This needs a texture!!");
-		list.add("This will change the current class of the player");
 	}
 }

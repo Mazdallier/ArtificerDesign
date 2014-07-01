@@ -18,16 +18,16 @@ public class DwarfRenderer extends RenderLiving {
 		dwarf = ((DwarfModel) mainModel);
 	}
 	
-	@Override protected ResourceLocation getEntityTexture(Entity entity) {
-		return textures.dwarf[dwarfType];
-	}
-	
 	public void doRender(Entity par1Entity, double par2, double par4, double par6, float par8, float par9) {
 		RenderDwarf((dwarfMob) par1Entity, par2, par4, par6, par8, par9);
 	}
 	
 	public void doRenderLiving(EntityLiving par1EntityLiving, double par2, double par4, double par6, float par8, float par9) {
 		RenderDwarf((dwarfMob) par1EntityLiving, par2, par4, par6, par8, par9);
+	}
+	
+	@Override protected ResourceLocation getEntityTexture(Entity entity) {
+		return textures.dwarf[dwarfType];
 	}
 	
 	public void RenderDwarf(dwarfMob mob, double par2, double par4, double par6, float par8, float par9) {

@@ -16,15 +16,15 @@ public class ADBlockModel extends BlockContainer {
 		this.setBlockTextureName("");
 	}
 	
-	@Override public boolean renderAsNormalBlock() {
-		return false;
+	@Override public TileEntity createNewTileEntity(World var1, int var2) {
+		return null;
 	}
 	
 	@Override public boolean isOpaqueCube() {
 		return false;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
+	@Override public boolean renderAsNormalBlock() {
+		return false;
 	}
 }

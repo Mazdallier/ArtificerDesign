@@ -23,6 +23,10 @@ public class XMLReader {
 	String[] keys = { "name", "tab", "posX", "posY", "gridX", "gridY", "desc", "page" };
 	String[] objects = { "Name", "Map", "Desc", "Page" };
 	
+	public ArrayList<HashMap<String, String>> getNodes() {
+		return nodes;
+	}
+	
 	public void initXML(String file) {
 		try {
 			ResourceLocation stuff = new ResourceLocation(Ref.Resource_FOLDER, "SkillBook/" + file);
@@ -63,10 +67,6 @@ public class XMLReader {
 			System.out.println("Had Trouble parseing file: " + file);
 			e.printStackTrace();
 		}
-	}
-	
-	public ArrayList<HashMap<String, String>> getNodes() {
-		return nodes;
 	}
 	
 	private Node readNode(Node currentNode, String node) {

@@ -9,11 +9,15 @@ public enum PlayerRace {
 	ELF("Elf", 2, Potion.moveSpeed.getId(), Potion.waterBreathing.getId(), 1), //
 	ORC("Orc", 3, Potion.damageBoost.getId(), Potion.fireResistance.getId(), 1); //
 	
+	public static PlayerRace getRace(int id) {
+		return RaceList[id];
+	}
 	private String name;
 	private int id;
 	private int Potion1;
 	private int Potion2;
 	private int Level;
+	
 	private static final PlayerRace[] RaceList = { HUMAN, DWARF, ELF, ORC };
 	
 	PlayerRace(String name, int id, int pot1, int pot2, int level) {
@@ -24,16 +28,16 @@ public enum PlayerRace {
 		this.Level = level;
 	}
 	
-	public static PlayerRace getRace(int id) {
-		return RaceList[id];
+	public int getID() {
+		return id;
+	}
+	
+	public int getLevel() {
+		return this.Level;
 	}
 	
 	public String getName() {
 		return name;
-	}
-	
-	public int getID() {
-		return id;
 	}
 	
 	public int getPot1() {
@@ -42,9 +46,5 @@ public enum PlayerRace {
 	
 	public int getPot2() {
 		return this.Potion2;
-	}
-	
-	public int getLevel() {
-		return this.Level;
 	}
 }

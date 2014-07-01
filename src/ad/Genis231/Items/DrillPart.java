@@ -25,17 +25,9 @@ public class DrillPart extends ADItem {
 		this.setCreativeTab(Ref.DwarfTab);
 	}
 	
-	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
-		if (world.getTileEntity(x, y, z) instanceof DrillTileEntity) {
-			DrillTileEntity tile = (DrillTileEntity) world.getTileEntity(x, y, z);
-			tile.setDrill(item.getItemDamage(), damage[item.getItemDamage()]);
-			
-			if (!player.capabilities.isCreativeMode) {
-				item.stackSize--;
-			}
-		}
-		
-		return true;
+	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
+		list.add("Number of Blocks: " + damage[item.getItemDamage()]);
+		list.add("(does " + ((double) damage[item.getItemDamage()]) / 100 + " layers in a 10x10 hole)");
 	}
 	
 	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {
@@ -48,8 +40,16 @@ public class DrillPart extends ADItem {
 		return "item." + this.names[item.getItemDamage()] + Names.DRILL;
 	}
 	
-	@Override @SideOnly(Side.CLIENT) public void addInformation(ItemStack item, EntityPlayer player, List list, boolean bool) {
-		list.add("Number of Blocks: " + damage[item.getItemDamage()]);
-		list.add("(does " + ((double) damage[item.getItemDamage()]) / 100 + " layers in a 10x10 hole)");
+	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float Bx, float By, float Bz) {
+		if (world.getTileEntity(x, y, z) instanceof DrillTileEntity) {
+			DrillTileEntity tile = (DrillTileEntity) world.getTileEntity(x, y, z);
+			tile.setDrill(item.getItemDamage(), damage[item.getItemDamage()]);
+			
+			if (!player.capabilities.isCreativeMode) {
+				item.stackSize--;
+			}
+		}
+		
+		return true;
 	}
 }

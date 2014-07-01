@@ -25,14 +25,18 @@ public class Swords extends ADItem {
 		list.add("sword" + item.getItemDamage() + ".png");
 	}
 	
-	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < 4; ++i) {
-			list.add(new ItemStack(item, 1, i));
-		}
+	@Override public IIcon getIconFromDamage(int meta) {
+		return this.IconArray[meta];
 	}
 	
 	@Override public int getMetadata(int meta) {
 		return meta;
+	}
+	
+	@SideOnly(Side.CLIENT) public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int i = 0; i < 4; ++i) {
+			list.add(new ItemStack(item, 1, i));
+		}
 	}
 	
 	@Override public String getUnlocalizedName(ItemStack item) {
@@ -42,9 +46,5 @@ public class Swords extends ADItem {
 	@Override @SideOnly(Side.CLIENT) public void registerIcons(IIconRegister icon) {
 		for (int i = 0; i < IconArray.length; i++)
 			IconArray[i] = icon.registerIcon("artificer:" + "sword" + i);
-	}
-	
-	@Override public IIcon getIconFromDamage(int meta) {
-		return this.IconArray[meta];
 	}
 }

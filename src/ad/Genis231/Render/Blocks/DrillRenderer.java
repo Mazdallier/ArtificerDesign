@@ -20,15 +20,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 	
 	float scale = 1.0F;
 	
-	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		tile = (DrillTileEntity) tileEntity;
+	void renderDrill(double x, double y, double z, float rotate, int type) {
+		glPushMatrix();
 		
-		if (tileEntity instanceof DrillTileEntity) {
-			renderFrame(x, y, z);
-			
-			if (tile.getDrillType() != -1)
-				renderDrill(x, y, z, tile.angle, tile.getDrillType());
-		}
+		glScalef(scale, scale, scale);
+		glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
+		
+		glRotatef(-rotate, 0.0F, 1.0F, 0.0F);
+		
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Drill[type]);
+		
+		// Render
+		Model.renderDrill();
+		
+		glPopMatrix();
 	}
 	
 	void renderFrame(double x, double y, double z) {
@@ -47,19 +52,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 		glPopMatrix();
 	}
 	
-	void renderDrill(double x, double y, double z, float rotate, int type) {
-		glPushMatrix();
+	@Override public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
+		tile = (DrillTileEntity) tileEntity;
 		
-		glScalef(scale, scale, scale);
-		glTranslatef((float) x + 0.5F, (float) y + 0.0F, (float) z + 0.5F);
-		
-		glRotatef(-rotate, 0.0F, 1.0F, 0.0F);
-		
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(textures.Drill[type]);
-		
-		// Render
-		Model.renderDrill();
-		
-		glPopMatrix();
+		if (tileEntity instanceof DrillTileEntity) {
+			renderFrame(x, y, z);
+			
+			if (tile.getDrillType() != -1)
+				renderDrill(x, y, z, tile.angle, tile.getDrillType());
+		}
 	}
 }

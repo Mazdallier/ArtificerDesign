@@ -18,18 +18,18 @@ public class Spike extends ADBlockModel {
 		this.setHardness(5.0f);
 	}
 	
-	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
-		super.onEntityWalking(world, x, y, z, entity);
-		
-		if (!(entity instanceof EntityItem))
-			entity.attackEntityFrom(DamageSource.generic, 4.0F);
+	@Override public TileEntity createNewTileEntity(World var1, int var2) {
+		return new SpikeTileEntity();
 	}
 	
 	@Override public int getRenderType() {
 		return Ref.SpikeRender;
 	}
 	
-	@Override public TileEntity createNewTileEntity(World var1, int var2) {
-		return new SpikeTileEntity();
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+		super.onEntityWalking(world, x, y, z, entity);
+		
+		if (!(entity instanceof EntityItem))
+			entity.attackEntityFrom(DamageSource.generic, 4.0F);
 	}
 }

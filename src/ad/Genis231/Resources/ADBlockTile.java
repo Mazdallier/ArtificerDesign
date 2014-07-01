@@ -8,16 +8,16 @@ import ad.Genis231.Refrence.Ref;
 
 public class ADBlockTile extends BlockContainer {
 	
+	public ADBlockTile(Material material, String name) {
+		super(material);
+		this.setCreativeTab(Ref.MainTab);
+		this.setBlockName(name);
+	}
+	
 	public ADBlockTile(Material material, String name, String texture) {
 		super(material);
 		this.setCreativeTab(Ref.MainTab);
 		this.setBlockTextureName(texture);
-		this.setBlockName(name);
-	}
-	
-	public ADBlockTile(Material material, String name) {
-		super(material);
-		this.setCreativeTab(Ref.MainTab);
 		this.setBlockName(name);
 	}
 	

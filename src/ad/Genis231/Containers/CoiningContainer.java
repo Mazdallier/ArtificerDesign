@@ -20,10 +20,6 @@ public class CoiningContainer extends Container {
 		bindPlayerInventory(inventoryPlayer);
 	}
 	
-	@Override public boolean canInteractWith(EntityPlayer player) {
-		return tile.isUseableByPlayer(player);
-	}
-	
 	protected void bindPlayerInventory(InventoryPlayer inventoryPlayer) {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -34,6 +30,10 @@ public class CoiningContainer extends Container {
 		for (int i = 0; i < 9; i++) {
 			addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
 		}
+	}
+	
+	@Override public boolean canInteractWith(EntityPlayer player) {
+		return tile.isUseableByPlayer(player);
 	}
 	
 	@Override public ItemStack transferStackInSlot(EntityPlayer player, int slotNumber) {
