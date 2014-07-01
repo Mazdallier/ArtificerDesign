@@ -22,7 +22,7 @@ group= "ad.Genis231"
 archivesBaseName = "Artificer's Design"
 
 minecraft {
-    version = "1.7.2-10.12.2.1121"
+    version = "1.7.10-10.13.0.1159"
     assetDir = "eclipse/assets"
 }
 
@@ -34,7 +34,6 @@ sourceSets {
         }
         resources {
             srcDir 'resources'
-            srcDir 'Libraries'
         }
     }
 }
@@ -56,6 +55,5 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
-        exclude 'libs/src'
     }
 }

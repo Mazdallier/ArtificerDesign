@@ -2,10 +2,14 @@ package ad.Genis231.eventHandler;
 
 import java.awt.Color;
 import java.io.File;
+import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.IAnimals;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -37,6 +41,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 		PlayerData props = PlayerData.get(mc.thePlayer);
 		
 		if (props == null) { return; }
+		
+		List<Entity> entity = mc.theWorld.loadedEntityList;
+		
+		for (Entity i : entity) {
+			if (i instanceof EntityMob || i instanceof IAnimals)
+				i.isDead = true;
+		}
 		
 		drawStatus(props, props.getRace());
 		// applyAtribbute(props.getRace(), mc.thePlayer);

@@ -21,78 +21,69 @@ public class PipeTileEntity extends ADTileEntity implements IInventory {
 	public PipeTileEntity() {
 		map = new HashMap<ForgeDirection, ArrayList<ItemStack>>();
 		
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
+		for (ForgeDirection dir : ForgeDirection.values())
 			map.put(dir, new ArrayList<ItemStack>());
 		
 	}
 	
 	public void updateEntity() {
-		if (this.worldObj.isRemote)
+		if (worldObj.isRemote)
 			return;
 		
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS)
-			if (map.get(dir) != null)
-				for (ForgeDirection mainDir : ForgeDirection.VALID_DIRECTIONS) {
-					TileEntity temp = this.worldObj.getTileEntity(xCoord + mainDir.offsetX, yCoord + mainDir.offsetY, zCoord + mainDir.offsetZ);
-					if (temp != null && dir != mainDir)
+		for (ForgeDirection mainDir : ForgeDirection.VALID_DIRECTIONS)
+			for (ForgeDirection cycle : ForgeDirection.VALID_DIRECTIONS) {
+				TileEntity tile = worldObj.getTileEntity(xCoord + cycle.offsetX, yCoord + cycle.offsetY, zCoord + cycle.offsetZ);
+				
+				if (tile != null && mainDir != cycle && !map.get(cycle).isEmpty()) {
+					if (tile instanceof IInventory && !(tile instanceof PipeTileEntity)) {
+						List<ItemStack> newList = new ArrayList<ItemStack>();
+						for (ItemStack item : map.get(cycle))
+							if (InventoryHelper.addBlock((IInventory) tile, item))
+								newList.add(item);
 						
-						if (temp instanceof IInventory && map.get(mainDir) != null) {
-							List<ItemStack> newList = new ArrayList<ItemStack>();
-							
-							for (ItemStack item : map.get(mainDir))
-								if (InventoryHelper.addBlock((IInventory) temp, item))
-									newList.add(item);
-							
-							for (ItemStack item : newList)
-								map.get(mainDir).remove(item);
-							
-						} else if (temp instanceof PipeTileEntity)
-							((PipeTileEntity) temp).sendItems(map.get(mainDir), mainDir.getOpposite());
+						for (ItemStack item : newList)
+							map.get(cycle).remove(item);
+					} else if (tile instanceof PipeTileEntity) {
+						((PipeTileEntity) tile).sendItems(map.get(cycle), cycle.getOpposite());
+						map.get(cycle).clear();
+					}
 				}
+			}
 	}
 	
 	public void sendItems(List<ItemStack> itemList, ForgeDirection dir) {
-		List<ItemStack> temp = new ArrayList<ItemStack>();
-		
-		temp = map.get(dir);
-		
 		for (ItemStack item : itemList)
-			temp.add(item);
+			map.get(dir).add(item);
 	}
 	
-	// TODO: FIX THIS SHIT
 	public void writeToNBT(NBTTagCompound NBT) {
 		super.writeToNBT(NBT);
 		
-		List<ItemStack> list = new ArrayList<ItemStack>();
-		
-		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
-			if (map.get(dir) != null && !map.get(dir).isEmpty())
-				for (ItemStack item : map.get(dir))
-					list.add(item);
+		for (int i = 0; i < 6; i++) {
+			NBTTagList tagList = new NBTTagList();
+			NBTTagCompound temp = new NBTTagCompound();
+			
+			List<ItemStack> list = map.get(ForgeDirection.values()[i]);
+			for (ItemStack item : list) {
+				item.writeToNBT(temp);
+				tagList.appendTag(temp);
+				list.remove(item);
+			}
+			NBT.setTag("Items_" + i, tagList);
 		}
 		
-		NBTTagList tagList = new NBTTagList();
-		NBTTagCompound temp = new NBTTagCompound();
-		
-		for (ItemStack item : list) {
-			item.writeToNBT(temp);
-			tagList.appendTag(temp);
-			list.remove(item);
-		}
-		
-		NBT.setTag("Items", tagList);
 	}
 	
-	// TODO: FIX THIS SHIT
 	public void readFromNBT(NBTTagCompound NBT) {
 		super.readFromNBT(NBT);
 		
-		NBTTagList tagList = NBT.getTagList("Items", 10);
-		
-		for (int i = 0; i < tagList.tagCount(); i++) {
-			NBTTagCompound nbttagcompound1 = tagList.getCompoundTagAt(i);
-			map.get(ForgeDirection.NORTH).add(ItemStack.loadItemStackFromNBT(nbttagcompound1));
+		for (int count = 0; count < 6; count++) {
+			NBTTagList tagList = NBT.getTagList("Items_" + count, 10);
+			
+			for (int i = 0; i < tagList.tagCount(); i++) {
+				NBTTagCompound temp = tagList.getCompoundTagAt(i);
+				map.get(ForgeDirection.values()[count]).add(ItemStack.loadItemStackFromNBT(temp));
+			}
 		}
 	}
 	
@@ -113,7 +104,7 @@ public class PipeTileEntity extends ADTileEntity implements IInventory {
 	}
 	
 	@Override public void setInventorySlotContents(int slot, ItemStack item) {
-		map.get(ForgeDirection.UP).add(item);
+		map.get(ForgeDirection.DOWN).add(item);
 	}
 	
 	@Override public String getInventoryName() {

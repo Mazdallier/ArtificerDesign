@@ -56,7 +56,7 @@ public class InventoryHelper {
 		}
 		
 		if (inventory == null) {
-			List list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, AxisAlignedBB.getAABBPool().getAABB(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D), IEntitySelector.selectInventories);
+			List list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, AxisAlignedBB.getBoundingBox(x, y, z, x + 1.0D, y + 1.0D, z + 1.0D), IEntitySelector.selectInventories);
 			
 			if (list != null && list.size() > 0) {
 				inventory = (IInventory) list.get(world.rand.nextInt(list.size()));
